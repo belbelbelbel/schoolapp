@@ -1,0 +1,84 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Josefin+Sans:wght@200&family=Montserrat:ital,wght@1,200&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
+@media screen  and (max-width : 768px) {
+    .signup {
+        color: rgb(51, 75, 51);
+        background: none;
+        width: 100%;
+        margin: auto;
+    }
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    .signup h2 {
+        text-align: center;
+        font-size: 2.2rem;
+        letter-spacing: 0.1rem;
+        font-weight: bold; 
+        color: #333;
+        margin-bottom: 10px;
+        font-family: "Public Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 900;
+        margin: 1.4rem;
+    }
+    label {
+        display: block;
+        font-family: "Public Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 700;
+        margin: 0.01rem 1.2rem;
+        background-color: transparent;
+        font-weight: 700;
+        font-size : 1.2rem
+    }
+    .surname {
+       width: 90%;
+       margin: 1.6rem 1.6rem;
+    }
+    .surname input {
+        font-size: 1rem;
+        width: 91%;
+        margin: 0.5rem;
+        padding: 0.6rem 1rem;
+        background-color: rgba(215, 214, 214, 0.669);
+        border-radius: 0.8rem;
+        align-self: center;
+        outline: none;
+    }
+    .signup_btn {
+      padding: 0.5rem 3rem;
+      margin: 0rem 4.36rem;
+      background-color: rgba(11, 26, 35, 0.851);
+      text-align: center;
+      font-family: "Public Sans", sans-serif;
+      border-radius: 2rem;
+      font-size: 1.5rem;
+      color: white;
+
+    }
+    .btn {
+        width: 90%;
+        margin: 1.85rem  auto;
+    }
+    @keyframes moveText {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(calc(100vw - 100%));
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+      .error {
+        animation: move 10s linear infinite;
+        color: red;
+        font-weight: 700;
+        font-family: fantasy;
+        letter-spacing: 1px;
+      }
+
+}

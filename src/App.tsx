@@ -1,24 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter } from 'react-router-dom';
 import './App.css';
-
+import Router from './Provider/Router';
+import { Usecontext } from './Provider/Usecontext';
 function App() {
+  const myStyle = {
+    backgroundImage: `url(${process.env.PUBLIC_URL + "Screenshot 2023-10-27 at 02.05.45.jpeg"})`,
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" style={myStyle}>
+      {/* <NavBar/> */}
+        <Usecontext>
+          <Router />
+        </Usecontext>
     </div>
   );
 }

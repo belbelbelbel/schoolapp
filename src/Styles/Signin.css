@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Josefin+Sans:wght@200&family=Montserrat:ital,wght@1,200&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
+
+@media screen and (max-width :768px) {
+  input::placeholder {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-family: "Public Sans", sans-serif;
+  }
+  .signin {
+    color: rgb(51, 75, 51);
+    background: none;
+    width: 100%;
+    margin:  auto;
+    position: absolute;
+    bottom: 8rem;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+  @keyframes moveText {
+    0% {
+      transform: translateX(0);
+    }
+
+    50% {
+      transform: translateX(calc(100vw - 100%));
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  .error {
+    animation: moveText 10s linear infinite;
+    color: red;
+    font-family: fantasy;
+    letter-spacing: 1px;
+  }
+
+  .btn {
+    width: 90%;
+    margin: 1.85rem auto;
+  }
+
+  .signin_btn {
+    padding: 0.5rem 3rem;
+    margin: 0rem 4.36rem;
+    background-color: rgba(11, 26, 35, 0.851);
+    text-align: center;
+    font-family: "Public Sans", sans-serif;
+    border-radius: 2rem;
+    font-size: 1.5rem;
+    color: white;
+  }
+}

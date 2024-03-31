@@ -1,15 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../Styles/Review.css"
 import { Context } from "../Provider/Usecontext";
-
+import {motion} from "framer-motion"
 export const Review = () => {
   const context = useContext(Context);
   const [formdatas, setformdata] = useState<string>("");
-  const [greeting, setGreeting] = useState<string>("");
+  const [greeting, setGreeting] = useState<string[]>([]);
   const [name, setName] = useState<string>(() => {
     const storedName = localStorage.getItem("firstName");
     return storedName ? storedName : context?.formdata.firstname ?? "";
   });
+
   const currentDate = new Date();
   const dayOfMonth = currentDate.getDate();
   const year = currentDate.getFullYear();
@@ -17,6 +18,8 @@ export const Review = () => {
   const minute = currentDate.getMinutes();
   const now = new Date();
   const singledayofweek = now.getDay()
+  const formattedMinute = minute < 10 ? `0${minute}` : minute;
+  const formattedHour = hour < 10 ? `0${hour}` : hour
   useEffect(() => {
     function handleday(day: number): string {
       switch (day % 10) {
@@ -33,20 +36,32 @@ export const Review = () => {
           return day + "th"
       }
     }
+    const validatetimeframe:string[] = [];
     if (hour < 12) {
-      setGreeting("Good Morning");
+      validatetimeframe.push("Good Morning");
     } else if (hour >= 12 && hour < 18) {
-      setGreeting("Good Afternoon");
+      validatetimeframe.push("Good Afternoon");
     } else {
-      setGreeting("Good Evening");
+      validatetimeframe.push("Good Evening");
     }
     if (!name) {
       setformdata(handleday(dayOfMonth));
     }
+   
 
     console.log(handleday(dayOfMonth))
+    setGreeting(validatetimeframe)
   }, [singledayofweek, name]); // Only re-run on singledayofweek or name change
-
+  let timeframe:React.ReactNode = ""
+  if(greeting.includes("Good Morning")) {
+    timeframe = <div>{`${formattedHour}:${formattedMinute}am`}</div>
+  }
+  else if(greeting.includes("Good Afternoon")) {
+    timeframe = <div>{`${formattedHour}:${formattedMinute}PM`}</div>
+  }
+  else if(greeting.includes("Good Evening")) {
+    timeframe = <div>{`${formattedHour}:${formattedMinute} PM`}</div>
+  }
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const dayOfWeek = daysOfWeek[now.getDay()];
   const formattedDate = `${dayOfWeek}, ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
@@ -56,9 +71,7 @@ export const Review = () => {
   console.log(formattedDate);
   const mo = monthss.length;
 
-  const formattedMinute = minute < 10 ? `0${minute}` : minute;
-  const formattedHour = hour < 10 ? `0${hour}` : hour
-
+ 
   const capitalizeFirstLetter = (letter: string | undefined) => {
     return letter ? letter.charAt(0).toUpperCase() + letter.slice(1) : "";
   }
@@ -66,15 +79,18 @@ export const Review = () => {
     localStorage.setItem("firstName", context?.formdata.firstname ?? "");
   }, [context?.formdata.firstname]);
   return (
-    <div className="review_container">
+    <motion.div className="review_container"
+    initial= {{opacity:0}}
+    animate = {{opacity: 1}}
+    exit={{opacity: 0 }}>
       <span className="info_container"> {dayOfWeek} {formdatas} {monthss}, {year} </span>
-      <span className="info_container2"> {formattedHour}:{formattedMinute}</span>
+      <span className="info_container2">{timeframe}</span>
       <div className="p">
-        <p>{greeting}, {capitalizeFirstLetter(name)}</p>
+        <p>{greeting}, {capitalizeFirstLetter(name)} 😁</p>
       </div>
       <div className="q">
         <p>The journey of a <br></br>thousand miles begins<br></br> with a first<br></br> step</p>
       </div>
-    </div>
+    </motion.div>
   );
 };

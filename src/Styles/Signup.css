@@ -1,63 +1,76 @@
 @import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Josefin+Sans:wght@200&family=Montserrat:ital,wght@1,200&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
 @media screen  and (max-width : 768px) {
-    .signup {
-        color: rgb(51, 75, 51);
-        background: none;
-        width: 100%;
-        margin: auto;
-    }
+  .signup {
+    color: rgb(51, 75, 51);
+    background: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .signup h2 {
+    font-size: 2.2rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    font-family: "Public Sans", sans-serif;
+    text-align: center;
+    font-optical-sizing: auto;
+    font-weight: 900;
+    margin: 1.4rem auto;}
     *{
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
-    .signup h2 {
+    .signup_btn {
+        padding: 0.5rem 3rem;
+        margin: 1rem auto; 
+        background-color: rgba(11, 26, 35, 0.851);
         text-align: center;
-        font-size: 2.2rem;
-        letter-spacing: 0.1rem;
-        font-weight: bold; 
-        color: #333;
-        margin-bottom: 10px;
         font-family: "Public Sans", sans-serif;
-        font-optical-sizing: auto;
-        font-weight: 900;
-        margin: 1.4rem;
-    }
+        border-radius: 2rem;
+        font-size: 1.5rem;
+        color: white;
+        display: block; 
+      }
     label {
         display: block;
         font-family: "Public Sans", sans-serif;
-        font-optical-sizing: auto;
         font-weight: 700;
-        margin: 0.01rem 1.2rem;
+        margin: 0.02rem 1rem;
+        justify-content: start;
         background-color: transparent;
         font-weight: 700;
-        font-size : 1.2rem
+        font-size : 1.2rem;
+        align-items: start;
+        text-align: start;
     }
-    .surname {
-       width: 90%;
-       margin: 1.6rem 1.6rem;
-    }
-    .surname input {
-        font-size: 1rem;
-        width: 91%;
-        margin: 0.5rem;
-        padding: 0.6rem 1rem;
-        background-color: rgba(215, 214, 214, 0.669);
-        border-radius: 0.8rem;
-        align-self: center;
-        outline: none;
-    }
-    .signup_btn {
-      padding: 0.5rem 3rem;
-      margin: 0rem 4.36rem;
-      background-color: rgba(11, 26, 35, 0.851);
-      text-align: center;
-      font-family: "Public Sans", sans-serif;
-      border-radius: 2rem;
-      font-size: 1.5rem;
-      color: white;
 
+    .surname {
+      display: flex;
+      margin: 1.6rem auto;
+      width: 90%;
+      flex-direction: column;
+      justify-content: center;      
+      align-items:first baseline
     }
+    
+    .surname input {
+      font-size: 1rem;
+      width: 91%;
+      margin: 0.5rem 0rem;
+      padding: 0.6rem 1rem;
+      background-color: rgba(215, 214, 214, 0.669);
+      font-family: "Public Sans", sans-serif;
+      border-radius: 0.8rem;
+      outline: none;
+      border: 2px solid;
+    }
+    
     .btn {
         width: 90%;
         margin: 1.85rem  auto;

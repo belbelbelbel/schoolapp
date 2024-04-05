@@ -1,33 +1,77 @@
 @import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Josefin+Sans:wght@200&family=Montserrat:ital,wght@1,200&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
 @media screen and (max-width: 768px){
-    .review_container {
-        width: 100%;
-        font-family:"Public Sans", sans-serif;
-        color: rgb(51, 75, 51);
-        margin: 4rem auto;
-        text-align: center;
-    }
+   .review_container {
+      width: 100%;
+      font-family: inter;
+      color: rgb(51, 75, 51);
+      margin: 4rem 0.2rem;
+      padding: 2rem 0rem;
+      text-align: center;
+      background-color: rgb(228, 226, 226);
+      border-radius: 1rem;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 -8px 16px rgba(0, 0, 0, 0.3); 
+      opacity: 0; 
+      transform: translateY(50px);
+      transition: opacity 0.5s, transform 0.5s;
+      animation: fadeInUp 0.5s forwards;
+   }
+      @keyframes fadeInUp {
+          from {
+              opacity: 0;
+              transform: translateY(50px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+ 
+  
     .info_container {
        font-weight: 580;
-       font-size: 1.3rem;
+       font-size: 6vw;
+       letter-spacing: 1px;
        margin: 1rem 0;
+       font-family: inter;
     }
+
+
     .info_container2 {
        display: block;
        font-weight: 900;
-       font-size: 2.5rem;
+       font-size: 6vw;
+       letter-spacing: 1px;
+       font-family: inter;
        margin: 1rem;
+     }
+     .info {
+      font-size: 6vw;
      }
      .p {
         margin-bottom: 0rem;
-        margin: 3rem 3rem;
+        font-size: 6vw;
+        margin: 2rem auto;
+        font-family: inter;
      }
      .p p {
-        font-size: 1.5rem;
-        font-weight: 500;
+        font-size: 1.3rem;
+        font-size: 6vw;
+        font-family: inter;
+        font-weight: 700;
+     }
+     .q {
+      width: 100%;
+      font-size: 6vw;
+      font-family: inter
      }
      .q p {
-        font-size: 2rem;
+        font-size: 6vw;
         font-weight: 900;
+        font-family: inter;
+     }
+     .close {
+      position: absolute;
+      top: -2rem;
+      width: 70px;
      }
 }

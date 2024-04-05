@@ -5,6 +5,8 @@ import Home from '../Routes/Home'
 import { Review } from '../Routes/Review'
 import Nopage from '../Routes/Nopage'
 import {AnimatePresence} from "framer-motion"
+import { School } from '../Routes/School'
+import Forgotpassword from '../Routes/Forgotpassword'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -35,9 +37,10 @@ const Router = () => {
 <AnimatePresence>
 <Routes location={location} key={location.pathname}>
       <Route path='/' element={<Home/>}></Route>
-      <Route path='/signin' element={<Signin/>}></Route>
-      <Route path='/signup' element={<Signup/>}></Route>
-      <Route path='/review' element={<Review/>}></Route>
+      <Route path='signin' element={<Signin/>}></Route>
+      <Route path='signup' element={<Signup/>}></Route>
+      <Route path='school' element={<School/>}></Route>
+      <Route path='forgotpassword' element={<Forgotpassword/>}></Route>
       <Route path='*' element={<Nopage/>}></Route>
     </Routes>
 </AnimatePresence>

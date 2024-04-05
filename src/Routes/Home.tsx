@@ -3,41 +3,68 @@ import "../Styles/Home.css";
 import React, { useEffect, useState } from 'react';
 import Loader from './Loader';
 import { motion, useAnimation } from "framer-motion";
-
+import Lottie from "lottie-react"
+import animationData from "../Styles/lottie.json"
 const Home = () => {
     const [showLogo, setShowLogo] = useState(true);
+    const [signupClicked, setSignupClicked] = useState(false);
+
     const history = useNavigate();
     const animationControls = useAnimation();
 
+
+    const handleNavigate = () => {
+        animationControls.start({
+            opacity: 0,
+            y: 30,
+            transition: {duration: 0.7, ease: "easeIn"},
+        });
+    };
+    useEffect(() => {
+        if (signupClicked) {
+            const timer = setTimeout(() => {
+                setSignupClicked(false);
+            }, 700); 
+            return () => clearTimeout(timer);
+        }
+    }, [signupClicked]);
     const buttonVariants = {
         rest: {
-            y: 0, // Set initial y position
+            y: 0,
         },
         pressed: {
-            y: -50, // Move the button up 50px on click
-            transition: { duration: 0.1 }, // Define animation duration
+            y: 70,
+            transition: { duration: 1 },
         },
         transitionUp: {
-            y: -100, // Move the button up 100px smoothly
-            transition: { duration: 0.5 }, // Define animation duration
+            y: 100,
+            transition: { duration: 0.5 },
         },
     };
 
-    const handleClick = () => {
-        animationControls.start("pressed");
+    // const handleClick = () => {
+    //     animationControls.start("pressed");
+    //     setTimeout(() => {
+    //         animationControls.start("transitionUp");
+    //     }, 100); 
+    // };
+    const handleSignupClick = () => {
+        setSignupClicked(true);
         setTimeout(() => {
-            animationControls.start("transitionUp");
-        }, 100); // Start the transition up animation after a short delay
+            history("/signup");
+        }, 700);
     };
-
+    
     const handleAnimationComplete = () => {
         history("/signup");
     };
-
+    const handleAnimationCompletes = () => {
+        history("/signin");
+    };
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowLogo(false);
-        }, 5000); // Set a longer timeout for the loader to show
+        }, 5000);
 
         return () => {
             clearTimeout(timer);
@@ -50,31 +77,36 @@ const Home = () => {
             animate={{ width: "100%" }}
             exit={{ width: window.innerWidth, transition: { duration: 0.5 } }}
         >
-            {showLogo ? (
+            {/* {showLogo ? (
                 <Loader />
-            ) : (
-                <div className="home_container" style={{ backgroundImage: "url('be8e418654942968e0419c56f0c102a4.jpeg')" }}>
-                    <div className='home_container2'>
-                        <div>
-                            <motion.button
-                                className='signupbtn'
-                                variants={buttonVariants}
-                                initial="rest"
-                                animate={animationControls}
-                                onClick={handleClick}
-                                onAnimationComplete={handleAnimationComplete}
-                            >
-                                Sign up
-                            </motion.button>
-                        </div>
-                        <div>
-                            <Link to="/Signin">
-                                <button className='signinbtn'>Sign in</button>
-                            </Link>
-                        </div>
+            ) : ( */}
+            <div className="home_container">
+                <h1>LOGO</h1>
+                <div className='home_container2'>
+                    <div className='home_container3'>
+                            <motion.button className='signinbtn'
+                            onClick={handleNavigate}
+                            initial={{ opacity: 1, y: 0 }}
+                            animate={animationControls}  
+                            onAnimationComplete={handleAnimationCompletes}              
+                            >Sign in</motion.button>
                     </div>
+                    <div>
+                        <motion.button
+                            className={signupClicked ? 'signupbtn animate' : 'signupbtn'}
+                            // variants={buttonVariants}
+                            // initial="rest"
+                            // animate={animationControls}
+                            onClick={handleSignupClick}
+                            onAnimationComplete={handleAnimationComplete}
+                        >
+                            Sign up
+                        </motion.button>
+                    </div>
+
                 </div>
-            )}
+            </div>
+            {/* )} */}
         </motion.div>
     );
 };

@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../Styles/Signup.css";
 import React, { useContext, useState } from "react";
 import { Context } from "../Provider/Usecontext";
-import {motion} from "framer-motion"
+import { motion } from "framer-motion"
 const Signup = () => {
   const user = useContext(Context);
   const location = useNavigate();
@@ -18,7 +18,6 @@ const Signup = () => {
       setFirstName(value)
     }
   };
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let validateerror: string[] = [];
@@ -53,28 +52,25 @@ const Signup = () => {
     }
     if (validateerror.length === 0) {
       alert("Signup Successful");
-      location("/review");
+      location("/school");
     } else {
       console.error("Validation errors:", validateerror);
     }
     user?.seterror(validateerror);
   };
-
   const buttonVariants = {
     initial: {
-      y: "-49rem", // Initial position, halfway up the page
+      y: "-50vh", 
     },
     animate: {
-      y: "0%", // Final position, at the normal position
-      transition: { // Delay before the animation starts
-        duration: 2.3, // Duration of the animation
-        delay: 0,
-        ease: "easeIn", // Easing function
+      y: "0%", 
+      transition: { 
+        duration: 5, 
+        delay: 0.23,
+        ease: "easeOut", 
       },
     },
   };
-
-
   let message: React.ReactNode = "";
   if (user?.error.includes("Your valid phonenumber is required")) {
     message = <div className="error">Your Valid Phonenumber Is Required</div>;
@@ -91,21 +87,25 @@ const Signup = () => {
     rest: { scale: 1 },
     hover: { scale: 1.1, transition: { duration: 1 } },
   };
-  
-//     initial= {{width:0}}
-//animate = {{width: "100%"}}//
-//exit={{x:window.innerWidth, transition:{duration : 0.5}}}>//
+
+  //     initial= {{width:0}}
+  //animate = {{width: "100%"}}//
+  //exit={{x:window.innerWidth, transition:{duration : 0.5}}}>//
   return (
     <motion.div className="signup"
-    initial={{ width: 0 }}
-    animate={{ width: "100%",transition: { duration: 0 }  }}
-    exit={{ x:window.innerWidth,transition: { duration: 1,  ease: "easeIn" } }}
->
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { 
+        duration: 2,
+        delay: 0,
+        ease: "easeOut", 
+      }, }}
+      exit={{ opacity: 0, transition: { duration: 0, ease: "easeOut" } }}
+    >
       <h2>Let's Get Started!</h2>
       <form onSubmit={handleSubmit} >
         <motion.div className="surname"
-        variants={inputVariants}
-        whileHover="hover" >
+          variants={inputVariants}
+          whileHover="hover" >
           <label htmlFor="surname"> Surname</label>
           <input name="surname" type="text" onChange={handleOnchange} />
           {user?.error.includes("Your surname is required") && <div className="error">Your Surname Is Required.</div>}
@@ -146,10 +146,12 @@ const Signup = () => {
           {user?.error.includes("Your reasons are required") && <div className="error">Your Valid Phonenumber Is Required</div>}
         </div>
         <div className="btn">
-          <motion.button type="submit" className="signup_btn" 
-          variants={buttonVariants}
-          initial="initial"
-          animate="animate">Sign Up</motion.button>
+          <motion.button type="submit" className="signup_btn"
+            variants={buttonVariants}
+            initial="initial"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            animate="animate">Sign Up</motion.button>
         </div>
       </form>
     </motion.div>

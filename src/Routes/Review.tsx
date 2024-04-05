@@ -1,11 +1,20 @@
 import React, { useContext, useEffect, useState } from "react";
 import "../Styles/Review.css"
 import { Context } from "../Provider/Usecontext";
-import {motion} from "framer-motion"
-export const Review = () => {
+import { motion } from "framer-motion"
+import Lottie from "lottie-react"
+import animationData from "../Styles/cancel.json"
+
+type handleCloseModalprops = {
+  onClick: () => void
+  show : boolean
+  setshow: React.Dispatch<React.SetStateAction<boolean>>;
+}
+export const Review = (props:handleCloseModalprops) => {
   const context = useContext(Context);
   const [formdatas, setformdata] = useState<string>("");
   const [greeting, setGreeting] = useState<string[]>([]);
+  const [show, setshow] = useState(true)
   const [name, setName] = useState<string>(() => {
     const storedName = localStorage.getItem("firstName");
     return storedName ? storedName : context?.formdata.firstname ?? "";
@@ -20,6 +29,10 @@ export const Review = () => {
   const singledayofweek = now.getDay()
   const formattedMinute = minute < 10 ? `0${minute}` : minute;
   const formattedHour = hour < 10 ? `0${hour}` : hour
+  const handleCancel = () => {
+    props.setshow(false);
+  };
+
   useEffect(() => {
     function handleday(day: number): string {
       switch (day % 10) {
@@ -36,7 +49,7 @@ export const Review = () => {
           return day + "th"
       }
     }
-    const validatetimeframe:string[] = [];
+    const validatetimeframe: string[] = [];
     if (hour < 12) {
       validatetimeframe.push("Good Morning");
     } else if (hour >= 12 && hour < 18) {
@@ -47,19 +60,19 @@ export const Review = () => {
     if (!name) {
       setformdata(handleday(dayOfMonth));
     }
-   
+
 
     console.log(handleday(dayOfMonth))
     setGreeting(validatetimeframe)
-  }, [singledayofweek, name]); // Only re-run on singledayofweek or name change
-  let timeframe:React.ReactNode = ""
-  if(greeting.includes("Good Morning")) {
-    timeframe = <div>{`${formattedHour}:${formattedMinute}am`}</div>
+  }, [singledayofweek, name]); 
+  let timeframe: React.ReactNode = ""
+  if (greeting.includes("Good Morning")) {
+    timeframe = <div>{`${formattedHour}:${formattedMinute}AM`}</div>
   }
-  else if(greeting.includes("Good Afternoon")) {
+  else if (greeting.includes("Good Afternoon")) {
     timeframe = <div>{`${formattedHour}:${formattedMinute}PM`}</div>
   }
-  else if(greeting.includes("Good Evening")) {
+  else if (greeting.includes("Good Evening")) {
     timeframe = <div>{`${formattedHour}:${formattedMinute} PM`}</div>
   }
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -71,7 +84,7 @@ export const Review = () => {
   console.log(formattedDate);
   const mo = monthss.length;
 
- 
+
   const capitalizeFirstLetter = (letter: string | undefined) => {
     return letter ? letter.charAt(0).toUpperCase() + letter.slice(1) : "";
   }
@@ -80,17 +93,24 @@ export const Review = () => {
   }, [context?.formdata.firstname]);
   return (
     <motion.div className="review_container"
-    initial= {{opacity:0}}
-    animate = {{opacity: 1}}
-    exit={{opacity: 0 }}>
-      <span className="info_container"> {dayOfWeek} {formdatas} {monthss}, {year} </span>
-      <span className="info_container2">{timeframe}</span>
-      <div className="p">
-        <p>{greeting}, {capitalizeFirstLetter(name)} 😁</p>
-      </div>
-      <div className="q">
-        <p>The journey of a <br></br>thousand miles begins<br></br> with a first<br></br> step</p>
-      </div>
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={props.onClick}>
+      {show ? (
+        <div  className="info">
+          <span className="close" onClick={handleCancel}><div><Lottie animationData={animationData} loop={true}></Lottie></div></span>
+          <span className="info_container"> {dayOfWeek} {formdatas} {monthss}, {year} </span>
+          <span className="info_container2">{timeframe}</span>
+          <div className="p">
+            <p>{greeting}, {capitalizeFirstLetter(name)} </p>
+          </div>
+          <div className="q">
+            <p>The journey of a <br></br>thousand miles begins<br></br> with a first<br></br> step</p>
+          </div>
+        </div>
+      ) : (<div></div>)}
     </motion.div>
   );
 };
+

@@ -1,8 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Josefin+Sans:wght@200&family=Montserrat:ital,wght@1,200&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Josefin+Sans:wght@200&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@1,330&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
 @media screen and (max-width :768px) {
   input::placeholder {
     font-size: 14px;
-    font-family: inter;
+    font-family: "Libre Franklin", sans-serif;
   }
   .signin {
     color: rgb(51, 75, 51);
@@ -42,11 +42,12 @@
   }
 
   .error {
-    animation: moveText 10s linear infinite;
-    color: rgb(86, 2, 2);
-    font-family: fantasy;
+    /* animation: moveText 10s linear infinite; */
+    color: rgb(141, 4, 4);
+    font-family: "Libre Franklin", sans-serif;
     letter-spacing: 1px;
     font-size: 4vw;
+    margin-bottom: 1rem;
   }
 
   .btn {
@@ -56,27 +57,28 @@
   }
   .btn-div {
     letter-spacing: 0.3px;
-    font-family: inter;
+    font-family: "Libre Franklin", sans-serif;
     font-size: 3.5vw;
-    font-weight: 300;
+    font-weight: 500;
   }
   .btn-div2 {
     color: rgba(141, 141, 141, 1);
     margin: 2rem 0rem;
-    font-weight: 400;
-    font-family: inter;
+    font-weight: 500;
+    font-family: "Libre Franklin", sans-serif;
     font-size: 4vw;
   }
   .btn-div2 span {
     color: rgba(11, 60, 73, 1);
     padding: 0rem 0.2rem;
-    font-family: inter;
+    font-family: "Libre Franklin", sans-serif;
     font-size: 4.3vw;
+    font-weight: 600;
   }
   a {
     text-decoration: none;
     color: rgba(11, 60, 73, 1);
-    font-family: inter;
+    font-family: "Libre Franklin", sans-serif;
   }
 
   .signin_btn {
@@ -84,12 +86,13 @@
     margin: 0.7rem auto; 
     background-color: #0B3C49;
     text-align: center;
-    font-family: inter;
+    font-family: "Libre Franklin", sans-serif;
     border-radius: 14px;
     font-size: 5vw;
     color: white;
     display: block; 
-    z-index: 2;
+    font-weight: 600;
+    border: none;
   }
   .surname-password {
     display: flex;
@@ -127,7 +130,7 @@
   }
 
   .surname_container {
-    margin: 2rem 0rem;
+    margin: 3.6rem 0rem;
   }
   .signin-img {
     background-size: cover;

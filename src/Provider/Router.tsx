@@ -35,12 +35,13 @@ const Router = () => {
   return (
     // <RouterProvider router={router} />
 <AnimatePresence>
-<Routes location={location} key={location.pathname}>
+
+<Routes   location={location} key={location.pathname}>
       <Route path='/' element={<Home/>}></Route>
-      <Route path='signin' element={<Signin/>}></Route>
-      <Route path='signup' element={<Signup/>}></Route>
-      <Route path='school' element={<School/>}></Route>
-      <Route path='forgotpassword' element={<Forgotpassword/>}></Route>
+      <Route path='/signin' element={<Signin/>}></Route>
+      <Route path='/signup' element={<Signup/>}></Route>
+      <Route path='/school' element={<School/>}></Route>
+      <Route path='/forgotpassword' element={<Forgotpassword/>}></Route>
       <Route path='*' element={<Nopage/>}></Route>
     </Routes>
 </AnimatePresence>

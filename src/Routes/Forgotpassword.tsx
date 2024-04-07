@@ -6,12 +6,11 @@ type Props = {}
 const Forgotpassword = (props: Props) => {
     const location = useNavigate();
     const user = useContext(Context);
-
     let emailerror: React.ReactNode = '';
     if (user?.error.includes('The email is required')) {
-        emailerror = <div className="error">The Email Is Required</div>;
+        emailerror = <div className="error">Your Email Is Required</div>;
     } else if (user?.error.includes('The email is not correct')) {
-        emailerror = <div className="error">The Email Is Not Correct</div>;
+        emailerror = <div className="error">Your Email Is Not Correct</div>;
     }
     function handleOnchange(event: ChangeEvent<HTMLInputElement>): void {
         const { value, name } = event.target;
@@ -24,27 +23,29 @@ const Forgotpassword = (props: Props) => {
         let validateerror: string[] = [];
         e.preventDefault();
         if (!user || !user.formdata) return;
-
         if (!user.formdata.email.trim()) {
             validateerror.push('The email is required');
         } else if (!/\S+@\S+\.\S+/.test(user.formdata.email)) {
             validateerror.push('The email is not correct');
         }
-
         if (validateerror.length === 0) {
             location('/school');
         }
-
         user.seterror(validateerror);
     };
     return (
         <div className="forgot-password-container">
             <form onSubmit={handleSubmit} className='form-container'>
-                <div className="surname-email">
+                <div className="form-container2">
+                    <div className="form-container3">
+                        <img src="forgot-password-concept-illustration_114360-1095.avif" alt="grfjk" />
+                    </div>
+                 <div className="surname-emails">
                     <input placeholder="Email" onChange={handleOnchange} name="email" type="email" />
                     {emailerror}
+                 </div>
+                 <button type='submit' className='signin_btns'>Proceed</button>
                 </div>
-                <button type='submit' className='signin_btns'>Proceed</button>
             </form>
             {/* <div className="lottie-background">
                 <Lottie animationData={animationData} />

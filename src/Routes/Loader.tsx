@@ -27,7 +27,7 @@ const override: CSSProperties = {
     <motion.div className='loader'
     initial= {{width : 0}}
     animate= {{width : "100%",transition: {durartion : 1}}}
-    exit={{x:window.innerWidth ,transition: {durartion : 3}}}>
+    exit={{x:window.innerWidth ,transition: {durartion : 1}}}>
         <ClimbingBoxLoader
         color={color}
         loading={loading}

@@ -1,11 +1,19 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useLocation } from "react-router-dom";
 import "../Styles/Signup.css";
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../Provider/Usecontext";
-import { motion } from "framer-motion"
+import { animate, motion } from "framer-motion"
 const Signup = () => {
+  const locations = useLocation()
+  console.log(locations)
   const user = useContext(Context);
-  const location = useNavigate();
+  // const isFromHomepage = locations.pathname === "/";
+  const [previousLocation, setPreviousLocation] = useState<string | null>(null);
+  // useEffect(() => {
+  //   console.log("tis is the  location",locations)
+  // }, [locations])
+
+  const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
@@ -52,7 +60,7 @@ const Signup = () => {
     }
     if (validateerror.length === 0) {
       alert("Signup Successful");
-      location("/school");
+      navigate("/school");
     } else {
       console.error("Validation errors:", validateerror);
     }
@@ -65,8 +73,8 @@ const Signup = () => {
     animate: {
       y: "0%", 
       transition: { 
-        duration: 5, 
-        delay: 0.23,
+        duration: 1.3, 
+        delay: 0,
         ease: "easeOut", 
       },
     },
@@ -88,14 +96,20 @@ const Signup = () => {
     hover: { scale: 1.1, transition: { duration: 1 } },
   };
 
+  useEffect(() => {
+      setPreviousLocation(locations.pathname)
+  }, [locations])  
   //     initial= {{width:0}}
   //animate = {{width: "100%"}}//
   //exit={{x:window.innerWidth, transition:{duration : 0.5}}}>//
+  const isFromHomepage = previousLocation === "/";
+  const signupClass = isFromHomepage ? 'signup_btn home-page' : 'signup_btn';
+console.log(locations.state)
   return (
     <motion.div className="signup"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { 
-        duration: 2,
+        duration: 2.5,
         delay: 0,
         ease: "easeOut", 
       }, }}
@@ -146,12 +160,14 @@ const Signup = () => {
           {user?.error.includes("Your reasons are required") && <div className="error">Your Valid Phonenumber Is Required</div>}
         </div>
         <div className="btn">
-          <motion.button type="submit" className="signup_btn"
-            variants={buttonVariants}
+        <motion.button type="submit"   
+        className="signup_btn"
+        variants={locations.state?.showstyle}
             initial="initial"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            animate="animate">Sign Up</motion.button>
+            animate= "animate"
+            >Sign Up</motion.button>
         </div>
       </form>
     </motion.div>

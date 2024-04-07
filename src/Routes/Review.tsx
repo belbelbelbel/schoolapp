@@ -7,10 +7,10 @@ import animationData from "../Styles/cancel.json"
 
 type handleCloseModalprops = {
   onClick: () => void
-  show : boolean
+  show: boolean
   setshow: React.Dispatch<React.SetStateAction<boolean>>;
 }
-export const Review = (props:handleCloseModalprops) => {
+export const Review = (props: handleCloseModalprops) => {
   const context = useContext(Context);
   const [formdatas, setformdata] = useState<string>("");
   const [greeting, setGreeting] = useState<string[]>([]);
@@ -57,14 +57,13 @@ export const Review = (props:handleCloseModalprops) => {
     } else {
       validatetimeframe.push("Good Evening");
     }
-    if (!name) {
-      setformdata(handleday(dayOfMonth));
-    }
+    setformdata(handleday(dayOfMonth));
+
 
 
     console.log(handleday(dayOfMonth))
     setGreeting(validatetimeframe)
-  }, [singledayofweek, name]); 
+  }, [singledayofweek, name]);
   let timeframe: React.ReactNode = ""
   if (greeting.includes("Good Morning")) {
     timeframe = <div>{`${formattedHour}:${formattedMinute}AM`}</div>
@@ -73,7 +72,7 @@ export const Review = (props:handleCloseModalprops) => {
     timeframe = <div>{`${formattedHour}:${formattedMinute}PM`}</div>
   }
   else if (greeting.includes("Good Evening")) {
-    timeframe = <div>{`${formattedHour}:${formattedMinute} PM`}</div>
+    timeframe = <div>{`${formattedHour}:${formattedMinute}PM`}</div>
   }
   const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   const dayOfWeek = daysOfWeek[now.getDay()];
@@ -98,15 +97,20 @@ export const Review = (props:handleCloseModalprops) => {
       exit={{ opacity: 0 }}
       onClick={props.onClick}>
       {show ? (
-        <div  className="info">
-          <span className="close" onClick={handleCancel}><div><Lottie animationData={animationData} loop={true}></Lottie></div></span>
-          <span className="info_container"> {dayOfWeek} {formdatas} {monthss}, {year} </span>
-          <span className="info_container2">{timeframe}</span>
-          <div className="p">
-            <p>{greeting}, {capitalizeFirstLetter(name)} </p>
+        <div className="info">
+          <div>
+            <span className="close" onClick={handleCancel}><div><Lottie animationData={animationData} loop={true}></Lottie></div></span>
+            <span className="info_container"> {dayOfWeek} {formdatas} {monthss}, {year} </span>
+            <span className="info_container2">{timeframe}</span>
+            <div className="p">
+              <p>{greeting}, {capitalizeFirstLetter(name)} </p>
+            </div>
+            <div className="q">
+              <p>The journey of a <br></br>thousand miles begins<br></br> with a first<br></br> step</p>
+            </div>
           </div>
-          <div className="q">
-            <p>The journey of a <br></br>thousand miles begins<br></br> with a first<br></br> step</p>
+          <div className="info_img" >
+            <img src="Hiking-rafiki 1.jpeg" alt="retgert" />
           </div>
         </div>
       ) : (<div></div>)}

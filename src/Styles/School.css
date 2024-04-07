@@ -2,7 +2,7 @@
 @media screen and (max-width:768px) {
   input::placeholder {
     font-size: 4vw;
-    font-family: "Public Sans", sans-serif;
+    font-family: "Inter", sans-serif;
   }
   .modal {
     position: fixed;
@@ -16,7 +16,7 @@
   
   .close {
     position: absolute;
-    top: 10px;
+    top: 9px;
     right: 10px;
     cursor: pointer;
     display: flex;
@@ -56,6 +56,7 @@
     border-radius: 1.6rem;
     margin: 1.5rem auto;
     background-color: rgba(215, 214, 214, 0.669);
+    border: none;
   }
   .school_filter input {
     outline: none;
@@ -64,6 +65,6 @@
     padding: 2rem 0rem;
     font-size: 1rem;
     background-color: transparent;
-    font-family: "Public Sans", sans-serif;
+    font-family: "Inter", sans-serif;
   }
 }

@@ -1,5 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom'; // Corrected import
 import { Context } from '../Provider/Usecontext';
 import { motion } from 'framer-motion';
 import '../Styles/Signin.css';
@@ -8,13 +8,18 @@ import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
 
 const Signin = () => {
-  const location = useNavigate();
+  const locations = useLocation();
+  const navigate = useNavigate(); 
   const user = useContext(Context);
   const [show, setShow] = useState(false);
 
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
+
+  useEffect(() => {
+    console.log("this is location", locations)
+  }, [locations])
 
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
@@ -40,10 +45,11 @@ const Signin = () => {
       validateerror.push('the password is incomplete');
     }
     if (validateerror.length === 0) {
-      location('/school');
+        navigate('/school'); 
     }
     user.seterror(validateerror);
   };
+
   const buttonVariants = {
     initial: {
       y: "-10vh",
@@ -54,11 +60,12 @@ const Signin = () => {
       transition: {
         duration: 1,
         delay: 0,
-        ease: "easeIn",
+        ease: "easeOut",
       },
       opacity: 1
     },
   };
+
   let emailerror: React.ReactNode = '';
   if (user?.error.includes('The email is required')) {
     emailerror = <div className="error">Your Email Is Required</div>;
@@ -76,7 +83,7 @@ const Signin = () => {
   return (
     <motion.div
       className="signin"
-      initial={{opacity:0}}
+      initial={{ opacity: 0 }}
       animate={{
         transition: {
           duration: 2,
@@ -109,19 +116,20 @@ const Signin = () => {
                 </div>
                 {passworderror}
               </div>
-            </div>
-            <div className="btn">
-              <motion.button type="submit" className="signin_btn"
-                variants={buttonVariants}
-                initial="initial"
-                whileHover={{ scale: 1.1 }}
-                whileTap={{ scale: 0.9 }}
-                animate="animate">
-                Sign in
-              </motion.button>
-              <div className="btn-div"><Link to="/forgotpassword">Forgot Password</Link>
+
+              <div className="btn">
+                <motion.button type="submit" className="signin_btn"
+                  variants={buttonVariants}
+                  initial="initial"
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                  animate="animate">
+                  Sign in
+                </motion.button>
+                <div className="btn-div"><Link to="/forgotpassword">Forgot Password?</Link>
+                </div>
+                <div className='btn-div2'>Don't have an account?<span><Link to='/signup'>Sign Up</Link></span> </div>
               </div>
-              <div className='btn-div2'>Don't have an account?<span><Link to='/signup'>Sign Up</Link></span> </div>
             </div>
           </form>
         </div>

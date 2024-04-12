@@ -78,7 +78,7 @@ export const Undergraduate = () => {
             </div>
             <div className='Undercover_container9'>
                 <div className='Undercover_container10'>
-                    <div>logo</div>
+                    <div>   Logo</div>
                     <div onClick={() => scrollastold('firsts')}>Back to top</div>
                 </div>
                 <div className='Undercover_container11'>

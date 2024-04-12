@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-image: url("/Users/ronald/Desktop/schoolapp/public/Empty street-bro (1) 2 (1).svg");
+    background-image: url("/public/Empty street-bro (1) 2 (1).svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center bottom;
@@ -143,11 +143,10 @@
   .btn-div21 {
     color: black; 
     margin-bottom: 2rem;
-    font-weight: 600; 
+    font-weight: 450; 
     font-family: "Inter", sans-serif;
     font-size: 4.3vw;
     /* letter-spacing: 0.1vw;  */
-    transform: scaley(1);
     text-align: center;
 }
 
@@ -157,7 +156,7 @@
     font-family: "Inter", sans-serif;
     font-size: 4.7vw;
     /* letter-spacing: 0.3vw; */
-    font-weight: 700;
+    font-weight: 600;
     text-align: center;
   }
 

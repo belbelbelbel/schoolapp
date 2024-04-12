@@ -11,6 +11,7 @@ import { Covenant } from '../Routes/Covenant'
 import { Undergraduate } from '../Routes/Undergraduate'
 import { Postgraduate } from '../Routes/Postgraduate'
 import { Contact } from '../Routes/Contact'
+import { Uselinks } from '../Routes/Uselinks'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -50,6 +51,7 @@ const Router = () => {
           <Route path='/school/covenant-university/undergraduate' element={<Undergraduate/>}></Route>
           <Route path='/school/covenant-university/postgraduate' element={<Postgraduate/>}></Route>
           <Route path='/school/covenant-university/contact' element={<Contact/>}></Route>
+          <Route path='/school/covenant-university/usefulinks' element={<Uselinks/>}></Route>
         </Route>
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
         <Route path='*' element={<Nopage />}></Route>

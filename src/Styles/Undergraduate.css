@@ -103,7 +103,7 @@
     }
 
     .Undercover_container5 {
-        background-image: url("/Users/ronald/Desktop/schoolapp/public/Rectangle 21.svg");
+        background-image: url("/public/Rectangle 21.svg");
         height: 149px;
         width: 82vw;
         background-repeat: no-repeat;
@@ -140,7 +140,7 @@
         margin: 2.5rem 0rem;
     }
     .image1{
-        background-image: url("/Users/ronald/Desktop/schoolapp/public/Rectangle 20.svg");
+        background-image: url("/public/Rectangle 20.svg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -163,7 +163,7 @@
         gap: 1.4rem;
     }
     .image2{
-        background-image: url("/Users/ronald/Desktop/schoolapp/public/Rectangle 20 (1).svg");
+        background-image: url("/public/Rectangle 20 (1).svg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -180,7 +180,7 @@
         color: rgba(255, 255, 255, 1);
     }
     .image3 {
-        background-image: url("/Users/ronald/Desktop/schoolapp/public/Rectangle 20 (2).svg");
+        background-image: url("/public/Rectangle 20 (2).svg");
         height: 134px;
         width: 40vw;
         font-size: 5vw;
@@ -202,7 +202,7 @@
         gap: 0.4rem;
     }
     .image4 {
-        background-image: url("/Users/ronald/Desktop/schoolapp/public/Rectangle 20 (3).svg");
+        background-image: url("/public/Rectangle 20 (3).svg");
         height: 134px;
         width: 40vw;
         font-size: 5vw;
@@ -219,7 +219,7 @@
         background-size: cover;
     }
     .image5{
-        background-image: url("/Users/ronald/Desktop/schoolapp/public/Rectangle 20 (2).svg");
+        background-image: url("/public/Rectangle 20 (2).svg");
         height: 134px;
         width: 40vw;
         font-size: 5vw;
@@ -236,7 +236,7 @@
         background-size: cover;
     }
     .image6{
-        background-image: url("/Users/ronald/Desktop/schoolapp/public/Rectangle 20 (4).svg");
+        background-image: url("/public/Rectangle 20 (4).svg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -291,5 +291,5 @@
         font-weight: 500;
         font-family: "Inter", sans-serif;
     }
-    
+
 }

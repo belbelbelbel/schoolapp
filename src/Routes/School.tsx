@@ -3,7 +3,9 @@ import '../Styles/School.css';
 import { Review } from './Review';
 import { BiSearchAlt } from "react-icons/bi";
 import { color } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 export const School = () => {
+  const navigate = useNavigate()
   const [show, setShow] = useState(false);
 
   useEffect(() => {
@@ -15,6 +17,9 @@ export const School = () => {
       clearTimeout(timer); 
     };
   }, []);
+  const handleclick = () => {
+    navigate("covenant-university")
+  }
 
   const handleCloseModal = () => {
     setShow(false);
@@ -35,7 +40,14 @@ export const School = () => {
             />
             <button className='img_btn'><img src="Search.svg" alt="" className='img'/></button>
           </div>
+          
+          <div className="btn">
+                        <button  type='button' className="signin_btn" onClick={handleclick}>
+                            co-uni
+                        </button>
+                    </div>
         </div>
+        
       )}
     </div>
   );

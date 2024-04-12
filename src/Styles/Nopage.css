@@ -1,20 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Josefin+Sans:wght@200&family=Montserrat:ital,wght@1,200&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
 @media screen and (max-width: 768px) {
-    .page_no {
+    .containerss {
+        font-family:"monserrat" sans-serif;
+        /* background: linear-gradient(125deg, #6a89cc, #b8e994); */
         width: 100%;
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-         text-align: center;
-        background-color: rgb(214, 213, 213)
+        margin: 30vw auto;
     }
-    .page_no h1 {
-        color: rgb(110, 36, 4);
-        font-family: "Public Sans", sans-serif;
-        margin-bottom: 7rem ;
-        font-size: 8vw;
+    .containersss {
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       text-align: center;
+       /* padding-top: 13rem; */
+       color: #343434;
+    }
+    .containerss h1 {
+        font-size: 40vw;
+        margin: 0;
         font-weight: 900;
+        background-image: url("depositphotos_329089534-stock-photo-trees-under-cloudy-sky-during.jpeg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+    }
+    .containerss p {
+        font-size: 4vw;
+    }
+    .containerss a {
+        text-decoration: none;
+        background-color: #e55039aa;
+        color: white;
+        margin: 15vw;
+        padding: 2.5vw 0vw;
+        display: inline-block;
+        border-radius: 25px;
+        font-size: 3vw;
+        text-transform: uppercase;
+        transition: 0.4s;
+    }
+    .containerss a:hover {
+        color: #e55039;
+    }
+    .containersss div {
+        margin: 1rem 0rem;
+        position: relative;
+        bottom: 0rem;
+        left: 4rem;
+        width: 100%;
+        border-radius: 100%;
+        border:1px solid  #e55039aa;
+        background-color: #e55039aa;
     }
 }

@@ -1,0 +1,368 @@
+@media screen and (max-width : 768px) {
+    @import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Inter:wght@100..900&family=Josefin+Sans:wght@200&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@1,330&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
+
+    .Covenant_container input::placeholder {
+        font-size: 5vw;
+        font-family: "Inter", sans-serif;
+        color: rgba(11, 60, 73, 0.5);
+        font-weight: 600;
+        margin: auto 0rem;
+        width: 100%;
+        background-color: transparent;
+        align-items: center;
+        display: flex;
+        align-self: center;
+        justify-content: center;
+    }
+
+    .Covenant_container {
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(255, 255, 255, 1);
+        overflow-y: auto;
+        padding: 2.3rem 0rem;
+    }
+
+    .Covenant_container::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .Covenant_container2 {
+        display: flex;
+        flex-direction: row;
+        width: 83%;
+        border-radius: 10px;
+        margin: 0rem auto;
+        padding: 0rem 1rem;
+        margin-bottom: 2rem;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        align-self: center;
+        align-content: center;
+        font-family: "Inter", sans-serif;
+        outline: none;
+        gap: 0.8rem;
+        background-color: rgba(242, 242, 242, 1);
+    }
+
+    .Covenant_container3 {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
+        align-self: center;
+        align-content: center;
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        justify-content: space-between;
+    }
+
+    .Covenant_container2 img {
+        width: 5vw;
+    }
+
+    .Covenant_container2 input {
+        outline: none;
+        border: none;
+        width: 120%;
+        padding: 0.6rem 0rem;
+        font-size: 4vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        align-self: center;
+        align-content: center;
+        font-family: "Inter", sans-serif;
+        background-color: transparent;
+        color: rgba(11, 60, 73, 0.5);
+        font-weight: 600;
+    }
+
+    .images {
+        text-align: center;
+        width: 13%;
+    }
+
+    .images img {
+        width: 17vw;
+        height: 12vw;
+    }
+
+    .Covenant_container4 {
+        display: flex;
+        justify-content: start;
+        width: 83%;
+        height: 23vw;
+        margin: auto;
+        padding: 0vw;
+        gap: 5vw;
+        border-radius: 10px;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .Covenant_container4 p {
+        font-size: 2.75vw;
+        font-weight: 300;
+        color: rgba(0, 0, 0, 1);
+        white-space: nowrap;
+        align-items: center;
+        justify-content: end;
+        text-align: center;
+        display: flex;
+        margin: 0.2vw 0.2rem;
+        transform: scaleX(1.0);
+    }
+
+    /* .Covenant_container4 h3::first-letter {
+    font-size: 6vw;
+} */
+    .Covenant_container4 h3 {
+        font-size: 5.55vw;
+        white-space: nowrap;
+        font-weight: 500;
+        margin: 0rem 0.2rem;
+        color: rgba(38, 50, 56, 1);
+        align-items: center;
+        justify-content: end;
+        display: flex;
+        width: auto;
+    }
+
+    .Covenant_container6 {
+        display: flex;
+        flex-direction: row;
+        gap: 0.2rem;
+        width: auto;
+        margin: 0rem 0.1rem;
+        align-items: center;
+        justify-content: end;
+    }
+
+    .container5 {
+        text-align: center;
+    }
+
+    .Container6 {
+        display: flex;
+        width: auto;
+        gap: 1vw;
+        margin: 0.8vw 0.1rem;
+    }
+
+    .Covenant_containers6 {
+        display: flex;
+        flex-direction: row;
+        gap: 0.2rem;
+        width: auto;
+        align-items: center;
+        text-align: center;
+        justify-content: end;
+    }
+
+    .Container6 div {
+        color: rgba(38, 50, 56, 1);
+        font-weight: 500;
+        font-size: 2.3vw;
+    }
+
+    .tim {
+        color: rgba(38, 50, 56, 1);
+        font-weight: 500;
+        font-size: 2.4vw;
+        margin: 0rem 0.2rem;
+        justify-content: end;
+    }
+
+    .Covenant_container7 {
+        display: flex;
+        justify-content: center;
+        width: 83%;
+        color: rgba(0, 0, 0, 1);
+        margin: 3rem auto;
+        padding: 3vw;
+        gap: 3vw;
+        border-radius: 10px;
+        box-shadow: 0 4px 5px rgba(0, 0, 0, 0.3);
+        font-family: "Inter", sans-serif;
+        line-height: 14.52px;
+        font-size: 3vw;
+        font-weight: 400;
+    }
+
+    .Covenant_container7a {}
+
+
+
+    .Covenant_container7 p {
+        margin: 0.8vw;
+        padding: 0.6vw;
+    }
+
+    .Covenant_img {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        color: white;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        margin: 0rem 1.3rem;
+        justify-content: stretch;
+        transition: 0.4s;
+    }
+
+    .Covenant_img::-webkit-scrollbar {
+        width: 0;
+    }
+
+    .Covenant_img1 {
+        height:182px;
+        display: flex;
+        padding: 0rem 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-end;
+        margin: 0rem 0.6rem;
+        min-width: 58vw;
+        /* padding-top: 6.5rem; */
+        background-image: url("/Users/ronald/Desktop/schoolapp/public/Rectangle 18 (2).svg");
+        /* background-position-x: center; */
+        background-repeat: no-repeat;
+        background-position: center; 
+     background-size: cover;
+        border-radius: 10px;
+        transition: 1s ease-out;
+
+    }
+
+    .Covenant_img1  h2 {
+        font-size: 6vw;
+        font-weight: 400;
+        font-family: "Inter", sans-serif;
+        color: rgba(255, 255, 255, 1);
+    }
+    .imi {
+        flex-direction: row;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        cursor: pointer;
+        padding-bottom: 1rem;
+    }
+    .imi h3 {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        font-family: "Inter", sans-serif;
+        font-size: 5vw; 
+        color: rgba(255, 255, 255, 1);
+        font-weight: 400;
+  
+    }
+
+    .imi2 {
+       
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding-top: 3.3px;
+    }
+    .imi2 img {
+        font-size: 5.5vw;
+    }
+
+ 
+
+    .Covenant-colleges {
+        width: 83%;
+        margin: 0rem auto;
+      
+    }
+
+    .Covenant-colleges h1 {
+        font-size: 8vw;
+        line-height: 26.63px;
+        font-weight: 500;
+        margin: 2rem 0rem;
+        color: rgba(38, 50, 56, 1);
+        text-shadow: 0px 4px 6px rgba(69, 255, 255, 0.25);
+        font-family: "Inter", sans-serif;
+    }
+
+    .Covenant-collegesa {
+        padding: 2vw 1vw;
+        margin: 2rem 0rem;
+        box-shadow: 0px 4px 6px rgba(246, 148, 0, 0.25);
+        display: flex;
+        justify-content: space-around;
+        gap: 1vw;
+        border-radius: 10px;
+    }
+
+    .Covenant-collegesa h3 {
+        font-weight: 500;
+        font-size: 3.6vw;
+        font-family: "Inter", sans-serif;
+        padding: 0rem 0;
+        color: rgba(38, 50, 56, 1);
+    }
+
+    .Covenant-collegesa span {
+        margin: 0rem 0rem;
+        font-size: 2.8vw;
+    }
+    .Covenant-collegesa:nth-child(3) {
+        box-shadow: 0px 4px 4px rgba(139, 250, 129, 0.71)
+    }
+    .Covenant-collegesa:nth-child(4) {
+        box-shadow: 0px 4px 4px rgba(238, 229, 98, 0.71);
+        gap: 2rem;
+    }
+    .Covenant-collegesa:nth-child(5) {
+        box-shadow: 0px 4px 4px rgba(233, 135, 172, 0.71);
+        gap: 2rem;
+    }
+
+    .Covenant-collegesa img {
+        width: 28vw;
+    }
+    .Covenant-collegesa:nth-child(2) {
+        /* justify-content: center;
+    display: flex;
+    /* text-align: center; */
+        align-items: center;
+    }
+    .Covenant-collegesa .anya {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+    .Covenant-collegesa .anya img {
+        width:1.7vw;    
+    }
+    .ire {
+        display: flex;
+        gap: 1.9vw;
+        align-items: center;
+        padding: 1.5vw 0;
+    }
+    .Covenant_container8 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 93%;
+        margin: 0.5rem 0rem;
+    }
+    .Covenant_container8a {
+        display: flex;
+        /* justify-content: center; */
+        /* align-items: center; */
+        gap: 1rem;
+        flex-direction: row;
+     
+    }
+   
+}

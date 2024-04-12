@@ -8,34 +8,34 @@ import animationData from "../Styles/lottie.json"
 const Home = () => {
     const buttonVariants = {
         initial: {
-          y: "-50vh", 
+            y: "-45vh",
         },
         animate: {
-          y: "0%", 
-          transition: { 
-            duration: 1.3, 
-            delay: 0,
-            ease: "easeOut", 
-          },
+            y: "0%",
+            transition: {
+                duration: 1.2,
+                delay: 0,
+                ease: "easeOut",
+            },
         },
-      };
+    };
     const locations = useLocation()
     const [showLogo, setShowLogo] = useState(true);
-    const [showstyle,setshowstyle] = useState(buttonVariants)
+    const [showstyle, setshowstyle] = useState(buttonVariants)
     const [signupClicked, setSignupClicked] = useState(false);
- 
+
 
     const history = useNavigate();
     const signinAnimationControls = useAnimation();
     const signupAnimationControls = useAnimation();
 
     useEffect(() => {
-        history("/"); 
+        history("/");
     }, []);
 
     useEffect(() => {
-        console.log("this is location",locations)
-      }, [locations])
+        console.log("this is location", locations)
+    }, [locations])
     useEffect(() => {
         if (signupClicked) {
             const timer = setTimeout(() => {
@@ -44,7 +44,7 @@ const Home = () => {
             return () => clearTimeout(timer);
         }
     }, [signupClicked]);
-   
+
 
     // const handleClick = () => {
     //     animationControls.start("pressed");
@@ -60,15 +60,15 @@ const Home = () => {
     // };
 
     const handleAnimationComplete = () => {
-        history("/signup",{state :{showstyle}});
+        history("/signup", { state: { showstyle } });
     };
     const handleAnimationCompletes = () => {
-        history("/signin",{state :{showstyle}});
+        history("/signin", { state: { showstyle } });
     };
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowLogo(false);
-        }, 5000);
+        }, 2500);
         return () => {
             clearTimeout(timer);
         };
@@ -92,7 +92,7 @@ const Home = () => {
             opacity: 0,
             y: -30, transition: { duration: 1, ease: "easeOut" },
         });
-       
+
     };
     return (
         <motion.div
@@ -100,9 +100,9 @@ const Home = () => {
             animate={{ width: "100%" }}
             exit={{ width: window.innerWidth, transition: { duration: 0.5 } }}
         >
-            {/* {showLogo ? (
+            {showLogo ? (
                 <Loader />
-            ) : ( */}
+            ) : (
                 <div className="home_container">
                     <h1>LOGO</h1>
                     <div className='home_container2'>
@@ -131,7 +131,7 @@ const Home = () => {
 
                     </div>
                 </div>
-            {/* )} */}
+            )}
         </motion.div>
     );
 };

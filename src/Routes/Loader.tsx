@@ -14,15 +14,15 @@ const override: CSSProperties = {
     let [loading, setLoading] = useState(true);
     let [color, setColor] = useState("orange");
     const [showLogo, setShowLogo] = useState(true);
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowLogo(false);
-        }, 2000);
+    // useEffect(() => {
+    //     const timer = setTimeout(() => {
+    //         setShowLogo(false);
+    //     }, 2000);
 
-        return () => {
-            clearTimeout(timer);
-        };
-    }, []);
+    //     return () => {
+    //         clearTimeout(timer);
+    //     };
+    // }, []);
   return (
     <motion.div className='loader'
     initial= {{width : 0}}

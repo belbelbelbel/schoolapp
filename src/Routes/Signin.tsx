@@ -9,7 +9,7 @@ import { PiEyeLight } from "react-icons/pi";
 
 const Signin = () => {
   const locations = useLocation();
-  const navigate = useNavigate(); 
+  const navigate = useNavigate();
   const user = useContext(Context);
   const [show, setShow] = useState(false);
 
@@ -45,7 +45,7 @@ const Signin = () => {
       validateerror.push('the password is incomplete');
     }
     if (validateerror.length === 0) {
-        navigate('/school'); 
+      navigate('/school');
     }
     user.seterror(validateerror);
   };
@@ -86,7 +86,7 @@ const Signin = () => {
       initial={{ opacity: 0 }}
       animate={{
         transition: {
-          duration: 2,
+          duration: 1.5,
           delay: 0,
           ease: "easeIn",
         },

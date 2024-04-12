@@ -31,9 +31,9 @@ export const School = () => {
         <div>
           <div className="school_filter">
             <input
-              placeholder="E.g Mechanical Engineering"
+              placeholder="Search"
             />
-            <button className='img_btn'><BiSearchAlt style={{ fontSize : "6vw" }} className='img'/></button>
+            <button className='img_btn'><img src="Search.svg" alt="" className='img'/></button>
           </div>
         </div>
       )}

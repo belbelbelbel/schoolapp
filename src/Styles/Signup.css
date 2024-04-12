@@ -103,7 +103,7 @@
 
 
 
-  label {
+  .surname label {
     display: block;
     font-family: "Inter", sans-serif;
     font-weight: 600;
@@ -137,8 +137,28 @@
   }
   .btn {
     width: 90%;
-    margin: 1.85rem auto;
+    margin: 0.8rem auto;
     font-size: 4vw;
+  }
+  .btn-div21 {
+    color: black; 
+    margin-bottom: 2rem;
+    font-weight: 600; 
+    font-family: "Inter", sans-serif;
+    font-size: 4.3vw;
+    /* letter-spacing: 0.1vw;  */
+    transform: scaley(1);
+    text-align: center;
+}
+
+  .btn-div21 span {
+    color: rgba(11, 60, 73, 1);
+    padding: 0rem 0.2rem;
+    font-family: "Inter", sans-serif;
+    font-size: 4.7vw;
+    /* letter-spacing: 0.3vw; */
+    font-weight: 700;
+    text-align: center;
   }
 
   /* @keyframes moveText {

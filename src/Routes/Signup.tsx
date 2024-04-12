@@ -12,7 +12,6 @@ const Signup = () => {
   // useEffect(() => {
   //   console.log("tis is the  location",locations)
   // }, [locations])
-
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -59,7 +58,7 @@ const Signup = () => {
       validateerror.push("Your reasons are required");
     }
     if (validateerror.length === 0) {
-      alert("Signup Successful");
+      alert("👍Signup Successful");
       navigate("/school");
     } else {
       console.error("Validation errors:", validateerror);
@@ -169,6 +168,7 @@ console.log(locations.state)
             animate= "animate"
             >Sign Up</motion.button>
         </div>
+        <div className='btn-div21'>Don't have an account?<span><Link to='/signin'>Sign In</Link></span> </div>
       </form>
     </motion.div>
   );

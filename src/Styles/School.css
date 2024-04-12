@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Josefin+Sans:wght@200&family=Montserrat:ital,wght@1,200&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
 @media screen and (max-width:768px) {
-  input::placeholder {
-    font-size: 4vw;
+  .school_filter input::placeholder {
+    font-size: 20px;
+    color: rgba(11, 60, 73, 0.5);
     font-family: "Inter", sans-serif;
   }
   .modal {
@@ -50,10 +51,9 @@
     justify-content:space-between;
     padding: 0.4rem 1rem;
     outline: none;
-    border: 1.4px solid;
-    width: 81%;
+    width: 84%;
     height: 2.7rem;
-    border-radius: 1.6rem;
+    border-radius:  10px;
     margin: 1.5rem auto;
     background-color: rgba(215, 214, 214, 0.669);
     border: none;
@@ -61,10 +61,12 @@
   .school_filter input {
     outline: none;
     border: none;
-    width: 78%;
-    padding: 2rem 0rem;
-    font-size: 1rem;
+    width: 86%;
+    padding: 2rem 1rem;
+    font-size: 20px;
     background-color: transparent;
     font-family: "Inter", sans-serif;
+    color: rgba(11, 60, 73, 0.5);
+    font-weight: 600 ;
   }
 }

@@ -2,6 +2,7 @@ import React, { ChangeEvent, useContext } from 'react';
 import { Context } from '../Provider/Usecontext';
 import { useNavigate } from 'react-router-dom';
 import "../Styles/Forgotpassword.css";
+import { motion, useAnimation } from "framer-motion";
 type Props = {}
 const Forgotpassword = (props: Props) => {
     const location = useNavigate();
@@ -34,7 +35,10 @@ const Forgotpassword = (props: Props) => {
         user.seterror(validateerror);
     };
     return (
-        <div className="forgot-password-container">
+        <motion.div className="forgot-password-container"
+        initial={{opacity : 0}}
+        animate={{opacity :1 , transition: {duration : 1.5}}}
+        exit={{opacity : 0, transition: {duration : 1}}}>
             <form onSubmit={handleSubmit} className='form-container'>
                 <div className="form-container2">
                     <div className="form-container3">
@@ -50,7 +54,7 @@ const Forgotpassword = (props: Props) => {
             {/* <div className="lottie-background">
                 <Lottie animationData={animationData} />
             </div> */}
-        </div>
+        </motion.div>
     )
 }
 export default Forgotpassword;

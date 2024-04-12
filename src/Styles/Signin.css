@@ -60,13 +60,15 @@
     font-family: "Libre Franklin", sans-serif;
     font-size: 3.5vw;
     font-weight: 500;
-  }
+    text-align: center;
+    }
   .btn-div2 {
     color: rgba(141, 141, 141, 1);
     margin: 2rem 0rem;
     font-weight: 500;
     font-family: "Libre Franklin", sans-serif;
     font-size: 4vw;
+    text-align: center;
   }
   .btn-div2 span {
     color: rgba(11, 60, 73, 1);
@@ -74,6 +76,7 @@
     font-family: "Libre Franklin", sans-serif;
     font-size: 4.3vw;
     font-weight: 600;
+    text-align: center;
   }
   a {
     text-decoration: none;
@@ -94,21 +97,7 @@
     font-weight: 600;
     border: none;
   }
-  .surname-password {
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    align-items: center;
-    align-self: center;
-    justify-content:space-between;
-    padding: 0.6rem 1rem;
-    outline: none;
-    border: none;
-    width: 81%;
-    border-radius: 0.8rem;
-    margin: 0rem auto;
-    background-color: rgba(215, 214, 214, 0.669);
-  }
+  
   .surname-email  {
     display: flex;
       margin: 1.6rem auto;
@@ -155,13 +144,64 @@
     width: 78%;
     font-size: 4vw;
     background-color: transparent;
+    border-radius: 2px;
     font-family: "Public Sans", sans-serif;
+  }
+  .surname-password {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    justify-content:space-between;
+    padding: 0.6rem 1rem;
+    outline: none;
+    border: none;
+    width: 81%;
+    border-radius: 0.8rem;
+    margin: 0rem auto;
+    background-color: rgba(215, 214, 214, 0.669);
+  }
+  .surname-password input:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: none;
   }
   .surname-password img {
     position: relative;
     background-color: transparent;
     left: -0rem;
   }
+  /* .surname-password {
+    position: relative;
+    width: 100%;
+  } */
+  
+  .surname-password input {
+    width: calc(100% - 2rem);
+    padding: 0rem 0rem;
+    font-size: 4vw;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    outline: none;
+    border: none;
+    font-family: "Public Sans", sans-serif;
+  }
+  
+  .surname-password input:focus {
+    background-color: none;
+    border: none;
+    outline: none;
+  }
+  
+  .surname-password .eye-icon {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
 }
 /* display: flex;
 flex-direction: row;

@@ -19,7 +19,6 @@ export const Review = (props: handleCloseModalprops) => {
     const storedName = localStorage.getItem("firstName");
     return storedName ? storedName : context?.formdata.firstname ?? "";
   });
-
   const currentDate = new Date();
   const dayOfMonth = currentDate.getDate();
   const year = currentDate.getFullYear();
@@ -35,6 +34,9 @@ export const Review = (props: handleCloseModalprops) => {
 
   useEffect(() => {
     function handleday(day: number): string {
+      if (day === 11 || day === 12 || day === 13) {
+        return day + "th";
+      }    
       switch (day % 10) {
         case 1:
           return day + "st"
@@ -78,12 +80,9 @@ export const Review = (props: handleCloseModalprops) => {
   const dayOfWeek = daysOfWeek[now.getDay()];
   const formattedDate = `${dayOfWeek}, ${now.toLocaleDateString()} ${now.toLocaleTimeString()}`;
   let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
   const monthss = months[now.getMonth()]
   console.log(formattedDate);
   const mo = monthss.length;
-
-
   const capitalizeFirstLetter = (letter: string | undefined) => {
     return letter ? letter.charAt(0).toUpperCase() + letter.slice(1) : "";
   }
@@ -102,7 +101,9 @@ export const Review = (props: handleCloseModalprops) => {
             <span className="close" onClick={handleCancel}><div><Lottie animationData={animationData} loop={true}></Lottie></div></span>
             <span className="info_container"> {dayOfWeek} {formdatas} {monthss}, {year} </span>
             <span className="info_container2">{timeframe}</span>
+            
             <div className="p">
+            <div>😁😀</div>
               <p>{greeting}, {capitalizeFirstLetter(name)} </p>
             </div>
             <div className="q">
@@ -110,7 +111,7 @@ export const Review = (props: handleCloseModalprops) => {
             </div>
           </div>
           <div className="info_img" >
-            <img src="Hiking-rafiki 1.jpeg" alt="retgert" />
+            <img src="Hiking-rafiki 1.svg" alt="retgert" />
           </div>
         </div>
       ) : (<div></div>)}

@@ -1,19 +1,16 @@
 import { motion } from "framer-motion"
 import "../Styles/Undergraduate.css"
 import { useNavigate } from 'react-router-dom'
+import { Footer } from "./Footer"
 export const Undergraduate = () => {
     const navigate = useNavigate()
     const handlelback = () => {
         navigate(-1)
     }
-    const scrollastold = (sectionid: string) => {
-        const section = document.getElementById(sectionid)
-        if (section) {
-            section.scrollIntoView({
-                behavior: 'smooth'
-            })
-        }
+    const handledocuments = () => {
+        navigate("/school/covenant-university/documents")
     }
+   
     return (
         <motion.div
             className='Undergraduate'
@@ -69,28 +66,15 @@ export const Undergraduate = () => {
                             <div className='image4'>Fluid<br></br> students</div>
                         </div>
                         <div>
-                            <div className='image5'>Documents</div>
+                            <div className='image5' onClick={handledocuments}>Documents</div>
                         </div>
                     </div>
                     <div className='image6'>More <br />informtion</div>
                 </div>
-
+             
             </div>
-            <div className='Undercover_container9'>
-                <div className='Undercover_container10'>
-                    <div>   Logo</div>
-                    <div onClick={() => scrollastold('firsts')}>Back to top</div>
-                </div>
-                <div className='Undercover_container11'>
-                    <div>
-                        <div className='eze'>Terms of Use</div>
-                        <div>Information presented here is<br />purely for reference purposes <br />and may have changed after <br />the page was updated. Users are<br />admonished to do further research<br />to get the most up to date information.<br />Click on the 󠅁π symbol to flag information<br />as incorrect or incomplete. Click on ↓ to<br />make modification to unlocked content.</div>
-                    </div>
-                    <div>
-                        <div>Page creator: Uncle Simple<br />Page created: MAY9/2022<br />Last updated: MAY11/2022 by…</div>
-                    </div>
-                </div>
-            </div>
+            <Footer/>
+           
         </motion.div>
     )
 }

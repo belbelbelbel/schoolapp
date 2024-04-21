@@ -11,7 +11,7 @@ const Forgotpassword = (props: Props) => {
     if (user?.error.includes('The email is required')) {
         emailerror = <div className="error">Your Email Is Required</div>;
     } else if (user?.error.includes('The email is not correct')) {
-        emailerror = <div className="error">Your Email Is Not Correct</div>;
+        emailerror = <div className="error"> Please enter a valid email</div>;
     }
     function handleOnchange(event: ChangeEvent<HTMLInputElement>): void {
         const { value, name } = event.target;
@@ -30,7 +30,7 @@ const Forgotpassword = (props: Props) => {
             validateerror.push('The email is not correct');
         }
         if (validateerror.length === 0) {
-            location('/school');
+            location('/review');
         }
         user.seterror(validateerror);
     };
@@ -45,10 +45,10 @@ const Forgotpassword = (props: Props) => {
                         <img src="forgot-password-concept-illustration_114360-1095.avif" alt="grfjk" />
                     </div>
                  <div className="surname-emails">
-                    <input placeholder="Email" onChange={handleOnchange} name="email" type="email" />
+                    <input placeholder="Email" onChange={handleOnchange} name="email" type="text" />
                     {emailerror}
                  </div>
-                 <button type='submit' className='signin_btns'>Proceed</button>
+                 <button type='submit'  className='signin_btns'>Proceed</button>
                 </div>
             </form>
             {/* <div className="lottie-background">

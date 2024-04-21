@@ -4,21 +4,37 @@ import { Context } from "../Provider/Usecontext";
 import { motion } from "framer-motion"
 import Lottie from "lottie-react"
 import animationData from "../Styles/cancel.json"
+import { Navigate, useNavigate } from "react-router-dom";
 
-type handleCloseModalprops = {
-  onClick: () => void
-  show: boolean
-  setshow: React.Dispatch<React.SetStateAction<boolean>>;
-}
-export const Review = (props: handleCloseModalprops) => {
+// type handleCloseModalprops = {
+//   onClick: () => void
+//   show: boolean
+//   setshow: React.Dispatch<React.SetStateAction<boolean>>;
+// }
+export const Review = () => {
+  const navigate = useNavigate()
   const context = useContext(Context);
   const [formdatas, setformdata] = useState<string>("");
   const [greeting, setGreeting] = useState<string[]>([]);
-  const [show, setshow] = useState(true)
+  const [show, setShow] = useState(true);
   const [name, setName] = useState<string>(() => {
     const storedName = localStorage.getItem("firstName");
     return storedName ? storedName : context?.formdata.firstname ?? "";
   });
+  const handleCloseModal = () => {
+    setShow(false);
+  };
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShow(false)
+      navigate("/school")
+    }, 2800);
+  
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [])
+  
   const currentDate = new Date();
   const dayOfMonth = currentDate.getDate();
   const year = currentDate.getFullYear();
@@ -28,15 +44,15 @@ export const Review = (props: handleCloseModalprops) => {
   const singledayofweek = now.getDay()
   const formattedMinute = minute < 10 ? `0${minute}` : minute;
   const formattedHour = hour < 10 ? `0${hour}` : hour
-  const handleCancel = () => {
-    props.setshow(false);
-  };
+  // const handleCancel = () => {
+  //   props.setshow(false);
+  // };
 
   useEffect(() => {
     function handleday(day: number): string {
       if (day === 11 || day === 12 || day === 13) {
         return day + "th";
-      }    
+      }
       switch (day % 10) {
         case 1:
           return day + "st"
@@ -60,8 +76,7 @@ export const Review = (props: handleCloseModalprops) => {
       validatetimeframe.push("Good Evening");
     }
     setformdata(handleday(dayOfMonth));
-
-
+ 
 
     console.log(handleday(dayOfMonth))
     setGreeting(validatetimeframe)
@@ -91,31 +106,38 @@ export const Review = (props: handleCloseModalprops) => {
   }, [context?.formdata.firstname]);
   return (
     <motion.div className="review_container"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      onClick={props.onClick}>
-      {show ? (
-        <div className="info">
-          <div>
-            <span className="close" onClick={handleCancel}><div><Lottie animationData={animationData} loop={true}></Lottie></div></span>
-            <span className="info_container"> {dayOfWeek} {formdatas} {monthss}, {year} </span>
-            <span className="info_container2">{timeframe}</span>
-            
-            <div className="p">
-            <div>😁😀</div>
-              <p>{greeting}, {capitalizeFirstLetter(name)} </p>
-            </div>
-            <div className="q">
-              <p>The journey of a <br></br>thousand miles begins<br></br> with a first<br></br> step</p>
-            </div>
-          </div>
-          <div className="info_img" >
-            <img src="Hiking-rafiki 1.svg" alt="retgert" />
-          </div>
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 , transition: {duration :0}}}
+    exit={{ opacity: 0 }}
+  >
+{
+  show &&     <div className="" onClick={handleCloseModal}>
+  <div className="" onClick={(e) => e.stopPropagation()}>
+    <div className="info">
+      <div>
+        {/* <span className="close" > <div><Lottie animationData={animationData} loop={true}></Lottie></div></span> */}
+        <span className="info_container"> {dayOfWeek} {formdatas} {monthss}, {year} </span>
+        <span className="info_container2">{timeframe}</span>
+
+        <div className="p">
+          <div>😁😀</div>
+          <p>{greeting}, {capitalizeFirstLetter(name)} </p>
         </div>
-      ) : (<div></div>)}
-    </motion.div>
+        <div className="q">
+          <p>The journey of a <br></br>thousand miles begins<br></br> with a first<br></br> step</p>
+        </div>
+      </div>
+      <div className="info_img" >
+        <img src="Hiking-rafiki 1.svg" alt="retgert" />
+      </div>
+    </div>
+  </div>
+</div>
+}
+
+
+
+  </motion.div>
   );
 };
 

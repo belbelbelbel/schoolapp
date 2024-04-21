@@ -2,6 +2,7 @@ import React, { CSSProperties, useEffect, useState } from 'react'
 import { ClimbingBoxLoader } from 'react-spinners';
 import {motion} from "framer-motion"
 import "../Styles/Loader.css"
+import { exit } from 'process';
 type Props = {}
 
 const Loader = (props: Props) => {
@@ -28,14 +29,15 @@ const override: CSSProperties = {
     initial= {{width : 0}}
     animate= {{width : "100%",transition: {durartion : 1}}}
     exit={{x:window.innerWidth ,transition: {durartion : 1}}}>
-        <ClimbingBoxLoader
+        {/* <ClimbingBoxLoader
         color={color}
         loading={loading}
         cssOverride={override}
         size={30}
         aria-label="Loading Spinner"
         data-testid="loader">
-        </ClimbingBoxLoader>
+        </ClimbingBoxLoader> */}
+         <h1><motion.img  src="color_logo_transparent.svg" className='blinking-image' alt="4retrfw" width="320vw"  /></h1>
     </motion.div>
   )
 }

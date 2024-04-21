@@ -11,14 +11,12 @@ export type valueprops = {
   password :"",
   error: string[];
 };
-
 type dataprops = {
   formdata: valueprops;
   setformdata: React.Dispatch<React.SetStateAction<valueprops>>;
   error: string[]; 
   seterror: React.Dispatch<React.SetStateAction<string[]>>;
 };
-
 type childrenprops = {
   children: ReactNode;
 };

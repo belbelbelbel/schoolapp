@@ -159,6 +159,7 @@
         font-size: 3.6vw;
         outline: none;
     }
+    
 
     .Contact_contente span {
         color: red;
@@ -218,11 +219,11 @@
     }
 
     .Covenant_imgs1 {
-        background-image: url("/public/Rectangle 18 (2).svg");
+        background-image: url("/public/Rectangle 18 (1).png");
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        height: 50vw;
+        height: 40vw;
         font-family: "Inter", sans-serif;
         font-size: 5vw;
         font-weight: 500;

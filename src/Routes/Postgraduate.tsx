@@ -1,6 +1,7 @@
 import React from 'react'
 import {motion } from "framer-motion"
 import { useNavigate } from 'react-router-dom'
+import { Footer } from './Footer'
 export const Postgraduate = () => {
     const navigate = useNavigate()
     const handlelback = () => {
@@ -13,6 +14,9 @@ export const Postgraduate = () => {
                 behavior:'smooth'
             })
         }
+    }
+    const handledocuments = () => {
+        navigate("/school/covenant-university/documents")
     }
     return (
         <motion.div
@@ -28,7 +32,7 @@ export const Postgraduate = () => {
             }}
             exit={{ opacity: 0 }}
         >
-            <div id="first"></div>
+            <div id="firsts"></div>
             <div className="Undercover_container" >
                 <div className='Undercover_containera'>  <img src="/Arrow (2).svg" alt="" onClick={handlelback} width="25vw" /></div>
                 <div className="Undercover_containerb">
@@ -69,28 +73,14 @@ export const Postgraduate = () => {
                             <div className='image4'>Fluid<br></br> students</div>
                         </div>
                         <div>
-                            <div className='image5'>Documents</div>
+                            <div className='image5' onClick={handledocuments}>Documents</div>
                         </div>
                     </div>
                     <div className='image6'>More <br/>informtion</div>
                 </div>
               
             </div>
-            <div className='Undercover_container9'>
-                    <div className='Undercover_container10'>
-                        <div>Logo</div>
-                        <div onClick={()=>scrollastold('first')}>Back to top</div>
-                    </div>
-                    <div className='Undercover_container11'>
-                        <div>
-                            <div className='eze'>Terms of Use</div>
-                            <div>Information presented here is<br/>purely for reference purposes <br/>and may have changed after <br/>the page was updated. Users are<br/>admonished to do further research<br/>to get the most up to date information.<br/>Click on the 󠅁π symbol to flag information<br/>as incorrect or incomplete. Click on ↓ to<br/>make modification to unlocked content.</div>
-                        </div>
-                        <div>
-                            <div>Page creator: Uncle Simple<br/>Page created: MAY9/2022<br/>Last updated: MAY11/2022 by…</div>
-                        </div>
-                    </div>
-                </div>
+            <Footer/>
         </motion.div>
     )
 }

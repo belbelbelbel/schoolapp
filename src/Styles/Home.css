@@ -15,6 +15,13 @@
         background-color: rgba(132, 202, 255, 1);
         overflow: hidden;
     }
+    .home_container8{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100vh;
+        width: 100%;
+    }
 
     /* .home_container::after {
         content: "";
@@ -26,7 +33,7 @@
         background-color: rgba(2, 44, 62, 0.843); 
         z-index: -1; 
     } */
-      .logo {
+      /* .logo {
         position: fixed;
         top: 0;
         left: 0;
@@ -38,7 +45,7 @@
         background-repeat: no-repeat;
         z-index: 9999;
         transition: opacity 1s ease-in-out; 
-    }
+    } */
     /* @keyframes smartAnimate {
         0% {
             opacity: 2;
@@ -90,13 +97,24 @@
         animation-duration: 0.7s;
         animation-fill-mode: forwards;
     } */
-    .home_container h1{
-        color: #0B3C49;
+    .home_container h1 img{
         Line-height:60.09px;
         font-family: "Libre Franklin", sans-serif;
         font-size: 15vw;
         z-index: 9999; 
-        margin: 1rem 3rem;
+        display: flex;
+
+
+    }
+    .home_container h1 {
+        display: flex;
+        align-items: center;
+        margin: 0vw 9vw;
+        width: 50%;
+        align-items: center;
+        position: fixed;
+        top: 1.5rem;
+
     }
     .logo.hidden {
         opacity: 0;
@@ -139,15 +157,15 @@
     }
     .home_container2 {
         display: flex;
-        padding: 29vw 0rem;
+        padding: 29.5vw 0vw;
         flex-direction: column;
         background-image: url("../Styles/college\ campus-bro\ \(1\)\ 1.svg");
         background-size: cover;
+        align-items: center;
         background-position: center;
         justify-content: space-between;
         align-items: center;
         background-repeat: no-repeat;
-        background-attachment: scroll;
         width: 100%;
         height: 110vw;
         filter: skyblue scale(100%);

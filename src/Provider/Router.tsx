@@ -12,6 +12,7 @@ import { Undergraduate } from '../Routes/Undergraduate'
 import { Postgraduate } from '../Routes/Postgraduate'
 import { Contact } from '../Routes/Contact'
 import { Uselinks } from '../Routes/Uselinks'
+import { Documents } from '../Routes/Documents'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -40,11 +41,11 @@ const Router = () => {
   return (
     // <RouterProvider router={router} />
     <AnimatePresence>
-
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />}></Route>
         <Route path='/signin' element={<Signin />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
+        <Route path='/review' element={<Review/>}></Route>
         <Route path='/school'>
           <Route index element={<School />}></Route>
           <Route path='covenant-university' element={<Covenant />}></Route>
@@ -52,6 +53,7 @@ const Router = () => {
           <Route path='/school/covenant-university/postgraduate' element={<Postgraduate/>}></Route>
           <Route path='/school/covenant-university/contact' element={<Contact/>}></Route>
           <Route path='/school/covenant-university/usefulinks' element={<Uselinks/>}></Route>
+          <Route path='/school/covenant-university/documents' element={<Documents/>}></Route>
         </Route>
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
         <Route path='*' element={<Nopage />}></Route>

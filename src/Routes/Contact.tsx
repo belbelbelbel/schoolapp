@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import "../Styles/Contact.css"
 import { useNavigate } from 'react-router-dom'
 import {motion} from "framer-motion"
+import { Footer } from './Footer'
 export const Contact = () => {
     const [text, setxet] = useState({
         name: "",
@@ -42,7 +43,7 @@ export const Contact = () => {
             opacity: 1
         }}
         exit={{ opacity: 0 }}>
-            <div id="best"></div>
+            <div id="firsts"></div>
             <div className="Contact_container">
                 <div className='Contact_containera'>  <img src="/Menu button.svg" alt="" width="22vw" /></div>
                 <div className="Contact_containerb">
@@ -93,21 +94,7 @@ export const Contact = () => {
                     <div className="imis" onClick={handlenavigatepost}><div className="imis" ><h3>FAQs  </h3><div className="imi2s"> <img src="/Arrow (1).svg" alt="dfDF" width="22vw" /></div></div></div>
                 </div>
             </div>
-            <div className='Undercover_container9'>
-                <div className='Undercover_container10'>
-                    <div>Logo</div>
-                    <div onClick={() => scrollastold('best')}>Back to top</div>
-                </div>
-                <div className='Undercover_container11'>
-                    <div>
-                        <div className='eze'>Terms of Use</div>
-                        <div>Information presented here is<br />purely for reference purposes <br />and may have changed after <br />the page was updated. Users are<br />admonished to do further research<br />to get the most up to date information.<br />Click on the 󠅁π symbol to flag information<br />as incorrect or incomplete. Click on ↓ to<br />make modification to unlocked content.</div>
-                    </div>
-                    <div>
-                        <div>Page creator: Uncle Simple<br />Page created: MAY9/2022<br />Last updated: MAY11/2022 by…</div>
-                    </div>
-                </div>
-            </div>
+           <Footer/>
         </motion.div>
     )
 }

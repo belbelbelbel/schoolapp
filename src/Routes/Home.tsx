@@ -68,7 +68,7 @@ const Home = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowLogo(false);
-        }, 2500);
+        }, 5000);
         return () => {
             clearTimeout(timer);
         };
@@ -104,31 +104,36 @@ const Home = () => {
                 <Loader />
             ) : (
                 <div className="home_container">
-                    <h1>LOGO</h1>
-                    <div className='home_container2'>
-                        <div className="home_container4">
-                            <div className='home_container3'>
-                                <motion.button className='signinbtn'
-                                    onClick={handleSigninNavigate}
-                                    initial={{ opacity: 1, y: 0 }}
-                                    animate={signinAnimationControls}
-                                    onAnimationComplete={handleAnimationCompletes}
-                                >Sign in</motion.button>
+                    <div className="home_container8">
+                        <h1><img src="color_logo_transparent.svg" alt="4retrfw" width="200vw" /></h1>
+                        <svg>
+                            <path></path>
+                        </svg>
+                        <div className='home_container2'>
+                            <div className="home_container4">
+                                <div className='home_container3'>
+                                    <motion.button className='signinbtn'
+                                        onClick={handleSigninNavigate}
+                                        initial={{ opacity: 1, y: 0 }}
+                                        animate={signinAnimationControls}
+                                        onAnimationComplete={handleAnimationCompletes}
+                                    >Sign in</motion.button>
+                                </div>
+                                <div>
+                                    <motion.button
+                                        className={signupClicked ? "signupbtn animate" : "signupbtn"}
+                                        // variants={buttonVariants}
+                                        initial={{ opacity: 1, }}
+                                        animate={signupAnimationControls}
+                                        onClick={handleSignupNavigate}
+                                        onAnimationComplete={handleAnimationComplete}
+                                    >
+                                        Sign up
+                                    </motion.button>
+                                </div>
                             </div>
-                            <div>
-                                <motion.button
-                                    className={signupClicked ? "signupbtn animate" : "signupbtn"}
-                                    // variants={buttonVariants}
-                                    initial={{ opacity: 1, }}
-                                    animate={signupAnimationControls}
-                                    onClick={handleSignupNavigate}
-                                    onAnimationComplete={handleAnimationComplete}
-                                >
-                                    Sign up
-                                </motion.button>
-                            </div>
-                        </div>
 
+                        </div>
                     </div>
                 </div>
             )}

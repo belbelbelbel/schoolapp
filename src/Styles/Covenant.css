@@ -219,7 +219,7 @@
     }
 
     .Covenant_img1 {
-        height:182px;
+        height: 182px;
         display: flex;
         padding: 0rem 1rem;
         flex-direction: column;
@@ -228,22 +228,22 @@
         margin: 0rem 0.6rem;
         min-width: 58vw;
         /* padding-top: 6.5rem; */
-        background-image: url("/public/Rectangle 18 (2).svg");
+        background-image: url("/public/Rectangle 18 (1).png");
         /* background-position-x: center; */
         background-repeat: no-repeat;
-        background-position: center; 
-     background-size: cover;
+        background-position: center;
+        background-size: cover;
         border-radius: 10px;
         transition: 1s ease-out;
-
     }
 
-    .Covenant_img1  h2 {
+    .Covenant_img1 h2 {
         font-size: 6vw;
         font-weight: 400;
         font-family: "Inter", sans-serif;
         color: rgba(255, 255, 255, 1);
     }
+
     .imi {
         flex-direction: row;
         display: flex;
@@ -252,34 +252,33 @@
         cursor: pointer;
         padding-bottom: 1rem;
     }
+
     .imi h3 {
         align-items: center;
         display: flex;
         justify-content: center;
         font-family: "Inter", sans-serif;
-        font-size: 5vw; 
+        font-size: 5vw;
         color: rgba(255, 255, 255, 1);
         font-weight: 400;
-  
+
     }
 
     .imi2 {
-       
         align-items: center;
         display: flex;
         justify-content: center;
         padding-top: 3.3px;
     }
+
     .imi2 img {
         font-size: 5.5vw;
     }
 
- 
-
     .Covenant-colleges {
         width: 83%;
         margin: 0rem auto;
-      
+
     }
 
     .Covenant-colleges h1 {
@@ -314,13 +313,16 @@
         margin: 0rem 0rem;
         font-size: 2.8vw;
     }
+
     .Covenant-collegesa:nth-child(3) {
         box-shadow: 0px 4px 4px rgba(139, 250, 129, 0.71)
     }
+
     .Covenant-collegesa:nth-child(4) {
         box-shadow: 0px 4px 4px rgba(238, 229, 98, 0.71);
         gap: 2rem;
     }
+
     .Covenant-collegesa:nth-child(5) {
         box-shadow: 0px 4px 4px rgba(233, 135, 172, 0.71);
         gap: 2rem;
@@ -329,26 +331,31 @@
     .Covenant-collegesa img {
         width: 28vw;
     }
+
     .Covenant-collegesa:nth-child(2) {
         /* justify-content: center;
     display: flex;
     /* text-align: center; */
         align-items: center;
     }
+
     .Covenant-collegesa .anya {
         align-items: center;
         display: flex;
         justify-content: center;
     }
+
     .Covenant-collegesa .anya img {
-        width:1.7vw;    
+        width: 1.7vw;
     }
+
     .ire {
         display: flex;
         gap: 1.9vw;
         align-items: center;
         padding: 1.5vw 0;
     }
+
     .Covenant_container8 {
         display: flex;
         flex-direction: row;
@@ -356,13 +363,14 @@
         width: 93%;
         margin: 0.5rem 0rem;
     }
+
     .Covenant_container8a {
         display: flex;
         /* justify-content: center; */
         /* align-items: center; */
         gap: 1rem;
         flex-direction: row;
-     
+
     }
-   
+
 }

@@ -45,15 +45,20 @@
     /* animation: moveText 10s linear infinite; */
     color: rgb(141, 4, 4);
     font-family: "Libre Franklin", sans-serif;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
     font-size: 4vw;
-    margin-bottom: 1rem;
+    margin-bottom: 0rem;
   }
 
   .btn {
     width: 90%;
-    margin: 1.85rem auto;
+    /* margin: 1.85rem auto; */
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 1vw;
+    align-items: center;
+    justify-content: center;
   }
   .btn-div {
     letter-spacing: 0.3px;
@@ -109,7 +114,7 @@
   .surname-email input {
     font-size: 4vw;
     width: 90%;
-    margin: 0.5rem 2rem;
+    margin: 0rem 2rem;
     padding: 0.7rem 1rem;
     background-color: rgba(215, 214, 214, 0.669);
     font-family: "Public Sans", sans-serif;
@@ -118,30 +123,33 @@
     border: none;
   }
 
-  .surname_container {
+  /* .surname_container {
     margin: 3.6rem 0rem;
-  }
+  } */
   .signin-img {
-    background-size: cover;
+    /* background-size: contain; 
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
+    background-image: url("/public/Empty street-bro (1) 2.svg"); */
     background-color: rgba(132, 202, 255, 1);
     width: 100%;
-    height: 110vw;
-    margin: 0rem;
+    height: 107vw; 
+    margin: 0;
+    /* border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px; */
   }
+  
   .signin-img img {
     width: 100%;
-    height: 132vw;
   }
   .signin_container2 {
-
+    margin-top: 2.3rem;
   }
   .surname-password input {
     outline: none;
     border: none;
-    width: 78%;
+    width: 100%;
+    padding: 3rem;
     font-size: 4vw;
     background-color: transparent;
     border-radius: 2px;
@@ -154,7 +162,7 @@
     align-items: center;
     align-self: center;
     justify-content:space-between;
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 1rem;
     outline: none;
     border: none;
     width: 81%;
@@ -163,6 +171,11 @@
     background-color: rgba(215, 214, 214, 0.669);
   }
   .surname-password input:focus {
+    outline: none;
+    box-shadow: none;
+    background-color: none;
+  }
+  .surname-email input:focus {
     outline: none;
     box-shadow: none;
     background-color: none;

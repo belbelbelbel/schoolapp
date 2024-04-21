@@ -45,11 +45,10 @@ const Signin = () => {
       validateerror.push('the password is incomplete');
     }
     if (validateerror.length === 0) {
-      navigate('/school');
+      navigate('/review');
     }
     user.seterror(validateerror);
   };
-
   const buttonVariants = {
     initial: {
       y: "-10vh",
@@ -66,11 +65,11 @@ const Signin = () => {
     },
   };
 
-  let emailerror: React.ReactNode = '';
+  let emailerrors: React.ReactNode = '';
   if (user?.error.includes('The email is required')) {
-    emailerror = <div className="error">Your Email Is Required</div>;
+    emailerrors = <div className="error">Your Email Is Required</div>;
   } else if (user?.error.includes('The email is not correct')) {
-    emailerror = <div className="error">Your Email Is Not Correct</div>;
+    emailerrors = <div className="error">Please enter a valid email</div>;
   }
 
   let passworderror: React.ReactNode = '';
@@ -95,14 +94,14 @@ const Signin = () => {
       exit={{ opacity: 0 }}>
       <div className='signin_container'>
         <div className='signin-img'>
-          <img src="Empty street-bro (1) 1.svg" alt="" />
+          <img src="Empty street-bro (1) 1.svg" alt="fae" />
         </div>
         <div className='signin_container2'>
           <form onSubmit={handleSubmit}>
             <div className='surname_container'>
               <div className="surname-email">
-                <input placeholder="Email" onChange={handleOnchange} name="email" type="email" />
-                {emailerror}
+                <input placeholder="Email" onChange={handleOnchange} name="email" type="text" />
+                {emailerrors}
               </div>
               <div>
                 <div className="surname-password">

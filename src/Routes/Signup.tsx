@@ -2,12 +2,12 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../Styles/Signup.css";
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../Provider/Usecontext";
-import { animate, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
+
 const Signup = () => {
-  const locations = useLocation()
-  console.log(locations)
+  const locations = useLocation();
   const user = useContext(Context);
   const [show, setShow] = useState(false);
 
@@ -15,13 +15,11 @@ const Signup = () => {
     setShow((prevShow) => !prevShow);
   };
 
-  // const isFromHomepage = locations.pathname === "/";
   const [previousLocation, setPreviousLocation] = useState<string | null>(null);
-  // useEffect(() => {
-  //   console.log("tis is the  location",locations)
-  // }, [locations])
+
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
+
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     if (user) {
@@ -30,67 +28,54 @@ const Signup = () => {
         [name]: value.toString(),
       }));
       user.seterror([]);
-      setFirstName(value)
+      setFirstName(value);
     }
   };
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    let validateerror: string[] = [];
     const { formdata } = user || {};
-    if (!formdata?.surname.trim()) {
-      validateerror.push("Your surname is required");
-    }
-    if (!formdata?.birthday.trim()) {
-      validateerror.push("Your Date Of birth Is Required");
-    }
-    if (!formdata?.firstname.trim()) {
-      validateerror.push("Your firstname is required");
-    }
-    if (!formdata?.phonenumber.trim()) {
-      validateerror.push("Your valid phonenumber is required");
-    } else if (formdata.phonenumber.length < 11) {
-      validateerror.push("Please type in the complete phonenumber");
-    }
-    if (!formdata?.email.trim()) {
-      validateerror.push("Your email is required");
-    } else if (!/\S+@\S+\.\S+/.test(formdata.email)) {
-      validateerror.push("wrong email format");
-    }
-    if (!formdata?.school.trim()) {
-      validateerror.push("Your school detail is required");
-    }
-    if (!formdata?.class.trim()) {
-      validateerror.push("Your class is required");
-    }
-    if (!formdata?.password.trim()) {
-      validateerror.push("Your Password is required")
-    }
-    else if (formdata?.password.length < 6) {
-      validateerror.push("password should be greater than 6")
-    }
-    if (!formdata?.reason?.trim()) {
-      validateerror.push("Your reasons are required");
-    }
-    if (validateerror.length === 0) {
-      alert("👍Signup Successful");
-      navigate("/review");
-    } else {
-      console.error("Validation errors:", validateerror);
-    }
-    user?.seterror(validateerror);
-  };
-  const buttonVariants = {
-    initial: {
-      y: "-50vh",
-    },
-    animate: {
-      y: "0%",
-      transition: {
-        duration: 1.3,
-        delay: 0,
-        ease: "easeOut",
-      },
-    },
+      let validateerror: string[] = [];
+      if (!formdata?.surname.trim()) {
+        validateerror.push("Your surname is required");
+      }
+      if (!formdata?.birthday.trim()) {
+        validateerror.push("Your Date Of birth Is Required");
+      }
+      if (!formdata?.firstName.trim()) {
+        validateerror.push("Your firstname is required");
+      }
+      if (!formdata?.phoneNo.trim()) {
+        validateerror.push("Your valid phonenumber is required");
+      } else if (formdata.phoneNo.length < 11) {
+        validateerror.push("Please type in the complete phonenumber");
+      }
+      if (!formdata?.email.trim()) {
+        validateerror.push("Your email is required");
+      } else if (!/\S+@\S+\.\S+/.test(formdata.email)) {
+        validateerror.push("wrong email format");
+      }
+      if (!formdata?.presentSchool.trim()) {
+        validateerror.push("Your school detail is required");
+      }
+      if (!formdata?.classLevel.trim()) {
+        validateerror.push("Your class is required");
+      }
+      if (!formdata?.password.trim()) {
+        validateerror.push("Your Password is required");
+      } else if (formdata?.password.length < 6) {
+        validateerror.push("password should be greater than 6");
+      }
+      if (!formdata?.reasonForJoining?.trim()) {
+        validateerror.push("Your reasons are required");
+      }
+      if (validateerror.length > 0) {
+        console.error("Validation errors:", validateerror);
+        user?.seterror(validateerror);
+      }
+      if(validateerror.length === 0 ) {
+        alert("👍 Signup Successful");
+        navigate("/review");
+      }
   };
   let message: React.ReactNode = "";
   if (user?.error.includes("Your valid phonenumber is required")) {
@@ -120,19 +105,19 @@ const Signup = () => {
   };
 
   useEffect(() => {
-    setPreviousLocation(locations.pathname)
-  }, [locations])
-  //     initial= {{width:0}}
-  //animate = {{width: "100%"}}//
-  //exit={{x:window.innerWidth, transition:{duration : 0.5}}}>//
+    setPreviousLocation(locations.pathname);
+  }, [locations]);
+
   const isFromHomepage = previousLocation === "/";
   const signupClass = isFromHomepage ? 'signup_btn home-page' : 'signup_btn';
-  console.log(locations.state)
+
   return (
-    <motion.div className="signup"
+    <motion.div
+      className="signup"
       initial={{ opacity: 0 }}
       animate={{
-        opacity: 1, transition: {
+        opacity: 1,
+        transition: {
           duration: 2.5,
           delay: 0,
           ease: "easeOut",
@@ -153,7 +138,7 @@ const Signup = () => {
           variants={inputVariants}
           whileTap="tap">
           <label htmlFor="firstname"> First Name</label>
-          <input name="firstname" type="text" onChange={handleOnchange} />
+          <input name="firstName" type="text" onChange={handleOnchange} />
           {user?.error.includes("Your firstname is required") && <div className="error">Your Firstname Is Required.</div>}
         </motion.div>
         <motion.div className="surname"
@@ -167,7 +152,7 @@ const Signup = () => {
           variants={inputVariants}
           whileTap="tap">
           <label htmlFor="phonenumber"> Phone Number</label>
-          <input name="phonenumber" type="tel" onChange={handleOnchange} />
+          <input name="phoneNo" type="tel" onChange={handleOnchange} />
           {message}
         </motion.div>
         <motion.div className="surname"
@@ -180,15 +165,15 @@ const Signup = () => {
         <motion.div className="surname"
           variants={inputVariants}
           whileTap="tap">
-          <label htmlFor="school"> Present School</label>
-          <input name="school" type="text"  onChange={handleOnchange} />
+          <label htmlFor="presentSchool"> Present School</label>
+          <input name="presentSchool" type="text" onChange={handleOnchange} />
           {user?.error.includes("Your school detail is required") && <div className="error">Your School Details Are Required</div>}
         </motion.div>
         <motion.div className="surnames"
           variants={inputVariants}
           whileTap="tap">
-          <label htmlFor="school">Password</label>
-          <div className="surnamess"> <input type={show ? "text": "password"} name="password" onChange={handleOnchange} />
+          <label htmlFor="password">Password</label>
+          <div className="surnamess"> <input type={show ? "text" : "password"} name="password" onChange={handleOnchange} />
             {show ? (<PiEyeLight onClick={handleclick} style={{ fontSize: "6vw" }} />) : (<PiEyeSlash onClick={handleclick} style={{ fontSize: "6vw" }} />)}
           </div>
           {passwordmessage}
@@ -196,16 +181,16 @@ const Signup = () => {
         <motion.div className="surname"
           variants={inputVariants}
           whileTap="tap">
-          <label htmlFor="class"> Class/Level</label>
-          <input name="class" type="text" onChange={handleOnchange} />
+          <label htmlFor="classLevel"> Class/Level</label>
+          <input name="classLevel" type="text" onChange={handleOnchange} />
           {user?.error.includes("Your class is required") && <div className="error">Your Class/Level Is Required</div>}
         </motion.div>
         <motion.div className="surname"
           variants={inputVariants}
           whileTap="tap">
           <label htmlFor="reason"> Reason For Joining</label>
-          <input name="reason" type="text" onChange={handleOnchange} />
-          {user?.error.includes("Your reasons are required") && <div className="error">Your Valid Phonenumber Is Required</div>}
+          <input name="reasonForJoining" type="text" onChange={handleOnchange} />
+          {user?.error.includes("Your reasons are required") && <div className="error">Your Valid Reason for Joining</div>}
         </motion.div>
         <motion.div className="btn">
           <motion.button type="submit"

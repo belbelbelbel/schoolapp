@@ -1,6 +1,5 @@
 import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes, useLocation } from 'react-router-dom'
 import Signin from '../Routes/Signin'
-import Signup from '../Routes/Signup'
 import Home from '../Routes/Home'
 import { Review } from '../Routes/Review'
 import Nopage from '../Routes/Nopage'
@@ -13,6 +12,7 @@ import { Postgraduate } from '../Routes/Postgraduate'
 import { Contact } from '../Routes/Contact'
 import { Uselinks } from '../Routes/Uselinks'
 import { Documents } from '../Routes/Documents'
+import  Signup  from '../Routes/Signup'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",

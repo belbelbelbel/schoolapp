@@ -2,7 +2,7 @@
 @media screen and (max-width :768px) {
   input::placeholder {
     font-size: 14px;
-    font-family: "Libre Franklin", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
   }
   .signin {
     color: rgb(51, 75, 51);
@@ -16,6 +16,7 @@
     flex-direction: column;
     text-align: center;
     overflow: hidden;
+    font-family: FilsonPro-Medium, sans-serif
 }
 .signin_container {
   display: flex;
@@ -44,7 +45,7 @@
   .error {
     /* animation: moveText 10s linear infinite; */
     color: rgb(141, 4, 4);
-    font-family: "Libre Franklin", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     letter-spacing: 0.5px;
     font-size: 4vw;
     margin-bottom: 0rem;
@@ -62,7 +63,7 @@
   }
   .btn-div {
     letter-spacing: 0.3px;
-    font-family: "Libre Franklin", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     font-size: 3.5vw;
     font-weight: 500;
     text-align: center;
@@ -71,14 +72,14 @@
     color: rgba(141, 141, 141, 1);
     margin: 2rem 0rem;
     font-weight: 500;
-    font-family: "Libre Franklin", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     font-size: 4vw;
     text-align: center;
   }
   .btn-div2 span {
     color: rgba(11, 60, 73, 1);
     padding: 0rem 0.2rem;
-    font-family: "Libre Franklin", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     font-size: 4.3vw;
     font-weight: 600;
     text-align: center;
@@ -86,7 +87,7 @@
   a {
     text-decoration: none;
     color: rgba(11, 60, 73, 1);
-    font-family: "Libre Franklin", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
   }
 
   .signin_btn {
@@ -94,7 +95,7 @@
     margin: 0.7rem auto; 
     background-color: #0B3C49;
     text-align: center;
-    font-family: "Libre Franklin", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     border-radius: 14px;
     font-size: 5vw;
     color: white;
@@ -117,7 +118,7 @@
     margin: 0rem 2rem;
     padding: 0.7rem 1rem;
     background-color: rgba(215, 214, 214, 0.669);
-    font-family: "Public Sans", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     border-radius: 0.8rem;
     outline: none;
     border: none;
@@ -153,7 +154,7 @@
     font-size: 4vw;
     background-color: transparent;
     border-radius: 2px;
-    font-family: "Public Sans", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
   }
   .surname-password {
     display: flex;
@@ -198,7 +199,7 @@
     border-radius: 2px;
     outline: none;
     border: none;
-    font-family: "Public Sans", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
   }
   
   .surname-password input:focus {

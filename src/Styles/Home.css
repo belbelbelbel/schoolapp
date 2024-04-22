@@ -7,6 +7,7 @@
         background-repeat: no-repeat;
         background-attachment: scroll;
         transition: background-image 1s ease;
+        font-family: FilsonPro-Medium, sans-serif;
         height: 100vh;
         width: 100%;
         display: flex;
@@ -98,22 +99,26 @@
         animation-fill-mode: forwards;
     } */
     .home_container h1 img{
-        Line-height:60.09px;
-        font-family: "Libre Franklin", sans-serif;
+   
+        font-family: FilsonPro-Medium, sans-serif;
         font-size: 15vw;
         z-index: 9999; 
         display: flex;
-
-
+        width: 63%; /* Make the image fill the container */
+        height: auto; /* Maintain aspect ratio */
+        display: block; /* Make the image a block element */
+        position: fixed;
+        top: 2rem;
     }
     .home_container h1 {
         display: flex;
         align-items: center;
         margin: 0vw 9vw;
-        width: 50%;
-        align-items: center;
-        position: fixed;
-        top: 1.5rem;
+        width: 60vw; /* Set a fixed width for the container */
+     /* Set a fixed height for the container */
+        overflow: hidden; /* Hide any content that overflows the container */
+        position: relative; 
+
 
     }
     .logo.hidden {
@@ -128,7 +133,7 @@
         margin: 0rem auto; 
         background-color: white;
         text-align: center;
-        font-family: "Libre Franklin", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         font-weight: 600;
         border-radius: 14px;
         font-size: 6vw;
@@ -143,7 +148,7 @@
         margin: 0rem auto; 
         background-color: #0B3C49;
         text-align: center;
-        font-family: "Libre Franklin", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         font-weight: 600;
         border-radius: 14px;
         font-size: 6vw;

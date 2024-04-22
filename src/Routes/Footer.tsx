@@ -24,6 +24,8 @@ export const Footer = () => {
                     <div>Page creator: Uncle Simple<br />Page created: MAY9/2022<br />Last updated: MAY11/2022 by…</div>
                 </div>
             </div>
+            
         </div>
     )
 }
+

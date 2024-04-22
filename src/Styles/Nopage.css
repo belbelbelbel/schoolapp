@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Josefin+Sans:wght@200&family=Montserrat:ital,wght@1,200&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap");
 @media screen and (max-width: 768px) {
     .containerss {
-        font-family:"monserrat" sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         /* background: linear-gradient(125deg, #6a89cc, #b8e994); */
         width: 100%;
         margin: 30vw auto;
@@ -52,5 +52,6 @@
         border-radius: 100%;
         border:1px solid  #e55039aa;
         background-color: #e55039aa;
+        font-family: FilsonPro-Medium, sans-serif
     }
 }

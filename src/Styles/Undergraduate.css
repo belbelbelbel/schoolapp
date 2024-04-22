@@ -11,7 +11,7 @@
     .Undergraduate::-webkit-scrollbar{width: 0;}
     .Undergraduate input::placeholder {
         font-size: 5vw;
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         color: rgba(11, 60, 73, 0.5);
         font-weight: 600;
         margin: auto 0rem;
@@ -48,7 +48,7 @@
         align-self: center;
         align-content: center;
         text-align: center;
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         justify-content: space-between;
     }
 
@@ -65,7 +65,7 @@
         text-align: center;
         align-self: center;
         align-content: center;
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         outline: none;
         gap: 0.8rem;
         background-color: rgba(242, 242, 242, 1);
@@ -83,7 +83,7 @@
         align-items: center;
         align-self: center;
         align-content: center;
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         background-color: transparent;
         color: rgba(11, 60, 73, 0.5);
         font-weight: 600;
@@ -96,7 +96,7 @@
 
     .Undercover_container4 h1 {
         color: rgba(0, 0, 0, 1);
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         font-weight: 450;
         font-size: 7.6vw;
         margin-bottom: 1rem;
@@ -116,7 +116,7 @@
         align-items: flex-start;
         justify-content: flex-end;
         flex-direction: column;
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         font-weight: 600;
         font-size: 4.6vw;
         gap: 0.5rem;
@@ -134,7 +134,7 @@
     }
     .Undercover_container4 h2 {
         color: rgba(0, 0, 0, 1);
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         font-weight: 400;
         font-size: 6vw;
         margin: 2.5rem 0rem;
@@ -148,13 +148,13 @@
         width: 82vw;
         border-radius: 10px;
         color: rgba(255, 255, 255, 1);
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         display: flex;
         align-items: flex-start;
         justify-content: flex-end;
         flex-direction: column;
         padding: 2rem 1rem;
-        font-weight: 600;
+        font-weight: 400;
         font-size: 5vw;
     }
     .Undercover_container7{
@@ -244,7 +244,7 @@
         width: 82vw;
         border-radius: 10px;
         color: rgba(255, 255, 255, 1);
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         display: flex;
         align-items: flex-start;
         justify-content: flex-end;
@@ -265,7 +265,7 @@
     .eze {
         font-size: 5vw;
         font-weight: 500;
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
     }
 
 }

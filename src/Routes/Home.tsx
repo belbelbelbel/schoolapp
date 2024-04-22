@@ -68,7 +68,7 @@ const Home = () => {
     useEffect(() => {
         const timer = setTimeout(() => {
             setShowLogo(false);
-        }, 5000);
+        }, 5500);
         return () => {
             clearTimeout(timer);
         };

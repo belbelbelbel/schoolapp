@@ -14,7 +14,7 @@
     }
     .Contact_headers{
         font-size: 6.3vw;
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         font-weight: 500;
         width: 86%;
         margin: 0rem auto;
@@ -28,7 +28,7 @@
         width: 86%;
         border-radius: 10px;
         color: rgba(255, 255, 255, 1);
-        font-family: "Inter", sans-serif;
+        font-family: FilsonPro-Medium, sans-serif;
         display: flex;
         align-items: flex-start;
         justify-content: flex-end;

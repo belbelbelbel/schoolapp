@@ -22,7 +22,7 @@
     font-weight: 800;
     color: #333;
     margin-bottom: 10px;
-    font-family: "Public Sans", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     text-align: center;
     font-optical-sizing: auto;
     font-weight: 600;
@@ -39,7 +39,7 @@
     margin: 0 auto;
     background-color: #0B3C49;
     text-align: center;
-    font-family: "Inter", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     border-radius: 14px;
     font-size: 6vw;
     color: white;
@@ -105,7 +105,7 @@
 
   .surname label {
     display: block;
-    font-family: "Inter", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     font-weight: 600;
     margin: 0.02rem 1rem;
     justify-content: start;
@@ -145,7 +145,7 @@
   }
   .surnames label {
     display: block;
-    font-family: "Inter", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     font-weight: 600;
     margin: 0rem 0rem;
     justify-content: start;
@@ -160,7 +160,7 @@
     margin: rem 0rem;
     padding: 0.9rem 0rem;
     background-color: transparent;
-    font-family: "Inter", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     border-radius: 0.8rem;
     outline: none;
     border: none;
@@ -172,7 +172,7 @@
     margin: 0.5rem 0rem;
     padding: 0.9rem 1rem;
     background-color: rgba(215, 214, 214, 0.669);
-    font-family: "Inter", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     border-radius: 0.8rem;
     outline: none;
     border: none;
@@ -186,7 +186,7 @@
     color: black; 
     margin-bottom: 2rem;
     font-weight: 450; 
-    font-family: "Inter", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     font-size: 4.3vw;
     /* letter-spacing: 0.1vw;  */
     text-align: center;
@@ -195,7 +195,7 @@
   .btn-div21 span {
     color: rgba(11, 60, 73, 1);
     padding: 0rem 0.2rem;
-    font-family: "Inter", sans-serif;
+    font-family: FilsonPro-Medium, sans-serif;
     font-size: 4.7vw;
     /* letter-spacing: 0.3vw; */
     font-weight: 600;

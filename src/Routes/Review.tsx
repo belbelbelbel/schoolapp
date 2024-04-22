@@ -19,7 +19,7 @@ export const Review = () => {
   const [show, setShow] = useState(true);
   const [name, setName] = useState<string>(() => {
     const storedName = localStorage.getItem("firstName");
-    return storedName ? storedName : context?.formdata.firstname ?? "";
+    return storedName ? storedName : context?.formdata.firstName ?? "";
   });
   const handleCloseModal = () => {
     setShow(false);
@@ -102,8 +102,8 @@ export const Review = () => {
     return letter ? letter.charAt(0).toUpperCase() + letter.slice(1) : "";
   }
   useEffect(() => {
-    localStorage.setItem("firstName", context?.formdata.firstname ?? "");
-  }, [context?.formdata.firstname]);
+    localStorage.setItem("firstName", context?.formdata.firstName ?? "");
+  }, [context?.formdata.firstName]);
   return (
     <motion.div className="review_container"
     initial={{ opacity: 0 }}
@@ -140,4 +140,5 @@ export const Review = () => {
   </motion.div>
   );
 };
+
 

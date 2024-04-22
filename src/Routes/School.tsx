@@ -2,15 +2,22 @@ import React, { useEffect, useState } from 'react';
 import '../Styles/School.css';
 import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion"
-import { error } from 'console';
-
 export const School = () => {
 
   const [search, setsearch] = useState([])
   const [input, setInput] = useState("");
+
+const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MjM5YTk0MzNiNzlkNjJjZTA0MTAzOSIsIm5hbWUiOiJkZW1vIGV4YW1wbGUiLCJwaG9uZSI6IjEyMzQ1Njc4OSIsImlhdCI6MTcxMzYxMDQzMywiZXhwIjoxNzEzODY5NjMzfQ._RBp9tNAhuo8jb8Ue5j1BJIbRLELob6vWEqwEF1EAPM";
+
   const handlefilter = async (value: string) => {
     try {
-      const res = await fetch(`https://almaquin.onrender.com/api/university/overview?university=${value}`)
+      const res = await fetch(`https://almaquin.onrender.com/api/university/overview?university=${value}`,{
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "Cookie" : `${authToken}`
+        },
+      })
       if (!res.ok) {
         throw new Error("failed to fecth data")
       }
@@ -18,7 +25,7 @@ export const School = () => {
       console.log(result.data)
     }
     catch (error) {
-      console.error(error)
+      console.error("error",error)
     }
   }
 

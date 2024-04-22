@@ -1,22 +1,26 @@
 import { createContext, useState, ReactNode } from "react";
+import { format } from 'date-fns';
+
 export type valueprops = {
   surname: string;
-  firstname: string;
+  firstName: string;
   birthday: string;
-  phonenumber: string;
+  phoneNo: string;
   email: string;
-  school: string;
-  class: string;
-  reason: string;
-  password :"",
+  presentSchool: string;
+  classLevel: string;
+  reasonForJoining: string;
+  password: string;
   error: string[];
 };
+
 type dataprops = {
   formdata: valueprops;
   setformdata: React.Dispatch<React.SetStateAction<valueprops>>;
-  error: string[]; 
+  error: string[];
   seterror: React.Dispatch<React.SetStateAction<string[]>>;
 };
+
 type childrenprops = {
   children: ReactNode;
 };
@@ -26,16 +30,17 @@ export const Context = createContext<dataprops | null>(null);
 export const Usecontext = ({ children }: childrenprops) => {
   const [formdata, setformdata] = useState<valueprops>({
     surname: "",
-    firstname: "",
+    firstName: "",
     birthday: "",
-    phonenumber: "",
+    phoneNo: "",
     email: "",
-    school: "",
-    class: "",
-    reason: "",
-    password :"",
-    error: [], 
+    presentSchool: "",
+    classLevel: "",
+    reasonForJoining: "",
+    password: "",
+    error: [],
   });
+
   const [error, seterror] = useState<string[]>([]);
 
   return (

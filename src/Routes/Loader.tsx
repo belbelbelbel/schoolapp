@@ -30,8 +30,6 @@ const Loader = (props: Props) => {
         data-testid="loader">
         </ClimbingBoxLoader> */}
          {/* <h1><motion.img  src="color_logo_transparent.svg" className='blinking-image' alt="4retrfw" width="320vw"  /></h1> */}
-
-    
          <video
       autoPlay
       muted

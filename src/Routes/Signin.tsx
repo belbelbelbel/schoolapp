@@ -6,21 +6,17 @@ import '../Styles/Signin.css';
 import { Link } from 'react-router-dom';
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
-
 const Signin = () => {
   const locations = useLocation();
   const navigate = useNavigate();
   const user = useContext(Context);
   const [show, setShow] = useState(false);
-
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
-
   useEffect(() => {
     console.log("this is location", locations)
   }, [locations])
-
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     user?.setformdata({
@@ -28,27 +24,48 @@ const Signin = () => {
       [name]: value,
     });
   };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    let validateerror: string[] = [];
+  let validateerror: string[] = [];
+  const { formdata } = user || {};
+ 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (!user || !user.formdata) return;
-
-    if (!user.formdata.email.trim()) {
-      validateerror.push('The email is required');
-    } else if (!/\S+@\S+\.\S+/.test(user.formdata.email)) {
-      validateerror.push('The email is not correct');
-    }
-    if (!user.formdata.password.trim()) {
-      validateerror.push('the password is required');
-    } else if (user.formdata.password.length < 6) {
-      validateerror.push('the password is incomplete');
-    }
-    if (validateerror.length === 0) {
+    try {
+      const {email,password} = formdata || {}
+      const res = await fetch("https://almaquin.onrender.com/api/login", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(
+          {
+            email,
+            password
+          }
+        )
+      })
+      const result = await res.json()
+      console.log(result)
+      if (!res.ok) {
+        throw new Error("error fetching user signin")
+      }
+      alert("👍 Signin Successful");
       navigate('/review');
-    }
-    user.seterror(validateerror);
-  };
+    } catch (error) {
+      if (!formdata?.email.trim()) {
+        validateerror.push('The email is required');
+      }
+      else if (!/\S+@\S+\.\S+/.test(formdata?.email)) {
+        validateerror.push('The email is not correct');
+      }
+      if (!formdata?.password.trim()) {
+        validateerror.push('the password is required');
+      } else if (formdata?.password.length < 6) {
+        validateerror.push('the password is incomplete');
+      }
+      user?.seterror(validateerror);
+      console.log("error occured", error);
+    };
+  }
   const buttonVariants = {
     initial: {
       y: "-10vh",
@@ -64,7 +81,6 @@ const Signin = () => {
       opacity: 1
     },
   };
-
   let emailerrors: React.ReactNode = '';
   if (user?.error.includes('The email is required')) {
     emailerrors = <div className="error">Your Email Is Required</div>;
@@ -138,3 +154,4 @@ const Signin = () => {
 };
 
 export default Signin;
+

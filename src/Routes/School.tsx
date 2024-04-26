@@ -28,17 +28,15 @@ const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MjM5YTk0MzNi
       console.error("error",error)
     }
   }
-
   const handleOnchange = (value:string) => {
     setInput(value)
     handlefilter(value)
   }
-
   const navigate = useNavigate()
   const handleClick = () => {
     navigate("covenant-university")
   }
-  return (
+  return (     
     <motion.div
       initial={{}}
       animate={{}}

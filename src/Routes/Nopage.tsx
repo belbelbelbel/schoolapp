@@ -2,6 +2,8 @@ import "../Styles/Nopage.css"
 import Lottie from "lottie-react"
 import animatedData from "../Styles/Nopage.json"
 import { NavLink } from "react-router-dom"
+import { Footer } from "./Footer"
+
 const Nopage = () => {
   return (
     <div className="containerss">
@@ -11,9 +13,8 @@ const Nopage = () => {
         </div>
         <h2>Opps's Page not found</h2>
         <h1>404</h1>
-        <p>We can't find the page you are lookin for</p>
+        <p>We can't find the page you are looking for</p>
         <NavLink to="/">go back home</NavLink>
-       
       </div>
     </div>
   )

@@ -5,6 +5,7 @@ import { Context } from "../Provider/Usecontext";
 import { motion } from "framer-motion";
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
+import { ToastContainer,toast } from "react-toastify";
 
 const Signup = () => {
   const locations = useLocation();
@@ -15,12 +16,14 @@ const Signup = () => {
     setShow((prevShow) => !prevShow);
   };
 
+  
   const [previousLocation, setPreviousLocation] = useState<string | null>(null);
 
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
-
+  const { formdata } = user || {};
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  
     const { value, name } = e.target;
     if (user) {
       user.setformdata((prevFormData) => ({
@@ -31,9 +34,31 @@ const Signup = () => {
       setFirstName(value);
     }
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const { formdata } = user || {};
+    console.log(JSON.stringify(formdata))
+    try {
+      const res = await fetch("https://almaquin.onrender.com/api/signup",{
+      method:"POST",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(formdata)
+    })
+    const result  = await res.json()
+
+    console.log(result);
+
+    if (!res.ok) {
+      throw new Error("error fetching user signup")
+    }
+    
+    
+
+    alert("👍 Signup Successful");
+    navigate("/review");
+    } catch (error) {
       let validateerror: string[] = [];
       if (!formdata?.surname.trim()) {
         validateerror.push("Your surname is required");
@@ -72,10 +97,10 @@ const Signup = () => {
         console.error("Validation errors:", validateerror);
         user?.seterror(validateerror);
       }
-      if(validateerror.length === 0 ) {
-        alert("👍 Signup Successful");
-        navigate("/review");
-      }
+      console.log("error occued again",error)
+      toast("retesrfew")
+    }
+     
   };
   let message: React.ReactNode = "";
   if (user?.error.includes("Your valid phonenumber is required")) {
@@ -89,7 +114,6 @@ const Signup = () => {
   } else if (user?.error.includes("Your email is required")) {
     errormessage = <div className="error">Your Email Is Required</div>;
   }
-
   let passwordmessage: React.ReactNode
 
   if (user?.error.includes("Your Password is required")) {

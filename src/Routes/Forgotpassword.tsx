@@ -7,11 +7,26 @@ type Props = {}
 const Forgotpassword = (props: Props) => {
     const location = useNavigate();
     const user = useContext(Context);
+    
+    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        let validateerror: string[] = [];
+        e.preventDefault();
+        if (!user || !user.formdata) return;
+        if (!user.formdata.email.trim()) {
+            validateerror.push('The email is requireds');
+        } else if (!/\S+@\S+\.\S+/.test(user.formdata.email)) {
+            validateerror.push('The email is not corrects');
+        }
+        if (validateerror.length === 0) {
+            location('/review');
+        }
+        user.seterror(validateerror);
+    };
     let emailerror: React.ReactNode = '';
-    if (user?.error.includes('The email is required')) {
-        emailerror = <div className="error">Your Email Is Required</div>;
-    } else if (user?.error.includes('The email is not correct')) {
-        emailerror = <div className="error"> Please enter a valid email</div>;
+    if (user?.error.includes('The email is requireds')) {
+        emailerror = <div className="errors"> Email Is Required</div>;
+    } else if (user?.error.includes('The email is not corrects')) {
+        emailerror = <div className="errors"> Please enter a valid email</div>;
     }
     function handleOnchange(event: ChangeEvent<HTMLInputElement>): void {
         const { value, name } = event.target;
@@ -20,20 +35,6 @@ const Forgotpassword = (props: Props) => {
             [name]: value,
         });
     }
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        let validateerror: string[] = [];
-        e.preventDefault();
-        if (!user || !user.formdata) return;
-        if (!user.formdata.email.trim()) {
-            validateerror.push('The email is required');
-        } else if (!/\S+@\S+\.\S+/.test(user.formdata.email)) {
-            validateerror.push('The email is not correct');
-        }
-        if (validateerror.length === 0) {
-            location('/review');
-        }
-        user.seterror(validateerror);
-    };
     return (
         <motion.div className="forgot-password-container"
         initial={{opacity : 0}}

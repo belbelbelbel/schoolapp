@@ -14,7 +14,6 @@
     justify-content: center;
     display: flex;
     flex-direction: column;
-    text-align: center;
     overflow: hidden;
     font-family: FilsonPro-Medium, sans-serif
 }
@@ -49,6 +48,15 @@
     letter-spacing: 0.5px;
     font-size: 4vw;
     margin: 1vw;
+  }
+
+  .errors {
+    /* animation: moveText 10s linear infinite; */
+    color: rgb(141, 4, 4);
+    font-family: FilsonPro-Medium, sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 4vw;
+    margin: 1vw 2.5rem;
   }
 
   .btn {
@@ -109,8 +117,8 @@
       margin: 1.6rem auto;
       width: 90%;
       flex-direction: column;
-      justify-content: center;      
-      align-items: center;
+      justify-content: center;   
+      align-items: center;  
   }
   .surname-email input {
     font-size: 4vw;
@@ -159,7 +167,6 @@
   .surname-password {
     display: flex;
     flex-direction: row;
-    text-align: center;
     align-items: center;
     align-self: center;
     justify-content:space-between;
@@ -215,7 +222,12 @@
     transform: translateY(-50%);
     cursor: pointer;
   }
-  
+  .surname-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
 /* display: flex;
 flex-direction: row;

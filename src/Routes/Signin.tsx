@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom'; // Corrected import
 import { Context } from '../Provider/Usecontext';
 import { motion } from 'framer-motion';
 import '../Styles/Signin.css';
+import Lottie from "lottie-react";
+import animatedData from "../Styles/D0cWBC6ZWu.json"
 import { Link } from 'react-router-dom';
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
@@ -14,6 +16,7 @@ const Signin = () => {
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
+  const [Isloading, setIsLoading] = useState(false)
   useEffect(() => {
     console.log("this is location", locations)
   }, [locations])
@@ -26,12 +29,13 @@ const Signin = () => {
   };
   let validateerror: string[] = [];
   const { formdata } = user || {};
- 
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
-      const {email,password} = formdata || {}
-      const res = await fetch("https://almaquin.onrender.com/api/login", {
+      const { email, password } = formdata || {}
+      const res = await fetch("https://9cc4-105-112-192-185.ngrok-free.app/api/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json"
@@ -43,6 +47,7 @@ const Signin = () => {
           }
         )
       })
+      
       const result = await res.json()
       console.log(result)
       if (!res.ok) {
@@ -64,7 +69,9 @@ const Signin = () => {
       }
       user?.seterror(validateerror);
       console.log("error occured", error);
-    };
+    } finally {
+      setIsLoading(false);
+    }
   }
   const buttonVariants = {
     initial: {
@@ -83,16 +90,16 @@ const Signin = () => {
   };
   let emailerrors: React.ReactNode = '';
   if (user?.error.includes('The email is required')) {
-    emailerrors = <div className="error">Your Email Is Required</div>;
+    emailerrors = <div className="errors"> Email Is Required</div>;
   } else if (user?.error.includes('The email is not correct')) {
-    emailerrors = <div className="error">Please enter a valid email</div>;
+    emailerrors = <div className="errors">Please enter a valid email</div>;
   }
 
   let passworderror: React.ReactNode = '';
   if (user?.error.includes('the password is required')) {
-    passworderror = <div className="error">Your Password Is Required</div>;
+    passworderror = <div className="errors"> Password Is Required</div>;
   } else if (user?.error.includes('the password is incomplete')) {
-    passworderror = <div className="error">Your Password Is Incomplete</div>;
+    passworderror = <div className="errors"> Password Is Incomplete</div>;
   }
 
   return (
@@ -119,7 +126,7 @@ const Signin = () => {
                 <input placeholder="Email" onChange={handleOnchange} name="email" type="text" />
                 {emailerrors}
               </div>
-              <div>
+              <div className='surname-cont'>
                 <div className="surname-password">
                   <input
                     placeholder="Password"
@@ -139,7 +146,8 @@ const Signin = () => {
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   animate="animate">
-                  Sign in
+
+                  {Isloading ? <div style={{ width: "" }}><Lottie animationData={animatedData}  style={{ width: "5vw" }}></Lottie></div> : " Sign in"}
                 </motion.button>
                 <div className="btn-div"><Link to="/forgotpassword">Forgot Password?</Link>
                 </div>

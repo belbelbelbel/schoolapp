@@ -3,12 +3,15 @@ import "../Styles/Signup.css";
 import React, { useContext, useEffect, useState } from "react";
 import { Context } from "../Provider/Usecontext";
 import { motion } from "framer-motion";
+import Lottie from "lottie-react";
+import animatedData from "../Styles/D0cWBC6ZWu.json"
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
 import { ToastContainer,toast } from "react-toastify";
 
 const Signup = () => {
   const locations = useLocation();
+  const [Isloading, setIsLoading] = useState(false)
   const user = useContext(Context);
   const [show, setShow] = useState(false);
 
@@ -32,6 +35,7 @@ const Signup = () => {
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     console.log(JSON.stringify(formdata))
     try {
       const res = await fetch("https://9cc4-105-112-192-185.ngrok-free.app/api/signup",{
@@ -87,10 +91,13 @@ const Signup = () => {
       console.log("error occued again",error)
       toast("retesrfew")
     }
+    finally {
+      setIsLoading(false);
+    }
   };
   let message: React.ReactNode = "";
   if (user?.error.includes("Your valid phonenumber is required")) {
-    message = <div className="error">Your Valid Phonenumber Is Required</div>;
+    message = <div className="error">A Valid Phonenumber Is Required</div>;
   } else if (user?.error.includes("Please type in the complete phonenumber")) {
     message = <div className="error">Incomplete Phone Number</div>;
   }
@@ -98,12 +105,12 @@ const Signup = () => {
   if (user?.error.includes("wrong email format")) {
     errormessage = <div className="error">Wrong Email Address</div>;
   } else if (user?.error.includes("Your email is required")) {
-    errormessage = <div className="error">Your Email Is Required</div>;
+    errormessage = <div className="error"> Email Is Required</div>;
   }
   let passwordmessage: React.ReactNode
 
   if (user?.error.includes("Your Password is required")) {
-    passwordmessage = <div className="error">Your password is required</div>
+    passwordmessage = <div className="error"> password is required</div>
   }
   else if (user?.error.includes("password should be greater than 6")) {
     passwordmessage = <div className="error">characters should be 6 and above</div>
@@ -142,21 +149,21 @@ const Signup = () => {
           whileTap="tap" >
           <label htmlFor="surname"> Surname</label>
           <input name="surname" type="text" onChange={handleOnchange} />
-          {user?.error.includes("Your surname is required") && <div className="error">Your Surname Is Required.</div>}
+          {user?.error.includes("Your surname is required") && <div className="error"> Surname Is Required.</div>}
         </motion.div>
         <motion.div className="surname"
           variants={inputVariants}
           whileTap="tap">
           <label htmlFor="firstname"> First Name</label>
           <input name="firstName" type="text" onChange={handleOnchange} />
-          {user?.error.includes("Your firstname is required") && <div className="error">Your Firstname Is Required.</div>}
+          {user?.error.includes("Your firstname is required") && <div className="error"> Firstname Is Required.</div>}
         </motion.div>
         <motion.div className="surname"
           variants={inputVariants}
           whileTap="tap">
           <label htmlFor="birthday"> Birthday</label>
           <input name="birthday" type="date" onChange={handleOnchange} />
-          {user?.error.includes("Your Date Of birth Is Required") && <div className="error"> Your Date Of Birth Is Required</div>}
+          {user?.error.includes("Your Date Of birth Is Required") && <div className="error">  Date Of Birth Is Required</div>}
         </motion.div>
         <motion.div className="surname"
           variants={inputVariants}
@@ -177,7 +184,7 @@ const Signup = () => {
           whileTap="tap">
           <label htmlFor="presentSchool"> Present School</label>
           <input name="presentSchool" type="text" onChange={handleOnchange} />
-          {user?.error.includes("Your school detail is required") && <div className="error">Your School Details Are Required</div>}
+          {user?.error.includes("Your school detail is required") && <div className="error"> School Details Are Required</div>}
         </motion.div>
         <motion.div className="surnames"
           variants={inputVariants}
@@ -193,14 +200,14 @@ const Signup = () => {
           whileTap="tap">
           <label htmlFor="classLevel"> Class/Level</label>
           <input name="classLevel" type="text" onChange={handleOnchange} />
-          {user?.error.includes("Your class is required") && <div className="error">Your Class/Level Is Required</div>}
+          {user?.error.includes("Your class is required") && <div className="error"> Class/Level Is Required</div>}
         </motion.div>
         <motion.div className="surname"
           variants={inputVariants}
           whileTap="tap">
           <label htmlFor="reason"> Reason For Joining</label>
           <input name="reasonForJoining" type="text" onChange={handleOnchange} />
-          {user?.error.includes("Your reasons are required") && <div className="error">Your Valid Reason for Joining</div>}
+          {user?.error.includes("Your reasons are required") && <div className="error"> Valid Reason for Joining</div>}
         </motion.div>
         <motion.div className="btn">
           <motion.button type="submit"
@@ -209,8 +216,8 @@ const Signup = () => {
             initial="initial"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            animate="animate"
-          >Sign Up</motion.button>
+            animate="animate">
+          {Isloading ? <div style={{ width: "4.3vw" }}><Lottie animationData={animatedData}  style={{ width: "5vw" }}></Lottie></div> : " Sign up"}</motion.button>
         </motion.div>
         <div className='btn-div21'>Don't have an account?<span><Link to='/signin'>Sign In</Link></span> </div>
       </form>

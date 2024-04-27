@@ -15,15 +15,11 @@ const Signup = () => {
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
-
-  
   const [previousLocation, setPreviousLocation] = useState<string | null>(null);
-
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const { formdata } = user || {};
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  
     const { value, name } = e.target;
     if (user) {
       user.setformdata((prevFormData) => ({
@@ -34,12 +30,11 @@ const Signup = () => {
       setFirstName(value);
     }
   };
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     console.log(JSON.stringify(formdata))
     try {
-      const res = await fetch("https://almaquin.onrender.com/api/signup",{
+      const res = await fetch("https://9cc4-105-112-192-185.ngrok-free.app/api/signup",{
       method:"POST",
       headers: {
         "Content-type": "application/json"
@@ -47,15 +42,10 @@ const Signup = () => {
       body: JSON.stringify(formdata)
     })
     const result  = await res.json()
-
     console.log(result);
-
     if (!res.ok) {
       throw new Error("error fetching user signup")
     }
-    
-    
-
     alert("👍 Signup Successful");
     navigate("/review");
     } catch (error) {
@@ -93,14 +83,10 @@ const Signup = () => {
       if (!formdata?.reasonForJoining?.trim()) {
         validateerror.push("Your reasons are required");
       }
-      if (validateerror.length > 0) {
-        console.error("Validation errors:", validateerror);
         user?.seterror(validateerror);
-      }
       console.log("error occued again",error)
       toast("retesrfew")
     }
-     
   };
   let message: React.ReactNode = "";
   if (user?.error.includes("Your valid phonenumber is required")) {

@@ -38,7 +38,7 @@ const Signup = () => {
     setIsLoading(true);
     console.log(JSON.stringify(formdata))
     try {
-      const res = await fetch("https://9cc4-105-112-192-185.ngrok-free.app/api/signup",{
+      const res = await fetch("https://1eeb-105-112-192-185.ngrok-free.app/api/signup",{
       method:"POST",
       headers: {
         "Content-type": "application/json"

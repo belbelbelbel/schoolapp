@@ -13,6 +13,7 @@ const Signin = () => {
   const navigate = useNavigate();
   const user = useContext(Context);
   const [show, setShow] = useState(false);
+
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
@@ -35,7 +36,7 @@ const Signin = () => {
     setIsLoading(true);
     try {
       const { email, password } = formdata || {}
-      const res = await fetch("https://9cc4-105-112-192-185.ngrok-free.app/api/login", {
+      const res = await fetch("https://1eeb-105-112-192-185.ngrok-free.app/api/login", {
         method: "POST",
         headers: {
           "Content-type": "application/json"
@@ -47,9 +48,9 @@ const Signin = () => {
           }
         )
       })
-      
       const result = await res.json()
       console.log(result)
+
       if (!res.ok) {
         throw new Error("error fetching user signin")
       }

@@ -1,26 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { ReactNode, useEffect, useState } from 'react';
 import '../Styles/School.css';
 import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion"
+interface University {
+  id: string;
+  // Add other properties as needed
+}
 export const School = () => {
 
   const [input, setInput] = useState("");
-
-
-  // const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MjM5YTk0MzNiNzlkNjJjZTA0MTAzOSIsIm5hbWUiOiJkZW1vIGV4YW1wbGUiLCJwaG9uZSI6IjEyMzQ1Njc4OSIsImlhdCI6MTcxMzYxMDQzMywiZXhwIjoxNzEzODY5NjMzfQ._RBp9tNAhuo8jb8Ue5j1BJIbRLELob6vWEqwEF1EAPM";
+  const [search,setsearch] = useState([])
+ 
+  // const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2M…zIzfQ.sdhvgd4HXmcs43YMjZgVxn3Uz9HNtjCqClmT8vFQmwk"
+  const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
   const handlefilter = async (value: string) => {
     try {
-      const res = await fetch(`https://9cc4-105-112-192-185.ngrok-free.app/api/university/?name=${value}`,{
+      const res = await fetch(`https://1eeb-105-112-192-185.ngrok-free.app/api/university/?name=${value}`, {
         method: "GET",
         headers: {
-          "Content-type": "application/json"
+          "Content-type": "application/json",
+          "ngrok-skip-browser-warning": "69420",
+          "Authorization": jwtToken
         },
       })
       const result = await res.json();
       console.log(result.data);
-    if (!res.ok) {
-      throw new Error("Failed to fetch data from the API");
-    }
+      setsearch(result.data)
+      // setsearch(result.data)
+      if (!res.ok) {
+        throw new Error("Failed to fetch data from the API");
+      }
     } catch (error) {
       console.log('Error parsing JSON:', error, value);
     }
@@ -52,7 +61,15 @@ export const School = () => {
             co-uni
           </button>
           {
-
+            search.map((data: {
+              founded: ReactNode;
+              name: ReactNode; id: React.Key | null | undefined; 
+})=> (
+              <div key={data.id}> 
+                <div>{data.name}</div>
+                <div>{data.founded}</div>
+              </div>
+            ))
           }
         </div>
       </div>

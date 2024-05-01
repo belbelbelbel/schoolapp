@@ -65,9 +65,9 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    gap: 1vw;
+    gap: 16vw;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
   }
   .btn-div {
     letter-spacing: 0.3px;
@@ -115,7 +115,7 @@
   .surname-email  {
     display: flex;
       margin: 1.6rem auto;
-      width: 90%;
+      width: 100%;
       flex-direction: column;
       justify-content: center;   
       align-items: center;  
@@ -173,7 +173,7 @@
     padding: 0.5rem 1rem;
     outline: none;
     border: none;
-    width: 81%;
+    width: 91%;
     border-radius: 0.8rem;
     margin: 0rem auto;
     background-color: rgba(215, 214, 214, 0.669);

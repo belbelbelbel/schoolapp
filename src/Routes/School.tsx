@@ -2,15 +2,12 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import '../Styles/School.css';
 import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion"
-interface University {
-  id: string;
-  // Add other properties as needed
-}
+
 export const School = () => {
 
   const [input, setInput] = useState("");
-  const [search,setsearch] = useState([])
- 
+  const [search, setsearch] = useState([])
+
   // const authToken = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2M…zIzfQ.sdhvgd4HXmcs43YMjZgVxn3Uz9HNtjCqClmT8vFQmwk"
   const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
   const handlefilter = async (value: string) => {
@@ -26,10 +23,9 @@ export const School = () => {
       const result = await res.json();
       console.log(result.data);
       setsearch(result.data)
-      // setsearch(result.data)
       if (!res.ok) {
         throw new Error("Failed to fetch data from the API");
-      }
+      } 
     } catch (error) {
       console.log('Error parsing JSON:', error, value);
     }
@@ -63,9 +59,9 @@ export const School = () => {
           {
             search.map((data: {
               founded: ReactNode;
-              name: ReactNode; id: React.Key | null | undefined; 
-})=> (
-              <div key={data.id}> 
+              name: ReactNode; id: React.Key | null | undefined;
+            }) => (
+              <div key={data.id}>
                 <div>{data.name}</div>
                 <div>{data.founded}</div>
               </div>

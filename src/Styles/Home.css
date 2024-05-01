@@ -113,7 +113,7 @@
     .home_container h1 {
         display: flex;
         align-items: center;
-        margin: 0vw 9vw;
+       margin: 0rem auto;
         width: 60vw; /* Set a fixed width for the container */
      /* Set a fixed height for the container */
         overflow: hidden; /* Hide any content that overflows the container */
@@ -129,7 +129,7 @@
         height: auto;
     }
     .signupbtn {
-        padding: 1vw 14vw;
+        padding: 1vw 16vw;
         margin: 0rem auto; 
         background-color: white;
         text-align: center;
@@ -144,7 +144,7 @@
     }
    
     .signinbtn {
-        padding: 1vw 14vw;
+        padding: 1vw 16vw;
         margin: 0rem auto; 
         background-color: #0B3C49;
         text-align: center;

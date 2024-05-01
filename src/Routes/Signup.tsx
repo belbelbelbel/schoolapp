@@ -1,21 +1,31 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../Styles/Signup.css";
 import React, { useContext, useEffect, useState } from "react";
+import { IoMdArrowDropdown } from "react-icons/io";
+import { IoMdArrowDropup } from "react-icons/io";
 import { Context } from "../Provider/Usecontext";
 import { motion } from "framer-motion";
 import Lottie from "lottie-react";
 import animatedData from "../Styles/D0cWBC6ZWu.json"
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
-import { ToastContainer,toast } from "react-toastify";
-
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const Signup = () => {
   const locations = useLocation();
   const [Isloading, setIsLoading] = useState(false)
   const user = useContext(Context);
   const [show, setShow] = useState(false);
+  const [shows, setShows] = useState(false);
+  const [showss, setShowss ] = useState(false);
 
   const handleclick = () => {
+    setShow((prevShow) => !prevShow);
+  };
+    const handleclicks = () => {
+    setShow((prevShow) => !prevShow);
+  };
+    const handleclickss = () => {
     setShow((prevShow) => !prevShow);
   };
   const [previousLocation, setPreviousLocation] = useState<string | null>(null);
@@ -38,20 +48,21 @@ const Signup = () => {
     setIsLoading(true);
     console.log(JSON.stringify(formdata))
     try {
-      const res = await fetch("https://1eeb-105-112-192-185.ngrok-free.app/api/signup",{
-      method:"POST",
-      headers: {
-        "Content-type": "application/json"
-      },
-      body: JSON.stringify(formdata)
-    })
-    const result  = await res.json()
-    console.log(result);
-    if (!res.ok) {
-      throw new Error("error fetching user signup")
-    }
-    alert("👍 Signup Successful");
-    navigate("/review");
+      const res = await fetch("https://almaquin-rua7.onrender.com/api/signup", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(formdata)
+      })
+      const result = await res.json()
+      console.log(result);
+      toast.error(result.message)
+      if (!res.ok) {
+        throw new Error("error fetching user signup")
+      }
+      toast.success("👍 Signup Successful");
+      navigate("/review");
     } catch (error) {
       let validateerror: string[] = [];
       if (!formdata?.surname.trim()) {
@@ -87,9 +98,9 @@ const Signup = () => {
       if (!formdata?.reasonForJoining?.trim()) {
         validateerror.push("Your reasons are required");
       }
-        user?.seterror(validateerror);
-      console.log("error occued again",error)
-      toast("retesrfew")
+      user?.seterror(validateerror);
+      console.log("error occued again", error)
+
     }
     finally {
       setIsLoading(false);
@@ -179,11 +190,13 @@ const Signup = () => {
           <input name="email" type="email" onChange={handleOnchange} />
           {errormessage}
         </motion.div>
-        <motion.div className="surname"
+        <motion.div className="surnames"
           variants={inputVariants}
           whileTap="tap">
-          <label htmlFor="presentSchool"> Present School</label>
-          <input name="presentSchool" type="text" onChange={handleOnchange} />
+          <label htmlFor="password">Present School</label>
+          <div className="surnamess"> <input type={show ? "text" : "password"} name="" onChange={handleOnchange} />
+            {show ? (<IoMdArrowDropup onClick={handleclick} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclick} style={{ fontSize: "6vw" }} />)}
+          </div>
           {user?.error.includes("Your school detail is required") && <div className="error"> School Details Are Required</div>}
         </motion.div>
         <motion.div className="surnames"
@@ -191,7 +204,7 @@ const Signup = () => {
           whileTap="tap">
           <label htmlFor="password">Password</label>
           <div className="surnamess"> <input type={show ? "text" : "password"} name="password" onChange={handleOnchange} />
-            {show ? (<PiEyeLight onClick={handleclick} style={{ fontSize: "6vw" }} />) : (<PiEyeSlash onClick={handleclick} style={{ fontSize: "6vw" }} />)}
+            {shows ? (<PiEyeLight onClick={handleclicks} style={{ fontSize: "6vw" }} />) : (<PiEyeSlash onClick={handleclicks} style={{ fontSize: "6vw" }} />)}
           </div>
           {passwordmessage}
         </motion.div>
@@ -217,9 +230,10 @@ const Signup = () => {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             animate="animate">
-          {Isloading ? <div style={{ width: "4.3vw" }}><Lottie animationData={animatedData}  style={{ width: "5vw" }}></Lottie></div> : " Sign up"}</motion.button>
+            {Isloading ? <div style={{ width: "4.3vw" }}><Lottie animationData={animatedData} style={{ width: "5vw" }}></Lottie></div> : " Sign up"}</motion.button>
         </motion.div>
         <div className='btn-div21'>Don't have an account?<span><Link to='/signin'>Sign In</Link></span> </div>
+        <ToastContainer />
       </form>
     </motion.div>
   );

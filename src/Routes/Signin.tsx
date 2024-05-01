@@ -8,16 +8,17 @@ import animatedData from "../Styles/D0cWBC6ZWu.json"
 import { Link } from 'react-router-dom';
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Signin = () => {
   const locations = useLocation();
   const navigate = useNavigate();
   const user = useContext(Context);
   const [show, setShow] = useState(false);
-
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
-  const [Isloading, setIsLoading] = useState(false)
+  const [Isloading, setIsLoading] = useState<boolean>(false)
   useEffect(() => {
     console.log("this is location", locations)
   }, [locations])
@@ -33,13 +34,14 @@ const Signin = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setIsLoading(true);
+    setIsLoading(true)
+ 
     try {
       const { email, password } = formdata || {}
-      const res = await fetch("https://1eeb-105-112-192-185.ngrok-free.app/api/login", {
+      const res = await fetch("https://almaquin-rua7.onrender.com/api/login", {
         method: "POST",
         headers: {
-          "Content-type": "application/json"
+          "Content-type": "application/json",
         },
         body: JSON.stringify(
           {
@@ -50,11 +52,11 @@ const Signin = () => {
       })
       const result = await res.json()
       console.log(result)
-
+      toast.error(result.message)
       if (!res.ok) {
         throw new Error("error fetching user signin")
       }
-      alert("👍 Signin Successful");
+      toast.success("👍 Signin Successful");
       navigate('/review');
     } catch (error) {
       if (!formdata?.email.trim()) {
@@ -141,21 +143,25 @@ const Signin = () => {
               </div>
 
               <div className="btn">
-                <motion.button type="submit" className="signin_btn"
-                  variants={buttonVariants}
-                  initial="initial"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  animate="animate">
-
-                  {Isloading ? <div style={{ width: "" }}><Lottie animationData={animatedData}  style={{ width: "5vw" }}></Lottie></div> : " Sign in"}
-                </motion.button>
-                <div className="btn-div"><Link to="/forgotpassword">Forgot Password?</Link>
+                <div className='bt'>
+                  <motion.button type="submit" className="signin_btn"
+                    variants={buttonVariants}
+                    initial="initial"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.9 }}
+                    animate="animate">
+                    {Isloading ? <div style={{ width: "" }}><Lottie animationData={animatedData} style={{ width: "5vw" }}></Lottie></div> : " Sign in"}
+                  </motion.button>
+                  <div className="btn-div"><Link to="/forgotpassword">Forgot Password?</Link>
+                  </div>
                 </div>
                 <div className='btn-div2'>Don't have an account?<span><Link to='/signup'>Sign Up</Link></span> </div>
               </div>
             </div>
+            <ToastContainer />
+
           </form>
+
         </div>
       </div>
     </motion.div>

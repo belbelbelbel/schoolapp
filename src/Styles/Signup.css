@@ -126,7 +126,7 @@
   }
   .surnames {
     display: flex;
-    margin: 0rem auto;
+    margin: 0.7rem auto;
     width:  81%;
     flex-direction: column;
     justify-content: space-between;

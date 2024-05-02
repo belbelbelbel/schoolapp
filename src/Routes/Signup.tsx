@@ -11,22 +11,31 @@ import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import PresentSchoModal from "./PresentSchoModal";
+import { LevelSchool } from "./LevelSchool";
+import { ReasonsModal } from "./ReasonsModal";
 const Signup = () => {
   const locations = useLocation();
   const [Isloading, setIsLoading] = useState(false)
   const user = useContext(Context);
   const [show, setShow] = useState(false);
   const [shows, setShows] = useState(false);
-  const [showss, setShowss ] = useState(false);
-
+  const [showss, setShowss] = useState(false);
+  const [showsss, setShowsss] = useState(false);
+  const [reason,setreason] = useState("")
+  const [placeholder, setplaceholder] = useState("")
+  const [level, setlevel] = useState("")
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
-    const handleclicks = () => {
-    setShow((prevShow) => !prevShow);
+  const handleclicks = () => {
+    setShows((prevShow) => !prevShow);
   };
-    const handleclickss = () => {
-    setShow((prevShow) => !prevShow);
+  const handleclickss = () => {
+    setShowss((prevShow) => !prevShow);
+  };
+  const handleclicksss = () => {
+    setShowsss((prevShow) => !prevShow);
   };
   const [previousLocation, setPreviousLocation] = useState<string | null>(null);
   const navigate = useNavigate();
@@ -37,32 +46,40 @@ const Signup = () => {
     if (user) {
       user.setformdata((prevFormData) => ({
         ...prevFormData,
-        [name]: value.toString(),
+        [name]: value,
       }));
       user.seterror([]);
       setFirstName(value);
     }
   };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
     console.log(JSON.stringify(formdata))
     try {
-      const res = await fetch("https://almaquin-rua7.onrender.com/api/signup", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json"
-        },
-        body: JSON.stringify(formdata)
-      })
-      const result = await res.json()
-      console.log(result);
-      toast.error(result.message)
-      if (!res.ok) {
-        throw new Error("error fetching user signup")
+      if (user) {
+        const res = await fetch("https://almaquin-rua7.onrender.com/api/signup", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json"
+          },
+          body: JSON.stringify({
+            ...user.formdata,
+            presentSchool: placeholder,
+            classLevel: level,
+            reasonForJoining :reason
+          }),
+        })
+        const result = await res.json()
+        console.log(result);
+        toast.error(result.message)
+        if (!res.ok) {
+          throw new Error("error fetching user signup")
+        }
+        toast.success("👍 Signup Successful");
+        navigate("/review");
       }
-      toast.success("👍 Signup Successful");
-      navigate("/review");
     } catch (error) {
       let validateerror: string[] = [];
       if (!formdata?.surname.trim()) {
@@ -84,10 +101,15 @@ const Signup = () => {
       } else if (!/\S+@\S+\.\S+/.test(formdata.email)) {
         validateerror.push("wrong email format");
       }
-      if (!formdata?.presentSchool.trim()) {
+      if (!placeholder) {
         validateerror.push("Your school detail is required");
       }
-      if (!formdata?.classLevel.trim()) {
+      else {
+        user?.setformdata((prev) => ({
+          ...prev
+        }))
+      }
+      if (!level) {
         validateerror.push("Your class is required");
       }
       if (!formdata?.password.trim()) {
@@ -95,7 +117,7 @@ const Signup = () => {
       } else if (formdata?.password.length < 6) {
         validateerror.push("password should be greater than 6");
       }
-      if (!formdata?.reasonForJoining?.trim()) {
+      if (!reason) {
         validateerror.push("Your reasons are required");
       }
       user?.seterror(validateerror);
@@ -192,35 +214,48 @@ const Signup = () => {
         </motion.div>
         <motion.div className="surnames"
           variants={inputVariants}
-          whileTap="tap">
+          onClick={handleclick}>
           <label htmlFor="password">Present School</label>
-          <div className="surnamess"> <input type={show ? "text" : "password"} name="" onChange={handleOnchange} />
+          <div className="surnamess" onClick={handleclick}> <input type="text" name="presentSchool" value={placeholder} onClick={handleclick} onChange={handleOnchange} />
             {show ? (<IoMdArrowDropup onClick={handleclick} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclick} style={{ fontSize: "6vw" }} />)}
           </div>
           {user?.error.includes("Your school detail is required") && <div className="error"> School Details Are Required</div>}
+          {
+            show && (<PresentSchoModal placeholder={placeholder} setPlaceholder={setplaceholder} />)
+          }
         </motion.div>
         <motion.div className="surnames"
           variants={inputVariants}
           whileTap="tap">
           <label htmlFor="password">Password</label>
-          <div className="surnamess"> <input type={show ? "text" : "password"} name="password" onChange={handleOnchange} />
+          <div className="surnamess"> <input type={shows ? "text" : "password"} name="password" onChange={handleOnchange} />
             {shows ? (<PiEyeLight onClick={handleclicks} style={{ fontSize: "6vw" }} />) : (<PiEyeSlash onClick={handleclicks} style={{ fontSize: "6vw" }} />)}
           </div>
           {passwordmessage}
         </motion.div>
-        <motion.div className="surname"
+        <motion.div className="surnames"
           variants={inputVariants}
-          whileTap="tap">
-          <label htmlFor="classLevel"> Class/Level</label>
-          <input name="classLevel" type="text" onChange={handleOnchange} />
+          onClick={handleclickss}>
+          <label htmlFor="class">Class/Level</label>
+          <div className="surnamess" onClick={handleclickss}> <input type="text" name="classLevel" value={level} onClick={handleclickss} onChange={handleOnchange} />
+            {showss ? (<IoMdArrowDropup onClick={handleclickss} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclickss} style={{ fontSize: "6vw" }} />)}
+          </div>
           {user?.error.includes("Your class is required") && <div className="error"> Class/Level Is Required</div>}
+          {
+            showss && (<LevelSchool setlevel={setlevel} />)
+          }
         </motion.div>
-        <motion.div className="surname"
+        <motion.div className="surnames"
           variants={inputVariants}
-          whileTap="tap">
-          <label htmlFor="reason"> Reason For Joining</label>
-          <input name="reasonForJoining" type="text" onChange={handleOnchange} />
+          onClick={handleclicksss}>
+          <label htmlFor="reason">Reasons For Joing</label>
+          <div className="surnamess" onClick={handleclicksss}> <input type="text" name="reasonForJoining" value={reason} onClick={handleclicksss} onChange={handleOnchange} />
+            {showsss ? (<IoMdArrowDropup onClick={handleclicksss} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclicksss} style={{ fontSize: "6vw" }} />)}
+          </div>
           {user?.error.includes("Your reasons are required") && <div className="error"> Valid Reason for Joining</div>}
+          {
+            showsss && (<ReasonsModal setreason={setreason} />)
+          }
         </motion.div>
         <motion.div className="btn">
           <motion.button type="submit"

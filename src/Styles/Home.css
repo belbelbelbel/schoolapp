@@ -104,11 +104,11 @@
         font-size: 15vw;
         z-index: 9999; 
         display: flex;
-        width: 63%; /* Make the image fill the container */
+        width: 61%; /* Make the image fill the container */
         height: auto; /* Maintain aspect ratio */
         display: block; /* Make the image a block element */
         position: fixed;
-        top: 2rem;
+        top: 15%;
     }
     .home_container h1 {
         display: flex;

@@ -12,7 +12,7 @@ export const School = () => {
   const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
   const handlefilter = async (value: string) => {
     try {
-      const res = await fetch(`https://1eeb-105-112-192-185.ngrok-free.app/api/university/?name=${value}`, {
+      const res = await fetch(`https://almaquin-rua7.onrender.com/api/university/6627fdcbacea236e2e51940/?name=${value}`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -21,8 +21,8 @@ export const School = () => {
         },
       })
       const result = await res.json();
-      console.log(result.data);
-      setsearch(result.data)
+      console.log(result);
+      setsearch(result)
       if (!res.ok) {
         throw new Error("Failed to fetch data from the API");
       } 

@@ -13,6 +13,7 @@ import { Contact } from '../Routes/Contact'
 import { Uselinks } from '../Routes/Uselinks'
 import { Documents } from '../Routes/Documents'
 import  Signup  from '../Routes/Signup'
+import { PreSchool } from '../Routes/PreSchool'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -46,6 +47,8 @@ const Router = () => {
         <Route path='/signin' element={<Signin />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/review' element={<Review/>}></Route>
+
+        <Route path='/preschool'element={<PreSchool/>}></Route>
         <Route path='/school'>
           <Route index element={<School />}></Route>
           <Route path='covenant-university' element={<Covenant />}></Route>

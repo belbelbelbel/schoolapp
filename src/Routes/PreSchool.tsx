@@ -2,13 +2,19 @@ import React, { useContext } from 'react'
 import { Context } from '../Provider/Usecontext'
 import "../Styles/PreSchool.css"
 import { Footer } from './Footer'
+import { useNavigate } from 'react-router-dom'
 export const PreSchool = () => {
+    const navigate = useNavigate()
+    const handlelschool = () => {
+        navigate("/school")
+    }
     const user = useContext(Context)
     return (
         <div className='preschool-container'>
+              <div id="firsts"></div>
             <div className='preschool-container2'>
            <div>
-           <div className="preschool-navbar">
+           <div className="preschool-navbar" onClick={handlelschool}>
                     <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
                     <div className='preschool-container3'>
                         <div><input type="text" placeholder='Search' /></div>

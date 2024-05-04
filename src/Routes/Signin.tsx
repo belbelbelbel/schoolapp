@@ -55,7 +55,7 @@ const Signin = () => {
         throw new Error("error fetching user signin")
       }
       toast.success("👍 Signin Successful");
-      navigate('/review');
+      navigate('/preschool');
     } catch (error) {
       if (!formdata?.email.trim()) {
         validateerror.push('The email is required');

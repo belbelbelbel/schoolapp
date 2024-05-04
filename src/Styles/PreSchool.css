@@ -2,8 +2,11 @@
     .preschool-container {
         width: 100%;
         height: 100%;
-        padding-top: 3rem;
+     padding-top: 3rem;
         font-family: FilsonPro-Medium, sans-serif;
+    }
+    #firsts{
+        padding: 0.6rem;
     }
     .preschool-container2 {
         width: 90%;

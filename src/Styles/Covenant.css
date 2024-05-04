@@ -20,6 +20,7 @@
         height: 100vh;
         background-color: rgba(255, 255, 255, 1);
         overflow-y: auto;
+        overflow-x: hidden;
         padding: 2.3rem 0rem;
     }
 
@@ -119,7 +120,7 @@
     font-size: 6vw;
 } */
     .Covenant_container4 h3 {
-        font-size: 4.7vw;
+        font-size: 4.87vw;
         white-space: nowrap;
         font-weight: 500;
         margin: 0rem 0.2rem;

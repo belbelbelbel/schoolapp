@@ -66,8 +66,6 @@ export const Covenant = () => {
     return (
         <motion.div className="Covenant_container"
         >
-        
-               
                     <React.Fragment>
                         <div className="Covenant_container8">
                             <div></div>

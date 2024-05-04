@@ -79,9 +79,7 @@ export const School = () => {
           <div style={{ color: 'red' }}>{error}</div>
         </div>
       </form>
-      <button className="signin_btn" onClick={handleClick}>
-        co-uni
-      </button>
+    
     </motion.div>
   );
 };

@@ -47,17 +47,19 @@ const Router = () => {
         <Route path='/signin' element={<Signin />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/review' element={<Review/>}></Route>
-
         <Route path='/preschool'element={<PreSchool/>}></Route>
-        <Route path='/school'>
-          <Route index element={<School />}></Route>
-          <Route path='covenant-university' element={<Covenant />}></Route>
+        <Route path='/school'element={<School/>}>
+          {/* <Route index element={<School />}></Route> */}
+          </Route>
+          <Route path='/university' element={<Covenant />}>
+            <Route path=':universityid' element={<Covenant/>}></Route>
+          </Route>
           <Route path='/school/covenant-university/undergraduate' element={<Undergraduate/>}></Route>
           <Route path='/school/covenant-university/postgraduate' element={<Postgraduate/>}></Route>
           <Route path='/school/covenant-university/contact' element={<Contact/>}></Route>
           <Route path='/school/covenant-university/usefulinks' element={<Uselinks/>}></Route>
           <Route path='/school/covenant-university/documents' element={<Documents/>}></Route>
-        </Route>
+     
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
         <Route path='*' element={<Nopage />}></Route>
       </Routes>

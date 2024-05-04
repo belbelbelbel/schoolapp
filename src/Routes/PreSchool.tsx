@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from '../Provider/Usecontext'
 import "../Styles/PreSchool.css"
+import { Footer } from './Footer'
 export const PreSchool = () => {
     const user = useContext(Context)
     return (
@@ -48,6 +49,7 @@ export const PreSchool = () => {
                     </div>
                 </div>
             </div>
+            <Footer/>
         </div>
     )
 }

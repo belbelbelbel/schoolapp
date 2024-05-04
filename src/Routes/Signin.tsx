@@ -31,11 +31,9 @@ const Signin = () => {
   };
   let validateerror: string[] = [];
   const { formdata } = user || {};
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true)
- 
     try {
       const { email, password } = formdata || {}
       const res = await fetch("https://almaquin-rua7.onrender.com/api/login", {

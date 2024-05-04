@@ -216,7 +216,7 @@ const Signup = () => {
           variants={inputVariants}
           onClick={handleclick}>
           <label htmlFor="password">Present School</label>
-          <div className="surnamess" onClick={handleclick}> <input disabled type="text" name="presentSchool" value={placeholder} onClick={handleclick} onChange={handleOnchange} />
+          <div className="surnamess" onClick={handleclick}> <input type="text" name="presentSchool" value={placeholder} onClick={handleclick} onChange={handleOnchange} />
             {show ? (<IoMdArrowDropup onClick={handleclick} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclick} style={{ fontSize: "6vw" }} />)}
           </div>
           {user?.error.includes("Your school detail is required") && <div className="error"> School Details Are Required</div>}

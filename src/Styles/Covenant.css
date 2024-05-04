@@ -119,13 +119,13 @@
     font-size: 6vw;
 } */
     .Covenant_container4 h3 {
-        font-size: 5.55vw;
+        font-size: 4.7vw;
         white-space: nowrap;
         font-weight: 500;
         margin: 0rem 0.2rem;
         color: rgba(38, 50, 56, 1);
         align-items: center;
-        justify-content: end;
+        justify-content: start;
         display: flex;
         width: auto;
     }

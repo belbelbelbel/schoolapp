@@ -10,7 +10,6 @@ export const Undergraduate = () => {
     const handledocuments = () => {
         navigate("/school/covenant-university/documents")
     }
-   
     return (
         <motion.div
             className='Undergraduate'

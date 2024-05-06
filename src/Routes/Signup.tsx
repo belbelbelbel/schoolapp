@@ -14,6 +14,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import PresentSchoModal from "./PresentSchoModal";
 import { LevelSchool } from "./LevelSchool";
 import { ReasonsModal } from "./ReasonsModal";
+import { ClipLoader } from "react-spinners";
 const Signup = () => {
   const locations = useLocation();
   const [Isloading, setIsLoading] = useState(false)
@@ -22,7 +23,7 @@ const Signup = () => {
   const [shows, setShows] = useState(false);
   const [showss, setShowss] = useState(false);
   const [showsss, setShowsss] = useState(false);
-  const [reason,setreason] = useState("")
+  const [reason, setreason] = useState("")
   const [placeholder, setplaceholder] = useState("")
   const [level, setlevel] = useState("")
   const handleclick = () => {
@@ -68,7 +69,7 @@ const Signup = () => {
             ...user.formdata,
             presentSchool: placeholder,
             classLevel: level,
-            reasonForJoining :reason
+            reasonForJoining: reason
           }),
         })
         const result = await res.json()
@@ -262,10 +263,20 @@ const Signup = () => {
             className="signup_btn"
             variants={locations.state?.showstyle}
             initial="initial"
+            disabled={Isloading}
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             animate="animate">
-            {Isloading ? <div style={{ width: "4.3vw" }}><Lottie animationData={animatedData} style={{ width: "5vw" }}></Lottie></div> : " Sign up"}</motion.button>
+            <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", width: "100%", gap: "2vw" }}>
+              {Isloading && <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}><ClipLoader
+                color="#ffff"
+                cssOverride={{}}
+                size={22}
+                speedMultiplier={1.3}
+              />
+              </div>}
+              Sign up
+            </div></motion.button>
         </motion.div>
         <div className='btn-div21'>Don't have an account?<span><Link to='/signin'>Sign In</Link></span> </div>
         <ToastContainer />
@@ -273,5 +284,4 @@ const Signup = () => {
     </motion.div>
   );
 };
-
 export default Signup;

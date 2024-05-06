@@ -12,7 +12,7 @@ import { Postgraduate } from '../Routes/Postgraduate'
 import { Contact } from '../Routes/Contact'
 import { Uselinks } from '../Routes/Uselinks'
 import { Documents } from '../Routes/Documents'
-import  Signup  from '../Routes/Signup'
+import Signup from '../Routes/Signup'
 import { PreSchool } from '../Routes/PreSchool'
 // const router = createBrowserRouter([
 //   {
@@ -46,20 +46,28 @@ const Router = () => {
         <Route path='/' element={<Home />}></Route>
         <Route path='/signin' element={<Signin />}></Route>
         <Route path='/signup' element={<Signup />}></Route>
-        <Route path='/review' element={<Review/>}></Route>
-        <Route path='/preschool'element={<PreSchool/>}></Route>
-        <Route path='/school'element={<School/>}>
+        <Route path='/review' element={<Review />}></Route>
+        <Route path='/preschool' element={<PreSchool />}></Route>
+        <Route path='/school' element={<School />}>
           {/* <Route index element={<School />}></Route> */}
-          </Route>
-          <Route path='/university' element={<Covenant />}>
-            <Route path=':universityid' element={<Covenant/>}></Route>
-          </Route>
-          <Route path='/school/covenant-university/undergraduate' element={<Undergraduate/>}></Route>
-          <Route path='/school/covenant-university/postgraduate' element={<Postgraduate/>}></Route>
-          <Route path='/school/covenant-university/contact' element={<Contact/>}></Route>
-          <Route path='/school/covenant-university/usefulinks' element={<Uselinks/>}></Route>
-          <Route path='/school/covenant-university/documents' element={<Documents/>}></Route>
-     
+        </Route>
+        <Route path='/university' element={<Covenant />}>
+          <Route path=':universityid' element={<Covenant/>} />
+        </Route>
+        <Route path='/university' element={<Undergraduate />}>
+          <Route path=':universityid?/undergraduate?' element={<Undergraduate/>} />
+        </Route>
+        <Route path='/university' element={<Postgraduate />}>
+          <Route path=':universityid?/postgraduate?' element={<Postgraduate/>} />
+        </Route>
+        <Route path='/university' element={<Contact />}>
+          <Route path=':universityid?/contact?' element={<Contact/>} />
+        </Route>
+         {/* <Route path='university/postgraduate' element={<Postgraduate />}></Route>
+        <Route path='university/undergraduate' element={<Postgraduate />}></Route>  */}
+        <Route path='/school/covenant-university/contact' element={<Contact />}></Route>
+        <Route path='/school/covenant-university/usefulinks' element={<Uselinks />}></Route>
+        <Route path='/school/covenant-university/documents' element={<Documents />}></Route>
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
         <Route path='*' element={<Nopage />}></Route>
       </Routes>

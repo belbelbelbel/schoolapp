@@ -10,6 +10,7 @@ import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { ClipLoader } from 'react-spinners';
 const Signin = () => {
   const locations = useLocation();
   const navigate = useNavigate();
@@ -144,11 +145,19 @@ const Signin = () => {
                 <div className='bt'>
                   <motion.button type="submit" className="signin_btn"
                     variants={buttonVariants}
+                    disabled={Isloading}
                     initial="initial"
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.9 }}
                     animate="animate">
-                    {Isloading ? <div style={{ width: "" }}><Lottie animationData={animatedData} style={{ width: "5vw" }}></Lottie></div> : " Sign in"}
+                    <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", width: "100%", gap: "2vw" }}>
+                      {Isloading && <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}><ClipLoader
+                        color="#ffff"
+                        cssOverride={{}}
+                        size={22}
+                        speedMultiplier={1.3}
+                      />
+                      </div>}
+                      Sign up
+                    </div>
                   </motion.button>
                   <div className="btn-div"><Link to="/forgotpassword">Forgot Password?</Link>
                   </div>

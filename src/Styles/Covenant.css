@@ -21,7 +21,7 @@
         background-color: rgba(255, 255, 255, 1);
         overflow-y: auto;
         overflow-x: hidden;
-        padding: 2.3rem 0rem;
+        padding-top: 1rem ;
     }
 
     .Covenant_container::-webkit-scrollbar {
@@ -191,11 +191,30 @@
         font-size: 3vw;
         font-weight: 400;
     }
+    .gotobtn {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        margin-top: 3rem;
+        color: white;
+        font-family: FilsonPro-Medium, sans-serif;
 
-    .Covenant_container7a {}
-
-
-
+    }
+    .gotobtn button {
+        background-color: #0B3C49;
+        font-family: FilsonPro-Medium, sans-serif;
+        padding: 1rem;
+        border-radius: 10px;
+    }
+    
+    .gotobtn li {
+        list-style-type: none;
+        font-family: FilsonPro-Medium, sans-serif;
+        color:white
+    }
+    li a {
+        color: white;
+    }
     .Covenant_container7 p {
         margin: 0.8vw;
         padding: 0.6vw;

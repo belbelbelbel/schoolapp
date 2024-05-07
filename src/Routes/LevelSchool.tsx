@@ -9,6 +9,7 @@ export const LevelSchool = ({ setlevel }: levelprops) => {
   }
   return (
     <motion.div className='schoolmodal'>
+       <div className='schoolmodalp'>Select your current class/level</div>
       <motion.div className='schoolmodal2'
         initial={{ opacity: 0, x: -100 }}
         animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}

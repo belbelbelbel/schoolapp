@@ -15,6 +15,7 @@ import PresentSchoModal from "./PresentSchoModal";
 import { LevelSchool } from "./LevelSchool";
 import { ReasonsModal } from "./ReasonsModal";
 import { ClipLoader } from "react-spinners";
+import { Dayjs } from "dayjs";
 const Signup = () => {
   const locations = useLocation();
   const [Isloading, setIsLoading] = useState(false)
@@ -89,6 +90,7 @@ const Signup = () => {
       if (!formdata?.birthday.trim()) {
         validateerror.push("Your Date Of birth Is Required");
       }
+
       if (!formdata?.firstName.trim()) {
         validateerror.push("Your firstname is required");
       }
@@ -123,7 +125,6 @@ const Signup = () => {
       }
       user?.seterror(validateerror);
       console.log("error occued again", error)
-
     }
     finally {
       setIsLoading(false);
@@ -213,18 +214,7 @@ const Signup = () => {
           <input name="email" type="email" onChange={handleOnchange} />
           {errormessage}
         </motion.div>
-        <motion.div className="surnames"
-          variants={inputVariants}
-          onClick={handleclick}>
-          <label htmlFor="password">Present School</label>
-          <div className="surnamess" onClick={handleclick}> <input disabled type="text" name="presentSchool" value={placeholder} onClick={handleclick} onChange={handleOnchange} />
-            {show ? (<IoMdArrowDropup onClick={handleclick} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclick} style={{ fontSize: "6vw" }} />)}
-          </div>
-          {user?.error.includes("Your school detail is required") && <div className="error"> School Details Are Required</div>}
-          {
-            show && (<PresentSchoModal placeholder={placeholder} setPlaceholder={setplaceholder} />)
-          }
-        </motion.div>
+
         <motion.div className="surnames"
           variants={inputVariants}
           whileTap="tap">
@@ -233,6 +223,18 @@ const Signup = () => {
             {shows ? (<PiEyeLight onClick={handleclicks} style={{ fontSize: "6vw" }} />) : (<PiEyeSlash onClick={handleclicks} style={{ fontSize: "6vw" }} />)}
           </div>
           {passwordmessage}
+        </motion.div>
+        <motion.div className="surnames"
+          variants={inputVariants}
+          onClick={handleclick}>
+          <label htmlFor="password">Present School</label>
+          <div className="surnamess" onClick={handleclick}> <input type="text"  name="presentSchool" value={placeholder} onClick={handleclick} onChange={handleOnchange} />
+            {show ? (<IoMdArrowDropup onClick={handleclick} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclick} style={{ fontSize: "6vw" }} />)}
+          </div>
+          {user?.error.includes("Your school detail is required") && <div className="error"> School Details Are Required</div>}
+          {
+            show && (<PresentSchoModal placeholder={placeholder} setPlaceholder={setplaceholder} />)
+          }
         </motion.div>
         <motion.div className="surnames"
           variants={inputVariants}

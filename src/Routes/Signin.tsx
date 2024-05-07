@@ -119,7 +119,7 @@ const Signin = () => {
       exit={{ opacity: 0 }}>
       <div className='signin_container'>
         <div className='signin-img'>
-          <img src="Empty street-bro (1) 1.svg" alt="fae" />
+          <img src="Picture.png" alt="fae" />
         </div>
         <div className='signin_container2'>
           <form onSubmit={handleSubmit}>
@@ -146,14 +146,15 @@ const Signin = () => {
                   <motion.button type="submit" className="signin_btn"
                     variants={buttonVariants}
                     disabled={Isloading}
+                    
                     initial="initial"
                     animate="animate">
                     <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", width: "100%", gap: "2vw" }}>
                       {Isloading && <div style={{ display: "flex", flexDirection: "row", alignItems: "center" }}><ClipLoader
                         color="#ffff"
                         cssOverride={{}}
-                        size={22}
-                        speedMultiplier={1.3}
+                        size={19}
+                        speedMultiplier={1.2}
                       />
                       </div>}
                       Sign up
@@ -166,9 +167,7 @@ const Signin = () => {
               </div>
             </div>
             <ToastContainer />
-
           </form>
-
         </div>
       </div>
     </motion.div>

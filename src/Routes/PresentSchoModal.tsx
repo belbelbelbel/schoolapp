@@ -26,9 +26,9 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
         <motion.div className='schoolmodal'>
             <div className='schoolmodalp'>Select your current school</div>
             <motion.div
-                initial={{ opacity: 0, x: -100 }}
-                animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
-                exit={{ opacity: 0, x: 100 }}
+                 initial={{ opacity: 0, y: 100 }}
+                 animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
+                 exit={{ opacity: 1, x: -100 }}
                 className='schoolmodal2'>
                 <div onClick={() => handlePlaceholder('Ambassador College')}>Ambassador College</div>
                 <div onClick={() => handlePlaceholder('Babcock Secondary School')}>Babcock Secondary School</div>
@@ -44,7 +44,7 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
                         <motion.div
                         initial={{ opacity: 0, y: 100 }}
                         animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
-                        exit={{ opacity: 0, y: -100 }}
+                        exit={{ opacity: 1, x: -100 }}
                          className='schoolmodal3'>
                             <input
                                 type='text'

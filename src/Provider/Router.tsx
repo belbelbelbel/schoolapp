@@ -63,11 +63,14 @@ const Router = () => {
         <Route path='/university' element={<Contact />}>
           <Route path=':universityid?/contact?' element={<Contact/>} />
         </Route>
+        <Route path='/university' element={<Documents />}>
+          <Route path=':universityid?/documents?' element={<Documents/>} />
+        </Route>
          {/* <Route path='university/postgraduate' element={<Postgraduate />}></Route>
         <Route path='university/undergraduate' element={<Postgraduate />}></Route>  */}
         <Route path='/school/covenant-university/contact' element={<Contact />}></Route>
         <Route path='/school/covenant-university/usefulinks' element={<Uselinks />}></Route>
-        <Route path='/school/covenant-university/documents' element={<Documents />}></Route>
+     
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
         <Route path='*' element={<Nopage />}></Route>
       </Routes>

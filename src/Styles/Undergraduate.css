@@ -8,7 +8,11 @@
         overflow-y: scroll;
         padding-top: 1rem;
     }
-    .Undergraduate::-webkit-scrollbar{width: 0;}
+
+    .Undergraduate::-webkit-scrollbar {
+        width: 0;
+    }
+
     .Undergraduate input::placeholder {
         font-size: 5vw;
         font-family: FilsonPro-Medium, sans-serif;
@@ -22,6 +26,7 @@
         align-self: center;
         justify-content: center
     }
+
     .Undercover_container2 img {
         width: 5vw;
     }
@@ -33,7 +38,7 @@
         width: 83%;
         margin: 1rem auto;
     }
-   
+
     .Undercover_containerb {
         display: flex;
         gap: 1rem;
@@ -90,7 +95,7 @@
     }
 
     .Undercover_container4 {
-        width: 83%;
+        width: 93%;
         margin: 0rem auto;
     }
 
@@ -103,9 +108,9 @@
     }
 
     .Undercover_container5 {
-        background-image: url("/public/Rectangle 21.png");
-        height: 149px;
-        width: 82vw;
+        background-image: url("/public/Rectangle 21 (1).png");
+        height: 300px;
+        width: 93vw;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -121,6 +126,7 @@
         font-size: 4.6vw;
         gap: 0.5rem;
     }
+
     .Undercover_container6 {
         text-align: center;
         justify-content: center;
@@ -129,7 +135,7 @@
         display: flex;
         gap: 0.4rem;
     }
- 
+
     .Undercover_container4 h2 {
         color: rgba(0, 0, 0, 1);
         font-family: FilsonPro-Medium, sans-serif;
@@ -137,49 +143,53 @@
         font-size: 6vw;
         margin: 2.5rem 0rem;
     }
-    .image1{
-        background-image: url("/public/Rectangle 20.png");
+
+    .image1 {
+        /* background-image: url("/public/Rectangle 20.png");
         background-repeat: no-repeat;
         background-position: center;
-        background-size: cover;
-        height: 149px;
-        width: 82vw;
-        border-radius: 10px;
+        background-size: cover; */
+        /* height: 8vh;
+        border-radius: 100%;
+        width: 20vw;
         color: rgba(255, 255, 255, 1);
         font-family: FilsonPro-Medium, sans-serif;
         display: flex;
-        align-items: flex-start;
-        justify-content: flex-end;
+        align-items: center;
+        justify-content: center;
         flex-direction: column;
         padding: 2rem 1rem;
         font-weight: 400;
-        font-size: 5vw;
+        font-size: 5vw; */
     }
-    .Undercover_container7{
+
+    .Undercover_container7 {
         display: flex;
         flex-direction: column;
-        gap: 1.4rem;
+        align-items: center;
+        justify-content: center;
+        margin: 18vw 2rem;
+
     }
-    .image2{
-        background-image: url("/public/Rectangle 20 (1).png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: 134px;
-        width: 40vw;
-        border-radius: 10px;
+
+    .image2 {
+        /* background-image: url("/public/Rectangle 20 (1).png"); */
+
+        /* border-radius: 10px;
         font-size: 5vw;
         padding: 1rem 1rem;
         font-weight: 600;
         display: flex;
         align-items: flex-start;
         justify-content: flex-end;
-        flex-direction: column;
+        flex-direction: column; */
         color: rgba(255, 255, 255, 1);
+
     }
+
     .image3 {
-        background-image: url("/public/Rectangle 20 (2).png");
-        height: 134px;
+        /* background-image: url("/public/Rectangle 20 (2).png"); */
+        /* height: 134px;
         width: 40vw;
         font-size: 5vw;
         padding: 1rem 1rem;
@@ -192,15 +202,32 @@
         color: rgba(255, 255, 255, 1);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: cover;
+        background-size: cover; */
     }
-    .Undercover_container8{
+
+    .Undercover_container8 {
         display: flex;
         flex-direction: row;
-        gap: 0.4rem;
+        align-items: center;
+        justify-content: center;
+        margin-top: 2rem;
+        gap: 6vw;
     }
-    .image4 {
-        background-image: url("/public/Rectangle 20 (3).png");
+
+    .Undercover_container20 {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 6.8vw;
+        position: relative;
+        top: -1.5rem;
+
+    
+    }
+
+    /* .image4 {
+   
         height: 134px;
         width: 40vw;
         font-size: 5vw;
@@ -215,12 +242,14 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-    }
-    .image5{
-        background-image: url("/public/Rectangle 20 (2).png");
-        height: 134px;
-        width: 40vw;
-        font-size: 5vw;
+    } */
+    .image5 {
+
+        /* height: 134px; */
+        position: relative;
+        top: 15vw;
+        /* width: 40vw; */
+        /* font-size: 5vw;
         padding: 1rem 1rem;
         font-weight: 600;
         border-radius: 10px;
@@ -231,10 +260,69 @@
         color: rgba(255, 255, 255, 1);
         background-repeat: no-repeat;
         background-position: center;
-        background-size: cover;
+        background-size: cover; */
     }
-    .image6{
-        background-image: url("/public/Rectangle 20 (4).png");
+
+    .ima-flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+    }
+
+    .ima-flex p {
+        position: absolute;
+        color: rgba(0, 0, 0, 1);
+        font-family: FilsonPro-Medium, sans-serif;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 3vw;
+        color: white;
+    }
+    .ima-flex span {
+        position: absolute;
+        color: rgba(0, 0, 0, 1);
+        font-family: FilsonPro-Medium, sans-serif;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        top: 23vw;
+        font-size: 3vw;
+        color: white;
+    }
+    .ima-flex h1 {
+        position: absolute;
+        color: rgba(0, 0, 0, 1);
+        font-family: FilsonPro-Medium, sans-serif;
+        font-weight: 450;
+        font-size: 6vw;
+        margin-bottom: 1rem;
+        color: white;
+
+    }
+
+    .image5 img {
+        width: 21vw;
+    }
+
+    .image3 img {
+        width: 21vw;
+    }
+
+    .image4 img {
+        width: 21vw;
+    }
+
+    .image6 img {
+        width: 21vw;
+    }
+
+    .image1 img {
+        width: 21vw;
+    }
+
+    /* .image6{
+      
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
@@ -250,8 +338,8 @@
         padding: 2rem 1rem;
         font-weight: 600;
         font-size: 5vw;
-    }
-  
+    } */
+
     .Undercover_container10:nth-child(1) {
         font-weight: 600;
         font-size: 4vw;
@@ -259,7 +347,7 @@
         color: rgba(11, 60, 73, 1);
     }
 
-  
+
     .eze {
         font-size: 5vw;
         font-weight: 500;

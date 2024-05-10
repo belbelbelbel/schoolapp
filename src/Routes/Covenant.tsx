@@ -49,7 +49,6 @@ export const Covenant = () => {
                 console.log(result)
                 setsearchs(result)
                 setLoading(false)
-
                 if (!res.ok) {
                     throw new Error("error occured in the dexcription")
                 }

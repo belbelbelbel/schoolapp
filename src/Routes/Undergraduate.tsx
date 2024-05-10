@@ -1,14 +1,15 @@
 import { motion } from "framer-motion"
 import "../Styles/Undergraduate.css"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Footer } from "./Footer"
 export const Undergraduate = () => {
+    const params = useParams()
     const navigate = useNavigate()
     const handlelback = () => {
         navigate(-1)
     }
     const handledocuments = () => {
-        navigate("/school/covenant-university/documents")
+        navigate(`/university/${params.universityid}/documents`)
     }
     return (
         <motion.div
@@ -49,31 +50,39 @@ export const Undergraduate = () => {
                         <img src="/Ellipse 4.svg" alt="weadsfa" />
                     </div>
                 </div>
-                <h2>Admissions</h2>
                 <div className='Undercover_container7'>
-                    <div className='image1'>Dates</div>
                     <div className='Undercover_container8'>
-                        <div>
-                            <div className='image2'>Fees</div>
+                    <div className="ima-flex">
+                            <div className='image1'><img src="/Ellipse 10.png" alt="gfds" /></div>
+                            <p>Dates</p>
                         </div>
-                        <div>
-                            <div className='image3'>Exams</div>
+                        <div className="ima-flex">
+                            <div className='image2'><img src="/Ellipse 10 (1).png" alt="rfdfewds" /></div>
+                            <h1>Admissions</h1>
+                        </div>
+                        <div className="ima-flex" onClick={handledocuments}>
+                            <div className='image3' ><img src="/Ellipse 10 (2).png" alt="gfd" /></div>
+                            <p>Documents</p>
                         </div>
                     </div>
-                    <div className='Undercover_container8'>
-                        <div>
-                            <div className='image4'>Fluid<br></br> students</div>
+                    <div className='Undercover_container20'>
+                        <div className="ima-flex">
+                            <div className='image4'><img src="/Ellipse 10 (3).png" alt="dfcd" /></div>
+                            <p>Fees</p>
                         </div>
-                        <div>
-                            <div className='image5' onClick={handledocuments}>Documents</div>
+                        <div className="ima-flex">
+                            <div className='image5' ><img src="/Ellipse 10 (4).png" alt="deds" /></div>
+                            <span>Exams</span>
                         </div>
+                        <div className="ima-flex"> <div className='image6'><img src="/Ellipse 10 (5).png" alt="we" /></div><p>Fluid<div>Students</div></p></div>
+                        
                     </div>
-                    <div className='image6'>More <br />informtion</div>
+
                 </div>
-             
+
             </div>
-            <Footer/>
-           
+            <Footer />
+
         </motion.div>
     )
 }

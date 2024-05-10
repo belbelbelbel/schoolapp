@@ -9,7 +9,7 @@ const Nopage = () => {
     <div className="containerss">
       <div className="containersss">
       <div style={{width:"30vw",  textAlign:"center"}}>
-          <Lottie animationData={animatedData} ></Lottie>
+          <Lottie animationData={animatedData}></Lottie>
         </div>
         <h2>Opps's Page not found</h2>
         <h1>404</h1>

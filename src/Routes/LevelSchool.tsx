@@ -11,9 +11,9 @@ export const LevelSchool = ({ setlevel }: levelprops) => {
     <motion.div className='schoolmodal'>
        <div className='schoolmodalp'>Select your current class/level</div>
       <motion.div className='schoolmodal2'
-        initial={{ opacity: 0, x: -100 }}
-        animate={{ opacity: 1, x: 0, transition: { duration: 0.5 } }}
-        exit={{ opacity: 0, x: 100 }}>
+       initial={{ opacity: 0, y: 100 }}
+       animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
+       exit={{ opacity: 0, y: -100 }}>
         <div onClick={() => handlelevel("JSS1")}>JSS1</div>
         <div onClick={() => handlelevel("JSS2")}>JSS2</div>
         <div onClick={() => handlelevel("JSS3")}>JSS3</div>

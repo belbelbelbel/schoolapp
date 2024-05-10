@@ -117,7 +117,7 @@ const Signup = () => {
       }
       if (!formdata?.password.trim()) {
         validateerror.push("Your Password is required");
-      } else if (formdata?.password.length < 6) {
+      } else if (formdata?.password.length < 8) {
         validateerror.push("password should be greater than 6");
       }
       if (!reason) {
@@ -148,7 +148,7 @@ const Signup = () => {
     passwordmessage = <div className="error"> password is required</div>
   }
   else if (user?.error.includes("password should be greater than 6")) {
-    passwordmessage = <div className="error">characters should be 6 and above</div>
+    passwordmessage = <div className="error">characters should be 8 and above</div>
   }
 
   const inputVariants = {
@@ -170,7 +170,7 @@ const Signup = () => {
       animate={{
         opacity: 1,
         transition: {
-          duration: 2.5,
+          duration: 1.5,
           delay: 0,
           ease: "easeOut",
         },
@@ -251,7 +251,7 @@ const Signup = () => {
         <motion.div className="surnames"
           variants={inputVariants}
           onClick={handleclicksss}>
-          <label htmlFor="reason">Reasons For Joing</label>
+          <label htmlFor="reason">Where is your school located</label>
           <div className="surnamess" onClick={handleclicksss}> <input type="text" name="reasonForJoining" value={reason} onClick={handleclicksss} onChange={handleOnchange} />
             {showsss ? (<IoMdArrowDropup onClick={handleclicksss} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclicksss} style={{ fontSize: "6vw" }} />)}
           </div>

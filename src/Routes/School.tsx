@@ -1,16 +1,22 @@
 import React, { ReactNode, useEffect, useState } from 'react';
+import { IoClose } from "react-icons/io5";
 import '../Styles/School.css';
 import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion"
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
+import { IoMdSearch } from "react-icons/io";
+import { RxCross2, RxFontFamily, RxOpacity } from "react-icons/rx";
 import 'react-toastify/dist/ReactToastify.css';
 import { Covenant } from './Covenant';
 import { Loading } from './Loading';
 export const School = () => {
   const [input, setInput] = useState("");
   const [error, seterror] = useState("")
+  const [img, setimg] = useState("/File searching-rafiki 1.svg")
   const [search, setsearch] = useState([])
+  const [signupClicked, setSignupClicked] = useState(false);
+
   const [isloading, setisloading] = useState(true)
   const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
   useEffect(() => {
@@ -25,13 +31,16 @@ export const School = () => {
           },
         })
         const result = await res.json();
-        let filt = []
-        filt = result
-        
-        setisloading(false)
-        console.log(result);
-        setsearch(result)
-        
+
+        if (input.length !== 0) {
+          setsearch(result)
+          console.log(result);
+          setisloading(false)
+        }
+        else {
+
+        }
+
         if (!res.ok) {
           throw new Error("Failed to fetch data from the API");
         }
@@ -41,19 +50,55 @@ export const School = () => {
       }
     }
     handlefilter(input)
-    return()=> {
+
+
+    return () => {
       setsearch([])
     }
   }, [input])
   const handleOnchange = (value: string) => {
     setInput(value)
-    if(input.length === 0) {
+    if (input.length === 0) {
       return <div>does not match</div>
     }
   }
   if (isloading) {
     return <Loading />
   }
+  const hanleremove = () => {
+    setInput("")
+  }
+  let display: React.ReactNode
+  if (isloading) {
+    display = <Loading />; 
+  } else if (input.length === 0) {
+    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", position: "relative", right: "3rem", top: "30vh", alignItems: "center", margin: "0rem auto", width: "80%" }}><img src="/File searching-rafiki 1.svg" alt="" /></div>;
+  } else if (search.length === 0) {
+    display = <motion.div initial={{opacity:0}}
+    animate={{opacity:1,transition:{delay:0.75}}}
+    style={{ fontFamily: "urbanist", fontSize: "5vw", position: "relative", top: "0rem",display:"flex",alignItems:"center",justifyContent:"center" }}>School  <div style={{fontFamily:"cursive",color:"#8B452D"}}> "{input}"</div> not found</motion.div>;
+  } else {
+
+    display = search.map((data: {
+      _id: any;
+      name: React.ReactNode;
+    }) => (
+      <Link to={`/university/${data._id}`} key={data._id}>
+        <div>
+          <div>{data.name}</div>
+        </div>
+      </Link>
+    ));
+
+  }
+  //   useEffect(() => {
+  //     if (signupClicked) {
+  //         const timer = setTimeout(() => {
+  //             setSignupClicked(false);
+  //         }, 700);
+  //         return () => clearTimeout(timer);
+  //     }
+  // }, [signupClicked]);
 
   return (
     <motion.div
@@ -71,26 +116,25 @@ export const School = () => {
                 value={input}
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
               />
-
-              <button type="submit" className='img_btn'><img src="Search.svg" alt="" className='img' width="19vw" /></button>
+              <button type="submit" className='img_btn'>
+                {
+                  input.length === 0 ? (<IoMdSearch className='img' fontSize="7vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="7vw" color='#8D8D8D' />)
+                }
+              </button>
             </div>
             <div className="btn">
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                {
-                  search.length > 0 ? search.map((data: {
-                    founded: ReactNode;
-                    name: ReactNode; _id: React.Key | null | undefined;
-                  }) => (
-                    <Link to={`/university/${data._id}`} key={data._id}>
-                      <div>
-                        <div>{data.name}</div>
-                      </div>
-                    </Link>
-                  )) : (<div style={{ justifyContent: "center", display: "flex", flexDirection: "column", position: "relative", right: "3rem", top: "30vh", alignItems: "center", margin: "0rem auto", width: "80%" }}>
-                    <div><img src="/File searching-rafiki 1.svg" alt="aewsfcasdf" /></div>
-                  </div>)
-                }
-              </div>
+              <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center" }}>
+                <div className='result'>
+                  {
+                    input.length !== 0 && (<div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "2vw", position: "relative", fontWeight: "700", fontFamily: "urbanist",top:"1rem", }}>Results for <div style={{ fontFamily: "cursive", fontWeight: "500", letterSpacing: "1px",color:"#8B452D" }}>"{input}"</div></div>)
+                  }
+                </div>
+                {display}
+              </div> 
+              {
+                !search && (<div>no result found</div>)
+              }
+
               {/* <div style={{ color: 'red' }}>{error}</div> */}
               <ToastContainer></ToastContainer>
             </div>

@@ -29,16 +29,15 @@ export const Covenant = () => {
         overview: OverviewItem[];
     }
 
-    const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [] });
-
-
+    const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "",overview: []});
+    const [show,setshow] = useState("")
     const [loading, setLoading] = useState(true);
 
 
     useEffect(() => {
         const fetchdescribe = async () => {
             try {
-                const res = await fetch(`https://almaquin-rua7.onrender.com/api/university/${params.universityid}/description`, {
+                const res = await fetch(`https://almaquin-rua7.onrender.com/api/university/${params.universityid}`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json"
@@ -46,9 +45,10 @@ export const Covenant = () => {
                 })
                 let results: React.ReactNode = Array.isArray(searchs);
                 const result = await res.json()
-                console.log(result)
-                setsearchs(result)
+                console.log(result.university.schools)
+                setsearchs(result.university)
                 setLoading(false)
+
                 if (!res.ok) {
                     throw new Error("error occured in the dexcription")
                 }
@@ -77,6 +77,7 @@ export const Covenant = () => {
         >
             <div id="firsts"></div>
             <React.Fragment>
+                
                 <div className="Covenant_container8">
                     <div></div>
                     <div className="Covenant_container8a">
@@ -96,7 +97,7 @@ export const Covenant = () => {
                         <img src="/shell 1.svg" alt="sdveds" />
                     </div>
                     <div className="container5">
-                        <h3>{searchs?.name}, Ota</h3>
+                        <h3>{searchs.name}, Ota</h3> 
                         <div> <p>Km. 10 Idiroko Road, Sango, Ota, Ogun, Nigeria</p></div>
                         <div className="Covenant_container6">
                             <div className="Container6"><img src="/Vector.svg" alt="gfgdf" /><div> Private, Christian</div></div>
@@ -172,7 +173,6 @@ export const Covenant = () => {
                                     <div className="anya">
                                         <img src="/Vector (3).svg" alt="rrwadf" />
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -182,7 +182,7 @@ export const Covenant = () => {
                         <div>
                             <div><h3>College of Engineering <br></br>(COE)</h3>
                                 <div className="ire">
-                                    <span>See departments </span>
+                                    <span>See departments </span> 
                                     <div className="anya">
                                         <img src="/Vector (3).svg" alt="rrwadf" />
                                     </div>

@@ -6,13 +6,14 @@ import { Outlet, Link, useNavigate, useParams } from "react-router-dom"
 import { PacmanLoader } from "react-spinners";
 import { Loading } from "./Loading";
 import { Footer } from "./Footer";
+
 export const Covenant = () => {
     const params = useParams()
 
     const navigate = useNavigate()
     const handlenavigateunder = () => {
         navigate(`/university/${params.universityid}/undergraduate`);
-    }    
+    }
     const handlenavigatepost = () => {
         navigate(`/university/${params.universityid}/postgraduate`);
     }
@@ -29,8 +30,8 @@ export const Covenant = () => {
         overview: OverviewItem[];
     }
 
-    const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "",overview: []});
-    const [show,setshow] = useState("")
+    const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [] });
+    const [school, setschool] = useState([])
     const [loading, setLoading] = useState(true);
 
 
@@ -47,6 +48,7 @@ export const Covenant = () => {
                 const result = await res.json()
                 console.log(result.university.schools)
                 setsearchs(result.university)
+                setschool(result.university.schools)
                 setLoading(false)
 
                 if (!res.ok) {
@@ -77,7 +79,7 @@ export const Covenant = () => {
         >
             <div id="firsts"></div>
             <React.Fragment>
-                
+
                 <div className="Covenant_container8">
                     <div></div>
                     <div className="Covenant_container8a">
@@ -94,10 +96,10 @@ export const Covenant = () => {
                 </div>
                 <div className="Covenant_container4">
                     <div className="images">
-                        <img src="/shell 1.svg" alt="sdveds" />
+                        <img src="/download.png" alt="sdveds" />
                     </div>
                     <div className="container5">
-                        <h3>{searchs.name}, Ota</h3> 
+                        <h3>{searchs.name}, Ota</h3>
                         <div> <p>Km. 10 Idiroko Road, Sango, Ota, Ogun, Nigeria</p></div>
                         <div className="Covenant_container6">
                             <div className="Container6"><img src="/Vector.svg" alt="gfgdf" /><div> Private, Christian</div></div>
@@ -152,20 +154,30 @@ export const Covenant = () => {
                 <div className="Covenant-colleges">
                     <h1>Colleges</h1>
                     <div className="Covenant-collegesa">
-                        <div>
-                            <div><h3>College of Leadership and <br></br>Development Studies(CLDS)</h3>
-                                <div className="ire">
-                                    <span>See departments </span>
-                                    <div className="anya">
-                                        <img src="/Vector (3).svg" alt="rrwadf" />
-                                    </div>
+                        {
+                            school.length > 0 && school.map((schools:{
+                                name:React.ReactNode;
+                                _id:any;
+                            }) => (
+                                <Link to={`/university/${params.universityid}/${schools._id}`} key={schools._id} className="omots">
+                                    <div className="omot">
+                                        <div className="ot"><h3>{schools.name}</h3>
+                                            <div className="ire">
+                                                <span>See departments </span>
+                                                <div className="anya">
+                                                    <img src="/Vector (3).svg" alt="rrwadf" />
+                                                </div>
 
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="/Rectangle 16.svg" alt="gfnhmb" /></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div><img src="/Rectangle 16.svg" alt="gfnhmb" /></div>
+                                </Link>
+
+                            ))
+                        }
                     </div>
-                    <div className="Covenant-collegesa">
+                    {/* <div className="Covenant-collegesa">
                         <div>
                             <div><h3>College of Management and <br></br>Social Science(CMSS)</h3>
                                 <div className="ire">
@@ -205,7 +217,7 @@ export const Covenant = () => {
                             </div>
                         </div>
                         <div><img src="/Rectangle 16.svg" alt="gfnhmb" /></div>
-                    </div>
+                    </div> */}
                 </div>
             </React.Fragment>
             <Footer />

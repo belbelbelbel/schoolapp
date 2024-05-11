@@ -12,7 +12,7 @@ export const ReasonsModal = ({ setreason }: reasonprops) => {
              <div className='schoolmodalp'>Select your school location</div>
             <motion.div
                 initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
                 exit={{ opacity: 0, y: -100 }}
                 className='schoolmodal2'>
                 <div onClick={() => handlereason("Abia")}>Abia</div>

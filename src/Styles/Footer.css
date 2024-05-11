@@ -27,9 +27,16 @@
     align-items: center;
     color: rgba(11, 60, 73, 1);
 }
+
 .Undercover_container10a {
     margin: 0vw 0rem;
     position: relative;
     top: -1.5rem;
     font-family: FilsonPro-Medium, sans-serif;
+}
+
+.top {
+    font-family: FilsonPro-Medium, sans-serif;
+    cursor: pointer;
+    font-weight: 500;
 }

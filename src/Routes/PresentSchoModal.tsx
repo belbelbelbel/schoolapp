@@ -27,7 +27,7 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
             <div className='schoolmodalp'>Select your current school</div>
             <motion.div
                  initial={{ opacity: 0, y: 100 }}
-                 animate={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
+                 animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
                  exit={{ opacity: 1, x: -100 }}
                 className='schoolmodal2'>
                 <div onClick={() => handlePlaceholder('Ambassador College')}>Ambassador College</div>

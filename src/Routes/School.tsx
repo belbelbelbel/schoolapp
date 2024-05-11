@@ -72,11 +72,12 @@ export const School = () => {
   if (isloading) {
     display = <Loading />; 
   } else if (input.length === 0) {
-    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", position: "relative", right: "3rem", top: "30vh", alignItems: "center", margin: "0rem auto", width: "80%" }}><img src="/File searching-rafiki 1.svg" alt="" /></div>;
+    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", position: "relative", right: "3rem", top: "15vh", alignItems: "center", margin: "0rem auto", width: "80%" }}><img src="/File searching-rafiki 1.svg" alt="" /> <div style={{fontFamily:"fantasy",fontSize:"6vw",position:"relative",bottom:"10vw",left:"13vw"}}>Search for schools</div></div>;
+   
   } else if (search.length === 0) {
     display = <motion.div initial={{opacity:0}}
-    animate={{opacity:1,transition:{delay:0.75}}}
-    style={{ fontFamily: "urbanist", fontSize: "5vw", position: "relative", top: "0rem",display:"flex",alignItems:"center",justifyContent:"center" }}>School  <div style={{fontFamily:"cursive",color:"#8B452D"}}> "{input}"</div> not found</motion.div>;
+    animate={{opacity:1,transition:{delay:0.95}}}
+    style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", top: "0rem",display:"flex",alignItems:"center",justifyContent:"center" }}>School  <div style={{fontFamily:"fantasy",color:"#8B452D"}}> "{input}"</div> not found</motion.div>;
   } else {
 
     display = search.map((data: {
@@ -85,7 +86,7 @@ export const School = () => {
     }) => (
       <Link to={`/university/${data._id}`} key={data._id}>
         <div>
-          <div>{data.name}</div>
+          <div style={{fontSize:"5vw"}}>{data.name}</div> 
         </div>
       </Link>
     ));
@@ -126,7 +127,7 @@ export const School = () => {
               <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center" }}>
                 <div className='result'>
                   {
-                    input.length !== 0 && (<div style={{ display: "flex", flexDirection: "row", alignItems: "center", gap: "2vw", position: "relative", fontWeight: "700", fontFamily: "urbanist",top:"1rem", }}>Results for <div style={{ fontFamily: "cursive", fontWeight: "500", letterSpacing: "1px",color:"#8B452D" }}>"{input}"</div></div>)
+                    input.length !== 0 && search.length !==0 && (<div style={{ display: "flex", flexDirection: "row", alignItems: "start",justifyContent:"start", gap: "2vw", position: "relative", fontWeight: "500", fontFamily: "urbanist",top:"0rem",fontSize:"4.5vw"}}>Results for <div style={{ fontFamily: "fantasy", fontWeight: "500", letterSpacing: "1px",color:"#8B452D",fontSize:"4vw"  }}>"{input}"</div></div>)
                   }
                 </div>
                 {display}

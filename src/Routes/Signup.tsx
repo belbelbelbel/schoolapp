@@ -54,6 +54,7 @@ const Signup = () => {
       setFirstName(value);
     }
   };
+  
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -70,7 +71,7 @@ const Signup = () => {
             ...user.formdata,
             presentSchool: placeholder,
             classLevel: level,
-            reasonForJoining: reason
+            schoolLocation: reason
           }),
         })
         const result = await res.json()
@@ -79,7 +80,7 @@ const Signup = () => {
         if (!res.ok) {
           throw new Error("error fetching user signup")
         }
-        toast.success("👍 Signup Successful");
+        // toast.success("👍 Signup Successful");
         navigate("/review");
       }
     } catch (error) {
@@ -252,7 +253,7 @@ const Signup = () => {
           variants={inputVariants}
           onClick={handleclicksss}>
           <label htmlFor="reason">Where is your school located</label>
-          <div className="surnamess" onClick={handleclicksss}> <input type="text" name="reasonForJoining" value={reason} onClick={handleclicksss} onChange={handleOnchange} />
+          <div className="surnamess" onClick={handleclicksss}> <input type="text" name="schoolLocation" value={reason} onClick={handleclicksss} onChange={handleOnchange} />
             {showsss ? (<IoMdArrowDropup onClick={handleclicksss} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclicksss} style={{ fontSize: "6vw" }} />)}
           </div>
           {user?.error.includes("Your reasons are required") && <div className="error"> Valid Reason for Joining</div>}

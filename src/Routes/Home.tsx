@@ -23,8 +23,6 @@ const Home = () => {
     const [showLogo, setShowLogo] = useState(true);
     const [showstyle, setshowstyle] = useState(buttonVariants)
     const [signupClicked, setSignupClicked] = useState(false);
-
-
     const history = useNavigate();
     const signinAnimationControls = useAnimation();
     const signupAnimationControls = useAnimation();

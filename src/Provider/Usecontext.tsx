@@ -9,7 +9,7 @@ export type valueprops = {
   email: string;
   presentSchool: string;
   classLevel: string;
-  reasonForJoining: string;
+  schoolLocation: string
   password: string;
 };
 
@@ -35,7 +35,7 @@ export const Usecontext = ({ children }: childrenprops) => {
     email: "",
     presentSchool: "",
     classLevel: "",
-    reasonForJoining: "",
+    schoolLocation: "",
     password: ""
   });
 

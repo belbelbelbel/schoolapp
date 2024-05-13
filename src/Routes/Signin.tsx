@@ -3,8 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom'; // Corrected import
 import { Context } from '../Provider/Usecontext';
 import { motion } from 'framer-motion';
 import '../Styles/Signin.css';
-import Lottie from "lottie-react";
-import animatedData from "../Styles/D0cWBC6ZWu.json"
 import { Link } from 'react-router-dom';
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";

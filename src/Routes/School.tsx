@@ -1,21 +1,19 @@
 import React, { ReactNode, useEffect, useState } from 'react';
 import { IoClose } from "react-icons/io5";
 import '../Styles/School.css';
-import { useNavigate } from 'react-router-dom';
+
 import { motion } from "framer-motion"
 import { Link } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import { IoMdSearch } from "react-icons/io";
-import { RxCross2, RxFontFamily, RxOpacity } from "react-icons/rx";
+
 import 'react-toastify/dist/ReactToastify.css';
 import { Covenant } from './Covenant';
 import { Loading } from './Loading';
 export const School = () => {
   const [input, setInput] = useState("");
   const [error, seterror] = useState("")
-  const [img, setimg] = useState("/File searching-rafiki 1.svg")
   const [search, setsearch] = useState([])
-  const [signupClicked, setSignupClicked] = useState(false);
 
   const [isloading, setisloading] = useState(true)
   const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");

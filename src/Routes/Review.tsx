@@ -6,11 +6,7 @@ import Lottie from "lottie-react"
 import animationData from "../Styles/cancel.json"
 import { Navigate, useNavigate } from "react-router-dom";
 
-// type handleCloseModalprops = {
-//   onClick: () => void
-//   show: boolean
-//   setshow: React.Dispatch<React.SetStateAction<boolean>>;
-// }
+
 export const Review = () => {
   const navigate = useNavigate()
   const context = useContext(Context);

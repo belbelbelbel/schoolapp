@@ -8,7 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { IoMdSearch } from "react-icons/io";
 
 import 'react-toastify/dist/ReactToastify.css';
-import { Covenant } from './Covenant';
+
 import { Loading } from './Loading';
 export const School = () => {
   const [input, setInput] = useState("");

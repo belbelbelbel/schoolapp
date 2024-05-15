@@ -83,9 +83,11 @@ export const School = () => {
       name: React.ReactNode;
     }) => (
       <Link to={`/university/${data._id}`} key={data._id}>
+        
         <div>
           <div style={{fontSize:"5vw"}}>{data.name}</div> 
         </div>
+        
       </Link>
     ));
 

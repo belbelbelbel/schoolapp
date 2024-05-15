@@ -6,7 +6,6 @@ import { Outlet, Link, useNavigate, useParams } from "react-router-dom"
 import { PacmanLoader } from "react-spinners";
 import { Loading } from "./Loading";
 import { Footer } from "./Footer";
-
 export const Covenant = () => {
     const params = useParams()
 
@@ -38,7 +37,7 @@ export const Covenant = () => {
     useEffect(() => {
         const fetchdescribe = async () => {
             try {
-                const res = await fetch(`https://almaquin-rua7.onrender.com/api/university/${params.universityid}`, {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/description`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json"
@@ -46,10 +45,12 @@ export const Covenant = () => {
                 })
                 let results: React.ReactNode = Array.isArray(searchs);
                 const result = await res.json()
-                console.log(result.university.schools)
-                setsearchs(result.university)
-                setschool(result.university.schools)
+  
+                console.log(result)
+                setsearchs(result)
+                setschool(result.schoolNames)
                 setLoading(false)
+                console.log(result.schoolNames)
 
                 if (!res.ok) {
                     throw new Error("error occured in the dexcription")
@@ -155,13 +156,14 @@ export const Covenant = () => {
                     <h1>Colleges</h1>
                     <div className="Covenant-collegesa">
                         {
-                            school.length > 0 && school.map((schools:{
-                                name:React.ReactNode;
-                                _id:any;
+                            school.length > 0 && school.map((schools,index:{
+                                // name:React.ReactNode;
+                                // _id: any
+                                
                             }) => (
-                                <Link to={`/university/${params.universityid}/${schools._id}`} key={schools._id} className="omots">
+                                <div className="omots">
                                     <div className="omot">
-                                        <div className="ot"><h3>{schools.name}</h3>
+                                        <div className="ot"><h3>{schools}</h3>
                                             <div className="ire">
                                                 <span>See departments </span>
                                                 <div className="anya">
@@ -172,7 +174,7 @@ export const Covenant = () => {
                                         </div>
                                     </div>
                                     <div><img src="/Rectangle 16.svg" alt="gfnhmb" /></div>
-                                </Link>
+                                </div>
 
                             ))
                         }

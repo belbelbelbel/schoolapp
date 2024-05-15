@@ -129,6 +129,7 @@
     width:  81%;
     flex-direction: column;
     justify-content: space-between;
+    border: none;
     align-items: first baseline
   }
   .surnamess {
@@ -157,7 +158,7 @@
     font-size: 4vw;
     width: 80%;
     margin: rem 0rem;
-    padding: 0.9rem 0rem;
+    padding: 0.7rem 0rem;
     background-color: transparent;
     font-family: FilsonPro-Medium, sans-serif;
     border-radius: 0.8rem;

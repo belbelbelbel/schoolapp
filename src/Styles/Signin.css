@@ -46,7 +46,7 @@
 
   .error {
     /* animation: moveText 10s linear infinite; */
-    color: #0B3C49;
+    color: rgb(221, 14, 14);
     font-family: FilsonPro-Medium, sans-serif;
     letter-spacing: 0.5px;
     font-size: 4vw;
@@ -58,7 +58,8 @@
 }
   .errors {
     /* animation: moveText 10s linear infinite; */
-    color: #0B3C49;
+    /* color: #0B3C49; */
+    color: rgb(221, 14, 14);
     font-family: FilsonPro-Medium, sans-serif;
     letter-spacing: 0.5px;
     font-size: 4vw;

@@ -11,6 +11,7 @@ export type valueprops = {
   classLevel: string;
   schoolLocation: string
   password: string;
+  reasonForJoining:string
 };
 
 type dataprops = {
@@ -36,7 +37,8 @@ export const Usecontext = ({ children }: childrenprops) => {
     presentSchool: "",
     classLevel: "",
     schoolLocation: "",
-    password: ""
+    password: "",
+    reasonForJoining:""
   });
 
   const [error, seterror] = useState<string[]>([]);

@@ -20,7 +20,7 @@ export const School = () => {
   useEffect(() => {
     const handlefilter = async (input: string) => {
       try {
-        const res = await fetch(`https://almaquin-rua7.onrender.com/api/university/?name=${input}`, {
+        const res = await fetch(`https://almaquin.onrender.com/api/university/?name=${input}`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",
@@ -125,7 +125,7 @@ export const School = () => {
               <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center" }}>
                 <div className='result'>
                   {
-                    input.length !== 0 && search.length !==0 && (<div style={{ display: "flex", flexDirection: "row", alignItems: "start",justifyContent:"start", gap: "2vw", position: "relative", fontWeight: "500", fontFamily: "urbanist",top:"0rem",fontSize:"4.5vw"}}>Results for <div style={{ fontFamily: "fantasy", fontWeight: "500", letterSpacing: "1px",color:"#8B452D",fontSize:"4vw"  }}>"{input}"</div></div>)
+                    // input.length !== 0 && search.length !==0 && (<div style={{ display: "flex", flexDirection: "row", alignItems: "start",justifyContent:"start", gap: "2vw", position: "relative", fontWeight: "500", fontFamily: "urbanist",top:"0rem",fontSize:"4.5vw"}}>Results for <div style={{ fontFamily: "fantasy", fontWeight: "500", letterSpacing: "1px",color:"#8B452D",fontSize:"4vw"  }}>"{input}"</div></div>)
                   }
                 </div>
                 {display}

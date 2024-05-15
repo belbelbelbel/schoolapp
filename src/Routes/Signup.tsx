@@ -41,7 +41,9 @@ const Signup = () => {
   };
   const [previousLocation, setPreviousLocation] = useState<string | null>(null);
   const navigate = useNavigate();
+  const [errmessage, seterrmessage] = useState()
   const [firstName, setFirstName] = useState("");
+  const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const { formdata } = user || {};
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
@@ -54,8 +56,8 @@ const Signup = () => {
       setFirstName(value);
     }
   };
-  
 
+  let err = ""
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
@@ -76,7 +78,10 @@ const Signup = () => {
         })
         const result = await res.json()
         console.log(result);
-        toast.error(result.message)
+        if (result.message === 'User already registered') {
+          setIsAlreadyRegistered(true);
+        }
+
         if (!res.ok) {
           throw new Error("error fetching user signup")
         }
@@ -124,6 +129,10 @@ const Signup = () => {
       if (!reason) {
         validateerror.push("Your reasons are required");
       }
+      if(!formdata?.reasonForJoining.trim()) {
+        validateerror.push("reasoning")
+      }
+
       user?.seterror(validateerror);
       console.log("error occued again", error)
     }
@@ -215,7 +224,13 @@ const Signup = () => {
           <input name="email" type="email" onChange={handleOnchange} />
           {errormessage}
         </motion.div>
-
+        <motion.div className="surname"
+          variants={inputVariants}
+          whileTap="tap">
+          <label htmlFor="reasons"> Reasosn for Joining</label>
+          <input name="reasonForJoining" type="text" onChange={handleOnchange} />
+          {user?.error.includes("reasoning") && <div className="error">Your Reasons for Joining</div>}
+        </motion.div>
         <motion.div className="surnames"
           variants={inputVariants}
           whileTap="tap">
@@ -225,11 +240,12 @@ const Signup = () => {
           </div>
           {passwordmessage}
         </motion.div>
+      
         <motion.div className="surnames"
           variants={inputVariants}
           onClick={handleclick}>
           <label htmlFor="password">Present School</label>
-          <div className="surnamess" onClick={handleclick}> <input type="text"  name="presentSchool" value={placeholder} onClick={handleclick} onChange={handleOnchange} />
+          <div className="surnamess" onClick={handleclick}> <input type="text" name="presentSchool" value={placeholder} onClick={handleclick} onChange={handleOnchange} />
             {show ? (<IoMdArrowDropup onClick={handleclick} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclick} style={{ fontSize: "6vw" }} />)}
           </div>
           {user?.error.includes("Your school detail is required") && <div className="error"> School Details Are Required</div>}
@@ -237,6 +253,7 @@ const Signup = () => {
             show && (<PresentSchoModal placeholder={placeholder} setPlaceholder={setplaceholder} />)
           }
         </motion.div>
+        
         <motion.div className="surnames"
           variants={inputVariants}
           onClick={handleclickss}>
@@ -256,11 +273,14 @@ const Signup = () => {
           <div className="surnamess" onClick={handleclicksss}> <input type="text" name="schoolLocation" value={reason} onClick={handleclicksss} onChange={handleOnchange} />
             {showsss ? (<IoMdArrowDropup onClick={handleclicksss} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclicksss} style={{ fontSize: "6vw" }} />)}
           </div>
-          {user?.error.includes("Your reasons are required") && <div className="error"> Valid Reason for Joining</div>}
+          {user?.error.includes("Your reasons are required") && <div className="error"> School location</div>}
           {
             showsss && (<ReasonsModal setreason={setreason} />)
           }
         </motion.div>
+        {isAlreadyRegistered && (
+          <div className="error" style={{textAlign:"center"}}>User already registered, please sign in</div>
+        )}
         <motion.div className="btn">
           <motion.button type="submit"
             className="signup_btn"

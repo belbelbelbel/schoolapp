@@ -13,6 +13,7 @@ const Signin = () => {
   const locations = useLocation();
   const navigate = useNavigate();
   const user = useContext(Context);
+  const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const [show, setShow] = useState(false);
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
@@ -49,12 +50,17 @@ const Signin = () => {
       })
       const result = await res.json()
       console.log(result)
-      toast.error(result.message)
+      if (result.message === "Incorrect email or password") {
+        setIsAlreadyRegistered(true);
+      }
+      else{
+        setIsAlreadyRegistered(false)
+      }
       if (!res.ok) {
         throw new Error("error fetching user signin")
       }
-      toast.success("👍 Signin Successful");
-      navigate('/preschool');
+      
+      navigate('/school');
     } catch (error) {
       if (!formdata?.email.trim()) {
         validateerror.push('The email is required');
@@ -64,7 +70,7 @@ const Signin = () => {
       }
       if (!formdata?.password.trim()) {
         validateerror.push('the password is required');
-      } else if (formdata?.password.length < 6) {
+      } else if (formdata?.password.length < 8) {
         validateerror.push('the password is incomplete');
       }
       user?.seterror(validateerror);
@@ -99,7 +105,7 @@ const Signin = () => {
   if (user?.error.includes('the password is required')) {
     passworderror = <div className="errors"> Password Is Required</div>;
   } else if (user?.error.includes('the password is incomplete')) {
-    passworderror = <div className="errors"> Password Is Incomplete</div>;
+    passworderror = <div className="errors"> Password should be at least 8 characters</div>;
   }
 
   return (
@@ -138,7 +144,9 @@ const Signin = () => {
                 </div>
                 {passworderror}
               </div>
-
+              {isAlreadyRegistered && (
+          <div className="error" style={{textAlign:"center"}}>Incorrect email or password</div>
+        )}
               <div className="btn">
                 <div className='bt'>
                   <motion.button type="submit" className="signin_btn"

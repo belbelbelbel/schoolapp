@@ -45,13 +45,11 @@ export const Covenant = () => {
                 })
                 let results: React.ReactNode = Array.isArray(searchs);
                 const result = await res.json()
-  
                 console.log(result)
                 setsearchs(result)
                 setschool(result.schoolNames)
                 setLoading(false)
                 console.log(result.schoolNames)
-
                 if (!res.ok) {
                     throw new Error("error occured in the dexcription")
                 }

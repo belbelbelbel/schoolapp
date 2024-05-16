@@ -1,21 +1,21 @@
-import React, { ReactNode, useEffect, useState } from 'react';
+import React, { ReactNode, useContext, useEffect, useState } from 'react';
 import { IoClose } from "react-icons/io5";
 import '../Styles/School.css';
 
 import { motion } from "framer-motion"
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import { IoMdSearch } from "react-icons/io";
-
 import 'react-toastify/dist/ReactToastify.css';
-
 import { Loading } from './Loading';
+import { Context, Usecontext } from '../Provider/Usecontext';
 export const School = () => {
   const [input, setInput] = useState("");
   const [error, seterror] = useState("")
   const [search, setsearch] = useState([])
-
+  const user = useContext(Context)
   const [isloading, setisloading] = useState(true)
+  const navigate = useNavigate()
   const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
   useEffect(() => {
     const handlefilter = async (input: string) => {
@@ -29,7 +29,7 @@ export const School = () => {
           },
         })
         const result = await res.json();
-
+        console.log()
         if (input.length !== 0) {
           setsearch(result)
           console.log(result);
@@ -54,6 +54,9 @@ export const School = () => {
       setsearch([])
     }
   }, [input])
+  if(!user?.formdata.email) {
+    navigate(-1)
+  }
   const handleOnchange = (value: string) => {
     setInput(value)
     if (input.length === 0) {
@@ -107,7 +110,6 @@ export const School = () => {
       animate={{}}
       exit={{}}
       className='school'>
-
       {
         !isloading ? (
           <div>

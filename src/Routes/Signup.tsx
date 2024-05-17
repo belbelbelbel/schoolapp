@@ -52,8 +52,15 @@ const Signup = () => {
         ...prevFormData,
         [name]: value,
       }));
-      user.seterror([]);
       setFirstName(value);
+    }
+  
+    // Trigger error validation if the field is empty
+    if (value === "") {
+      user?.seterror((prevErrors) => [...prevErrors, `Your ${name} is required`]);
+    } else {
+      // Remove error if the field is not empty
+      user?.seterror((prevErrors) => prevErrors.filter((error) => error !== `Your ${name} is required`));
     }
   };
 

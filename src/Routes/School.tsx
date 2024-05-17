@@ -14,7 +14,7 @@ export const School = () => {
   const [error, seterror] = useState("")
   const [search, setsearch] = useState([])
   const user = useContext(Context)
-  const [isloading, setisloading] = useState(true)
+  // const [isloading, setisloading] = useState(true)
   const navigate = useNavigate()
   const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
   useEffect(() => {
@@ -33,7 +33,7 @@ export const School = () => {
         if (input.length !== 0) {
           setsearch(result)
           console.log(result);
-          setisloading(false)
+          // setisloading(false)
         }
         else {
 
@@ -44,7 +44,7 @@ export const School = () => {
         }
       } catch (error) {
         console.log('Error parsing JSON:', error, input);
-        setisloading(false)
+        // setisloading(false)
       }
     }
     handlefilter(input)
@@ -54,43 +54,44 @@ export const School = () => {
       setsearch([])
     }
   }, [input])
-  if(!user?.formdata.email) {
-    navigate(-1)
-  }
+  // if (!user?.formdata.email) {
+  //   navigate("/signin")
+  // }
   const handleOnchange = (value: string) => {
     setInput(value)
     if (input.length === 0) {
       return <div>does not match</div>
     }
   }
-  if (isloading) {
-    return <Loading />
-  }
+  // if (isloading) {
+  //   return <Loading />
+  // }
   const hanleremove = () => {
     setInput("")
   }
   let display: React.ReactNode
-  if (isloading) {
-    display = <Loading />; 
-  } else if (input.length === 0) {
-    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", position: "relative", right: "3rem", top: "15vh", alignItems: "center", margin: "0rem auto", width: "80%" }}><img src="/File searching-rafiki 1.svg" alt="" /> <div style={{fontFamily:"fantasy",fontSize:"6vw",position:"relative",bottom:"10vw",left:"13vw"}}>Search for schools</div></div>;
-   
+  // if (isloading) {
+  //   display = <Loading />;
+  // } else
+ if (input.length === 0) {
+    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", position: "relative", right: "-3rem", top: "25vh", alignItems: "center", margin: "0rem auto" }}><img src="/freepik--Character--inject-2.png" alt="" style={{ width: "40vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "-1vw", left: "5vw", color: "#0B3C49" }}>Search for institutions here!</div></div>;
+
   } else if (search.length === 0) {
-    display = <motion.div initial={{opacity:0}}
-    animate={{opacity:1,transition:{delay:0.95}}}
-    style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", top: "0rem",display:"flex",alignItems:"center",justifyContent:"center" }}>School  <div style={{fontFamily:"fantasy",color:"#8B452D"}}> "{input}"</div> not found</motion.div>;
+    display = <motion.div initial={{ opacity: 0 }}
+      animate={{ opacity: 1, transition: { delay: 1.2 } }}
+      style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "3.4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>School  <div style={{ fontFamily: "fantasy", color: "#8B452D" }}> "{input}"</div> not found</motion.div>;
   } else {
 
     display = search.map((data: {
       _id: any;
       name: React.ReactNode;
     }) => (
-      <Link to={`/university/${data._id}`} key={data._id}>
-        
-        <div>
-          <div style={{fontSize:"5vw"}}>{data.name}</div> 
+      <Link to={`/university/${data._id}`} key={data._id} >
+
+        <div >
+          <div style={{ fontSize: "5vw" }}>{data.name}</div>
         </div>
-        
+
       </Link>
     ));
 
@@ -110,8 +111,8 @@ export const School = () => {
       animate={{}}
       exit={{}}
       className='school'>
-      {
-        !isloading ? (
+      
+        {/* // isloading ? ( */}
           <div>
             <div className="school_filter">
               <input
@@ -126,24 +127,23 @@ export const School = () => {
               </button>
             </div>
             <div className="btn">
-              <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", alignItems: "center" }}>
-                <div className='result'>
-                  {
-                    // input.length !== 0 && search.length !==0 && (<div style={{ display: "flex", flexDirection: "row", alignItems: "start",justifyContent:"start", gap: "2vw", position: "relative", fontWeight: "500", fontFamily: "urbanist",top:"0rem",fontSize:"4.5vw"}}>Results for <div style={{ fontFamily: "fantasy", fontWeight: "500", letterSpacing: "1px",color:"#8B452D",fontSize:"4vw"  }}>"{input}"</div></div>)
-                  }
+              <div style={{ display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "start", position: "relative", right: "14vw", margin: "0vw auto" }}>
+                {
+                  !search && (<div>no result found</div>)
+                }
+                <div style={{ display: "flex", flexDirection: "column", fontFamily: "inter", justifyContent: "start", alignItems: "start", gap: "10.5vw"}}>
+                  {display}
                 </div>
-                {display}
-              </div> 
-              {
-                !search && (<div>no result found</div>)
-              }
+              </div>
+
 
               {/* <div style={{ color: 'red' }}>{error}</div> */}
               <ToastContainer></ToastContainer>
             </div>
           </div>
-        ) : (<Loading />)
-      }
+        ) 
+        {/* // : (<Loading />) */}
+      
     </motion.div>
   );
 };

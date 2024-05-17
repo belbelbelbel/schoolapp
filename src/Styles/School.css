@@ -78,6 +78,7 @@
     flex-direction: row;
     justify-content: start;
     align-items: start;
+    gap: 7vw;
     min-width: 80%;
     top: -6vw;
     position: relative;

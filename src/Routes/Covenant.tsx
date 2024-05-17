@@ -6,6 +6,7 @@ import { Outlet, Link, useNavigate, useParams } from "react-router-dom"
 import { PacmanLoader } from "react-spinners";
 import { Loading } from "./Loading";
 import { Footer } from "./Footer";
+import { School } from "./School";
 export const Covenant = () => {
     const params = useParams()
 
@@ -32,6 +33,7 @@ export const Covenant = () => {
     const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [] });
     const [school, setschool] = useState([])
     const [loading, setLoading] = useState(true);
+    const [showschool,setshowschool] = useState(true)
 
 
     useEffect(() => {
@@ -74,7 +76,10 @@ export const Covenant = () => {
         return <div> <Loading /></div>;
     }
     return (
-        <motion.div className="Covenant_container"
+        <div>
+            {
+                showschool ?(
+                    <motion.div className="Covenant_container"
         >
             <div id="firsts"></div>
             <React.Fragment>
@@ -91,7 +96,7 @@ export const Covenant = () => {
                         <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
                         <div className="Covenant_container_input">  <input type="text" placeholder="Search here" /></div>
                     </div>
-                    <div><img src="/Search.svg" alt="whasf" /></div>
+                    <div><img src="/Search.svg" alt="whasf"  onClick={()=>setshowschool(false)}/></div>
                 </div>
                 <div className="Covenant_container4">
                     <div className="images">
@@ -222,5 +227,8 @@ export const Covenant = () => {
             </React.Fragment>
             <Footer />
         </motion.div>
+                ):(<School/>)
+            }
+        </div>
     )
 }

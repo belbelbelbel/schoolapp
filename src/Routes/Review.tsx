@@ -2,9 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import "../Styles/Review.css"
 import { Context } from "../Provider/Usecontext";
 import { motion } from "framer-motion"
-import Lottie from "lottie-react"
-import animationData from "../Styles/cancel.json"
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 export const Review = () => {

@@ -17,7 +17,6 @@ export const Programs = () => {
                 })
                 const results = await res.json()
                 console.log(results)
-                // setprog(results.school.program)
                 console.log(results.university.schools)
                 if(!res.ok) {
                     throw new Error ("error parsing json")

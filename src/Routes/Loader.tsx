@@ -21,15 +21,6 @@ const Loader = (props: Props) => {
     initial= {{width : 0}}
     animate= {{width : "100%",transition: {durartion : 1}}}
     exit={{x:window.innerWidth ,transition: {durartion : 1}}}>
-        {/* <ClimbingBoxLoader
-        color={color}
-        loading={loading}
-        cssOverride={override}
-        size={30}
-        aria-label="Loading Spinner"
-        data-testid="loader">
-        </ClimbingBoxLoader> */}
-         {/* <h1><motion.img  src="color_logo_transparent.svg" className='blinking-image' alt="4retrfw" width="320vw"  /></h1> */}
          <video
       autoPlay
       muted

@@ -1,7 +1,6 @@
 import React, { ReactNode, useContext, useEffect, useState } from 'react';
 import { IoClose } from "react-icons/io5";
 import '../Styles/School.css';
-
 import { motion } from "framer-motion"
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";

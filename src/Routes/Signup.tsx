@@ -14,7 +14,6 @@ import PresentSchoModal from "./PresentSchoModal";
 import { LevelSchool } from "./LevelSchool";
 import { ReasonsModal } from "./ReasonsModal";
 import { ClipLoader } from "react-spinners";
-import { error } from "console";
 const Signup = () => {
   const locations = useLocation();
   const [Isloading, setIsLoading] = useState(false)
@@ -38,10 +37,7 @@ const Signup = () => {
   const handleclicksss = () => {
     setShowsss((prevShow) => !prevShow);
   };
-  const [previousLocation, setPreviousLocation] = useState<string | null>(null);
   const navigate = useNavigate();
-  const [errmessage, seterrmessage] = useState()
-  const [firstName, setFirstName] = useState("");
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const { formdata } = user || {};
   let err = ""
@@ -55,12 +51,7 @@ const Signup = () => {
           headers: {
             "Content-type": "application/json"
           },
-          body: JSON.stringify({
-            data,
-            // presentSchool: placeholder,
-            // classLevel: level,
-            // schoolLocation: reason
-          }),
+          body: JSON.stringify(data),
         })
         const result = await res.json()
         console.log(result);
@@ -71,7 +62,6 @@ const Signup = () => {
         if (!res.ok) {
           throw new Error("error fetching user signup")
         }
-        // toast.success("👍 Signup Successful");
         navigate("/review");
       }
     } catch (error) {
@@ -89,21 +79,23 @@ const Signup = () => {
 
   const { register, handleSubmit, setValue, formState: { errors }, watch } = useForm<valueprops>()
   useEffect(() => {
-    setValue("classLevel", level || "", { shouldValidate: true })
+    level && setValue("classLevel", level || "", { shouldValidate: true })
   }, [level])
   useEffect(() => {
-    setValue("schoolLocation", reason || "", { shouldValidate: true })
+    reason && setValue("schoolLocation", reason || "", { shouldValidate: true })
   }, [reason])
   useEffect(() => {
-    setValue("presentSchool", placeholder || "", { shouldValidate: true })
+   placeholder && setValue("presentSchool", placeholder || "", { shouldValidate: true })
   }, [placeholder])
-
-
   const onSubmit: SubmitHandler<valueprops> = (data) => {
-    console.log(data)
-    handleSubmits(data)
-  }
-
+    console.log(data);
+    handleSubmits(data);
+  };
+  const handleLevelChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+    const newValue = e.target.value;
+    setlevel(newValue);
+    setValue("classLevel", newValue || "", { shouldValidate: true });
+  };
 
   return (
     <motion.div
@@ -128,11 +120,6 @@ const Signup = () => {
           <input type="text"
             {...register("surname", {
               required: " Surname is required",
-              //   validate: (value) => {
-              //     if (value.length < 3) {
-              //         return "Surname must be greater than 2"
-              //     }
-              // }
             })}
           />
           {errors.surname && <div className="error"> {errors.surname.message}</div>}
@@ -264,7 +251,7 @@ const Signup = () => {
           <div className="surnamess" onClick={handleclickss}> <input type="text"
             {...register("classLevel", {
               required: " Class is required"
-            })} value={level} onClick={handleclickss} onChange={(e: React.ChangeEvent<HTMLInputElement>) => setlevel(e.target.value)} />
+            })} value={level} onClick={handleclickss}  onChange={ handleLevelChange } />
             {showss ? (<IoMdArrowDropup onClick={handleclickss} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclickss} style={{ fontSize: "6vw" }} />)}
           </div>
           {errors.classLevel && <div className="errorss">{errors.classLevel.message}</div>}

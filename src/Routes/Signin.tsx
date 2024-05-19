@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom'; 
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../Provider/Usecontext';
 import { motion } from 'framer-motion';
 import '../Styles/Signin.css';
@@ -53,13 +53,12 @@ const Signin = () => {
       if (result.message === "Incorrect email or password") {
         setIsAlreadyRegistered(true);
       }
-      else{
+      else {
         setIsAlreadyRegistered(false)
       }
       if (!res.ok) {
         throw new Error("error fetching user signin")
       }
-      
       navigate('/school');
     } catch (error) {
       if (!formdata?.email.trim()) {
@@ -107,7 +106,6 @@ const Signin = () => {
   } else if (user?.error.includes('the password is incomplete')) {
     passworderror = <div className="errors"> Password should be at least 8 characters</div>;
   }
-
   return (
     <motion.div
       className="signin"
@@ -145,14 +143,14 @@ const Signin = () => {
                 {passworderror}
               </div>
               {isAlreadyRegistered && (
-          <div className="error" style={{textAlign:"center"}}>Incorrect email or password</div>
-        )}
+                <div className="error" style={{ textAlign: "center" }}>Incorrect email or password</div>
+              )}
               <div className="btn">
                 <div className='bt'>
                   <motion.button type="submit" className="signin_btn"
                     variants={buttonVariants}
                     disabled={Isloading}
-                    
+
                     initial="initial"
                     animate="animate">
                     <div style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center", width: "100%", gap: "2vw" }}>

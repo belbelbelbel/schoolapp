@@ -72,7 +72,7 @@ export const School = () => {
   // if (isloading) {
   //   display = <Loading />;
   // } else
- if (input.length === 0) {
+  if (input.length === 0) {
     display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", position: "relative", right: "-3rem", top: "25vh", alignItems: "center", margin: "0rem auto" }}><img src="/freepik--Character--inject-2.png" alt="" style={{ width: "40vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "-1vw", left: "5vw", color: "#0B3C49" }}>Search for institutions here!</div></div>;
 
   } else if (search.length === 0) {
@@ -95,6 +95,10 @@ export const School = () => {
     ));
 
   }
+  function handlelback(): void {
+    
+  }
+
   //   useEffect(() => {
   //     if (signupClicked) {
   //         const timer = setTimeout(() => {
@@ -110,39 +114,40 @@ export const School = () => {
       animate={{}}
       exit={{}}
       className='school'>
-      
-        {/* // isloading ? ( */}
-          <div>
-            <div className="school_filter">
-              <input
-                placeholder="Search"
-                value={input}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
-              />
-              <button type="submit" className='img_btn'>
-                {
-                  input.length === 0 ? (<IoMdSearch className='img' fontSize="7vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="7vw" color='#8D8D8D' />)
-                }
-              </button>
-            </div>
-            <div className="btn">
-              <div style={{ display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "start", position: "relative", right: "14vw", margin: "0vw auto" }}>
-                {
-                  !search && (<div>no result found</div>)
-                }
-                <div style={{ display: "flex", flexDirection: "column", fontFamily: "inter", justifyContent: "start", alignItems: "start", gap: "10.5vw"}}>
-                  {display}
-                </div>
-              </div>
 
+      {/* // isloading ? ( */}
+      <div >
+        <div className="school_filter">
 
-              {/* <div style={{ color: 'red' }}>{error}</div> */}
-              <ToastContainer></ToastContainer>
+          <input
+            placeholder="Search here"
+            value={input}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
+          />
+          <button type="submit" className='img_btn'>
+            {
+              input.length === 0 ? (<IoMdSearch className='img' fontSize="7vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="7vw" color='#8D8D8D' />)
+            }
+          </button>
+        </div>
+        <div className="btn">
+          <div style={{ display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "start", position: "relative", right: "14vw", margin: "0vw auto" }}>
+            {
+              !search && (<div>no result found</div>)
+            }
+            <div style={{ display: "flex", flexDirection: "column", fontFamily: "inter", justifyContent: "start", alignItems: "start", gap: "10.5vw" }}>
+              {display}
             </div>
           </div>
-        ) 
-        {/* // : (<Loading />) */}
-      
+
+
+          {/* <div style={{ color: 'red' }}>{error}</div> */}
+          <ToastContainer></ToastContainer>
+        </div>
+      </div>
+      )
+      {/* // : (<Loading />) */}
+
     </motion.div>
   );
 };

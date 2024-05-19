@@ -1,8 +1,8 @@
 @media screen and (max-width : 768px) {
     @import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Inter:wght@100..900&family=Josefin+Sans:wght@200&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@1,330&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
 
-    .Covenant_container input::placeholder {
-        font-size: 5vw;
+    .Covenant_container_input input::placeholder {
+        font-size: 4.5vw;
         font-family: FilsonPro-Medium, sans-serif;
         color: rgba(11, 60, 73, 0.5);
         font-weight: 600;
@@ -68,7 +68,7 @@
         border: none;
         width: 120%;
         padding: 0.6rem 0rem;
-        font-size: 4vw;
+        font-size: 4.5vw;
         display: flex;
         flex-direction: row;
         justify-content: space-between;

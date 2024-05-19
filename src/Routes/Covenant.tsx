@@ -7,6 +7,7 @@ import { PacmanLoader } from "react-spinners";
 import { Loading } from "./Loading";
 import { Footer } from "./Footer";
 import { School } from "./School";
+import { Schools2 } from "./Schools2";
 export const Covenant = () => {
     const params = useParams()
 
@@ -227,7 +228,7 @@ export const Covenant = () => {
             </React.Fragment>
             <Footer />
         </motion.div>
-                ):(<School/>)
+                ):(<Schools2  setshowschool={setshowschool}/>)
             }
         </div>
     )

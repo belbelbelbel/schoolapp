@@ -11,7 +11,7 @@
     background: none;
     width: 100%;
     margin: auto;
-    position: absolute;
+    position: relative;
     justify-content: center;
     display: flex;
     flex-direction: column;
@@ -49,8 +49,19 @@
     color: rgb(221, 14, 14);
     font-family: FilsonPro-Medium, sans-serif;
     letter-spacing: 0.5px;
-    font-size: 4vw;
-    margin: 1vw;
+    font-size: 3.5vw;
+    position: absolute;
+    bottom: -3.1vw;
+    left: 5vw;
+  }
+  .errorss {
+    /* animation: moveText 10s linear infinite; */
+    color: rgb(221, 14, 14);
+    font-family: FilsonPro-Medium, sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 3.5vw;
+    bottom: -1.1vw;
+    left: 5vw;
   }
 .signin_container2{
   top: -2rem;

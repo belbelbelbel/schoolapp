@@ -2,7 +2,6 @@ import "../Styles/Nopage.css"
 import Lottie from "lottie-react"
 import animatedData from "../Styles/Nopage.json"
 import { NavLink } from "react-router-dom"
-import { Footer } from "./Footer"
 
 const Nopage = () => {
   return (

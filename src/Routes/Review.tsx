@@ -3,8 +3,6 @@ import "../Styles/Review.css"
 import { Context } from "../Provider/Usecontext";
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom";
-
-
 export const Review = () => {
   const navigate = useNavigate()
   const context = useContext(Context);
@@ -23,12 +21,10 @@ export const Review = () => {
       setShow(false)
       navigate("/school")
     }, 2800);
-  
     return () => {
       clearTimeout(timer)
     }
   }, [])
-  
   const currentDate = new Date();
   const dayOfMonth = currentDate.getDate();
   const year = currentDate.getFullYear();
@@ -41,7 +37,6 @@ export const Review = () => {
   // const handleCancel = () => {
   //   props.setshow(false);
   // };
-
   useEffect(() => {
     function handleday(day: number): string {
       if (day === 11 || day === 12 || day === 13) {
@@ -70,8 +65,6 @@ export const Review = () => {
       validatetimeframe.push("Good Evening");
     }
     setformdata(handleday(dayOfMonth));
- 
-
     console.log(handleday(dayOfMonth))
     setGreeting(validatetimeframe)
   }, [singledayofweek, name]);
@@ -128,9 +121,6 @@ export const Review = () => {
   </div>
 </div>
 }
-
-
-
   </motion.div>
   );
 };

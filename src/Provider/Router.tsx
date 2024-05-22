@@ -41,7 +41,7 @@ import { Programs } from '../Routes/Programs'
 const Router = () => {
   const location = useLocation()
   return (
-    // <RouterProvider router={router} />
+ 
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />}></Route>
@@ -50,7 +50,7 @@ const Router = () => {
         <Route path='/review' element={<Review />}></Route>
         <Route path='/preschool' element={<PreSchool />}></Route>
         <Route path='/school' element={<School />}>
-          {/* <Route index element={<School />}></Route> */}
+    
         </Route>
         <Route path='/university' element={<Covenant />}>
           <Route path=':universityid' element={<Covenant />}>

@@ -70,30 +70,37 @@ export const School = () => {
   if (isloading) {
     display = <Loading />;
   } else if (input.length === 0) {
-    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column",justifyItems:"center", position: "relative", right: "-3rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img src="/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49",letterSpacing:"1px" }}>Search for institutions here!</div></div>;
+    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", justifyItems: "center", position: "relative", right: "0rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img src="/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49", letterSpacing: "1px" }}>Search for institutions here!</div></div>;
 
   } else if (search.length === 0) {
     display = <motion.div initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1.2 } }}
-      style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "3.4rem", display: "flex", alignItems: "center", justifyContent: "center" }}>School  <div style={{ fontFamily: "fantasy", color: "#8B452D" }}> "{input}"</div> not found</motion.div>;
+      style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin:"2vw 0rem" }}>School  <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>;
   } else {
+    <div className='display'>
+      {
 
-    display = search.map((data: {
-      _id: any;
-      name: React.ReactNode;
-    }) => (
-      <Link to={`/university/${data._id}`} key={data._id} >
+        display = search.map((data: {
+          _id: any;
+          name: React.ReactNode;
+        }) => (
+          <Link to={`/university/${data._id}`} key={data._id} >
 
-        <div >
-          <div style={{ fontSize: "5vw" }}>{data.name}</div>
-        </div>
+            <div className='display2'>
+              <div className='display3'>{data.name}</div>
+              <div className='display4'>
+                <div><img src="/Vector.png" alt="" /></div>
+              </div>
+            </div>
 
-      </Link>
-    ));
+          </Link>
+        ))
+      }
+    </div>
 
   }
   function handlelback(): void {
-    
+
   }
 
   //   useEffect(() => {
@@ -112,39 +119,38 @@ export const School = () => {
       exit={{}}
       className='school'>
 
-      { 
-      !isloading ? (
-      <div >
-        <div className="school_filter">
+      {
+        !isloading ? (
+          <div >
+            <div className="school_filter">
 
-          <input
-            placeholder="Search here"
-            value={input}
-            onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
-          />
-          <button type="submit" className='img_btn'>
-            {
-              input.length === 0 ? (<IoMdSearch className='img' fontSize="7vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="7vw" color='#8D8D8D' />)
-            }
-          </button>
-        </div>
-        <div className="btn">
-          <div style={{ display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "start", position: "relative", right: "14vw", margin: "0vw auto" }}>
-            {
-              !search && (<div>no result found</div>)
-            }
-            <div style={{ display: "flex", flexDirection: "column", fontFamily: "inter", justifyContent: "start", alignItems: "start", gap: "10.5vw" }}>
-              {display}
+              <input
+                placeholder="Search here"
+                value={input}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
+              />
+              <button type="submit" className='img_btn'>
+                {
+                  input.length === 0 ? (<IoMdSearch className='img' fontSize="7vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="7vw" color='#8D8D8D' />)
+                }
+              </button>
+            </div>
+            {display}
+            <div className="btn">
+
+              <div className='display1'>
+
+                {
+                  !search && (<div>no result found</div>)
+                }
+
+              </div>
+              {/* <div style={{ color: 'red' }}>{error}</div> */}
+              <ToastContainer></ToastContainer>
             </div>
           </div>
-
-
-          {/* <div style={{ color: 'red' }}>{error}</div> */}
-          <ToastContainer></ToastContainer>
-        </div>
-      </div>
-      ):
-       (<Loading />) 
+        ) :
+          (<Loading />)
       }
 
     </motion.div>

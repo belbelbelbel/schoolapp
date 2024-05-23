@@ -27,7 +27,6 @@
     .Covenant_container::-webkit-scrollbar {
         width: 0;
     }
-
     .Covenant_container2 {
         display: flex;
         flex-direction: row;
@@ -98,7 +97,7 @@
         align-items: center;
         width: 83%;
         height: 23vw;
-        margin: 1rem auto;
+        margin: 3rem auto;
         padding: 0vw;
         gap: 0vw;
 
@@ -200,17 +199,18 @@
         justify-content: center;
         align-items: center;
         display: flex;
-        margin-top: 2rem;
+        margin-top: 0rem;
         border: none;
         color: white;
         font-family: FilsonPro-Medium, sans-serif;
 
     }
     .gotobtn button {
-        background-color: #0B3C49;
+        background-color: #96523b;
         font-family: FilsonPro-Medium, sans-serif;
         padding: 1rem;
         border: none;
+        cursor: pointer;
         border-radius: 10px;
     }
     
@@ -315,7 +315,7 @@
         font-weight: 500;
         margin: 2rem 0rem;
         color: rgba(38, 50, 56, 1);
-        text-shadow: 0px 4px 6px rgba(69, 255, 255, 0.25);
+        text-shadow: 0px 4px 6px #7a4a3a;
         font-family: FilsonPro-Medium, sans-serif;
     }
     .omot {
@@ -331,7 +331,7 @@
         gap: 0vw;
         align-items: center;
         justify-content: center;
-        padding: 4vw 5.15vw;
+        padding: 3vw 6.4vw;
         width: 100%;
         margin: 0.5rem 0rem;
         box-shadow: 0px 4px 6px #96523b;
@@ -345,7 +345,7 @@
       gap: 0vw;
     }
     .Covenant-collegesa {
-        padding: 2vw 0vw;
+        padding: 0vw 0vw;
         margin: 0rem 0rem;
         width: 100%;
         display: flex;
@@ -369,9 +369,9 @@
         font-size: 2.8vw;
     }
 
-    .Covenant-collegesa:nth-child(3) {
+    /* .Covenant-collegesa:nth-child(3) {
         box-shadow: 0px 4px 4px rgba(139, 250, 129, 0.71)
-    }
+    } */
 
     .Covenant-collegesa:nth-child(4) {
         box-shadow: 0px 4px 4px rgba(238, 229, 98, 0.71);

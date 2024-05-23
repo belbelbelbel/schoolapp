@@ -15,6 +15,7 @@ const Signin = () => {
   const user = useContext(Context);
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const [show, setShow] = useState(false);
+  const [error, seterror] = useState(false);
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
@@ -50,27 +51,22 @@ const Signin = () => {
       })
       const result = await res.json()
       console.log(result)
-      if (result.message === "Incorrect email or password") {
-        setIsAlreadyRegistered(true);
-      }
-      else {
-        setIsAlreadyRegistered(false)
-      }
       if (!res.ok) {
+        seterror(result.message)
         throw new Error("error fetching user signin")
       }
       navigate('/school');
     } catch (error) {
       if (!formdata?.email.trim()) {
-        validateerror.push('The email is required');
+        validateerror.push('The email is equired');
       }
       else if (!/\S+@\S+\.\S+/.test(formdata?.email)) {
-        validateerror.push('The email is not correct');
+        validateerror.push('The email is not orrect');
       }
       if (!formdata?.password.trim()) {
-        validateerror.push('the password is required');
+        validateerror.push('the password is equired');
       } else if (formdata?.password.length < 8) {
-        validateerror.push('the password is incomplete');
+        validateerror.push('the password is complete');
       }
       user?.seterror(validateerror);
       console.log("error occured", error);
@@ -123,8 +119,13 @@ const Signin = () => {
         <div className='signin-img'>
           <img src="Picture.png" alt="fae" />
         </div>
+
         <div className='signin_container2'>
+
           <form onSubmit={handleSubmit}>
+          {!Isloading && (
+                <div className="errors" style={{ textAlign: "center" }}>{error}</div>
+              )}
             <div className='surname_container'>
               <div className="surname-email">
                 <input placeholder="Email" onChange={handleOnchange} name="email" type="text" />
@@ -142,9 +143,7 @@ const Signin = () => {
                 </div>
                 {passworderror}
               </div>
-              {isAlreadyRegistered && (
-                <div className="error" style={{ textAlign: "center" }}>Incorrect email or password</div>
-              )}
+             
               <div className="btn">
                 <div className='bt'>
                   <motion.button type="submit" className="signin_btn"

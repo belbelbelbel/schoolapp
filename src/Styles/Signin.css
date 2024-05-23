@@ -54,6 +54,17 @@
     bottom: -3.1vw;
     left: 5vw;
   }
+  .errors {
+    /* animation: moveText 10s linear infinite; */
+    color: rgb(221, 14, 14);
+    font-family: FilsonPro-Medium, sans-serif;
+    letter-spacing: 0.5px;
+    font-size: 3.5vw;
+    position: absolute;
+    text-align: center;
+    top: 3vw;
+    left: 5vw;
+  }
   .errorss {
     /* animation: moveText 10s linear infinite; */
     color: rgb(221, 14, 14);

@@ -38,12 +38,13 @@ const Signup = () => {
     setShowsss((prevShow) => !prevShow);
   };
   const navigate = useNavigate();
+  const [error,seterror] = useState("")
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const { formdata } = user || {};
   let err = ""
   const handleSubmits = async (data: valueprops) => {
     setIsLoading(true);
-    console.log(JSON.stringify(formdata))
+    console.log(data)
     try {
       if (user) {
         const res = await fetch("https://almaquin-rua7.onrender.com/api/signup", {
@@ -55,14 +56,11 @@ const Signup = () => {
         })
         const result = await res.json()
         console.log(result);
-        if (result.message === 'User already registered') {
-          setIsAlreadyRegistered(true);
-        }
-
+         seterror(result.message)
         if (!res.ok) {
           throw new Error("error fetching user signup")
         }
-        navigate("/review");
+        navigate("/review",{state: {data}});
       }
     } catch (error) {
       console.log("error occued again", error)
@@ -89,7 +87,10 @@ const Signup = () => {
   }, [placeholder])
   const onSubmit: SubmitHandler<valueprops> = (data) => {
     console.log(data);
-    handleSubmits(data);
+    handleSubmits({
+      ...data,
+      email: data.email || "",
+    });
   };
   const handleLevelChange = (e:React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
@@ -161,7 +162,7 @@ const Signup = () => {
                 value: 11,
                 message: "Phonenumber should not be greater than 11",
               }
-            })} type="tel" />
+            })} type="number" />
           {errors.phoneNo && <div className="error">{errors.phoneNo.message}</div>}
         </motion.div>
         <motion.div className="surname"
@@ -274,8 +275,8 @@ const Signup = () => {
             showsss && (<ReasonsModal setreason={setreason} />)
           }
         </motion.div>
-        {isAlreadyRegistered && (
-          <div className="errorss" style={{ textAlign: "center" }}>User already registered, please sign in</div>
+        {!Isloading && (
+          <div className="errorss" style={{ textAlign: "center", fontSize:"5vw",fontFamily:"urbanist",letterSpacing:"1px" }}>{error}</div>
         )}
         <motion.div className="btn">
           <motion.button type="submit"

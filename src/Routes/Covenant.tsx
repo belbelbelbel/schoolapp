@@ -92,12 +92,12 @@ export const Covenant = () => {
                         <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
                     </div>
                 </div>
-                <div className="Covenant_container2">
+                <div className="Covenant_container2"  onClick={()=>setshowschool(false)}>
                     <div className="Covenant_container3">
                         <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
                         <div className="Covenant_container_input">  <input type="text" placeholder="Search here" /></div>
                     </div>
-                    <div><img src="/Search.svg" alt="whasf"  onClick={()=>setshowschool(false)}/></div>
+                    <div><img src="/Search.svg" alt="whasf" /></div>
                 </div>
                 <div className="Covenant_container4">
                     <div className="images">

@@ -23,7 +23,7 @@
         display: flex;
         position: relative;
         align-items: center;
-        gap: 3.5vw;
+        gap: 7vw;
         overflow-y: auto;
         flex-direction: column;
     }
@@ -56,10 +56,11 @@
     .schoolmodal3 input {
         background-color: transparent;
         border: none;
+        
         outline: none;
         width: 100%;
         font-family: FilsonPro-Medium, sans-serif;
-        padding: 0.4rem 1.2vw;
+        padding: 0.5rem 4.5vw;
         font-size: 4vw;
     }
 

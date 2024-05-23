@@ -13,7 +13,7 @@ export const School = () => {
   const [error, seterror] = useState("")
   const [search, setsearch] = useState([])
   const user = useContext(Context)
-  // const [isloading, setisloading] = useState(true)
+  const [isloading, setisloading] = useState(true)
   const navigate = useNavigate()
   const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
   useEffect(() => {
@@ -32,7 +32,7 @@ export const School = () => {
         if (input.length !== 0) {
           setsearch(result)
           console.log(result);
-          // setisloading(false)
+          setisloading(false)
         }
         else {
 
@@ -43,7 +43,7 @@ export const School = () => {
         }
       } catch (error) {
         console.log('Error parsing JSON:', error, input);
-        // setisloading(false)
+        setisloading(false)
       }
     }
     handlefilter(input)
@@ -62,18 +62,15 @@ export const School = () => {
       return <div>does not match</div>
     }
   }
-  // if (isloading) {
-  //   return <Loading />
-  // }
+
   const hanleremove = () => {
     setInput("")
   }
   let display: React.ReactNode
-  // if (isloading) {
-  //   display = <Loading />;
-  // } else
-  if (input.length === 0) {
-    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", position: "relative", right: "-3rem", top: "25vh", alignItems: "center", margin: "0rem auto" }}><img src="/freepik--Character--inject-2.png" alt="" style={{ width: "40vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "-1vw", left: "5vw", color: "#0B3C49" }}>Search for institutions here!</div></div>;
+  if (isloading) {
+    display = <Loading />;
+  } else if (input.length === 0) {
+    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column",justifyItems:"center", position: "relative", right: "-3rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img src="/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49",letterSpacing:"1px" }}>Search for institutions here!</div></div>;
 
   } else if (search.length === 0) {
     display = <motion.div initial={{ opacity: 0 }}
@@ -115,7 +112,8 @@ export const School = () => {
       exit={{}}
       className='school'>
 
-      {/* // isloading ? ( */}
+      { 
+      !isloading ? (
       <div >
         <div className="school_filter">
 
@@ -145,8 +143,9 @@ export const School = () => {
           <ToastContainer></ToastContainer>
         </div>
       </div>
-      )
-      {/* // : (<Loading />) */}
+      ):
+       (<Loading />) 
+      }
 
     </motion.div>
   );

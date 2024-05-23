@@ -36,7 +36,7 @@ export const Covenant = () => {
     const [school, setschool] = useState([])
     const [loading, setLoading] = useState(true);
     const [showschool, setshowschool] = useState(true)
-    const [text,settext] = useState([])
+    const [text, settext] = useState([])
 
     useEffect(() => {
         const fetchdescribe = async () => {
@@ -70,20 +70,20 @@ export const Covenant = () => {
         fetchdescribe()
     }, [])
 
-    useEffect(()=> {
+    useEffect(() => {
         const fetchprograms = async () => {
-           try {
-            const res =  await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`)
-            const result = await res.json()
-            console.log(result)   
-            settext(result)                    
-           } catch (error) {
-            console.log(error)
-           }
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`)
+                const result = await res.json()
+                console.log(result)
+                settext(result)
+            } catch (error) {
+                console.log(error)
+            }
         }
         fetchprograms()
 
-    },[])
+    }, [])
 
     if (!searchs) {
         console.log("No data found for this universityvc c nvnb")
@@ -92,7 +92,7 @@ export const Covenant = () => {
     if (loading) {
         return <div> <Loading /></div>;
     }
-   
+
     return (
         <div>
             {
@@ -114,7 +114,7 @@ export const Covenant = () => {
                                     <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
                                     <div className="Covenant_container_input">  <input type="text" placeholder="Search here" /></div>
                                 </div>
-                                <div style={{cursor:"pointer"}}><img src="/Search.svg" alt="whasf" /></div>
+                                <div style={{ cursor: "pointer" }}><img src="/Search.svg" alt="whasf" /></div>
                             </div>
                             <div className="Covenant_container4">
                                 <div className="images">
@@ -132,22 +132,25 @@ export const Covenant = () => {
 
                             </div>
 
-                            <div className="Covenant_container7">
-                                <div className="Covenant_container7a">
-                                    <p>Official colour :Crimson</p>
-                                    <p>Alumni symbol</p>
-                                    <p>Accreditation: NUC</p>
-                                    <p>Campus: Decentralized</p>
-                                    <p>Motto</p>
-                                    <p>Previous name</p>
+                            <div className="Covenant_container7z">
+                                <div className="Covenant_container7">
+                                    <div className="Covenant_container7a">
+                                        <p>Official colour :Crimson</p>
+                                        <p>Alumni symbol</p>
+                                        <p>Accreditation: NUC</p>
+                                        <p>Campus: Decentralized</p>
+                                        <p>Motto</p>
+                                        <p>Previous name</p>
+                                    </div>
+                                    <div className="Covenant_container7b">
+                                        <p>Grading system: 5-point</p>
+                                        <p>GPA</p>
+                                        <p>Population UG</p>
+                                        <p>Population PG</p>
+                                        <p>Acceptance rate   (%)</p>
+                                    </div>
                                 </div>
-                                <div className="Covenant_container7b">
-                                    <p>Grading system: 5-point</p>
-                                    <p>GPA</p>
-                                    <p>Population UG</p>
-                                    <p>Population PG</p>
-                                    <p>Acceptance rate   (%)</p>
-                                </div>
+                                <div className="gotobtn"><button><li><a href={searchs.websiteLink}>{searchs.name} website 👉</a></li></button></div>
                             </div>
 
                             {/* {
@@ -173,12 +176,12 @@ export const Covenant = () => {
                             </div>
 
                             <div className="Covenant-colleges">
-                                <div className="gotobtn"><button><li><a href={searchs.websiteLink}>{searchs.name} website 👉</a></li></button></div>
+
                                 <h1>Colleges</h1>
                                 <div className="Covenant-collegesa">
                                     {
-                                        text.length > 0 && text.map((program : {
-                                            name:React.ReactNode;
+                                        text.length > 0 && text.map((program: {
+                                            name: React.ReactNode;
                                             _id: any
                                         }) => (
                                             <Link to={`/university/${params.universityid}/${program._id}`} className="omots" key={program._id}>

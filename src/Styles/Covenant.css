@@ -185,7 +185,8 @@
         justify-content: center;
         width: 83%;
         color: rgba(0, 0, 0, 1);
-        margin: 3rem auto;
+        margin: 2rem auto;
+        margin-bottom: 6rem;
         padding: 3vw;
         gap: 3vw;
         border-radius: 10px;
@@ -195,11 +196,16 @@
         font-size: 3vw;
         font-weight: 400;
     }
+    .Covenant_container7z {
+        /* display: flex; */
+        /* flex-direction: column; */
+    }
     .gotobtn {
         justify-content: center;
         align-items: center;
         display: flex;
         margin-top: 0rem;
+        position: relative;
         border: none;
         color: white;
         font-family: FilsonPro-Medium, sans-serif;
@@ -211,6 +217,8 @@
         padding: 1rem;
         border: none;
         cursor: pointer;
+        top: -20vw;
+        position: absolute;
         border-radius: 10px;
     }
     
@@ -337,6 +345,7 @@
         box-shadow: 0px 4px 6px #96523b;
         border-radius: 10px;
     }
+ 
     .ot{
       position: relative;
       right: 4vw;

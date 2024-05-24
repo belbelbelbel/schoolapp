@@ -30,9 +30,10 @@ export const Covenant = () => {
         name: string;
         websiteLink: string;
         overview: OverviewItem[];
+        shortName:string
     }
 
-    const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [] });
+    const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [],shortName: "" });
     const [school, setschool] = useState([])
     const [loading, setLoading] = useState(true);
     const [showschool, setshowschool] = useState(true)
@@ -121,7 +122,7 @@ export const Covenant = () => {
                                     <img src="/download.png" alt="sdveds" />
                                 </div>
                                 <div className="container5">
-                                    <h3>{searchs.name}, Ota</h3>
+                                    <h3>{searchs.name}, <h5 style={{fontFamily:"Habibi"}}>({searchs.shortName})</h5></h3>
                                     <div> <p>Km. 10 Idiroko Road, Sango, Ota, Ogun, Nigeria</p></div>
                                     <div className="Covenant_container6">
                                         <div className="Container6"><img src="/Vector.svg" alt="gfgdf" /><div> Private, Christian</div></div>
@@ -186,13 +187,13 @@ export const Covenant = () => {
                                         }) => (
                                             <Link to={`/university/${params.universityid}/${program._id}`} className="omots" key={program._id}>
                                                 <div className="omot">
-                                                    <div className="ot"><h3>{program.name}</h3>
+                                                    <div className="ot">
+                                                        <h3>{program.name}</h3>
                                                         <div className="ire">
                                                             <span>See departments </span>
                                                             <div className="anya">
                                                                 <img src="/Vector (3).svg" alt="rrwadf" />
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                 </div>

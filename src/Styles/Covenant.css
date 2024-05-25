@@ -97,7 +97,8 @@
         align-items: center;
         width: 83%;
         height: 23vw;
-        margin: 3rem auto;
+        margin: 2rem auto;
+        text-align: center;
         padding: 0vw;
         gap: 0vw;
 
@@ -186,7 +187,7 @@
         width: 83%;
         color: rgba(0, 0, 0, 1);
         margin: 2rem auto;
-        margin-bottom: 6rem;
+        margin-bottom: 1rem;
         padding: 3vw;
         gap: 3vw;
         border-radius: 10px;
@@ -217,8 +218,7 @@
         padding: 1rem;
         border: none;
         cursor: pointer;
-        top: -17vw;
-        position: absolute;
+        position: relative;
         border-radius: 10px;
     }
     
@@ -244,7 +244,7 @@
         flex-direction: row;
         align-items: center;
         justify-content: center;
-        margin: 0rem 1.3rem;
+        margin: 1rem 1.3rem;
         justify-content: stretch;
         transition: 0.4s;
     }
@@ -314,14 +314,15 @@
     .Covenant-colleges {
         width: 83%;
         margin: 0rem auto;
-
+        position: relative;
+        top: -6vw;
     }
 
     .Covenant-colleges h1 {
         font-size: 8vw;
         line-height: 26.63px;
         font-weight: 500;
-        margin: 2rem 0rem;
+        margin: 1.2rem 0rem;
         color: rgba(38, 50, 56, 1);
         text-shadow: 0px 4px 6px #7a4a3a;
         font-family: FilsonPro-Medium, sans-serif;
@@ -361,8 +362,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 0vw;
-        
     }
 
     .Covenant-collegesa h3 {

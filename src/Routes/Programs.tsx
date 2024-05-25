@@ -76,35 +76,37 @@ export const Programs = () => {
                                         <img src="/Ellipse 4.svg" alt="weadsfa" />
                                     </div>
                                 </div>
-                                <div className='grams'> Programs</div>
-                                <div className='h5-container'>
-                                    {/* <h5>{depart.name}</h5> */}
-                                    {
-                                        depart.map((pro: {
-                                            name: React.ReactNode
-                                            certs: string[]
-                                        }) => (
-                                            <div className="h5-cont2">
-                                                <div className="">
-                                                    <h4>{pro.name}</h4>
-                                                </div>
-                                                <div style={{ display: "flex", alignItems: "center", gap: "3vw" }}>
-                                                    <h5 >Degree:-</h5>
-                                                    {
-                                                        pro.certs.map((cert, index: any) => (
-                                                            <div key={index}>
-                                                                <div >
+                                <div style={{position:"relative",gap:"3vw"}}>
+                                    <div className='grams'> Programs</div>
+                                    <div className='h5-container'>
+                                        {/* <h5>{depart.name}</h5> */}
+                                        {
+                                            depart.map((pro: {
+                                                name: React.ReactNode
+                                                certs: string[]
+                                            }) => (
+                                                <div className="h5-cont2">
+                                                    <div className="">
+                                                        <h4>{pro.name}</h4>
+                                                    </div>
+                                                    <div style={{ display: "flex", alignItems: "center", gap: "3vw" }}>
+                                                        <h5 >Degree:-</h5>
+                                                        {
+                                                            pro.certs.map((cert, index: any) => (
+                                                                <div key={index}>
+                                                                    <div >
 
-                                                                    <h6 style={{fontWeight:"400"}}>{cert}</h6>
+                                                                        <h6 style={{ fontWeight: "400" }}>{cert}</h6>
+                                                                    </div>
                                                                 </div>
-                                                            </div>
-                                                        ))
-                                                    }
+                                                            ))
+                                                        }
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        ))
-                                    }
+                                            ))
+                                        }
 
+                                    </div>
                                 </div>
                             </div>
                         </div>

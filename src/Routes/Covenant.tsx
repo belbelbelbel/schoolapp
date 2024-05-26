@@ -151,7 +151,7 @@ export const Covenant = () => {
                                         <p>Acceptance rate   (%)</p>
                                     </div>
                                 </div>
-                                <div className="gotobtn"><button><li><a href={searchs.websiteLink}>{searchs.name} website 👉</a></li></button></div>
+                                <div className="gotobtn"><button><li><a href={searchs.websiteLink}>{searchs.name}'s website 👉</a></li></button></div>
                             </div>
 
                             {/* {

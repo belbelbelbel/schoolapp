@@ -93,7 +93,8 @@ export const Review = () => {
   const capitalizeFirstLetter = (letter: string | undefined) => {
     return letter ? letter.charAt(0).toUpperCase() + letter.slice(1) : "";
   };
-
+  // 2125972165
+  // 2471863735
   return (
     <motion.div className="review_container"
       initial={{ opacity: 0 }}

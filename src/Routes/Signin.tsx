@@ -160,7 +160,7 @@ const Signin = () => {
                         speedMultiplier={1.2}
                       />
                       </div>}
-                      Sign up
+                      Sign in
                     </div>
                   </motion.button>
                   <div className="btn-div"><Link to="/forgotpassword">Forgot Password?</Link>

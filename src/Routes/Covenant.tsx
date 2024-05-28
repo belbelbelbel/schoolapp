@@ -38,7 +38,12 @@ export const Covenant = () => {
     const [loading, setLoading] = useState(true);
     const [showschool, setshowschool] = useState(true)
     const [text, settext] = useState([])
-
+    const accesstoken = localStorage.getItem("token")
+    useEffect(()=> {
+      if (!accesstoken) {
+        navigate("/signin")
+      }
+    },[accesstoken])
     useEffect(() => {
         const fetchdescribe = async () => {
             try {

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Context } from '../Provider/Usecontext'
 import "../Styles/PreSchool.css"
 import { Footer } from './Footer'
@@ -8,12 +8,25 @@ export const PreSchool = () => {
     const handlelschool = () => {
         navigate("/school")
     }
-    const user = useContext(Context)
+    const user = useContext(Context);
+
+    const handleLogout = () => {
+      localStorage.removeItem('token');
+      user?.setIsLoggedIn(false); // Assuming you have a state to manage login status in context
+      navigate('/signin'); // Redirect to the login page or any other page
+    };
+    const accesstoken = localStorage.getItem("token")
+    useEffect(()=> {
+      if (!accesstoken) {
+        navigate("/signin")
+      }
+    },[accesstoken])
     return (
         <div className='preschool-container'>
               <div id="firsts"></div>
             <div className='preschool-container2'>
            <div>
+            <div onClick={handleLogout}>logout</div>
            <div className="preschool-navbar" onClick={handlelschool}>
                     <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
                     <div className='preschool-container3'>

@@ -14,15 +14,16 @@ const Signin = () => {
   const navigate = useNavigate();
   const user = useContext(Context);
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
+  const [Isloading, setIsLoading] = useState<boolean>(false)
   const [show, setShow] = useState(false);
   const [error, seterror] = useState(false);
+  const accesstoken = localStorage.getItem("token")
+ 
+
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
-  const [Isloading, setIsLoading] = useState<boolean>(false)
-  useEffect(() => {
-    console.log("this is location", locations)
-  }, [locations])
+
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     user?.setformdata({
@@ -30,6 +31,11 @@ const Signin = () => {
       [name]: value,
     });
   };
+  useEffect(() => {
+    if (accesstoken) {
+      navigate("/school");
+    }
+  }, [accesstoken]);
   let validateerror: string[] = [];
   const { formdata } = user || {};
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -51,11 +57,14 @@ const Signin = () => {
       })
       const result = await res.json()
       console.log(result)
+      console.log(result.token)
+      localStorage.setItem('token', result.token)
       if (!res.ok) {
         seterror(result.message)
         throw new Error("error fetching user signin")
       }
       navigate('/school');
+
     } catch (error) {
       if (!formdata?.email.trim()) {
         validateerror.push('The email is equired');
@@ -74,6 +83,8 @@ const Signin = () => {
       setIsLoading(false);
     }
   }
+
+
   const buttonVariants = {
     initial: {
       y: "-10vh",
@@ -123,9 +134,9 @@ const Signin = () => {
         <div className='signin_container2'>
 
           <form onSubmit={handleSubmit}>
-          {!Isloading && (
-                <div className="errors" style={{ textAlign: "center" }}>{error}</div>
-              )}
+            {!Isloading && (
+              <div className="errors" style={{ textAlign: "center" }}>{error}</div>
+            )}
             <div className='surname_container'>
               <div className="surname-email">
                 <input placeholder="Email" onChange={handleOnchange} name="email" type="text" />
@@ -143,7 +154,7 @@ const Signin = () => {
                 </div>
                 {passworderror}
               </div>
-             
+
               <div className="btn">
                 <div className='bt'>
                   <motion.button type="submit" className="signin_btn"

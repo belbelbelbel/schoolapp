@@ -1,4 +1,4 @@
-import { createContext, useState, ReactNode } from "react";
+import { createContext, useState, ReactNode, useEffect } from "react";
 import { format } from 'date-fns';
 
 export type valueprops = {
@@ -16,6 +16,8 @@ export type valueprops = {
 
 type dataprops = {
   formdata: valueprops;
+  isLoggedIn: boolean
+  setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>
   setformdata: React.Dispatch<React.SetStateAction<valueprops>>;
   error: string[];
   seterror: React.Dispatch<React.SetStateAction<string[]>>;
@@ -28,6 +30,7 @@ type childrenprops = {
 export const Context = createContext<dataprops | null>(null);
 
 export const Usecontext = ({ children }: childrenprops) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [formdata, setformdata] = useState<valueprops>({
     surname: "",
     firstName: "",
@@ -40,11 +43,16 @@ export const Usecontext = ({ children }: childrenprops) => {
     password: "",
     reasonForJoining:""
   });
-
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        setIsLoggedIn(true);
+    }
+}, []);
   const [error, seterror] = useState<string[]>([]);
 
   return (
-    <Context.Provider value={{ formdata, setformdata, error, seterror }}>
+    <Context.Provider value={{ formdata, setformdata, error, seterror,isLoggedIn,setIsLoggedIn }}>
       {children}
     </Context.Provider>
   );

@@ -66,6 +66,12 @@ export const School = () => {
   const hanleremove = () => {
     setInput("")
   }
+  const accesstoken = localStorage.getItem("token")
+  useEffect(()=> {
+    if (!accesstoken) {
+      navigate("/signin")
+    }
+  },[accesstoken])
   let display: React.ReactNode
   if (isloading) {
     display = <Loading />;

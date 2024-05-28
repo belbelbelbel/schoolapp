@@ -316,6 +316,9 @@
         margin: 0rem auto;
         position: relative;
         top: -6vw;
+        flex-direction: column;
+        display: flex;
+        gap: 6vw;
     }
 
     .Covenant-colleges h1 {

@@ -27,7 +27,7 @@ export const Review = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShow(false);
-      navigate("/school");
+      navigate("/preschool");
     },3500);
     return () => {
       clearTimeout(timer);

@@ -15,6 +15,7 @@ import { Documents } from '../Routes/Documents'
 import Signup from '../Routes/Signup'
 import { PreSchool } from '../Routes/PreSchool'
 import { Programs } from '../Routes/Programs'
+import { ProtectedRoute } from '../Routes/ProtectedRoute'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -41,7 +42,7 @@ import { Programs } from '../Routes/Programs'
 const Router = () => {
   const location = useLocation()
   return (
- 
+
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />}></Route>
@@ -49,9 +50,7 @@ const Router = () => {
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/review' element={<Review />}></Route>
         <Route path='/preschool' element={<PreSchool />}></Route>
-        <Route path='/school' element={<School />}>
-    
-        </Route>
+        <Route path='/school' element={<School />}></Route>
         <Route path='/university' element={<Covenant />}>
           <Route path=':universityid' element={<Covenant />}>
           </Route>
@@ -76,11 +75,11 @@ const Router = () => {
         <Route path='/university' element={<Documents />}>
           <Route path=':universityid?/documents?' element={<Documents />} />
         </Route>
+
         {/* <Route path='university/postgraduate' element={<Postgraduate />}></Route>
         <Route path='university/undergraduate' element={<Postgraduate />}></Route>  */}
         <Route path='/school/covenant-university/contact' element={<Contact />}></Route>
         <Route path='/school/covenant-university/usefulinks' element={<Uselinks />}></Route>
-
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
         <Route path='*' element={<Nopage />}></Route>
       </Routes>

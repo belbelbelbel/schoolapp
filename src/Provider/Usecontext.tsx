@@ -30,7 +30,7 @@ type childrenprops = {
 export const Context = createContext<dataprops | null>(null);
 
 export const Usecontext = ({ children }: childrenprops) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
   const [formdata, setformdata] = useState<valueprops>({
     surname: "",
     firstName: "",

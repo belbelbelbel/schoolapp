@@ -9,6 +9,7 @@ import { PiEyeLight } from "react-icons/pi";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ClipLoader } from 'react-spinners';
+import { locale } from 'dayjs';
 const Signin = () => {
   const locations = useLocation();
   const navigate = useNavigate();
@@ -17,13 +18,21 @@ const Signin = () => {
   const [Isloading, setIsLoading] = useState<boolean>(false)
   const [show, setShow] = useState(false);
   const [error, seterror] = useState(false);
-  const accesstoken = localStorage.getItem("token")
- 
+  const [tokes, settokes] = useState("")
+  const accessToken = localStorage.getItem("token")
+  // console.log("gvgfhcvgmgbmj",accessToken)
 
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
-
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      navigate("/preschool")
+    }
+    else{
+      navigate("/signin")
+    }
+  }, [user?.isLoggedIn,navigate])
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     user?.setformdata({
@@ -31,11 +40,7 @@ const Signin = () => {
       [name]: value,
     });
   };
-  useEffect(() => {
-    if (accesstoken) {
-      navigate("/preschool");
-    }
-  }, [accesstoken]);
+
   let validateerror: string[] = [];
   const { formdata } = user || {};
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -58,13 +63,13 @@ const Signin = () => {
       const result = await res.json()
       console.log(result)
       console.log(result.token)
+      settokes(result.token)
       localStorage.setItem('token', result.token)
       if (!res.ok) {
         seterror(result.message)
         throw new Error("error fetching user signin")
       }
       navigate('/school');
-
     } catch (error) {
       if (!formdata?.email.trim()) {
         validateerror.push('The email is equired');
@@ -113,6 +118,11 @@ const Signin = () => {
   } else if (user?.error.includes('the password is incomplete')) {
     passworderror = <div className="errors"> Password should be at least 8 characters</div>;
   }
+  //   useEffect(() => {
+  //   if (!accessToken) {
+  //     navigate("/preschool");
+  //   }
+  // },);
   return (
     <motion.div
       className="signin"

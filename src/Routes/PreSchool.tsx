@@ -11,10 +11,15 @@ export const PreSchool = () => {
     const user = useContext(Context);
 
     const handleLogout = () => {
-      localStorage.removeItem('token');
-      user?.setIsLoggedIn(false); // Assuming you have a state to manage login status in context
-      navigate('/signin'); // Redirect to the login page or any other page
-    };
+        localStorage.removeItem('token');
+        user?.setIsLoggedIn(false); 
+        user?.setformdata({
+            ...user.formdata,
+            email: "",
+            password: "",
+        })
+        navigate('/signin'); 
+      };
     const accesstoken = localStorage.getItem("token")
     useEffect(()=> {
       if (!accesstoken) {

@@ -33,7 +33,7 @@ const Signin = () => {
   };
   useEffect(() => {
     if (accesstoken) {
-      navigate("/school");
+      navigate("/preschool");
     }
   }, [accesstoken]);
   let validateerror: string[] = [];

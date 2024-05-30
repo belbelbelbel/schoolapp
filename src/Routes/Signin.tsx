@@ -19,8 +19,6 @@ const Signin = () => {
   const [show, setShow] = useState(false);
   const [error, seterror] = useState(false);
   const [tokes, settokes] = useState("")
-  const accessToken = localStorage.getItem("token")
-  // console.log("gvgfhcvgmgbmj",accessToken)
   // 2569719635
   const handleclick = () => {
     setShow((prevShow) => !prevShow);

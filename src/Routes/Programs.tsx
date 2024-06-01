@@ -13,15 +13,22 @@ export const Programs = () => {
     const [prog, setprog] = useState<props>({ name: '', programs: [] })
     const [loading, setloading] = useState(false)
     const [depart, setdepart] = useState([])
+    const accessToken = localStorage.getItem('token')
     useEffect(() => {
         const fetchData = async () => {
             setloading(true)
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`)
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`,{
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "ngrok-skip-browser-warning": "69420",
+                        "Authorization": `Bearer ${accessToken}`,
+                    }
+                })
                 const results = await res.json()
                 console.log(results[0].programs)
                 console.log(results[0].programs)
-
                 console.log(results[0].programs[1])
                 setdepart(results[0].programs)
                 setprog(results[0])
@@ -56,13 +63,13 @@ export const Programs = () => {
                                 <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
                             </div>
                         </div>
-                        <div className="Undercover_container2">
+                        {/* <div className="Undercover_container2">
                             <div className="Undercover_container3">
                                 <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
                                 <div className="Covenant_container_input">  <input type="text" placeholder="Search here" /></div>
                             </div>
                             <div><img src="/Search.svg" alt="whasf" /></div>
-                        </div>
+                        </div> */}
                         <div className='prog_cont3'>
                             <div>
                                 <div>

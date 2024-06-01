@@ -16,6 +16,10 @@ import Signup from '../Routes/Signup'
 import { PreSchool } from '../Routes/PreSchool'
 import { Programs } from '../Routes/Programs'
 import { ProtectedRoute } from '../Routes/ProtectedRoute'
+import { Faq } from '../Routes/Faq'
+import { useContext } from 'react'
+import { Context } from './Usecontext'
+import { Userprofile } from '../Routes/Userprofile'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -40,17 +44,22 @@ import { ProtectedRoute } from '../Routes/ProtectedRoute'
 // ])
 
 const Router = () => {
+  const user = useContext(Context)
   const location = useLocation()
   return (
 
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/signin' element={<Signin />}></Route>
+        <Route path='/userprofile' element={<Userprofile />}></Route>
+        (<Route path='/signin' element={<Signin />}></Route>)  (  <Route path='/preschool' element={<PreSchool />}></Route>)
+
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/review' element={<Review />}></Route>
-        <Route path='/preschool' element={<PreSchool />}></Route>
-        <Route path='/school' element={<School />}></Route>
+
+
+         <Route path='/school' element={<School />}></Route>
+
         <Route path='/university' element={<Covenant />}>
           <Route path=':universityid' element={<Covenant />}>
           </Route>
@@ -62,6 +71,9 @@ const Router = () => {
         </Route>
         <Route path='/university' element={<Undergraduate />}>
           <Route path=':universityid?/undergraduate?' element={<Undergraduate />} />
+        </Route>
+        <Route path='/university' element={<Faq />}>
+          <Route path=':universityid?/underfaq' element={< Faq />} />
         </Route>
         <Route path='/university' element={<Postgraduate />}>
           <Route path=':universityid?/postgraduate?' element={<Postgraduate />} />

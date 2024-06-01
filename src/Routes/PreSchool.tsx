@@ -22,10 +22,10 @@ export const PreSchool = () => {
       };
     const accesstoken = localStorage.getItem("token")
     useEffect(()=> {
-      if (!accesstoken) {
+      if (!localStorage.getItem('token')) {
         navigate("/signin")
       }
-    },[accesstoken])
+    },[localStorage.getItem('token'),navigate])
     return (
         <div className='preschool-container'>
               <div id="firsts"></div>

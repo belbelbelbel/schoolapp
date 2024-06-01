@@ -50,7 +50,8 @@ export const Covenant = () => {
                 const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/description`, {
                     method: "GET",
                     headers: {
-                        "Content-type": "application/json"
+                        "Content-type": "application/json",
+                        "Authorization": `Bearer ${accesstoken}`,
                     }
                 })
                 let results: React.ReactNode = Array.isArray(searchs);
@@ -79,7 +80,13 @@ export const Covenant = () => {
     useEffect(() => {
         const fetchprograms = async () => {
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`)
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`,{
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "Authorization": `Bearer ${accesstoken}`,
+                    }
+                })
                 const result = await res.json()
                 console.log(result)
                 settext(result)
@@ -123,9 +130,9 @@ export const Covenant = () => {
                                 <div style={{ cursor: "pointer" }}><img src="/Search.svg" alt="whasf" /></div>
                             </div>
                             <div className="Covenant_container4">
-                                <div className="images">
+                                {/* <div className="images">
                                     <img src="/download.png" alt="sdveds" />
-                                </div>
+                                </div> */}
                                 <div className="container5">
                                     <h3>{searchs.name}, <h5 style={{fontFamily:"Habibi"}}>({searchs.shortName})</h5></h3>
                                     <div> <p>Km. 10 Idiroko Road, Sango, Ota, Ogun, Nigeria</p></div>

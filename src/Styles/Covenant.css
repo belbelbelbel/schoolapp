@@ -96,11 +96,9 @@
         flex-direction: column;
         align-items: center;
         width: 83%;
-        height: 23vw;
-        margin: 2rem auto;
+        /* height: 23vw; */
+        margin: 0rem auto;
         text-align: center;
-        padding: 0vw;
-        gap: 0vw;
 
     }
 

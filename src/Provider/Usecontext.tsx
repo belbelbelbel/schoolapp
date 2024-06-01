@@ -26,9 +26,8 @@ type dataprops = {
 type childrenprops = {
   children: ReactNode;
 };
-
+const token = localStorage.getItem('token');
 export const Context = createContext<dataprops | null>(null);
-
 export const Usecontext = ({ children }: childrenprops) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
   const [formdata, setformdata] = useState<valueprops>({
@@ -49,8 +48,8 @@ export const Usecontext = ({ children }: childrenprops) => {
         setIsLoggedIn(true);
     }
 }, []);
+console.log(token)
   const [error, seterror] = useState<string[]>([]);
-
   return (
     <Context.Provider value={{ formdata, setformdata, error, seterror,isLoggedIn,setIsLoggedIn }}>
       {children}

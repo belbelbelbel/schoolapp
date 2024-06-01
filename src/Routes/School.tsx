@@ -15,7 +15,7 @@ export const School = () => {
   const user = useContext(Context)
   const [isloading, setisloading] = useState(true)
   const navigate = useNavigate()
-  const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
+  const accesstoken = localStorage.getItem("token")
   useEffect(() => {
     const handlefilter = async (input: string) => {
       try {
@@ -24,7 +24,7 @@ export const School = () => {
           headers: {
             "Content-type": "application/json",
             "ngrok-skip-browser-warning": "69420",
-            "Authorization": jwtToken,
+            "Authorization": `Bearer ${accesstoken}`,
           },
         })
         const result = await res.json();
@@ -32,13 +32,15 @@ export const School = () => {
         if (input.length !== 0) {
           setsearch(result)
           console.log(result);
+         
           setisloading(false)
         }
         else {
-
+          
         }
 
         if (!res.ok) {
+          seterror(result.message)
           throw new Error("Failed to fetch data from the API");
         }
       } catch (error) {
@@ -66,12 +68,11 @@ export const School = () => {
   const hanleremove = () => {
     setInput("")
   }
-  const accesstoken = localStorage.getItem("token")
-  useEffect(()=> {
-    if (!accesstoken) {
+  useEffect(() => {
+    if (!localStorage.getItem('token')) {
       navigate("/signin")
     }
-  },[accesstoken])
+  }, [localStorage.getItem("token"), navigate])
   let display: React.ReactNode
   if (isloading) {
     display = <Loading />;
@@ -81,7 +82,7 @@ export const School = () => {
   } else if (search.length === 0) {
     display = <motion.div initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1.2 } }}
-      style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin:"2vw 0rem" }}>School  <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>;
+      style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "2vw 0rem" }}>School  <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>;
   } else {
     <div className='display'>
       {
@@ -102,7 +103,8 @@ export const School = () => {
           </Link>
         ))
       }
-    </div>
+      <div style={{color:"red"}}>{error}</div>
+    </div> 
 
   }
   function handlelback(): void {

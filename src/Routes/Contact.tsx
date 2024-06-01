@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
 import "../Styles/Contact.css"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import {motion} from "framer-motion"
 import { Footer } from './Footer'
 export const Contact = () => {
+    const params = useParams()
     const [text, setxet] = useState({
         name: "",
         email: "",
@@ -11,7 +12,7 @@ export const Contact = () => {
     })
     const navigate = useNavigate()
     const handlenavigateunder = () => {
-        navigate("/school/covenant-university/undergraduate")
+        navigate(`${params.universityid}/underfaq`)
     }
     const handlenavigatepost = () => {
         navigate("/school/covenant-university/postgraduate")

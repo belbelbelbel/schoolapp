@@ -27,10 +27,10 @@ const Signin = () => {
     if (localStorage.getItem('token')) {
       navigate("/preschool")
     }
-    else{
+    else {
       navigate("/signin")
     }
-  }, [user?.isLoggedIn,navigate])
+  }, [user?.isLoggedIn, navigate])
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     user?.setformdata({
@@ -67,7 +67,12 @@ const Signin = () => {
         seterror(result.message)
         throw new Error("error fetching user signin")
       }
-      navigate('/school');
+      if (localStorage.getItem('token')) {
+        navigate('/school');
+      }
+      else{
+        navigate('/signin');
+      }
     } catch (error) {
       if (!formdata?.email.trim()) {
         validateerror.push('The email is equired');

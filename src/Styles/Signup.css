@@ -2,7 +2,8 @@
 @media screen and (max-width : 768px) {
   .signup {
     color: #8B452D;
-    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    background-color: rgba(255, 255, 255, 0.5);
+    /* Transparent white background */
     width: 100%;
     height: 100%;
     margin: 0;
@@ -14,7 +15,7 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center bottom; */
-}
+  }
 
   .signup h2 {
     font-size: 6vw;
@@ -28,13 +29,14 @@
     top: 3vw;
     margin: 2rem auto;
   }
-  
+
 
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
+
   .signup_btn {
     height: 9vw;
     width: 49vw;
@@ -49,49 +51,54 @@
     border: none;
     display: block;
   }
-  
 
-.home-page .signup_btn {
-  position: fixed;
-  left: 50%;
-   background-color: red;
-  bottom: 50vh;
-  animation-name: dropDown;
-  animation-duration: 1.5s;
-  animation-fill-mode: forwards;
-}
-@keyframes dropDown {
-  from {
+
+  .home-page .signup_btn {
+    position: fixed;
+    left: 50%;
+    background-color: red;
     bottom: 50vh;
+    animation-name: dropDown;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
   }
-  to {
-    bottom: 0;
+
+  @keyframes dropDown {
+    from {
+      bottom: 50vh;
+    }
+
+    to {
+      bottom: 0;
+    }
   }
-}
+
   .signup_btn:hover {
     transform: scale(1.1);
   }
-  
+
   .signup_btn:active {
     transform: scale(0.9);
   }
-  
+
   .signup_btn.home-page {
     animation-name: slideInFromTop;
     animation-duration: 1.3s;
     animation-delay: 0s;
     animation-timing-function: ease-out;
   }
-  
+
   @keyframes slideInFromTop {
     0% {
       transform: translateY(-50vh);
     }
+
     100% {
       transform: translateY(0%);
     }
   }
-/* 
+
+  /* 
 @keyframes fadeInUp {
     from {
         opacity: 0; 
@@ -128,16 +135,18 @@
     align-items: first baseline;
     position: relative;
   }
+
   .surnames {
     display: flex;
     margin: 0.8rem auto;
-    width:  81%;
+    width: 81%;
     flex-direction: column;
     /* justify-content: center; */
     outline: none;
     border: none;
     /* align-items: first baseline */
   }
+
   .surnamess {
     display: flex;
     margin: 0.7rem auto;
@@ -149,8 +158,9 @@
     outline: none;
     border: none;
     align-items: center;
-    background-color: rgba(177, 173, 173, 0.669);
+    background-color: rgba(213, 210, 210, 0.669);
   }
+
   .surnames label {
     display: block;
     font-family: FilsonPro-Medium, sans-serif;
@@ -162,6 +172,7 @@
     align-items: start;
     text-align: start;
   }
+
   .surnames input {
     font-size: 4vw;
     width: 80%;
@@ -179,26 +190,28 @@
     width: 91%;
     margin: 0.5rem 0rem;
     padding: 0.9rem 1rem;
-    background-color: rgba(177, 173, 173, 0.669);
+    background-color: rgba(213, 210, 210, 0.669);
     font-family: FilsonPro-Medium, sans-serif;
     border-radius: 0.8rem;
     outline: none;
     border: none;
   }
+
   .btn {
     width: 90%;
     margin: 0.8rem auto;
     font-size: 4vw;
   }
+
   .btn-div21 {
-    color: black; 
+    color: black;
     margin-bottom: 2rem;
-    font-weight: 450; 
+    font-weight: 450;
     font-family: FilsonPro-Medium, sans-serif;
     font-size: 4.3vw;
     /* letter-spacing: 0.1vw;  */
     text-align: center;
-}
+  }
 
   .btn-div21 span {
     color: rgba(11, 60, 73, 1);
@@ -223,7 +236,7 @@
       transform: translateX(0);
     }
   } */
-/* 
+  /* 
   .error {
     animation: move 10s linear infinite;
     color: red;

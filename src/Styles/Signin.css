@@ -164,7 +164,7 @@
     width: 90%;
     margin: 0rem 2rem;
     padding: 0.7rem 1rem;
-    background-color: rgba(205, 201, 201, 0.669);
+    background-color: rgba(213, 210, 210, 0.669);
     font-family: FilsonPro-Medium, sans-serif;
     border-radius: 0.8rem;
     outline: none;
@@ -228,7 +228,7 @@
     width: 91%;
     border-radius: 0.8rem;
     margin: 0rem auto;
-    background-color: rgba(205, 201, 201, 0.669);
+    background-color: rgba(213, 210, 210, 0.669);
   }
 
   .surname-password input:focus {

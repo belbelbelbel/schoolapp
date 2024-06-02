@@ -16,6 +16,7 @@ export const Schools2 = ({setshowschool}:showprops) => {
     const user = useContext(Context)
     // const [isloading, setisloading] = useState(true)
     const navigate = useNavigate()
+    const accesstoken = localStorage.getItem("token")
     const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
     useEffect(() => {
         const handlefilter = async (input: string) => {
@@ -25,7 +26,7 @@ export const Schools2 = ({setshowschool}:showprops) => {
                     headers: {
                         "Content-type": "application/json",
                         "ngrok-skip-browser-warning": "69420",
-                        "Authorization": jwtToken,
+                        "Authorization": `Bearer ${accesstoken}`,
                     },
                 })
                 const result = await res.json();

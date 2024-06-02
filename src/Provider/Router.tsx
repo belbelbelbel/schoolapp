@@ -20,6 +20,10 @@ import { Faq } from '../Routes/Faq'
 import { useContext } from 'react'
 import { Context } from './Usecontext'
 import { Userprofile } from '../Routes/Userprofile'
+import { Date } from '../Routes/Date'
+import { Fees } from '../Routes/Fees'
+import { Exams } from '../Routes/Exams'
+import { Fluid } from '../Routes/Fluid'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -53,13 +57,9 @@ const Router = () => {
         <Route path='/' element={<Home />}></Route>
         <Route path='/userprofile' element={<Userprofile />}></Route>
         (<Route path='/signin' element={<Signin />}></Route>)  (  <Route path='/preschool' element={<PreSchool />}></Route>)
-
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/review' element={<Review />}></Route>
-
-
-         <Route path='/school' element={<School />}></Route>
-
+        <Route path='/school' element={<School />}></Route>
         <Route path='/university' element={<Covenant />}>
           <Route path=':universityid' element={<Covenant />}>
           </Route>
@@ -74,6 +74,18 @@ const Router = () => {
         </Route>
         <Route path='/university' element={<Faq />}>
           <Route path=':universityid?/underfaq' element={< Faq />} />
+        </Route>
+        <Route path='/university' element={<Date />}>
+          <Route path=':universityid?/date' element={< Date/>} />
+        </Route>
+        <Route path='/university' element={<Fees />}>
+          <Route path=':universityid?/links' element={< Fees/>} />
+        </Route>
+        <Route path='/university' element={<Exams />}>
+          <Route path=':universityid?/exam' element={< Exams/>} />
+        </Route>
+        <Route path='/university' element={<Fluid />}>
+          <Route path=':universityid?/fluid' element={< Fluid/>} />
         </Route>
         <Route path='/university' element={<Postgraduate />}>
           <Route path=':universityid?/postgraduate?' element={<Postgraduate />} />

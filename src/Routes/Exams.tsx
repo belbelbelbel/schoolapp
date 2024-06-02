@@ -5,8 +5,7 @@ import { Footer } from './Footer';
 import { motion } from "framer-motion";
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { Skeleton } from './Skeleton';
-
-export const Faq = () => {
+export const Exams = () => {
     const params = useParams();
     const navigate = useNavigate();
     const accesstoken = localStorage.getItem('token');
@@ -87,7 +86,7 @@ export const Faq = () => {
                             {siloading ? "loading..." : searchs.name}
                         </h2>
                         <div className='Undercover_container5'>
-                            <div><p>Frequently Asked <br /> Questions </p></div>
+                            <div><p>Exam Reports <br /></p></div>
                             <div className='Undercover_container6'>
                                 <img src="/Ellipse 2.svg" alt="ellipse 2" />
                                 <img src="/Ellipse 3.svg" alt="ellipse 3" />
@@ -97,37 +96,14 @@ export const Faq = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='grams'>FAQ</div>
+                    <div className='grams'>Exams</div>
                 </div>
                 <div className='faqcont'>
-                    {siloading ? (
-                        <Skeleton />
-                    ) : (
-                        <>
-                            <div className='faqques' style={{ display: "flex", gap: "6vw" }}>
-                                {faqs.question}
-                                <div onClick={handletoglr}>
-                                    {!show ? (
-                                        <IoMdArrowDropup onClick={handletoglr} style={{ fontSize: "6vw" }} />
-                                    ) : (
-                                        <IoMdArrowDropdown onClick={handletoglr} style={{ fontSize: "6vw" }} />
-                                    )}
-                                </div>
-                            </div>
-                            {show && (
-                                <motion.div
-                                    initial={{ opacity: 0, x: 0 }}
-                                    animate={{ opacity: 1, transition: { duration: 0.5 }, y: 0 }}
-                                    className='faqans'
-                                >
-                                    {faqs.answer}
-                                </motion.div>
-                            )}
-                        </>
-                    )}
+                <h3 style={{padding:"0rem 2.5rem",fontWeight:"500",letterSpacing:"1px"}}> Upcoming exams will be communicated shortly </h3>
                 </div>
+             
             </div>
             <Footer />
         </div>
     );
-};
+}

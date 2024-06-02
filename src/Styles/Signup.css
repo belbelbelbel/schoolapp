@@ -21,11 +21,14 @@
     letter-spacing: 0.1rem;
     font-weight: 800;
     color: #8B452D;
-    font-family: habibi;
+    font-family: FilsonPro-Medium, sans-serif;
     text-align: center;
     font-weight: 600;
-    margin: 1.7rem auto;
+    position: relative;
+    top: 3vw;
+    margin: 2rem auto;
   }
+  
 
   * {
     margin: 0;
@@ -146,7 +149,7 @@
     outline: none;
     border: none;
     align-items: center;
-    background-color: rgba(215, 214, 214, 0.669);
+    background-color: rgba(177, 173, 173, 0.669);
   }
   .surnames label {
     display: block;
@@ -176,7 +179,7 @@
     width: 91%;
     margin: 0.5rem 0rem;
     padding: 0.9rem 1rem;
-    background-color: rgba(215, 214, 214, 0.669);
+    background-color: rgba(177, 173, 173, 0.669);
     font-family: FilsonPro-Medium, sans-serif;
     border-radius: 0.8rem;
     outline: none;

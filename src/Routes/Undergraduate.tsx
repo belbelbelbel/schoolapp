@@ -11,6 +11,18 @@ export const Undergraduate = () => {
     const handledocuments = () => {
         navigate(`/university/${params.universityid}/documents`)
     }
+    const handledate = () => {
+        navigate(`${params.universityid}/date`)
+    }
+    const handlefees = () => {
+        navigate(`${params.universityid}/links`)
+    }
+    const handlefluid = () => {
+        navigate(`${params.universityid}/fluid`)
+    }
+    const handlexam = () => {
+        navigate(`${params.universityid}/exam`)
+    }
     return (
         <motion.div
             className='Undergraduate'
@@ -33,13 +45,7 @@ export const Undergraduate = () => {
                     <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
                 </div>
             </div>
-            <div className="Undercover_container2">
-                <div className="Undercover_container3">
-                    <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
-                    <div className="Covenant_container_input">  <input type="text" placeholder="Search here" /></div>
-                </div>
-                <div><img src="/Search.svg" alt="whasf" /></div>
-            </div>
+
             <div className="Undercover_container4">
                 <h1>Undergraduate</h1>
                 <div className='Undercover_container5'>
@@ -52,11 +58,11 @@ export const Undergraduate = () => {
                 </div>
                 <div className='Undercover_container7'>
                     <div className='Undercover_container8'>
-                    <div className="ima-flex">
+                    <div className="ima-flex" onClick={handledate}>
                             <div className='image1'><img src="/Ellipse 10.png" alt="gfds" /></div>
                             <p>Dates</p>
                         </div>
-                        <div className="ima-flex">
+                        <div className="ima-flex" >
                             <div className='image2'><img src="/Ellipse 10 (1).png" alt="rfdfewds" /></div>
                             <h1>Admissions</h1>
                         </div>
@@ -66,15 +72,15 @@ export const Undergraduate = () => {
                         </div>
                     </div>
                     <div className='Undercover_container20'>
-                        <div className="ima-flex">
+                        <div className="ima-flex"  onClick={handlefees}>
                             <div className='image4'><img src="/Ellipse 10 (3).png" alt="dfcd" /></div>
                             <p>Fees</p>
                         </div>
-                        <div className="ima-flex">
+                        <div className="ima-flex" onClick={handlexam}>
                             <div className='image5' ><img src="/Ellipse 10 (4).png" alt="deds" /></div>
                             <span>Exams</span>
                         </div>
-                        <div className="ima-flex"> <div className='image6'><img src="/Ellipse 10 (5).png" alt="we" /></div><p>Fluid<div>Students</div></p></div>
+                        <div className="ima-flex" onClick={handlefluid}> <div className='image6'><img src="/Ellipse 10 (5).png" alt="we" /></div><p>Fluid<div>Students</div></p></div>
                         
                     </div>
 

@@ -1,19 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import "../Styles/Faq.css";
 import { useNavigate, useParams } from 'react-router-dom';
+import Lottie from "lottie-react"
+import animatedData from "../Styles/pointerlottie.json"
 import { Footer } from './Footer';
 import { motion } from "framer-motion";
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { Skeleton } from './Skeleton';
-
-export const Faq = () => {
+import { relative } from 'path';
+import { Link } from 'react-router-dom';
+export const Fees = () => {
     const params = useParams();
     const navigate = useNavigate();
     const accesstoken = localStorage.getItem('token');
     const [siloading, setisloading] = useState(false);
     const [show, setshow] = useState(false);
     const [searchs, setsearchs] = useState({ name: "" });
-    const [faqs, setfaqs] = useState({ question: "", answer: "" });
+    const [faqs, setfaqs] = useState({ question: "", answer: "", university: "", name: "", url: "" });
 
     const handlelback = () => {
         navigate(-1);
@@ -23,7 +26,7 @@ export const Faq = () => {
         const handlefaq = async () => {
             setisloading(true);
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/faq`, {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/links`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -32,8 +35,7 @@ export const Faq = () => {
                 });
                 const result = await res.json();
                 console.log(result);
-                console.log(result.faq[0]);
-                setfaqs(result.faq[0]);
+                setfaqs(result.relevantLinks[0]);
             } catch (error) {
                 console.log(error);
             } finally {
@@ -47,27 +49,6 @@ export const Faq = () => {
         setshow(!show);
     };
 
-    useEffect(() => {
-        const fetchdescribe = async () => {
-            try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/description`, {
-                    method: "GET",
-                    headers: {
-                        "Content-type": "application/json",
-                        "Authorization": `Bearer ${accesstoken}`,
-                    }
-                });
-                const result = await res.json();
-                setsearchs(result);
-                if (!res.ok) {
-                    throw new Error("error occurred in the description");
-                }
-            } catch (error) {
-                console.log("description error", error);
-            }
-        };
-        fetchdescribe();
-    }, [params.universityid, accesstoken]);
 
     return (
         <div className='faq1'>
@@ -83,11 +64,11 @@ export const Faq = () => {
                         </div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                        <h2>
-                            {siloading ? "loading..." : searchs.name}
-                        </h2>
+                        <h3 style={{fontWeight:"500"}}>
+                            {siloading ? "loading..." : faqs.name}
+                        </h3>
                         <div className='Undercover_container5'>
-                            <div><p>Frequently Asked <br /> Questions </p></div>
+                            <div style={{width:"80vw"}}><p>{!siloading ? faqs.name : "loading..."} </p></div>
                             <div className='Undercover_container6'>
                                 <img src="/Ellipse 2.svg" alt="ellipse 2" />
                                 <img src="/Ellipse 3.svg" alt="ellipse 3" />
@@ -97,37 +78,21 @@ export const Faq = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='grams'>FAQ</div>
+                    <div className='grams' style={{ position: "relative", left: "-20vw" }}>Relevant Links</div>
                 </div>
-                <div className='faqcont'>
-                    {siloading ? (
-                        <Skeleton />
-                    ) : (
-                        <>
-                            <div className='faqques' style={{ display: "flex", gap: "6vw" }}>
-                                {faqs.question}
-                                <div onClick={handletoglr}>
-                                    {!show ? (
-                                        <IoMdArrowDropup onClick={handletoglr} style={{ fontSize: "6vw" }} />
-                                    ) : (
-                                        <IoMdArrowDropdown onClick={handletoglr} style={{ fontSize: "6vw" }} />
-                                    )}
-                                </div>
+                <li className='blinklist'>
+                    <a href={faqs.url} style={{ color: "black" }}>
+                        <div className='faqcont' style={{ display: "flex", alignItems: "center" }}>
+                            <h2 style={{ padding: "0rem 7vw", fontWeight: "500", fontSize:"6w" }}>Click for more info </h2>
+                            <div style={{ width: "9vw", textAlign: "center" }}>
+                                <Lottie animationData={animatedData}></Lottie>
                             </div>
-                            {show && (
-                                <motion.div
-                                    initial={{ opacity: 0, x: 0 }}
-                                    animate={{ opacity: 1, transition: { duration: 0.5 }, y: 0 }}
-                                    className='faqans'
-                                >
-                                    {faqs.answer}
-                                </motion.div>
-                            )}
-                        </>
-                    )}
-                </div>
+                        </div>
+                    </a>
+                </li>
+
             </div>
             <Footer />
         </div>
     );
-};
+}

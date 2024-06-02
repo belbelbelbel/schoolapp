@@ -92,9 +92,9 @@
 
     .Covenant_container4 {
         display: flex;
-        justify-content: center;
+        /* justify-content: center; */
         flex-direction: column;
-        align-items: center;
+        /* align-items: center; */
         width: 83%;
         /* height: 23vw; */
         margin: 0rem auto;
@@ -103,15 +103,16 @@
     }
 
     .Covenant_container4 p {
-        font-size: 3.75vw;
+        font-size: 3.35vw;
         font-weight: 500;
         color: rgba(0, 0, 0, 1);
-        white-space: nowrap;
-        align-items: center;
-        justify-content: center;
+        /* white-space: nowrap; */
+        /* align-items: center;
+        justify-content: center; */
         text-align: center;
         display: flex;
-        margin: 0.2vw 0.2rem;
+        margin: 0.8vw auto;
+        width: 100%;
         transform: scaleX(1.0);
     }
 
@@ -119,10 +120,10 @@
     font-size: 6vw;
 } */
     .Covenant_container4 h3 {
-        font-size: 4.87vw;
+        font-size: 4.96vw;
         white-space: nowrap;
         font-weight: 500;
-        margin: 0rem 0.2rem;
+        margin: 0vw 0.2rem;
         color: rgba(38, 50, 56, 1);
         align-items: center;
         justify-content: center;
@@ -184,7 +185,7 @@
         justify-content: center;
         width: 83%;
         color: rgba(0, 0, 0, 1);
-        margin: 2rem auto;
+        margin: 1rem auto;
         margin-bottom: 1rem;
         padding: 3vw;
         gap: 3vw;

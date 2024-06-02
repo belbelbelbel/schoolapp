@@ -1,12 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import "../Styles/Faq.css";
 import { useNavigate, useParams } from 'react-router-dom';
+import Lottie from "lottie-react"
+import animatedData from "../Styles/pointerlottie.json"
 import { Footer } from './Footer';
 import { motion } from "framer-motion";
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { Skeleton } from './Skeleton';
-
-export const Faq = () => {
+import { relative } from 'path';
+import { Link } from 'react-router-dom';
+export const Fluid = () => {
     const params = useParams();
     const navigate = useNavigate();
     const accesstoken = localStorage.getItem('token');
@@ -87,7 +90,7 @@ export const Faq = () => {
                             {siloading ? "loading..." : searchs.name}
                         </h2>
                         <div className='Undercover_container5'>
-                            <div><p>Frequently Asked <br /> Questions </p></div>
+                            <div><p>Fluid Scholars.. <br /></p></div>
                             <div className='Undercover_container6'>
                                 <img src="/Ellipse 2.svg" alt="ellipse 2" />
                                 <img src="/Ellipse 3.svg" alt="ellipse 3" />
@@ -97,37 +100,15 @@ export const Faq = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='grams'>FAQ</div>
+                    <div className='grams' style={{ position: "relative", left: "-20vw" }}>Fluid Students</div>
                 </div>
                 <div className='faqcont'>
-                    {siloading ? (
-                        <Skeleton />
-                    ) : (
-                        <>
-                            <div className='faqques' style={{ display: "flex", gap: "6vw" }}>
-                                {faqs.question}
-                                <div onClick={handletoglr}>
-                                    {!show ? (
-                                        <IoMdArrowDropup onClick={handletoglr} style={{ fontSize: "6vw" }} />
-                                    ) : (
-                                        <IoMdArrowDropdown onClick={handletoglr} style={{ fontSize: "6vw" }} />
-                                    )}
-                                </div>
-                            </div>
-                            {show && (
-                                <motion.div
-                                    initial={{ opacity: 0, x: 0 }}
-                                    animate={{ opacity: 1, transition: { duration: 0.5 }, y: 0 }}
-                                    className='faqans'
-                                >
-                                    {faqs.answer}
-                                </motion.div>
-                            )}
-                        </>
-                    )}
+                    <h3 style={{ padding: "0rem 1.5rem", fontWeight: "500", letterSpacing: "1px" }}> For people who are confused about their gender?</h3>
                 </div>
+
             </div>
             <Footer />
         </div>
     );
-};
+
+}

@@ -30,20 +30,24 @@ export const Covenant = () => {
         name: string;
         websiteLink: string;
         overview: OverviewItem[];
-        shortName:string
+        shortName: string,
+        address: string,
+        yearFounded: string;
+        ownership: string;
+        location: string;
     }
-
-    const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [],shortName: "" });
+    const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [], shortName: "", address: "", yearFounded: "", ownership: "", location: "" });
     const [school, setschool] = useState([])
     const [loading, setLoading] = useState(true);
     const [showschool, setshowschool] = useState(true)
+    const [over, setover] = useState([])
     const [text, settext] = useState([])
     const accesstoken = localStorage.getItem("token")
-    useEffect(()=> {
-      if (!accesstoken) {
-        navigate("/signin")
-      }
-    },[accesstoken])
+    useEffect(() => {
+        if (!accesstoken) {
+            navigate("/signin")
+        }
+    }, [accesstoken])
     useEffect(() => {
         const fetchdescribe = async () => {
             try {
@@ -57,6 +61,8 @@ export const Covenant = () => {
                 let results: React.ReactNode = Array.isArray(searchs);
                 const result = await res.json()
                 console.log(result)
+                console.log(result.overview)
+                setover(result.overview)
                 setsearchs(result)
                 setschool(result.schoolNames)
                 setLoading(false)
@@ -80,7 +86,7 @@ export const Covenant = () => {
     useEffect(() => {
         const fetchprograms = async () => {
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`,{
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
@@ -134,45 +140,50 @@ export const Covenant = () => {
                                     <img src="/download.png" alt="sdveds" />
                                 </div> */}
                                 <div className="container5">
-                                    <h3>{searchs.name}, <h5 style={{fontFamily:"Habibi"}}>({searchs.shortName})</h5></h3>
-                                    <div> <p>Km. 10 Idiroko Road, Sango, Ota, Ogun, Nigeria</p></div>
+                                    <h3>{searchs.name}, <h5 style={{ fontFamily: "Habibi" }}>({searchs.shortName})</h5></h3>
+                                    <div> <p>{searchs.address}</p></div>
                                     <div className="Covenant_container6">
-                                        <div className="Container6"><img src="/Vector.svg" alt="gfgdf" /><div> Private, Christian</div></div>
-                                        <div className="Container6"><img src="/Vector (1).svg" alt="2q3ref" /> <div> covenant.edu.ng</div></div>
+                                        {/* <div className="Container6"><img src="/Vector.svg" alt="gfgdf" /><div>{searchs.ownership}</div></div> */}
+                                        {/* <div className="Container6"><img src="/Vector (1).svg" alt="2q3ref" /> <div> covenant.edu.ng</div></div> */}
                                     </div>
-                                    <div className="Covenant_containers6"><img src="/Vector (2).svg" alt="rthg4r" /> <div className="tim">2002</div></div>
+                                    <div className="Covenant_containers6"><img src="/Vector (2).svg" alt="rthg4r" /> <div className="tim">{searchs.yearFounded}</div></div>
                                 </div>
 
                             </div>
-
-                            <div className="Covenant_container7z">
-                                <div className="Covenant_container7">
-                                    <div className="Covenant_container7a">
-                                        <p>Official colour :Crimson</p>
+                            {/* <p>Official colour :Crimson</p>
                                         <p>Alumni symbol</p>
                                         <p>Accreditation: NUC</p>
                                         <p>Campus: Decentralized</p>
-                                        <p>Motto</p>
-                                        <p>Previous name</p>
+                                        <p>Motto</p> */}
+                            {/* <p>Previous name</p> */}
+
+                            <div className="Covenant_container7z">
+                                <div className="Covenant_container7">
+
+                                    <div className="Covenant_container7a">
+                                        {
+                                            over.map((overs: {
+                                                name: any,
+                                                description: any,
+                                                _id: any
+                                            }) => (
+                                                <div key={overs._id} style={{ display: "flex", alignItems: "center", margin: "2.5vw 0rem" }}>
+                                                    <div>{overs.name}: {overs.description}</div>
+                                                </div>
+                                            ))
+                                        }
                                     </div>
                                     <div className="Covenant_container7b">
-                                        <p>Grading system: 5-point</p>
-                                        <p>GPA</p>
+                                        <p>{searchs.location}</p>
                                         <p>Population UG</p>
                                         <p>Population PG</p>
+                                        <p style={{ letterSpacing: "1px" }}>{searchs.shortName}</p>
                                         <p>Acceptance rate   (%)</p>
                                     </div>
                                 </div>
                                 <div className="gotobtn"><button><li><a href={searchs.websiteLink}>{searchs.name}'s website 👉</a></li></button></div>
+                                <h3 style={{ textAlign: "center", fontWeight: "500", letterSpacing: "3px", fontFamily: "sans-serif", position: "relative", top: "0vw", margin: "2vw" }}>{searchs.ownership}</h3>
                             </div>
-
-                            {/* {
-                    searchs.overview.map((over) => (
-                        <Link key={over._id} to={`/university/${params.universityid}/undergraduate`}>
-                            
-                        </Link>
-                    ))
-                } */}
                             <div className="Covenant_img">
                                 <div className="Covenant_img1">
                                     <div><h2>Undergraduate</h2></div>
@@ -191,7 +202,9 @@ export const Covenant = () => {
                             <div className="Covenant-colleges">
 
                                 <h1>Colleges</h1>
+
                                 <div className="Covenant-collegesa">
+
                                     {
                                         text.length > 0 && text.map((program: {
                                             name: React.ReactNode;

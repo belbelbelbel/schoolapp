@@ -111,27 +111,19 @@ export const School = () => {
 
   }
 
-  //   useEffect(() => {
-  //     if (signupClicked) {
-  //         const timer = setTimeout(() => {
-  //             setSignupClicked(false);
-  //         }, 700);
-  //         return () => clearTimeout(timer);
-  //     }
-  // }, [signupClicked]);
 
   return (
-    <motion.div
+<div>
+  {
+    !isloading ? (
+      <motion.div
       initial={{}}
       animate={{}}
       exit={{}}
       className='school'>
 
-      {
-        !isloading ? (
           <div >
             <div className="school_filter">
-
               <input
                 placeholder="Search here"
                 value={input}
@@ -145,9 +137,7 @@ export const School = () => {
             </div>
             {display}
             <div className="btn">
-
               <div className='display1'>
-
                 {
                   !search && (<div>no result found</div>)
                 }
@@ -157,10 +147,12 @@ export const School = () => {
               <ToastContainer></ToastContainer>
             </div>
           </div>
-        ) :
-          (<Loading />)
-      }
+    
+      
 
     </motion.div>
+    ):(<Loading/>)
+  }
+</div>
   );
 };

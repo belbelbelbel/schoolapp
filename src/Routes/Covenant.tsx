@@ -141,7 +141,7 @@ export const Covenant = () => {
                                 </div> */}
                                 <div className="container5">
                                     <h3>{searchs.name}, <h5 style={{ fontFamily: "Habibi" }}>({searchs.shortName})</h5></h3>
-                                    <div> <p>{searchs.address}</p></div>
+                                    <div> <p style={{ maxWidth: "100%" }}>{searchs.address}</p></div>
                                     <div className="Covenant_container6">
                                         {/* <div className="Container6"><img src="/Vector.svg" alt="gfgdf" /><div>{searchs.ownership}</div></div> */}
                                         {/* <div className="Container6"><img src="/Vector (1).svg" alt="2q3ref" /> <div> covenant.edu.ng</div></div> */}
@@ -167,14 +167,20 @@ export const Covenant = () => {
                                                 description: any,
                                                 _id: any
                                             }) => (
-                                                <div key={overs._id} style={{ display: "flex", alignItems: "center", margin: "2.5vw 0rem" }}>
-                                                    <div>{overs.name}: {overs.description}</div>
+                                                <div key={overs._id} style={{ display: "flex", alignItems: "center", margin: "2vw 0rem" }}>
+                                                    <div>{overs.name}: {overs.description}
+                                                    
+                                                    </div>
+                                                    
                                                 </div>
                                             ))
                                         }
+                                           <div style={{ textAlign: "center", position: "relative",fontWeight:"400", top: "0vw", margin: "0vw" ,fontSize:"3.4vw"}}>{searchs.ownership}</div>
                                     </div>
+
                                     <div className="Covenant_container7b">
-                                        <p>{searchs.location}</p>
+                                        {/* <p>{searchs.location}</p> */}
+                                     
                                         <p>Population UG</p>
                                         <p>Population PG</p>
                                         <p style={{ letterSpacing: "1px" }}>{searchs.shortName}</p>
@@ -182,7 +188,7 @@ export const Covenant = () => {
                                     </div>
                                 </div>
                                 <div className="gotobtn"><button><li><a href={searchs.websiteLink}>{searchs.name}'s website 👉</a></li></button></div>
-                                <h3 style={{ textAlign: "center", fontWeight: "500", letterSpacing: "3px", fontFamily: "sans-serif", position: "relative", top: "0vw", margin: "2vw" }}>{searchs.ownership}</h3>
+
                             </div>
                             <div className="Covenant_img">
                                 <div className="Covenant_img1">
@@ -227,6 +233,7 @@ export const Covenant = () => {
 
                                         ))
                                     }
+
                                 </div>
                                 {/* <div>
                                    {
@@ -301,6 +308,7 @@ export const Covenant = () => {
                     </div> */}
                             </div>
                         </React.Fragment>
+
                         <Footer />
                     </motion.div>
                 ) : (<Schools2 setshowschool={setshowschool} />)

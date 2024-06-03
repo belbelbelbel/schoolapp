@@ -4,11 +4,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Lottie from "lottie-react"
 import animatedData from "../Styles/pointerlottie.json"
 import { Footer } from './Footer';
-import { motion } from "framer-motion";
-import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
-import { Skeleton } from './Skeleton';
-import { relative } from 'path';
-import { Link } from 'react-router-dom';
 export const Fees = () => {
     const params = useParams();
     const navigate = useNavigate();

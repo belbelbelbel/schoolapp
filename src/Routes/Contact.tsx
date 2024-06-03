@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import "../Styles/Contact.css"
 import { useNavigate, useParams } from 'react-router-dom'
 import {motion} from "framer-motion"
 import { Footer } from './Footer'
 export const Contact = () => {
+    const accesstoken = localStorage.getItem('token')
     const params = useParams()
     const [text, setxet] = useState({
         name: "",
@@ -32,6 +33,20 @@ export const Contact = () => {
             })
         }
     }
+    useEffect(()=> {
+        const handlecontact = async() => {
+            const res  =  await fetch ("https://almaquin.onrender.com/api/contact",{
+                method: "GET",
+                headers: {
+                    "Content-type": "application/json",
+                    "Authorization": `Bearer ${accesstoken}`,
+                },
+            })
+            const result = await res.json()
+            console.log(result)
+        }
+        handlecontact()
+    })
     return (
         <motion.div className='Contact'
         initial={{ opacity: 0 }}

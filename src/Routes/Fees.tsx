@@ -48,6 +48,7 @@ export const Fees = () => {
     return (
         <div className='faq1'>
             <div className='faq2'>
+            <div id="firsts"></div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <div className="Undercover_container">
                         <div className='Undercover_containera' onClick={handlelback}>

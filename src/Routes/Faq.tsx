@@ -72,6 +72,7 @@ export const Faq = () => {
     return (
         <div className='faq1'>
             <div className='faq2'>
+            <div id="firsts"></div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <div className="Undercover_container">
                         <div className='Undercover_containera' onClick={handlelback}>
@@ -117,7 +118,7 @@ export const Faq = () => {
                             {show && (
                                 <motion.div
                                     initial={{ opacity: 0, x: 0 }}
-                                    animate={{ opacity: 1, transition: { duration: 0.5 }, y: 0 }}
+                                    animate={{ opacity: 1, transition: { duration: 0 }, y: 0 }}
                                     className='faqans'
                                 >
                                     {faqs.answer}

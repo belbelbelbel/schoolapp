@@ -27,6 +27,7 @@ export const Programs = () => {
                     }
                 })
                 const results = await res.json()
+                console.log(results)
                 console.log(results[0].programs)
                 console.log(results[0].programs)
                 console.log(results[0].programs[1])

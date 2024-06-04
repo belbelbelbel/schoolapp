@@ -71,6 +71,7 @@ export const Exams = () => {
     return (
         <div className='faq1'>
             <div className='faq2'>
+            <div id="firsts"></div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <div className="Undercover_container">
                         <div className='Undercover_containera' onClick={handlelback}>
@@ -99,7 +100,7 @@ export const Exams = () => {
                     <div className='grams'>Exams</div>
                 </div>
                 <div className='faqcont'>
-                <h3 style={{padding:"0rem 2.5rem",fontWeight:"500",letterSpacing:"1px"}}> Upcoming exams will be communicated shortly </h3>
+                <h3 style={{padding:"0rem 2.5rem",fontWeight:"500",letterSpacing:"0px"}}> Upcoming exams will be communicated shortly </h3>
                 </div>
              
             </div>

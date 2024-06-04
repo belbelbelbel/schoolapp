@@ -6,12 +6,16 @@ export type valueprops = {
   firstName: string;
   birthday: string;
   phoneNo: string;
+  phone:string,
   email: string;
   presentSchool: string;
+  fax:string,
+  message:string,
   classLevel: string;
   schoolLocation: string
   password: string;
-  reasonForJoining:string
+  reasonForJoining:string,
+  name: string,
 };
 
 type dataprops = {
@@ -40,7 +44,11 @@ export const Usecontext = ({ children }: childrenprops) => {
     classLevel: "",
     schoolLocation: "",
     password: "",
-    reasonForJoining:""
+    reasonForJoining:"",
+    fax:"",
+    name:"",
+    phone:"",
+    message:""
   });
   useEffect(() => {
     const token = localStorage.getItem('token');

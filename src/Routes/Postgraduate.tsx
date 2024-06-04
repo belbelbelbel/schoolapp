@@ -21,6 +21,9 @@ export const Postgraduate = () => {
     const handlexam = () => {
         navigate(`${params.universityid}/exam`)
     }
+    const handleaddmision = ()=> {
+        navigate(`${params.universityid}/admission`)
+    }
     const scrollastold = (sectionid: string) => {
         const section = document.getElementById(sectionid)
         if (section) {
@@ -54,13 +57,6 @@ export const Postgraduate = () => {
                     <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
                 </div>
             </div>
-            {/* <div className="Undercover_container2">
-                <div className="Undercover_container3">
-                    <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
-                    <div className="Covenant_container_input">  <input type="text" placeholder="Search here" /></div>
-                </div>
-                <div><img src="/Search.svg" alt="whasf" /></div>
-            </div> */}
             <div className="Undercover_container4">
                 <h1>Postgraduate</h1>
                 <div className='Undercover_container5'>
@@ -77,7 +73,7 @@ export const Postgraduate = () => {
                             <div className='image1'><img src="/Ellipse 10.png" alt="gfds" /></div>
                             <p>Dates</p>
                         </div>
-                        <div className="ima-flex">
+                        <div className="ima-flex" onClick={handleaddmision}>
                             <div className='image2'><img src="/Ellipse 10 (1).png" alt="rfdfewds" /></div>
                             <h1>Admissions</h1>
                         </div>

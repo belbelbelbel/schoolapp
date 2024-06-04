@@ -2,10 +2,6 @@ import React, { useEffect, useState } from 'react';
 import "../Styles/Faq.css";
 import { useNavigate, useParams } from 'react-router-dom';
 import { Footer } from './Footer';
-import { motion } from "framer-motion";
-import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
-import { Skeleton } from './Skeleton';
-
 export const Date = () => {
     const params = useParams();
     const navigate = useNavigate();
@@ -72,6 +68,7 @@ export const Date = () => {
     return (
         <div className='faq1'>
             <div className='faq2'>
+                <div id="firsts"></div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <div className="Undercover_container">
                         <div className='Undercover_containera' onClick={handlelback}>
@@ -100,9 +97,9 @@ export const Date = () => {
                     <div className='grams'>Dates</div>
                 </div>
                 <div className='faqcont'>
-                <h3 style={{ padding: "0rem 1.5rem", fontWeight: "500", letterSpacing: "1px" }}>  No upcoming dates</h3>
+                    <h3 style={{ padding: "0rem 1.5rem", fontWeight: "500", letterSpacing: "1px" }}>  No upcoming dates</h3>
                 </div>
-             
+
             </div>
             <Footer />
         </div>

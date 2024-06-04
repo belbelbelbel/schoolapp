@@ -23,6 +23,9 @@ export const Undergraduate = () => {
     const handlexam = () => {
         navigate(`${params.universityid}/exam`)
     }
+    const handleaddmision = ()=> {
+        navigate(`${params.universityid}/admission`)
+    }
     return (
         <motion.div
             className='Undergraduate'
@@ -62,7 +65,7 @@ export const Undergraduate = () => {
                             <div className='image1'><img src="/Ellipse 10.png" alt="gfds" /></div>
                             <p>Dates</p>
                         </div>
-                        <div className="ima-flex" >
+                        <div className="ima-flex" onClick={handleaddmision}>
                             <div className='image2'><img src="/Ellipse 10 (1).png" alt="rfdfewds" /></div>
                             <h1>Admissions</h1>
                         </div>
@@ -74,7 +77,7 @@ export const Undergraduate = () => {
                     <div className='Undercover_container20'>
                         <div className="ima-flex"  onClick={handlefees}>
                             <div className='image4'><img src="/Ellipse 10 (3).png" alt="dfcd" /></div>
-                            <p>Fees</p>
+                            <p>Links</p>
                         </div>
                         <div className="ima-flex" onClick={handlexam}>
                             <div className='image5' ><img src="/Ellipse 10 (4).png" alt="deds" /></div>

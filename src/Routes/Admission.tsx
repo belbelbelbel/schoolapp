@@ -1,15 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import "../Styles/Faq.css";
 import { useNavigate, useParams } from 'react-router-dom';
-import Lottie from "lottie-react"
-import animatedData from "../Styles/pointerlottie.json"
 import { Footer } from './Footer';
 import { motion } from "framer-motion";
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { Skeleton } from './Skeleton';
-import { relative } from 'path';
-import { Link } from 'react-router-dom';
-export const Fluid = () => {
+export const Admission = () => {
     const params = useParams();
     const navigate = useNavigate();
     const accesstoken = localStorage.getItem('token');
@@ -75,7 +71,7 @@ export const Fluid = () => {
     return (
         <div className='faq1'>
             <div className='faq2'>
-            <div id="firsts"></div>
+                <div id="firsts"></div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <div className="Undercover_container">
                         <div className='Undercover_containera' onClick={handlelback}>
@@ -91,7 +87,7 @@ export const Fluid = () => {
                             {siloading ? "loading..." : searchs.name}
                         </h2>
                         <div className='Undercover_container5'>
-                            <div><p>Fluid Scholars.. <br /></p></div>
+                            <div><p>Admissions Info <br /></p></div>
                             <div className='Undercover_container6'>
                                 <img src="/Ellipse 2.svg" alt="ellipse 2" />
                                 <img src="/Ellipse 3.svg" alt="ellipse 3" />
@@ -101,15 +97,14 @@ export const Fluid = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='grams' style={{ position: "relative", left: "-20vw" }}>Fluid Students</div>
+                    <div className='grams'>Admission</div>
                 </div>
                 <div className='faqcont'>
-                    <h3 style={{ padding: "0rem 1.5rem", fontWeight: "500", letterSpacing: "0px" }}> For people who are confused about their gender?</h3>
+                    <h3 style={{ padding: "0rem 1rem", fontWeight: "500", letterSpacing: "0px" }}>We are not currently taking any candidate for admissions</h3>
                 </div>
 
             </div>
             <Footer />
         </div>
     );
-
 }

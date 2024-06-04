@@ -24,6 +24,7 @@ import { Date } from '../Routes/Date'
 import { Fees } from '../Routes/Fees'
 import { Exams } from '../Routes/Exams'
 import { Fluid } from '../Routes/Fluid'
+import { Admission } from '../Routes/Admission'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -80,6 +81,9 @@ const Router = () => {
         </Route>
         <Route path='/university' element={<Fees />}>
           <Route path=':universityid?/links' element={< Fees/>} />
+        </Route>
+        <Route path='/university' element={<Admission/>}>
+          <Route path=':universityid?/admission' element={< Admission/>} />
         </Route>
         <Route path='/university' element={<Exams />}>
           <Route path=':universityid?/exam' element={< Exams/>} />

@@ -9,6 +9,7 @@ import { Footer } from "./Footer";
 import { School } from "./School";
 import { Schools2 } from "./Schools2";
 import { useQuery } from "react-query";
+import { Sidebar } from "./Sidebar";
 export const Covenant = () => {
     const params = useParams()
 
@@ -65,6 +66,7 @@ export const Covenant = () => {
                 setover(result.overview)
                 setsearchs(result)
                 setschool(result.schoolNames)
+                console.log(result.schoolNames)
                 setLoading(false)
                 if (!res.ok) {
                     throw new Error("error occured in the dexcription")
@@ -103,7 +105,10 @@ export const Covenant = () => {
         fetchprograms()
 
     }, [])
-
+    const stopPropagation = (e: { stopPropagation: () => void }) => {
+        e.stopPropagation();
+    };
+    const [shownavbar, setshownavbar] = useState(false)
     if (!searchs) {
         console.log("No data found for this universityvc c nvnb")
         setLoading(false)
@@ -111,7 +116,9 @@ export const Covenant = () => {
     if (loading) {
         return <div> <Loading /></div>;
     }
-
+    const handleshow = () => {
+        setshownavbar(!shownavbar)
+    }
     return (
         <div>
             {
@@ -128,65 +135,62 @@ export const Covenant = () => {
                                     <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
                                 </div>
                             </div>
-                            <div className="Covenant_container2" onClick={() => setshowschool(false)}>
+                            <div className="Covenant_container2" >
                                 <div className="Covenant_container3">
-                                    <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
-                                    <div className="Covenant_container_input">  <input type="text" placeholder="Search here" /></div>
+                                    {
+                                        !shownavbar && <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div>
+                                    }
+                                    <div className="Covenant_container_input">  <input type="text" placeholder="Search here" onClick={()=>setshowschool(false)} /></div>
                                 </div>
                                 <div style={{ cursor: "pointer" }}><img src="/Search.svg" alt="whasf" /></div>
+                                {
+                                    shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
+                                }
                             </div>
                             <div className="Covenant_container4">
-                                {/* <div className="images">
-                                    <img src="/download.png" alt="sdveds" />
-                                </div> */}
                                 <div className="container5">
                                     <h3>{searchs.name}, <h5 style={{ fontFamily: "Habibi" }}>({searchs.shortName})</h5></h3>
                                     <div> <p style={{ maxWidth: "100%" }}>{searchs.address}</p></div>
                                     <div className="Covenant_container6">
-                                        {/* <div className="Container6"><img src="/Vector.svg" alt="gfgdf" /><div>{searchs.ownership}</div></div> */}
-                                        {/* <div className="Container6"><img src="/Vector (1).svg" alt="2q3ref" /> <div> covenant.edu.ng</div></div> */}
                                     </div>
                                     <div className="Covenant_containers6"><img src="/Vector (2).svg" alt="rthg4r" /> <div className="tim">{searchs.yearFounded}</div></div>
                                 </div>
 
                             </div>
-                            {/* <p>Official colour :Crimson</p>
-                                        <p>Alumni symbol</p>
-                                        <p>Accreditation: NUC</p>
-                                        <p>Campus: Decentralized</p>
-                                        <p>Motto</p> */}
-                            {/* <p>Previous name</p> */}
 
                             <div className="Covenant_container7z">
                                 <div className="Covenant_container7">
 
-                                    <div className="Covenant_container7a">
-                                        {
-                                            over.map((overs: {
-                                                name: any,
-                                                description: any,
-                                                _id: any
-                                            }) => (
-                                                <div key={overs._id} style={{ display: "flex", alignItems: "center", margin: "2vw 0rem" }}>
-                                                    <div>{overs.name}: {overs.description}
-                                                    
-                                                    </div>
-                                                    
-                                                </div>
-                                            ))
-                                        }
-                                           <div style={{ textAlign: "center", position: "relative",fontWeight:"400", top: "0vw", margin: "0vw" ,fontSize:"3.4vw"}}>{searchs.ownership}</div>
-                                    </div>
+                                    <div className="Covenant_container7i">
+                                        <div className="Covenant_container7a">
+                                            {
+                                                over.map((overs: {
+                                                    name: any,
+                                                    description: any,
+                                                    _id: any
+                                                }) => (
+                                                    <div key={overs._id} style={{ display: "flex", alignItems: "center", margin: "2vw 0rem" }}>
+                                                        <div style={{ display: "flex" }}>
+                                                            <div style={{ fontWeight: "600" }}>{overs.name}</div>: {overs.description}
 
-                                    <div className="Covenant_container7b">
-                                        {/* <p>{searchs.location}</p> */}
-                                     
-                                        <p>Population UG</p>
-                                        <p>Population PG</p>
-                                        <p style={{ letterSpacing: "1px" }}>{searchs.shortName}</p>
-                                        <p>Acceptance rate   (%)</p>
+                                                        </div>
+
+                                                    </div>
+                                                ))
+                                            }
+
+                                        </div>
+
+                                        <div className="Covenant_container7b">
+                                            <p>Population UG</p>
+                                            <p>Population PG</p>
+                                            <p style={{ letterSpacing: "1px" }}>{searchs.shortName}</p>
+                                            <p>Acceptance rate   (%)</p>
+                                        </div>
                                     </div>
+                                    <div style={{ textAlign: "center", position: "relative", fontWeight: "400", top: "0vw", margin: "0vw", fontSize: "3.4vw", whiteSpace: "nowrap" }}>Ownership: {searchs.ownership}</div>
                                 </div>
+
                                 <div className="gotobtn"><button><li><a href={searchs.websiteLink}>{searchs.name}'s website 👉</a></li></button></div>
 
                             </div>
@@ -206,11 +210,8 @@ export const Covenant = () => {
                             </div>
 
                             <div className="Covenant-colleges">
-
                                 <h1>Colleges</h1>
-
                                 <div className="Covenant-collegesa">
-
                                     {
                                         text.length > 0 && text.map((program: {
                                             name: React.ReactNode;
@@ -235,77 +236,6 @@ export const Covenant = () => {
                                     }
 
                                 </div>
-                                {/* <div>
-                                   {
-                                    text.length > 0 && text.map((program:{
-                                        name:React.ReactNode;
-                                        _id: any;
-                                        overview:React.ReactNode;
-                                        description:React.ReactNode;
-                                        websiteLink:React.ReactNode;
-                                        image:React.ReactNode;
-                                        logo:React.ReactNode;
-                                    }) => (
-                                        <div>
-                                            <div className="Covenant-collegesa">
-                                                <div>
-                                                    <div><h3>{program.name}</h3>
-                                                        <div className="ire">
-                                                            <span>See departments </span>
-                                                            <div className="anya">
-                                                                <img src="/Vector (3).svg" alt="rrwadf" />
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div><img src="/Rectangle 16.svg" alt="gfnhmb" /></div>
-                                            </div>
-                                        </div>
-                                    ))
-                                   }
-                                </div> */}
-
-                                {/* <div className="Covenant-collegesa">
-                        <div>
-                            <div><h3>College of Management and <br></br>Social Science(CMSS)</h3>
-                                <div className="ire">
-                                    <span>See departments </span>
-                                    <div className="anya">
-                                        <img src="/Vector (3).svg" alt="rrwadf" />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="/Rectangle 16.svg" alt="gfnhmb" /></div>
-                    </div>
-                    <div className="Covenant-collegesa">
-                        <div>
-                            <div><h3>College of Engineering <br></br>(COE)</h3>
-                                <div className="ire">
-                                    <span>See departments </span> 
-                                    <div className="anya">
-                                        <img src="/Vector (3).svg" alt="rrwadf" />
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="/Rectangle 16.svg" alt="gfnhmb" /></div>
-                    </div>
-                    <div className="Covenant-collegesa">
-                        <div>
-                            <div><h3>College of Science and <br></br>Technology(CST)</h3>
-                                <div className="ire">
-                                    <span>See departments </span>
-                                    <div className="anya">
-                                        <img src="/Vector (3).svg" alt="rrwadf" />
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div><img src="/Rectangle 16.svg" alt="gfnhmb" /></div>
-                    </div> */}
                             </div>
                         </React.Fragment>
 

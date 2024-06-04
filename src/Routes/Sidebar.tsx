@@ -1,6 +1,15 @@
 import { RxCross1 } from 'react-icons/rx';
 import { motion } from 'framer-motion';
 import "../Styles/Sidebar.css";
+import { start } from 'repl';
+import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from '../Provider/Usecontext';
+import { FaSearchPlus } from "react-icons/fa";
+import { FcAbout } from "react-icons/fc";
+import { SiGnuprivacyguard } from "react-icons/si";
+import { MdDashboard } from "react-icons/md";
+import { FiLogOut } from "react-icons/fi";
 
 interface SidebarProps {
     shownavbar: boolean;
@@ -13,8 +22,22 @@ const itemVariants = {
 };
 
 export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
+    const user = useContext(Context)
+    const navigate = useNavigate()
     const stopPropagation = (e: { stopPropagation: () => void }) => {
         e.stopPropagation();
+    };
+
+
+    const handleLogout = () => {
+        localStorage.removeItem('token');
+        user?.setIsLoggedIn(false);
+        user?.setformdata({
+            ...user.formdata,
+            email: "",
+            password: "",
+        })
+        navigate('/signin');
     };
 
     return (
@@ -32,29 +55,42 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
                             transition: {
                                 staggerChildren: 0.14,
                                 delayChildren: 0.2,
-                                staggerDirection: -1,
+                                // staggerDirection: -1,
                                 ease: 'linear'
                             }
                         }
                     }}
                 >
-                    <div className='flex justify-between items-center w-full px-[1rem] flex-row'>
-                        <div className='text-[1rem] text-[#212121] cursor-pointer font-black'>CoUpOnS</div>
+                    <div className='space'>
+                        <div className='' style={{ display: "flex", gap: "1rem", alignItems: "center" }}><div style={{ color: "rgba(11, 60, 73, 1)" }}>C</div><div style={{ color: "#7a4a3a" }}>T</div><div style={{ color: "rgba(11, 60, 73, 1)" }}>F</div></div>
                         {shownavbar && <RxCross1 size="6vw" onClick={() => setshownavbar(false)} />}
                     </div>
-                    <div className='w-[27%] font-sans' onClick={stopPropagation}>
-                        <motion.li variants={itemVariants}><a href="index.html">Join</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">Shop</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">Blog</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">About</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">Contact</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">Contact</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">Contact</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">Contact</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">Contact</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">Contact</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">Contact</a></motion.li>
-                        <motion.li variants={itemVariants}><a href="index.html">Contact</a></motion.li>
+                    <div className='w-[27%] font-sans' onClick={stopPropagation} style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: "3rem" }}>
+                        <motion.li variants={itemVariants}>
+                            <div style={{ display: "flex", gap: "1rem" }}> <SiGnuprivacyguard />
+                                <Link to="/signup">SIGNUP</Link>
+                            </div>
+                        </motion.li>
+                        <motion.li variants={itemVariants}>
+                            <div style={{ display: "flex", gap: "1rem" }}> <FcAbout color='black'/>
+                                <Link to="/about">About</Link>
+                            </div>
+                        </motion.li>
+                        <motion.li variants={itemVariants}>
+                            <div style={{ display: "flex", gap: "1rem" }}> <FaSearchPlus />
+                                <Link to="/school">Search</Link>
+                            </div>
+                        </motion.li>
+                        <motion.li variants={itemVariants}>
+                            <div style={{ display: "flex", gap: "1rem" }}> <MdDashboard />
+                                <Link to="/preschool">Dashboard</Link>
+                            </div>
+                        </motion.li>
+                        <motion.li variants={itemVariants} onClick={handleLogout}>
+                            <div style={{ display: "flex", gap: "1rem" }}> <FiLogOut />
+                                <a>Logout</a>
+                            </div>
+                        </motion.li>
                     </div>
                 </motion.ul>
             </div>

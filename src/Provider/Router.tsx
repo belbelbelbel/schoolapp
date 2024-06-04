@@ -25,6 +25,7 @@ import { Fees } from '../Routes/Fees'
 import { Exams } from '../Routes/Exams'
 import { Fluid } from '../Routes/Fluid'
 import { Admission } from '../Routes/Admission'
+import { About } from '../Routes/About'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -70,6 +71,7 @@ const Router = () => {
             <Route path=':schoolid' element={<Programs />}></Route>
           </Route>
         </Route>
+        <Route path='about' element={<About/>}></Route>
         <Route path='/university' element={<Undergraduate />}>
           <Route path=':universityid?/undergraduate?' element={<Undergraduate />} />
         </Route>

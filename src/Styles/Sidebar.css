@@ -21,12 +21,22 @@
 #navbar.active {
     right: 0px;
 }
-
-
+.space {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:60vw;
+    margin: 0.5rem 2rem;
+}
+#navbar li {
+    list-style-type: none;
+}
 #navbar li a {
     text-decoration: none;
     color:  #7a4a3a ;
     transition: color 0.3s ease;
+
 }
 
 #navbar li a:hover {

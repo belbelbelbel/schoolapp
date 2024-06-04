@@ -1,66 +1,86 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Context } from '../Provider/Usecontext'
 import "../Styles/PreSchool.css"
 import { Footer } from './Footer'
 import { useNavigate } from 'react-router-dom'
+import { motion } from "framer-motion"
+import { Sidebar } from './Sidebar'
 export const PreSchool = () => {
     const navigate = useNavigate()
     const handlelschool = () => {
         navigate("/school")
     }
+    const [shownavbar, setshownavbar] = useState(false)
     const user = useContext(Context);
-
     const handleLogout = () => {
         localStorage.removeItem('token');
-        user?.setIsLoggedIn(false); 
+        user?.setIsLoggedIn(false);
         user?.setformdata({
             ...user.formdata,
             email: "",
             password: "",
         })
-        navigate('/signin'); 
-      };
+        navigate('/signin');
+    };
     const accesstoken = localStorage.getItem("token")
-    useEffect(()=> {
-      if (!localStorage.getItem('token')) {
-        navigate("/signin")
-      }
-    },[localStorage.getItem('token'),navigate])
+    useEffect(() => {
+        if (!localStorage.getItem('token')) {
+            navigate("/signin")
+        }
+    }, [localStorage.getItem('token'), navigate])
+    const handleshow = () => {
+        setshownavbar(!shownavbar)
+    }
     return (
-        <div className='preschool-container'>
-              <div id="firsts"></div>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{
+                transition: {
+                    duration: 1,
+                    delay: 0,
+                    ease: "easeIn",
+                },
+                opacity: 1
+            }}
+            exit={{ opacity: 0 }}
+            className='preschool-container'>
+            <div id="firsts"></div>
             <div className='preschool-container2'>
-           <div>
-            <div onClick={handleLogout}>logout</div>
-           <div className="preschool-navbar" onClick={handlelschool}>
-                    <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
-                    <div className='preschool-container3'>
-                        <div><input type="text" placeholder='Search' /></div>
-                        <div><img src="/Search.svg" alt="whasf" /></div>
+                <div>
+                    <div className="preschool-navbar" >
+                        {
+                            shownavbar ? <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div>
+                        }
+                        {
+                            shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
+                        }
+                        <div className='preschool-container3' onClick={handlelschool}>
+                            <div><input type="text" placeholder='Search' /></div>
+                            <div><img src="/Search.svg" alt="whasf" /></div>
+                        </div>
                     </div>
-                </div>
-                <div className='preschool-name'>
-                    <div> Good Morning, {user?.formdata.firstName} !</div>
-                </div>
-                <div className='preschool-container4'>
-                    <div className='preschool-container5'>
-                        <div className='preschool-coname'>Trending news</div>
-                        <div className='preschool-container6'>
-                            <div className='preschool-container7'>
-                                <div className='preschool-container8'>University fees drop<br />
+                    <div className='preschool-name'>
+                        <div> Good Morning, {user?.formdata.firstName} !</div>
+                    </div>
+                    <div className='preschool-container4'>
+                        <div className='preschool-container5'>
+                            <div className='preschool-coname'>Trending news</div>
+                            <div className='preschool-container6'>
+                                <div className='preschool-container7'>
+                                    <div className='preschool-container8'>University fees drop<br />
+                                        as students withdraw <br />
+                                        their education
+                                    </div>
+                                </div>
+                                <div className='preschool-container8'>
+                                    University fees drop<br />
                                     as students withdraw <br />
                                     their education
                                 </div>
                             </div>
-                            <div className='preschool-container8'>
-                            University fees drop<br />
-                                    as students withdraw <br />
-                                    their education
-                            </div>
                         </div>
                     </div>
                 </div>
-           </div>
                 <div className='preschool-container4'>
                     <div className='preschool-coname'>Explore by category</div>
                     <div className='preschool-container9'>
@@ -73,7 +93,7 @@ export const PreSchool = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
-        </div>
+            <Footer />
+        </motion.div>
     )
 }

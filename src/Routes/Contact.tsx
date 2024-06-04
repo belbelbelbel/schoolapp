@@ -7,6 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { valueprops } from '../Provider/Usecontext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Sidebar } from './Sidebar';
 interface textprops {
     name: string;
     email: string;
@@ -32,7 +33,10 @@ export const Contact = () => {
             });
         }
     };
-
+    const [shownavbar, setshownavbar] = useState(false)
+    const handleshow = () => {
+        setshownavbar(!shownavbar)
+    }
     useEffect(() => {
         const handlecontact = async () => {
             const res = await fetch("https://almaquin.onrender.com/api/contact", {
@@ -61,7 +65,7 @@ export const Contact = () => {
             });
             const result = await res.json();
             seterror(result.message)
-            if(result.message === "Message sent successfully") {
+            if (result.message === "Message sent successfully") {
                 toast.success(result.message, {
                     position: "top-right",
                     autoClose: 5000,
@@ -99,7 +103,14 @@ export const Contact = () => {
             exit={{ opacity: 0 }}>
             <div id="firsts"></div>
             <div className="Contact_container">
-                <div className='Contact_containera'>  <img src="/Menu button.svg" alt="" width="22vw" /></div>
+                <div className='Contact_containera'>
+                    {
+                        !shownavbar ? <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div>
+                    }
+                </div>
+                {
+                    shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
+                }
                 <div className="Contact_containerb">
                     <div> <img src="/edit button.svg" alt="wearfs" /></div>
                     <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
@@ -150,9 +161,9 @@ export const Contact = () => {
                     </div>
                     {errors.message && <div className="errs">{errors.message.message}</div>}
                     <div className="btn" style={{ position: "relative", top: "-2rem" }}>
-                        <button type='submit' 
-                        disabled={loading}
-                        className="signin_btn" style={{ padding: "0 1rem", position: "relative", top: "1rem" }}>
+                        <button type='submit'
+                            disabled={loading}
+                            className="signin_btn" style={{ padding: "0 1rem", position: "relative", top: "1rem" }}>
                             {
                                 loading ? "submiting..." : "submit"
                             }

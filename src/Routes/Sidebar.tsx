@@ -68,7 +68,7 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
                     <div className='w-[27%] font-sans' onClick={stopPropagation} style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: "3rem" }}>
                         <motion.li variants={itemVariants}>
                             <div style={{ display: "flex", gap: "1rem" }}> <SiGnuprivacyguard />
-                                <Link to="/signup">SIGNUP</Link>
+                                <Link to="/signup">Signup</Link>
                             </div>
                         </motion.li>
                         <motion.li variants={itemVariants}>

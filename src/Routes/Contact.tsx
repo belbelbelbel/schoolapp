@@ -152,12 +152,16 @@ export const Contact = () => {
                     </div>
                     {errors.email && <div className="errs">{errors.email.message}</div>}
                     <div className='Contact_contente'>
-                        <div> <label>Message</label><span>*</span></div>
-                        <input placeholder='Enter your message here'
+                        <div>
+                            <label>Message</label><span>*</span>
+                        </div>
+                        <textarea placeholder='Enter your message here'
                             {...register('message', {
                                 required: "Message is required",
-                            })} type='text' />
-
+                            })}
+                            rows={4}
+                            cols = {50}
+                        />
                     </div>
                     {errors.message && <div className="errs">{errors.message.message}</div>}
                     <div className="btn" style={{ position: "relative", top: "-2rem" }}>

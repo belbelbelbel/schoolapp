@@ -4,12 +4,12 @@ import { Context } from '../Provider/Usecontext';
 import { motion } from 'framer-motion';
 import '../Styles/Signin.css';
 import { Link } from 'react-router-dom';
+import Cookies from "js-cookie"
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ClipLoader } from 'react-spinners';
-import { locale } from 'dayjs';
 const Signin = () => {
   const locations = useLocation();
   const navigate = useNavigate();
@@ -62,6 +62,7 @@ const Signin = () => {
       console.log(result)
       console.log(result.token)
       settokes(result.token)
+      // Cookies.set('token', result.token,{expires:1})
       localStorage.setItem('token', result.token)
       if (!res.ok) {
         seterror(result.message)

@@ -8,6 +8,7 @@ import { IoMdSearch } from "react-icons/io";
 import 'react-toastify/dist/ReactToastify.css';
 import { Loading } from './Loading';
 import { Context, Usecontext } from '../Provider/Usecontext';
+import Cookies from 'js-cookie';
 export const School = () => {
   const [input, setInput] = useState("");
   const [error, seterror] = useState("")
@@ -16,7 +17,8 @@ export const School = () => {
   const [isloading, setisloading] = useState(true)
   const navigate = useNavigate()
   const accesstoken = localStorage.getItem("token")
-  useEffect(() => {
+  const accesstokena =  Cookies.get('token')
+   useEffect(() => {
     const handlefilter = async (input: string) => {
       try {
         const res = await fetch(`https://almaquin.onrender.com/api/university/?name=${input}`, {

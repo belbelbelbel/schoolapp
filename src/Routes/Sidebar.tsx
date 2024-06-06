@@ -10,25 +10,20 @@ import { FcAbout } from "react-icons/fc";
 import { SiGnuprivacyguard } from "react-icons/si";
 import { MdDashboard } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
-
 interface SidebarProps {
     shownavbar: boolean;
     setshownavbar: (value: boolean) => void;
 }
-
 const itemVariants = {
     hidden: { opacity: 0, x: -5 },
     visible: { opacity: 1, x: 15 }
 };
-
 export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
     const user = useContext(Context)
     const navigate = useNavigate()
     const stopPropagation = (e: { stopPropagation: () => void }) => {
         e.stopPropagation();
     };
-
-
     const handleLogout = () => {
         localStorage.removeItem('token');
         user?.setIsLoggedIn(false);
@@ -39,7 +34,6 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
         })
         navigate('/signin');
     };
-
     return (
         <div className='z-50 relative'>
             <div onClick={() => setshownavbar(false)}>

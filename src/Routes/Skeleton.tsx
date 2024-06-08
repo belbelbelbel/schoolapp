@@ -1,4 +1,3 @@
-import React from 'react'
 import "../Styles/Skeleton.css"
 export const Skeleton = () => {
     return (

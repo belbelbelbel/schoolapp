@@ -1,0 +1,140 @@
+/* Styles/Verification.css */
+.verification-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    height: 100%;
+}
+
+.verification-container {
+    display: flex;
+    flex-direction: column;
+    color: black;
+    width: 88%;
+    min-height: 97.4vh;
+    align-items: center;
+    margin: 0 auto;
+    /* justify-content: center; */
+    overflow: hidden;
+}
+
+.verification-header {
+    display: flex;
+    align-items: center;
+    gap: 20.5vw;
+    margin-bottom: 3.8vw;
+    width: 90%;
+    font-size: 4vw;
+    margin: 2rem 0rem;
+    font-family: FilsonPro-Medium, sans-serif;
+}
+
+.verification-header .back-button img {
+    cursor: pointer;
+}
+
+.verification-title {
+    font-size: 25px;
+    font-family: 'Urbanist', sans-serif;
+    /* color: white; */
+}
+
+.verification-subtitle {
+    font-family: 'Urbanist', sans-serif;
+    margin-bottom: 4rem;
+    font-weight: 300;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 2.5rem  auto;
+    font-size: 3.6vw;
+    flex-direction: column;
+    display: flex;
+    gap: 3vw;
+    /* opacity: 0.4; */
+}
+
+.verification-subtitle .flex {
+    display: flex;
+    width: 100%;
+}
+.verification-subtitle:nth-child(1){
+
+}
+
+.verification-form {
+    display: flex;
+    flex-direction: column;
+    gap: 8vw;
+    align-items: center;
+    justify-content: center;
+    /* min-width: 83%; */
+}
+
+.verification-inputs {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    gap: 2vw;
+}
+
+.verification-inputs .input-container {
+    display: flex;
+    flex-direction: row;
+    gap: 5vw;
+    align-items: center;
+    position: relative;
+}
+
+.verification-input {
+    width: 16vw;
+    height: 16vw;
+    border-radius: 19px;
+    border: 1px solid;
+    background: transparent;
+    outline: none;
+    text-align: center;
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #985944;
+    transition: ease-out;
+}
+
+.verification-input:focus {
+    border-color: #985944;
+    color: #985944;
+    box-shadow: 0px 0px 10px rgba(152, 89, 68, 0.71);
+}
+
+.verification-input-border-error {
+    border-color: red;
+}
+
+.verification-resend {
+    /* color: #aec4ff; */
+    margin-top: 6vw;
+}
+
+.verification-button {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 14vw;
+    color: white;
+    border-radius: 12px;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 4vw;
+}
+
+.verification-button-loading {
+    background-color: #926151;
+    
+
+}
+
+.verification-button-enabled {
+    background-color:  #985944;
+}

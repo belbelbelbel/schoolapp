@@ -26,6 +26,7 @@ import { Exams } from '../Routes/Exams'
 import { Fluid } from '../Routes/Fluid'
 import { Admission } from '../Routes/Admission'
 import { About } from '../Routes/About'
+import { Verification } from '../Routes/Verification'
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
@@ -111,6 +112,7 @@ const Router = () => {
         <Route path='/school/covenant-university/contact' element={<Contact />}></Route>
         <Route path='/school/covenant-university/usefulinks' element={<Uselinks />}></Route>
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
+        <Route path="/verification" element={<Verification/>}/>
         <Route path='*' element={<Nopage />}></Route>
       </Routes>
     </AnimatePresence>

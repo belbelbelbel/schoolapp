@@ -193,6 +193,7 @@ const Signin = () => {
                 </div>
                 <div className='btn-div2'>Don't have an account?<span><Link to='/signup'>Sign Up</Link></span> </div>
               </div>
+              <div><Link to="/verification">otp page</Link></div>
             </div>
             <ToastContainer />
           </form>

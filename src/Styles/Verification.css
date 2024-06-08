@@ -5,13 +5,14 @@
     justify-content: space-between;
     flex-direction: column;
     height: 100%;
+    padding: 10rem auto;
 }
 
 .verification-container {
     display: flex;
     flex-direction: column;
     color: black;
-    width: 88%;
+    width: 100%;
     min-height: 97.4vh;
     align-items: center;
     margin: 0 auto;
@@ -47,7 +48,7 @@
     align-items: center;
     justify-content: center;
     width: 90%;
-    margin: 2.5rem  auto;
+    margin: 1.5rem  auto;
     font-size: 3.6vw;
     flex-direction: column;
     display: flex;
@@ -69,7 +70,8 @@
     gap: 8vw;
     align-items: center;
     justify-content: center;
-    /* min-width: 83%; */
+    margin: 1.6rem auto;
+    width: 93%;
 }
 
 .verification-inputs {
@@ -99,6 +101,7 @@
     font-weight: 600;
     font-size: 1rem;
     color: #985944;
+    border-color: rgb(77, 61, 61);
     transition: ease-out;
 }
 
@@ -127,6 +130,7 @@
     align-items: center;
     justify-content: space-around;
     font-size: 4vw;
+    border: none;
 }
 
 .verification-button-loading {

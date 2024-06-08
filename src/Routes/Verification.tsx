@@ -118,7 +118,7 @@ export const Verification = () => {
                         <IoMdArrowRoundBack />
                     </div>
                     <div>
-                        <div className="verification-title">Verify it’s you</div>
+                        <div className="verification-title"></div>
                     </div>
                 </div>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",width:"100%",flexDirection:"column",marginTop:"0vw"}}>
@@ -173,7 +173,7 @@ export const Verification = () => {
                
                 {/* <Footer /> */}
             </motion.div>
-            <div style={{height:"2px",width:"65vw",backgroundColor:'#926151',}}></div>
+            <div style={{height:"2px",width:"65vw",backgroundColor:'#926151',position:"relative",top:"-6vw"}}></div>
         </div>
     );
 }

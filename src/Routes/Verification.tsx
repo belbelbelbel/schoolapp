@@ -123,10 +123,11 @@ export const Verification = () => {
                 </div>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",width:"100%",flexDirection:"column",marginTop:"0vw"}}>
                     <div className="verification-subtitle">
-                        <div className="flex">
+                        <div className="">
                             <h2 style={{ color: "black" }}>Enter 4 Digits Code</h2>
+                            <div style={{ color: "black" }} >Enter the 4 digit codes that you recieved in your Gmail</div>
                         </div>
-                        <div style={{ color: "black" }} >Enter the 4 digit codes that you recieved in your Gmail</div>
+                       
                     </div>
                     <div>
                         <form className="verification-form" onSubmit={handleverification}>

@@ -5,7 +5,7 @@
     justify-content: space-between;
     flex-direction: column;
     height: 100%;
-    padding: 10rem auto;
+    /* padding: 10rem auto; */
 }
 
 .verification-container {
@@ -13,7 +13,7 @@
     flex-direction: column;
     color: black;
     width: 100%;
-    min-height: 97.4vh;
+    height: 97.4vh;
     align-items: center;
     margin: 0 auto;
     /* justify-content: center; */
@@ -52,7 +52,7 @@
     font-size: 3.6vw;
     flex-direction: column;
     display: flex;
-    gap: 3vw;
+    gap: 5vw;
     /* opacity: 0.4; */
 }
 

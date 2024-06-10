@@ -17,6 +17,7 @@ const Signin = () => {
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const [Isloading, setIsLoading] = useState<boolean>(false)
   const [show, setShow] = useState(false);
+  const [temperror, settemperror] = useState("")
   const [error, seterror] = useState(false);
   const [tokes, settokes] = useState("")
   // 2569719635
@@ -87,6 +88,7 @@ const Signin = () => {
         validateerror.push('the password is complete');
       }
       user?.seterror(validateerror);
+      settemperror("Failed to signup : Privacy CORS error")
       console.log("error occured", error);
     } finally {
       setIsLoading(false);
@@ -149,6 +151,11 @@ const Signin = () => {
             {!Isloading && (
               <div className="errors" style={{ textAlign: "center" }}>{error}</div>
             )}
+            
+              {!Isloading && (
+                <div className="errors" style={{ textAlign: "center" }}>{temperror}</div>
+              )}
+            
             <div className='surname_container'>
               <div className="surname-email">
                 <input placeholder="Email" onChange={handleOnchange} name="email" type="text" />

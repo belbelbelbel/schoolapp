@@ -56,7 +56,7 @@ export const Usecontext = ({ children }: childrenprops) => {
         setIsLoggedIn(true);
     }
 }, []);
-console.log(token)
+// console.log(token)
   const [error, seterror] = useState<string[]>([]);
   return (
     <Context.Provider value={{ formdata, setformdata, error, seterror,isLoggedIn,setIsLoggedIn }}>

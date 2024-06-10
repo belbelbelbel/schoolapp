@@ -63,7 +63,7 @@ const Signup = () => {
         navigate("/review", { state: { data } });
       }
     } catch (error) {
-      console.log("error occued again", error)
+      console.log("error occured again", error)
     }
     finally {
       setIsLoading(false);

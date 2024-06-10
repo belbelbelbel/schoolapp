@@ -1,4 +1,5 @@
-import { Link, useNavigate, useLocation } from "react-router-dom";import "../Styles/Signup.css";
+import { Link, useNavigate, useLocation } from "react-router-dom";
+import "../Styles/Signup.css";
 import React, { useContext, useEffect, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";

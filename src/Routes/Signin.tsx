@@ -60,7 +60,13 @@ const Signin = () => {
         )
       })
       const result = await res.json()
-      console.log(result)
+      if(result) {
+        console.log(result)
+      }
+      else {
+        console.log("rdfcergbrftgb")
+      }
+      
       console.log(result.token)
       settokes(result.token)
       // Cookies.set('token', result.token,{expires:1})
@@ -88,7 +94,7 @@ const Signin = () => {
         validateerror.push('the password is complete');
       }
       user?.seterror(validateerror);
-      settemperror("Failed to signup : Privacy CORS error")
+      settemperror("privacy error : CORS error")
       console.log("error occured", error);
     } finally {
       setIsLoading(false);

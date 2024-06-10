@@ -38,7 +38,7 @@ const Signup = () => {
     setShowsss((prevShow) => !prevShow);
   };
   const navigate = useNavigate();
-  const [error,seterror] = useState("")
+  const [error, seterror] = useState("")
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const { formdata } = user || {};
   let err = ""
@@ -56,11 +56,11 @@ const Signup = () => {
         })
         const result = await res.json()
         console.log(result);
-         seterror(result.message)
+        seterror(result.message)
         if (!res.ok) {
           throw new Error("error fetching user signup")
         }
-        navigate("/review",{state: {data}});
+        navigate("/review", { state: { data } });
       }
     } catch (error) {
       console.log("error occued again", error)
@@ -83,7 +83,7 @@ const Signup = () => {
     reason && setValue("schoolLocation", reason || "", { shouldValidate: true })
   }, [reason])
   useEffect(() => {
-   placeholder && setValue("presentSchool", placeholder || "", { shouldValidate: true })
+    placeholder && setValue("presentSchool", placeholder || "", { shouldValidate: true })
   }, [placeholder])
   const onSubmit: SubmitHandler<valueprops> = (data) => {
     console.log(data);
@@ -92,7 +92,7 @@ const Signup = () => {
       email: data.email || "",
     });
   };
-  const handleLevelChange = (e:React.ChangeEvent<HTMLInputElement>) => {
+  const handleLevelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setlevel(newValue);
     setValue("classLevel", newValue || "", { shouldValidate: true });
@@ -196,10 +196,6 @@ const Signup = () => {
           <div className="surnamess"> <input type={shows ? "text" : "password"}
             {...register("password", {
               required: true,
-              pattern: {
-                value: /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s)(?=.*[!@#$*])/,
-                message: "Password  is not valid."
-              },
               minLength: 8,
               maxLength: 22
             })}
@@ -207,9 +203,6 @@ const Signup = () => {
             {shows ? (<PiEyeLight onClick={handleclicks} style={{ fontSize: "6vw" }} />) : (<PiEyeSlash onClick={handleclicks} style={{ fontSize: "6vw" }} />)}
           </div>
           <div>
-            {
-              errors.password?.type === "pattern" && <div className="errorss">Password should contain at least one uppercase letter, lowercase letter, digit, and special symbol.</div>
-            }
             {
               errors.password?.type === "minLength" && <div className="errorss">Password should be at-least 8 characters</div>
 
@@ -244,7 +237,6 @@ const Signup = () => {
             show && (<PresentSchoModal placeholder={placeholder} setPlaceholder={setplaceholder} />)
           }
         </motion.div>
-
         <motion.div className="surnames"
           variants={inputVariants}
           onClick={handleclickss}>
@@ -252,7 +244,7 @@ const Signup = () => {
           <div className="surnamess" onClick={handleclickss}> <input type="text"
             {...register("classLevel", {
               required: " Class is required"
-            })} value={level} onClick={handleclickss}  onChange={ handleLevelChange } />
+            })} value={level} onClick={handleclickss} onChange={handleLevelChange} />
             {showss ? (<IoMdArrowDropup onClick={handleclickss} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclickss} style={{ fontSize: "6vw" }} />)}
           </div>
           {errors.classLevel && <div className="errorss">{errors.classLevel.message}</div>}
@@ -276,7 +268,7 @@ const Signup = () => {
           }
         </motion.div>
         {!Isloading && (
-          <div className="errorss" style={{ textAlign: "center", fontSize:"5vw",fontFamily:"urbanist",letterSpacing:"1px" }}>{error}</div>
+          <div className="errorss" style={{ textAlign: "center", fontSize: "5vw", fontFamily: "urbanist", letterSpacing: "1px" }}>{error}</div>
         )}
         <motion.div className="btn">
           <motion.button type="submit"

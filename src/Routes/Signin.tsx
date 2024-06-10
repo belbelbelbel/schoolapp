@@ -71,7 +71,7 @@ const Signin = () => {
       if (localStorage.getItem('token')) {
         navigate('/school');
       }
-      else{
+      else {
         navigate('/signin');
       }
     } catch (error) {
@@ -144,9 +144,7 @@ const Signin = () => {
         <div className='signin-img'>
           <img src="Picture.png" alt="fae" />
         </div>
-
         <div className='signin_container2'>
-
           <form onSubmit={handleSubmit}>
             {!Isloading && (
               <div className="errors" style={{ textAlign: "center" }}>{error}</div>

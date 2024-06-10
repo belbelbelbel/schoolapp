@@ -26,9 +26,9 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
         <motion.div className='schoolmodal'>
             <div className='schoolmodalp'>Select your current school</div>
             <motion.div
-                 initial={{ opacity: 0, y: 100 }}
-                 animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
-                 exit={{ opacity: 1, x: -100 }}
+                initial={{ opacity: 0, y: 100 }}
+                animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
+                exit={{ opacity: 1, x: -100 }}
                 className='schoolmodal2'>
                 <div onClick={() => handlePlaceholder('Ambassador College')}>Ambassador College</div>
                 <div onClick={() => handlePlaceholder('Babcock Secondary School')}>Babcock Secondary School</div>
@@ -42,17 +42,17 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
                     <div onClick={() => setShowInput(true)}>Others</div>
                     {showInput && (
                         <motion.div
-                        initial={{ opacity: 0, y: 100 }}
-                        animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
-                        exit={{ opacity: 1, x: -100 }}
-                         className='schoolmodal3'>
+                            initial={{ opacity: 0, y: 200 }}
+                            animate={{ opacity: 1, y: 0, transition: { duration: 0.2 } }}
+                            exit={{ opacity: 1, x: -100 }}
+                            className='schoolmodal3'>
                             <input
                                 type='text'
                                 value={inputValue}
                                 onChange={(e) => setInputValue(e.target.value)}
                                 placeholder='Enter your school'
                             />
-                            <button onClick={() => handlePlaceholder(inputValue)}><CiSaveDown1  style={{ fontSize: "5vw",fontWeight: "800" }}/></button>
+                            <button onClick={() => handlePlaceholder(inputValue)}><CiSaveDown1 style={{ fontSize: "5vw", fontWeight: "800" }} /></button>
                         </motion.div>
                     )}
                 </div>

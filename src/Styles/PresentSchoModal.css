@@ -19,12 +19,14 @@
         background-color: rgb(203, 203, 203);
         border-radius: 15px;
         font-family: FilsonPro-Medium, sans-serif;
-        padding: 1.5rem;
+        padding: 3.5vw;
         display: flex;
+        font-size: 4vw;
         position: relative;
         align-items: center;
         gap: 7vw;
         overflow-y: auto;
+        overflow-x: hidden;
         flex-direction: column;
     }
 
@@ -46,21 +48,20 @@
         font-family: FilsonPro-Medium, sans-serif;
         align-items: center;
         background-color: rgb(212, 221, 228);
-        border-radius: 12px;
+        border-radius: 3.5vw;
         border: none;
         padding: 0rem 1.5vw;
         position: relative;
-        bottom: 5vw;
+        bottom: 9vw;
     }
 
     .schoolmodal3 input {
         background-color: transparent;
         border: none;
-        
         outline: none;
         width: 100%;
         font-family: FilsonPro-Medium, sans-serif;
-        padding: 0.5rem 4.5vw;
+        padding: 1vw 6.5vw;
         font-size: 4vw;
     }
 

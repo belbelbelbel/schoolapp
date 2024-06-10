@@ -47,7 +47,7 @@ const Signup = () => {
     console.log(data)
     try {
       if (user) {
-        const res = await fetch("https://almaquin-rua7.onrender.com/api/signup", {
+        const res = await fetch("https://almaquin.onrender.com/api/signup", {
           method: "POST",
           headers: {
             "Content-type": "application/json"

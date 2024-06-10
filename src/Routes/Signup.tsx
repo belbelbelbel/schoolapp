@@ -1,4 +1,4 @@
-https://almaquin.onrender.comimport { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../Styles/Signup.css";
 import React, { HTMLAttributeReferrerPolicy, useContext, useEffect, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -47,7 +47,7 @@ const Signup = () => {
     console.log(data)
     try {
       if (user) {
-        const res = await fetch("https://almaquin-rua7.onrender.com/api/signup", {
+        const res = await fetch("https://almaquin.onrender.com/api/signup", {
           method: "POST",
           headers: {
             "Content-type": "application/json"

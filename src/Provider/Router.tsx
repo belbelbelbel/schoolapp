@@ -42,8 +42,8 @@ const Router = () => {
         <Route path='/' element={<Home />}></Route>
         <Route path='/userprofile' element={<Userprofile />}></Route>
         (<Route path='/signin' element={ <Signin /> }></Route>)
-        <Route path='/school' element={!token? <School /> : <Navigate to="/signin" />}></Route>
-        (<Route path='/preschool' element={!token ? <PreSchool /> : <Navigate to="/signin"/>}></Route>)
+        <Route path='/school' element={token? <School /> : <Navigate to="/signin" />}></Route>
+        (<Route path='/preschool' element={token ? <PreSchool /> : <Navigate to="/signin"/>}></Route>)
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/review' element={<Review />}></Route>
      

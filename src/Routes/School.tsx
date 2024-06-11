@@ -26,7 +26,7 @@ export const School = () => {
           headers: {
             "Content-type": "application/json",
             "ngrok-skip-browser-warning": "69420",
-            "Authorization": `Bearer ${accesstoken}`,
+            "Authorization": `Bearer ${accesstokena}`,
           },
         })
         const result = await res.json();

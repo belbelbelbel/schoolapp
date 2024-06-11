@@ -10,6 +10,7 @@ import { FcAbout } from "react-icons/fc";
 import { SiGnuprivacyguard } from "react-icons/si";
 import { MdDashboard } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
+import Cookies from 'js-cookie';
 interface SidebarProps {
     shownavbar: boolean;
     setshownavbar: (value: boolean) => void;
@@ -26,6 +27,7 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
     };
     const handleLogout = () => {
         localStorage.removeItem('token');
+        Cookies.remove('token');
         user?.setIsLoggedIn(false);
         user?.setformdata({
             ...user.formdata,

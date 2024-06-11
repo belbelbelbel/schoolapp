@@ -8,6 +8,7 @@ import { valueprops } from '../Provider/Usecontext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Sidebar } from './Sidebar';
+import Cookies from 'js-cookie';
 interface textprops {
     name: string;
     email: string;
@@ -16,6 +17,7 @@ interface textprops {
 
 export const Contact = () => {
     const accesstoken = localStorage.getItem('token');
+    const accesstokena =  Cookies.get('token')
     const params = useParams();
     const [error, seterror] = useState()
     const [loading, setloading] = useState(false)
@@ -43,7 +45,7 @@ export const Contact = () => {
                 method: "GET",
                 headers: {
                     "Content-type": "application/json",
-                    "Authorization": `Bearer ${accesstoken}`,
+                    "Authorization": `Bearer ${accesstokena}`,
                 },
             });
             const result = await res.json();

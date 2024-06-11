@@ -10,6 +10,7 @@ import { School } from "./School";
 import { Schools2 } from "./Schools2";
 import { useQuery } from "react-query";
 import { Sidebar } from "./Sidebar";
+import Cookies from "js-cookie";
 export const Covenant = () => {
     const params = useParams()
 
@@ -44,11 +45,7 @@ export const Covenant = () => {
     const [over, setover] = useState([])
     const [text, settext] = useState([])
     const accesstoken = localStorage.getItem("token")
-    useEffect(() => {
-        if (!accesstoken) {
-            navigate("/signin")
-        }
-    }, [accesstoken])
+    const accesstokena =  Cookies.get('token')
     useEffect(() => {
         const fetchdescribe = async () => {
             try {
@@ -56,7 +53,7 @@ export const Covenant = () => {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
-                        "Authorization": `Bearer ${accesstoken}`,
+                        "Authorization": `Bearer ${accesstokena}`,
                     }
                 })
                 let results: React.ReactNode = Array.isArray(searchs);
@@ -92,7 +89,7 @@ export const Covenant = () => {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
-                        "Authorization": `Bearer ${accesstoken}`,
+                        "Authorization": `Bearer ${accesstokena}`,
                     }
                 })
                 const result = await res.json()

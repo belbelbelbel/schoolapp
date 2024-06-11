@@ -56,14 +56,9 @@ const Signup = () => {
           body: JSON.stringify(data),
         })
         const result = await res.json()
-        localStorage.setItem("cors", JSON.stringify(result));
+        localStorage.setItem("corsignup", result);
         console.log(result);
-        if (result) {
-          seterror(result.message)
-        }
-        else {
-          console.log("wrefwerfvtrefverf")
-        }
+        seterror(result.message)
         if (!res.ok) {
           throw new Error("error fetching user signup")
         }
@@ -71,8 +66,7 @@ const Signup = () => {
       }
     } catch (error) {
       console.log("error occured again", error)
-      if (!localStorage.getItem("cors")) {
-        console.log("wredfcwerdfcwed")
+      if (!localStorage.getItem("corsignup")) {
         setCorserror("Error Occured,Please Try again")
       }
     }

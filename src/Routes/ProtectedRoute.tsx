@@ -6,7 +6,7 @@ export const ProtectedRoute = ({children}:any) => {
     const navigate = useNavigate()
     const user = useContext(Context)
     if (!user?.isLoggedIn) {
-        return navigate("/signin");
+      return navigate("/signin");
     }
   return (
     children

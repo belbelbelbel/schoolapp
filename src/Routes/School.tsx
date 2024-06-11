@@ -34,13 +34,12 @@ export const School = () => {
         if (input.length !== 0) {
           setsearch(result)
           console.log(result);
-          seterror(result.message)
+              seterror(result.message)
           setisloading(false)
         }
         else {
           
         }
-
         if (!res.ok) {
           seterror(result.message)
           throw new Error("Failed to fetch data from the API");
@@ -57,9 +56,6 @@ export const School = () => {
       setsearch([])
     }
   }, [input])
-  // if (!user?.formdata.email) {
-  //   navigate("/signin")
-  // }
   const handleOnchange = (value: string) => {
     setInput(value)
     if (input.length === 0) {
@@ -149,9 +145,6 @@ export const School = () => {
               <ToastContainer></ToastContainer>
             </div>
           </div>
-    
-      
-
     </motion.div>
     ):(<Loading/>)
   }

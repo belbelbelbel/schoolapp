@@ -1,4 +1,4 @@
-import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes, useLocation } from 'react-router-dom'
+import { BrowserRouter, createBrowserRouter, Navigate, Route, RouterProvider, Routes, useLocation } from 'react-router-dom'
 import Signin from '../Routes/Signin'
 import Home from '../Routes/Home'
 import { Review } from '../Routes/Review'
@@ -27,42 +27,26 @@ import { Fluid } from '../Routes/Fluid'
 import { Admission } from '../Routes/Admission'
 import { About } from '../Routes/About'
 import { Verification } from '../Routes/Verification'
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <Home/>
-//   },
-//   {
-//     path: "/signin",
-//     element: <Signin />
-//   },
-//   {
-//     path: "/signup",
-//     element:<Signup/>
-//   },
-//   {
-//     path: "/review",
-//     element: <Review/>
-//   },
-//   {
-//     path: "*",
-//     element: <Nopage/>
-//   },
-// ])
+import Cookies from 'js-cookie'
+
 
 const Router = () => {
   const user = useContext(Context)
   const location = useLocation()
+  const token = Cookies.get('token')
+  console.log(token)
   return (
 
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />}></Route>
         <Route path='/userprofile' element={<Userprofile />}></Route>
-        (<Route path='/signin' element={<Signin />}></Route>)  (  <Route path='/preschool' element={<PreSchool />}></Route>)
+        (<Route path='/signin' element={ <Signin /> }></Route>)
+        <Route path='/school' element={!token? <School /> : <Navigate to="/signin" />}></Route>
+        (<Route path='/preschool' element={!token ? <PreSchool /> : <Navigate to="/signin"/>}></Route>)
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/review' element={<Review />}></Route>
-        <Route path='/school' element={<School />}></Route>
+     
         <Route path='/university' element={<Covenant />}>
           <Route path=':universityid' element={<Covenant />}>
           </Route>
@@ -72,7 +56,7 @@ const Router = () => {
             <Route path=':schoolid' element={<Programs />}></Route>
           </Route>
         </Route>
-        <Route path='about' element={<About/>}></Route>
+        <Route path='about' element={<About />}></Route>
         <Route path='/university' element={<Undergraduate />}>
           <Route path=':universityid?/undergraduate?' element={<Undergraduate />} />
         </Route>
@@ -80,19 +64,19 @@ const Router = () => {
           <Route path=':universityid?/underfaq' element={< Faq />} />
         </Route>
         <Route path='/university' element={<Date />}>
-          <Route path=':universityid?/date' element={< Date/>} />
+          <Route path=':universityid?/date' element={< Date />} />
         </Route>
         <Route path='/university' element={<Fees />}>
-          <Route path=':universityid?/links' element={< Fees/>} />
+          <Route path=':universityid?/links' element={< Fees />} />
         </Route>
-        <Route path='/university' element={<Admission/>}>
-          <Route path=':universityid?/admission' element={< Admission/>} />
+        <Route path='/university' element={<Admission />}>
+          <Route path=':universityid?/admission' element={< Admission />} />
         </Route>
         <Route path='/university' element={<Exams />}>
-          <Route path=':universityid?/exam' element={< Exams/>} />
+          <Route path=':universityid?/exam' element={< Exams />} />
         </Route>
         <Route path='/university' element={<Fluid />}>
-          <Route path=':universityid?/fluid' element={< Fluid/>} />
+          <Route path=':universityid?/fluid' element={< Fluid />} />
         </Route>
         <Route path='/university' element={<Postgraduate />}>
           <Route path=':universityid?/postgraduate?' element={<Postgraduate />} />
@@ -100,19 +84,13 @@ const Router = () => {
         <Route path='/university' element={<Contact />}>
           <Route path=':universityid?/contact?' element={<Contact />} />
         </Route>
-        {/* <Route path='/university' element={<Programs/>}>
-          <Route path=':universityid/:schoolsid' element={<Programs/>} />
-        </Route> */}
         <Route path='/university' element={<Documents />}>
           <Route path=':universityid?/documents?' element={<Documents />} />
         </Route>
-
-        {/* <Route path='university/postgraduate' element={<Postgraduate />}></Route>
-        <Route path='university/undergraduate' element={<Postgraduate />}></Route>  */}
         <Route path='/school/covenant-university/contact' element={<Contact />}></Route>
         <Route path='/school/covenant-university/usefulinks' element={<Uselinks />}></Route>
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
-        <Route path="/verification" element={<Verification/>}/>
+        <Route path="/verification" element={<Verification />} />
         <Route path='*' element={<Nopage />}></Route>
       </Routes>
     </AnimatePresence>

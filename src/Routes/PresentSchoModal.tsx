@@ -2,13 +2,10 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import '../Styles/PresentSchoModal.css';
 import { CiSaveDown1 } from "react-icons/ci";
-
-
 type SchoolModalProps = {
     placeholder: string;
     setPlaceholder: (placeholder: string) => void;
 };
-
 const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => {
     const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState('');
@@ -21,7 +18,6 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
         setPlaceholder(newPlaceholder);
         setShowInput(false);
     };
-
     return (
         <motion.div className='schoolmodal'>
             <div className='schoolmodalp'>Select your current school</div>

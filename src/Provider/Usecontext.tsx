@@ -6,15 +6,15 @@ export type valueprops = {
   firstName: string;
   birthday: string;
   phoneNo: string;
-  phone:string,
+  phone: string,
   email: string;
   presentSchool: string;
-  fax:string,
-  message:string,
+  fax: string,
+  message: string,
   classLevel: string;
   schoolLocation: string
   password: string;
-  reasonForJoining:string,
+  reasonForJoining: string,
   name: string,
 };
 
@@ -44,22 +44,22 @@ export const Usecontext = ({ children }: childrenprops) => {
     classLevel: "",
     schoolLocation: "",
     password: "",
-    reasonForJoining:"",
-    fax:"",
-    name:"",
-    phone:"",
-    message:""
+    reasonForJoining: "",
+    fax: "",
+    name: "",
+    phone: "",
+    message: ""
   });
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-        setIsLoggedIn(true);
-    }
-}, []);
-// console.log(token)
+  //   useEffect(() => {
+      // const token = localStorage.getItem('token');
+  //     if (token) {
+  //         setIsLoggedIn(true);
+  //     }
+  // }, []);
+  // console.log(token)
   const [error, seterror] = useState<string[]>([]);
   return (
-    <Context.Provider value={{ formdata, setformdata, error, seterror,isLoggedIn,setIsLoggedIn }}>
+    <Context.Provider value={{ formdata, setformdata, error, seterror, isLoggedIn, setIsLoggedIn }}>
       {children}
     </Context.Provider>
   );

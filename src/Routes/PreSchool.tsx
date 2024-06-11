@@ -12,11 +12,7 @@ export const PreSchool = () => {
     }
     const [shownavbar, setshownavbar] = useState(false)
     const user = useContext(Context);
-    useEffect(() => {
-        if (!localStorage.getItem('token')) {
-            navigate("/signin")
-        }
-    }, [user?.isLoggedIn, navigate])
+
     const handleshow = () => {
         setshownavbar(!shownavbar)
     }

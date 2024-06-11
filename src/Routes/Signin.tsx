@@ -24,14 +24,6 @@ const Signin = () => {
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
-  useEffect(() => {
-    if (localStorage.getItem("tken")) {
-      navigate("/preschool")
-    }
-    else {
-      navigate("/signin")
-    }
-  }, [user?.isLoggedIn, navigate])
   const handleOnchange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value, name } = e.target;
     user?.setformdata({
@@ -60,26 +52,15 @@ const Signin = () => {
         )
       })
       const result = await res.json()
-      if(result) {
-        console.log(result)
-      }
-      else {
-        console.log("rdfcergbrftgb")
-      }
-
+      console.log(result)
+      localStorage.setItem("signincors", result);
       console.log(result.token)
       settokes(result.token)
-      // Cookies.set('token', result.token,{expires:1})
-      localStorage.setItem('token', result.token)
+      Cookies.set('token', result.token,{expires:1})
+      // localStorage.setItem('token', result.token)
       if (!res.ok) {
         seterror(result.message)
         throw new Error("error fetching user signin")
-      }
-      if (localStorage.getItem('token')) {
-        navigate('/school');
-      }
-      else {
-        navigate('/signin');
       }
     } catch (error) {
       if (!formdata?.email.trim()) {
@@ -95,12 +76,14 @@ const Signin = () => {
       }
       user?.seterror(validateerror);
       console.log("error occured", error);
+      if (!localStorage.getItem('signincors')) {
+        console.log("fdfgdhdf")
+        setCorserror("Error Occured,Please Try again")
+      }
     } finally {
       setIsLoading(false);
     }
   }
-
-
   const buttonVariants = {
     initial: {
       y: "-10vh",
@@ -129,11 +112,6 @@ const Signin = () => {
   } else if (user?.error.includes('the password is incomplete')) {
     passworderror = <div className="errors"> Password should be at least 8 characters</div>;
   }
-  //   useEffect(() => {
-  //   if (!accessToken) {
-  //     navigate("/preschool");
-  //   }
-  // },);
   return (
     <motion.div
       className="signin"
@@ -155,6 +133,9 @@ const Signin = () => {
           <form onSubmit={handleSubmit}>
             {!Isloading && (
               <div className="errors" style={{ textAlign: "center" }}>{error}</div>
+            )}
+            {!Isloading && (
+              <div className="errors" style={{ textAlign: "center" }}>{corserror}</div>
             )}
             <div className='surname_container'>
               <div className="surname-email">
@@ -198,7 +179,7 @@ const Signin = () => {
                 </div>
                 <div className='btn-div2'>Don't have an account?<span><Link to='/signup'>Sign Up</Link></span> </div>
               </div>
-              <div><Link to="/verification">otp page</Link></div>
+              {/* <div><Link to="/verification">otp page</Link></div> */}
             </div>
             <ToastContainer />
           </form>

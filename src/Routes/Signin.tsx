@@ -17,6 +17,7 @@ const Signin = () => {
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const [Isloading, setIsLoading] = useState<boolean>(false)
   const [show, setShow] = useState(false);
+  const [corserror, setCorserror] = useState("")
   const [error, seterror] = useState(false);
   const [tokes, settokes] = useState("")
   // 2569719635
@@ -24,7 +25,7 @@ const Signin = () => {
     setShow((prevShow) => !prevShow);
   };
   useEffect(() => {
-    if (user?.isLoggedIn) {
+    if (localStorage.getItem("tken")) {
       navigate("/preschool")
     }
     else {
@@ -65,7 +66,7 @@ const Signin = () => {
       else {
         console.log("rdfcergbrftgb")
       }
-      
+
       console.log(result.token)
       settokes(result.token)
       // Cookies.set('token', result.token,{expires:1})

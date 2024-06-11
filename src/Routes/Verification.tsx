@@ -123,7 +123,7 @@ export const Verification = () => {
                 </div>
                 <div style={{display:"flex",alignItems:"center",justifyContent:"space-between",width:"100%",flexDirection:"column",marginTop:"0vw"}}>
                     <div className="verification-subtitle">
-                        <div className="">
+                        <div className="" style={{display:"flex",alignItems:"start",gap:"4vw",flexDirection:"column"}}>
                             <h2 style={{ color: "black" }}>Enter 4 Digits Code</h2>
                             <div style={{ color: "black" }} >Enter the 4 digit codes that you recieved in your Gmail</div>
                         </div>
@@ -174,7 +174,7 @@ export const Verification = () => {
                
                 {/* <Footer /> */}
             </motion.div>
-            <div style={{height:"2px",width:"65vw",backgroundColor:'#926151',position:"relative",top:"-6vw"}}></div>
+            {/* <div style={{height:"2px",width:"65vw",backgroundColor:'#926151',position:"relative",top:"-6vw"}}></div> */}
         </div>
     );
 }

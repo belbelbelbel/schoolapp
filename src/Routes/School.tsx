@@ -34,7 +34,7 @@ export const School = () => {
         if (input.length !== 0) {
           setsearch(result)
           console.log(result);
-         
+          seterror(result.message)
           setisloading(false)
         }
         else {

@@ -12,22 +12,11 @@ export const PreSchool = () => {
     }
     const [shownavbar, setshownavbar] = useState(false)
     const user = useContext(Context);
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        user?.setIsLoggedIn(false);
-        user?.setformdata({
-            ...user.formdata,
-            email: "",
-            password: "",
-        })
-        navigate('/signin');
-    };
-    const accesstoken = localStorage.getItem("token")
     useEffect(() => {
         if (!localStorage.getItem('token')) {
             navigate("/signin")
         }
-    }, [localStorage.getItem('token'), navigate])
+    }, [user?.isLoggedIn, navigate])
     const handleshow = () => {
         setshownavbar(!shownavbar)
     }
@@ -56,7 +45,7 @@ export const PreSchool = () => {
                         }
                         <div className='preschool-container3' onClick={handlelschool}>
                             <div><input type="text" placeholder='Search' /></div>
-                            <div><img src="/Search.svg" alt="whasf" /></div>
+                            <div><img src="/Search.svg" alt="whasf" width="20vw"/></div>
                         </div>
                     </div>
                     <div className='preschool-name'>

@@ -1,6 +1,6 @@
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import "../Styles/Signup.css";
-import React, { HTMLAttributeReferrerPolicy, useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { IoMdArrowDropdown } from "react-icons/io";
 import { IoMdArrowDropup } from "react-icons/io";
 import { Context, valueprops } from "../Provider/Usecontext";
@@ -22,6 +22,7 @@ const Signup = () => {
   const [shows, setShows] = useState(false);
   const [showss, setShowss] = useState(false);
   const [showsss, setShowsss] = useState(false);
+  const [corserror, setCorserror] = useState("")
   const [reason, setreason] = useState("")
   const [placeholder, setplaceholder] = useState("")
   const [level, setlevel] = useState("")
@@ -55,8 +56,14 @@ const Signup = () => {
           body: JSON.stringify(data),
         })
         const result = await res.json()
+        localStorage.setItem("cors", JSON.stringify(result));
         console.log(result);
-        seterror(result.message)
+        if (result) {
+          seterror(result.message)
+        }
+        else {
+          console.log("wrefwerfvtrefverf")
+        }
         if (!res.ok) {
           throw new Error("error fetching user signup")
         }
@@ -64,6 +71,10 @@ const Signup = () => {
       }
     } catch (error) {
       console.log("error occured again", error)
+      if (!localStorage.getItem("cors")) {
+        console.log("wredfcwerdfcwed")
+        setCorserror("Error Occured,Please Try again")
+      }
     }
     finally {
       setIsLoading(false);
@@ -269,6 +280,9 @@ const Signup = () => {
         </motion.div>
         {!Isloading && (
           <div className="errorss" style={{ textAlign: "center", fontSize: "5vw", fontFamily: "urbanist", letterSpacing: "1px" }}>{error}</div>
+        )}
+        {!Isloading && (
+          <div className="errorss" style={{ textAlign: "center", fontSize: "5vw", fontFamily: "urbanist", letterSpacing: "1px" }}>{corserror}</div>
         )}
         <motion.div className="btn">
           <motion.button type="submit"

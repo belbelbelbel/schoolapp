@@ -6,6 +6,7 @@ import { Context } from "../Provider/Usecontext";
 import "../Styles/Verification.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { MdOutlineErrorOutline } from "react-icons/md";
+import { VerifyModal } from "./VerifyModal";
 
 let currentOtp: number = 0;
 
@@ -61,7 +62,7 @@ export const Verification = () => {
                 throw new Error("error parsing json");
             } else {
                 setshow(true);
-                navigate("/signin")
+                // navigate("/signin")
             }
         } catch (error) {
             console.log(error);
@@ -176,10 +177,14 @@ export const Verification = () => {
                             <motion.button
                                 whileTap={{ scale: 1.05 }}
                                 disabled={loading}
+                               
                                 type="submit"
                                 className={`verification-button ${buttons ? 'verification-button-enabled' : 'verification-button-loading'}`}>
                                 <div>Verify</div>
                             </motion.button>
+                            {
+                                show && <VerifyModal/>
+                            }
                         </form>
                     </div>
                 </div>

@@ -28,6 +28,7 @@ import { Admission } from '../Routes/Admission'
 import { About } from '../Routes/About'
 import { Verification } from '../Routes/Verification'
 import Cookies from 'js-cookie'
+import { VerifyModal } from '../Routes/VerifyModal'
 
 
 const Router = () => {
@@ -45,6 +46,7 @@ const Router = () => {
         (<Route path='/preschool' element={token ? <PreSchool /> : <Navigate to="/signin" />}></Route>)
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/review' element={<Review />}></Route>
+        <Route path='/verifymodal' element={<VerifyModal/>}></Route>
         <Route path='/university' element={<Covenant />}>
           <Route path=':universityid' element={<Covenant />}>
           </Route>

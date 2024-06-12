@@ -43,7 +43,6 @@ export const Review = () => {
   const singledayofweek = now.getDay();
   const formattedMinute = minute < 10 ? `0${minute}` : minute;
   const formattedHour = hour < 10 ? `0${hour}` : hour;
-
   useEffect(() => {
     function handleday(day: number): string {
       if (day === 11 || day === 12 || day === 13) {
@@ -60,7 +59,6 @@ export const Review = () => {
           return day + "th";
       }
     }
-
     const validatetimeframe: string[] = [];
     if (hour < 12) {
       validatetimeframe.push("Good Morning");
@@ -69,7 +67,6 @@ export const Review = () => {
     } else {
       validatetimeframe.push("Good Evening");
     }
-
     setFormdata(handleday(dayOfMonth));
     setGreeting(validatetimeframe);
   }, [dayOfMonth, hour]);

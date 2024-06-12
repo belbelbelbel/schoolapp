@@ -62,7 +62,7 @@ const Signup = () => {
         if (!res.ok) {
           throw new Error("error fetching user signup")
         }
-        navigate("/review", { state: { data } });
+        navigate("/verification", { state: { data } });
       }
     } catch (error) {
       console.log("error occured again", error)

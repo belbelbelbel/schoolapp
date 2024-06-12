@@ -1,5 +1,6 @@
 import { createContext, useState, ReactNode, useEffect } from "react";
 import { format } from 'date-fns';
+import Cookies from "js-cookie";
 
 export type valueprops = {
   surname: string;
@@ -30,10 +31,10 @@ type dataprops = {
 type childrenprops = {
   children: ReactNode;
 };
-const token = localStorage.getItem('token');
+
 export const Context = createContext<dataprops | null>(null);
 export const Usecontext = ({ children }: childrenprops) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem('token'));
+  const [isLoggedIn, setIsLoggedIn] = useState(!!Cookies.get('token'));
   const [formdata, setformdata] = useState<valueprops>({
     surname: "",
     firstName: "",
@@ -50,13 +51,7 @@ export const Usecontext = ({ children }: childrenprops) => {
     phone: "",
     message: ""
   });
-  //   useEffect(() => {
-      // const token = localStorage.getItem('token');
-  //     if (token) {
-  //         setIsLoggedIn(true);
-  //     }
-  // }, []);
-  // console.log(token)
+
   const [error, seterror] = useState<string[]>([]);
   return (
     <Context.Provider value={{ formdata, setformdata, error, seterror, isLoggedIn, setIsLoggedIn }}>

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Context } from '../Provider/Usecontext';
 import { motion } from 'framer-motion';
 import '../Styles/Signin.css';
@@ -20,6 +20,7 @@ const Signin = () => {
   const [corserror, setCorserror] = useState("")
   const [error, seterror] = useState(false);
   const [tokes, settokes] = useState("")
+  const token = Cookies.get('token')
   // 2569719635
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
@@ -32,6 +33,12 @@ const Signin = () => {
     });
   };
 
+
+  useEffect(()=> {
+    if(token) {
+      navigate('/preschool')
+    }
+   },[user?.isLoggedIn,navigate])
   let validateerror: string[] = [];
   const { formdata } = user || {};
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -56,11 +63,14 @@ const Signin = () => {
       localStorage.setItem("signincors", result);
       console.log(result.token)
       settokes(result.token)
-      Cookies.set('token', result.token,{expires:1})
-      // localStorage.setItem('token', result.token)
+   
       if (!res.ok) {
         seterror(result.message)
         throw new Error("error fetching user signin")
+      }
+      else {
+        Cookies.set('token', result.token, { expires: 1 })
+        navigate('/school')
       }
     } catch (error) {
       if (!formdata?.email.trim()) {
@@ -84,6 +94,8 @@ const Signin = () => {
       setIsLoading(false);
     }
   }
+
+  console.log(token)
   const buttonVariants = {
     initial: {
       y: "-10vh",

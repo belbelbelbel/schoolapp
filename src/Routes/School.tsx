@@ -16,7 +16,6 @@ export const School = () => {
   const user = useContext(Context)
   const [isloading, setisloading] = useState(true)
   const navigate = useNavigate()
-  const accesstoken = localStorage.getItem("token")
   const accesstokena =  Cookies.get('token')
    useEffect(() => {
     const handlefilter = async (input: string) => {
@@ -66,11 +65,6 @@ export const School = () => {
   const hanleremove = () => {
     setInput("")
   }
-  useEffect(() => {
-    if (!localStorage.getItem('token')) {
-      navigate("/signin")
-    }
-  }, [localStorage.getItem("token"), navigate])
   let display: React.ReactNode
   if (isloading) {
     display = <Loading />;

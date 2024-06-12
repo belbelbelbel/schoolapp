@@ -5,17 +5,27 @@ import { Footer } from './Footer'
 import { useNavigate } from 'react-router-dom'
 import { motion } from "framer-motion"
 import { Sidebar } from './Sidebar'
+import Cookies from 'js-cookie'
 export const PreSchool = () => {
     const navigate = useNavigate()
     const handlelschool = () => {
         navigate("/school")
     }
+     const token  = Cookies.get('token')
     const [shownavbar, setshownavbar] = useState(false)
     const user = useContext(Context);
 
     const handleshow = () => {
         setshownavbar(!shownavbar)
     }
+
+console.log(token)
+    useEffect(()=> {
+        if(!token) {
+          navigate('/signin')
+        }
+       },[token,navigate])
+
     return (
         <motion.div
             initial={{ opacity: 0 }}

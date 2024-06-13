@@ -9,6 +9,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Sidebar } from './Sidebar';
 import Cookies from 'js-cookie';
+import { Skeleton } from './Skeleton';
 interface textprops {
     name: string;
     email: string;
@@ -20,6 +21,7 @@ export const Contact = () => {
     const params = useParams();
     const [searchs, setsearchs] = useState({ name: "" });
     const [error, seterror] = useState()
+    const [loadingContact, setLoadingContact] = useState(true);
     const [loading, setloading] = useState(false)
     const [cont, setcont] = useState({ phone: "", email: "" })
     const navigate = useNavigate();
@@ -51,41 +53,11 @@ export const Contact = () => {
             const result = await res.json();
             console.log(result);
             setcont(result)
+            setLoadingContact(false);
         };
         handlecontact();
     }, [accesstokena]);
-    const handlepostcontact = async (data: textprops) => {
-        setloading(true)
-        try {
-            const res = await fetch("https://almaquin.onrender.com/api/send-a-message", {
-                method: "POST",
-                headers: {
-                    "Content-type": "application/json",
-                    "Authorization": `Bearer ${accesstokena}`,
-                },
-                body: JSON.stringify(data)
-            });
-            const result = await res.json();
-            seterror(result.message)
-            if (result.message === "Message sent successfully") {
-                toast.success(result.message, {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: true,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                });
-            }
-            console.log(result);
-        } catch (error) {
-            console.log(error);
-        }
-        finally {
-            setloading(false)
-        }
-    };
+    
     useEffect(() => {
         const fetchdescribe = async () => {
             try {
@@ -139,7 +111,7 @@ export const Contact = () => {
                     {loading ? "loading..." : searchs.name}
                 </h2>
                 <div className='Undercover_container5'>
-                    <div><p>QUICK CONTACTS <br />& FAQS</p></div>
+                    <div><p>QUICK CONTACT <br />& FAQS</p></div>
                     <div className='Undercover_container6'>
                         <img src="/Ellipse 2.svg" alt="ellipse 2" />
                         <img src="/Ellipse 3.svg" alt="ellipse 3" />
@@ -153,11 +125,19 @@ export const Contact = () => {
                 </div>
                 <div className='faqco'>
                     <div style={{ display: 'flex', flexDirection: 'column', gap: "1rem" }}>
-                        <div style={{ display: "flex", alignItems: 'center', gap: "2rem" }}><div style={{ fontWeight: "600", fontSize: "4vw" }}>Phone:-</div>  <div>{cont.phone}</div></div>
-
-                        <div style={{ display: "flex", alignItems: 'center', gap: "2rem" }}><div style={{ fontWeight: "600", fontSize: "4vw" }}>Email :-</div> <div>{cont.email}</div></div>
+                        {loadingContact ? (
+                            <>
+                                <Skeleton />
+                            </>
+                        ) : (
+                            <>
+                                <div style={{ display: "flex", alignItems: 'center', gap: "2rem" }}><div style={{ fontWeight: "600", fontSize: "4vw" }}>Phone:-</div>  <div>{cont.phone}</div></div>
+                                <div style={{ display: "flex", alignItems: 'center', gap: "2rem" }}><div style={{ fontWeight: "600", fontSize: "4vw" }}>Email :-</div> <div>{cont.email}</div></div>
+                            </>
+                        )}
                     </div>
                 </div>
+
             </div>
             <div style={{ marginTop: "3rem" }}>
                 <div>
@@ -174,7 +154,6 @@ export const Contact = () => {
                     </div>
                 </div>
             </div>
-
             <ToastContainer />
             <Footer />
         </motion.div>

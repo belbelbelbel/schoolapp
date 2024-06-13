@@ -1,11 +1,11 @@
 .skeleton-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    padding: 16px;
+    /* gap: 4vw;
+    padding: 4vw;
     border: 1px solid #ddd;
     border-radius: 8px;
-    background-color: #fff;
+    background-color: #fff; */
   }
   
   .skeleton-header {

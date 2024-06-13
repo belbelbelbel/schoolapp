@@ -3,6 +3,7 @@ import { Footer } from './Footer'
 import "../Styles/Programs.css"
 import { useNavigate, useParams } from 'react-router-dom'
 import { Loading } from './Loading'
+import Cookies from 'js-cookie'
 interface props {
     name: string
     programs: string[]
@@ -12,8 +13,8 @@ export const Programs = () => {
     const params = useParams()
     const [prog, setprog] = useState<props>({ name: '', programs: [] })
     const [loading, setloading] = useState(false)
-    const [depart, setdepart] = useState([])
-    const accessToken = localStorage.getItem('token')
+    const [depart, setdepart] = useState([]) 
+    const accesstokena = Cookies.get('token')
     useEffect(() => {
         const fetchData = async () => {
             setloading(true)
@@ -23,7 +24,7 @@ export const Programs = () => {
                     headers: {
                         "Content-type": "application/json",
                         "ngrok-skip-browser-warning": "69420",
-                        "Authorization": `Bearer ${accessToken}`,
+                        "Authorization": `Bearer ${accesstokena}`,
                     }
                 })
                 const results = await res.json()

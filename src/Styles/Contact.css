@@ -182,7 +182,7 @@
     .errs {
         color: red;
         font-size: 3vw;
-        position: absolute;
+        position: relative;
     }
     .Contact_contente span {
         color: red;
@@ -200,7 +200,8 @@
         width: 86%;
         margin: 0rem auto;
         display: flex;
-        gap: 1rem;
+        flex-direction: column;
+        gap: 4vw;
         flex-direction: row;
         margin-bottom: 0rem;
     }
@@ -228,11 +229,11 @@
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        height: 40vw;
+        height: 35vw;
         font-family: FilsonPro-Medium, sans-serif;
         font-size: 5vw;
         font-weight: 500;
-        width: 84vw;
+        width: 90vw;
         border-radius: 2vw;
         color: rgba(255, 255, 255, 1);
         display: flex;
@@ -252,6 +253,7 @@
         flex-direction: row;
         display: flex;
         gap: 0.5rem;
+        font-size: 3.5vw;
         cursor: pointer;
         padding-bottom: 1.5vw;
     }
@@ -260,7 +262,7 @@
         display: flex;
         justify-content: center;
         font-family: FilsonPro-Medium, sans-serif;
-        font-size: 5.5vw; 
+        font-size: 4.5vw; 
         color: rgba(255, 255, 255, 1);
         font-weight: 500;
   

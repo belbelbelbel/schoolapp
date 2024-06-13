@@ -107,9 +107,9 @@ export const Contact = () => {
                 </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", margin: "0rem auto", position: "relative", left: "3.7vw" }}>
-                <h2>
+                <div style={{fontSize:"5.5vw"}}>
                     {loading ? "loading..." : searchs.name}
-                </h2>
+                </div>
                 <div className='Undercover_container5'>
                     <div><p>QUICK CONTACT <br />& FAQS</p></div>
                     <div className='Undercover_container6'>

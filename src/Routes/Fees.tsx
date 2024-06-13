@@ -4,6 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import Lottie from "lottie-react"
 import animatedData from "../Styles/pointerlottie.json"
 import { Footer } from './Footer';
+import Cookies from 'js-cookie';
 export const Fees = () => {
     const params = useParams();
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ export const Fees = () => {
     const [show, setshow] = useState(false);
     const [searchs, setsearchs] = useState({ name: "" });
     const [faqs, setfaqs] = useState({ question: "", answer: "", university: "", name: "", url: "" });
-
+    const accesstokena =  Cookies.get('token')
     const handlelback = () => {
         navigate(-1);
     };
@@ -25,7 +26,7 @@ export const Fees = () => {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${accesstoken}`,
+                        "Authorization": `Bearer ${accesstokena}`,
                     }
                 });
                 const result = await res.json();
@@ -38,7 +39,7 @@ export const Fees = () => {
             }
         };
         handlefaq();
-    }, [params.universityid, accesstoken]);
+    }, [params.universityid, accesstokena]);
 
     const handletoglr = () => {
         setshow(!show);
@@ -60,9 +61,9 @@ export const Fees = () => {
                         </div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                        <h3 style={{fontWeight:"500"}}>
+                        <div style={{fontSize:"5.5vw"}}>
                             {siloading ? "loading..." : faqs.name}
-                        </h3>
+                        </div>
                         <div className='Undercover_container5'>
                             <div style={{width:"80vw"}}><p>{!siloading ? faqs.name : "loading..."} </p></div>
                             <div className='Undercover_container6'>

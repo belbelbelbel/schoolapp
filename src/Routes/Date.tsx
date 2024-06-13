@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "../Styles/Faq.css";
 import { useNavigate, useParams } from 'react-router-dom';
 import { Footer } from './Footer';
+import Cookies from 'js-cookie';
 export const Date = () => {
     const params = useParams();
     const navigate = useNavigate();
@@ -10,7 +11,7 @@ export const Date = () => {
     const [show, setshow] = useState(false);
     const [searchs, setsearchs] = useState({ name: "" });
     const [faqs, setfaqs] = useState({ question: "", answer: "" });
-
+    const accesstokena =  Cookies.get('token')
     const handlelback = () => {
         navigate(-1);
     };
@@ -23,7 +24,7 @@ export const Date = () => {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${accesstoken}`,
+                        "Authorization": `Bearer ${accesstokena}`,
                     }
                 });
                 const result = await res.json();
@@ -37,7 +38,7 @@ export const Date = () => {
             }
         };
         handlefaq();
-    }, [params.universityid, accesstoken]);
+    }, [params.universityid, accesstokena]);
 
     const handletoglr = () => {
         setshow(!show);
@@ -50,7 +51,7 @@ export const Date = () => {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
-                        "Authorization": `Bearer ${accesstoken}`,
+                        "Authorization": `Bearer ${accesstokena}`,
                     }
                 });
                 const result = await res.json();
@@ -63,7 +64,7 @@ export const Date = () => {
             }
         };
         fetchdescribe();
-    }, [params.universityid, accesstoken]);
+    }, [params.universityid, accesstokena]);
 
     return (
         <div className='faq1'>
@@ -80,9 +81,9 @@ export const Date = () => {
                         </div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                        <h2>
+                        <div style={{fontSize:"5.5vw"}}>
                             {siloading ? "loading..." : searchs.name}
-                        </h2>
+                        </div>
                         <div className='Undercover_container5'>
                             <div><p>Date Reports <br /></p></div>
                             <div className='Undercover_container6'>

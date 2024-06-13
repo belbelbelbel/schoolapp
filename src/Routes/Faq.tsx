@@ -5,6 +5,7 @@ import { Footer } from './Footer';
 import { motion } from "framer-motion";
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { Skeleton } from './Skeleton';
+import Cookies from 'js-cookie';
 
 export const Faq = () => {
     const params = useParams();
@@ -14,7 +15,7 @@ export const Faq = () => {
     const [show, setshow] = useState(false);
     const [searchs, setsearchs] = useState({ name: "" });
     const [faqs, setfaqs] = useState({ question: "", answer: "" });
-
+    const accesstokena =  Cookies.get('token')
     const handlelback = () => {
         navigate(-1);
     };
@@ -27,7 +28,7 @@ export const Faq = () => {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
-                        "Authorization": `Bearer ${accesstoken}`,
+                        "Authorization": `Bearer ${accesstokena}`,
                     }
                 });
                 const result = await res.json();
@@ -41,7 +42,7 @@ export const Faq = () => {
             }
         };
         handlefaq();
-    }, [params.universityid, accesstoken]);
+    }, [params.universityid, accesstokena]);
 
     const handletoglr = () => {
         setshow(!show);
@@ -54,7 +55,7 @@ export const Faq = () => {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
-                        "Authorization": `Bearer ${accesstoken}`,
+                        "Authorization": `Bearer ${accesstokena}`,
                     }
                 });
                 const result = await res.json();
@@ -67,7 +68,7 @@ export const Faq = () => {
             }
         };
         fetchdescribe();
-    }, [params.universityid, accesstoken]);
+    }, [params.universityid, accesstokena]);
 
     return (
         <div className='faq1'>
@@ -84,9 +85,9 @@ export const Faq = () => {
                         </div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                        <h2>
+                        <div style={{fontSize:"5.5vw"}}>
                             {siloading ? "loading..." : searchs.name}
-                        </h2>
+                        </div>
                         <div className='Undercover_container5'>
                             <div><p>Frequently Asked <br /> Questions </p></div>
                             <div className='Undercover_container6'>

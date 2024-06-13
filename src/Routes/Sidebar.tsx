@@ -10,6 +10,7 @@ import { FcAbout } from "react-icons/fc";
 import { SiGnuprivacyguard } from "react-icons/si";
 import { MdDashboard } from "react-icons/md";
 import { FiLogOut } from "react-icons/fi";
+import { IoCall } from "react-icons/io5";
 import Cookies from 'js-cookie';
 interface SidebarProps {
     shownavbar: boolean;
@@ -83,7 +84,7 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
                             </div>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <div style={{ display: "flex", gap: "1rem" }}> <MdDashboard />
+                            <div style={{ display: "flex", gap: "1rem" }}> <IoCall/>
                                 <Link to="/contactus">Contact Us</Link>
                             </div>
                         </motion.li>

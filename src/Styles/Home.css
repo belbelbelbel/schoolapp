@@ -8,7 +8,6 @@
         background-attachment: scroll;
         transition: background-image 1s ease;
         font-family: FilsonPro-Medium, sans-serif;
-        /* height: 100vh; */
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -129,7 +128,7 @@
         height: auto;
     }
     .signupbtn {
-        padding: 1.5vw 16vw;
+        padding: 1.3vw 16vw;
         margin: 0rem auto; 
         background-color: white;
         text-align: center;
@@ -144,7 +143,7 @@
     }
    
     .signinbtn {
-        padding: 1.5vw 16vw;
+        padding: 1.3vw 16vw;
         margin: 0rem auto; 
         background-color: #8B452D;
         text-align: center;

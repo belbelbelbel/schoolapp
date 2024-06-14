@@ -111,7 +111,7 @@ export const Contact = () => {
                     {loading ? "loading..." : searchs.name}
                 </div>
                 <div className='Undercover_container5'>
-                    <div><p>QUICK CONTACT <br />& FAQS</p></div>
+                    <div style={{display:"flex", gap:"4vw"}}><p>QUICK CONTACT <br />& FAQS</p></div>
                     <div className='Undercover_container6'>
                         <img src="/Ellipse 2.svg" alt="ellipse 2" />
                         <img src="/Ellipse 3.svg" alt="ellipse 3" />

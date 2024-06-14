@@ -30,6 +30,7 @@ import { Verification } from '../Routes/Verification'
 import Cookies from 'js-cookie'
 import { VerifyModal } from '../Routes/VerifyModal'
 import { ContactUs } from '../Routes/ContactUs'
+import { ResetPassword } from '../Routes/ResetPassword'
 
 
 const Router = () => {
@@ -48,6 +49,7 @@ const Router = () => {
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/review' element={<Review />}></Route>
         <Route path='/verifymodal' element={<VerifyModal/>}></Route>
+        <Route path='/resetpassword' element={<ResetPassword/>}></Route>
         <Route path='/contactus' element={<ContactUs/>}></Route>
         <Route path='/university' element={<Covenant />}>
           <Route path=':universityid' element={<Covenant />}>

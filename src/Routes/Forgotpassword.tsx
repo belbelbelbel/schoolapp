@@ -1,26 +1,51 @@
-import React, { ChangeEvent, useContext } from 'react';
-import { Context } from '../Provider/Usecontext';
+import React, { ChangeEvent, useContext, useState } from 'react';
+import { Context, valueprops } from '../Provider/Usecontext';
 import { useNavigate } from 'react-router-dom';
 import "../Styles/Forgotpassword.css";
 import { motion, useAnimation } from "framer-motion";
-type Props = {}
-const Forgotpassword = (props: Props) => {
-    const location = useNavigate();
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { IoMdArrowBack } from "react-icons/io";
+import { relative } from 'path';
+type emailprops = {
+    email: string
+}
+const Forgotpassword = () => {
+    const navigate = useNavigate();
     const user = useContext(Context);
-    
-    const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-        let validateerror: string[] = [];
-        e.preventDefault();
-        if (!user || !user.formdata) return;
-        if (!user.formdata.email.trim()) {
-            validateerror.push('The email is requireds');
-        } else if (!/\S+@\S+\.\S+/.test(user.formdata.email)) {
-            validateerror.push('The email is not corrects');
+    const [isloading, setisloading] = useState(false)
+    const handleforgot = async (data: emailprops) => {
+        setisloading(true)
+        try {
+            const res = await fetch('https://almaquin.onrender.com/api/forgot-password', {
+                method: "POST",
+                headers: {
+                    "Content-type": "application/json"
+                },
+                body: JSON.stringify(data),
+            });
+            const result = await res.json();
+            console.log(result);
+            if (!res.ok) {
+                const result = await res.json();
+                console.error("Error:", result.message);
+                throw new Error("Error occurred while recovering password from server");
+            }
+            else {
+                navigate("/resetpassword",{state:{data}});
+            }
+          
+        } catch (error: any) {
+            console.error(error.message);
         }
-        if (validateerror.length === 0) {
-            location('/review');
+        finally {
+            setisloading(false)
         }
-        user.seterror(validateerror);
+    };
+
+    const { register, handleSubmit, formState: { errors } } = useForm<valueprops>()
+    const onSubmit: SubmitHandler<valueprops> = (data) => {
+        console.log(data);
+        handleforgot(data)
     };
     let emailerror: React.ReactNode = '';
     if (user?.error.includes('The email is requireds')) {
@@ -28,28 +53,48 @@ const Forgotpassword = (props: Props) => {
     } else if (user?.error.includes('The email is not corrects')) {
         emailerror = <div className="errors"> Please enter a valid email</div>;
     }
-    function handleOnchange(event: ChangeEvent<HTMLInputElement>): void {
-        const { value, name } = event.target;
-        user?.setformdata({
-            ...user.formdata,
-            [name]: value,
-        });
-    }
+
     return (
         <motion.div className="forgot-password-container"
-        initial={{opacity : 0}}
-        animate={{opacity :1 , transition: {duration : 1.5}}}
-        exit={{opacity : 0, transition: {duration : 1}}}>
-            <form onSubmit={handleSubmit} className='form-container'>
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { duration: 1.5 } }}
+            exit={{ opacity: 0, transition: { duration: 1 } }}>
+            <div>
+                <div><IoMdArrowBack size="6.5vw" onClick={()=> navigate(-1)}/></div>
+            </div>
+            <form onSubmit={handleSubmit(onSubmit)} className='form-container'>
                 <div className="form-container2">
-                    <div className="form-container3">
-                        <img src="forgot-password-concept-illustration_114360-1095.avif" alt="grfjk" />
+                    <div className='' style={{ display: "flex", flexDirection: "column", gap: "1vw" }}>
+                        <div>
+                            <div className='' style={{ fontSize: "8vw", fontWeight: "600" }}>Forgot Password ?</div>
+                        </div>
                     </div>
-                 <div className="surname-emails">
-                    <input placeholder="Email" onChange={handleOnchange} name="email" type="text" />
-                    {emailerror}
-                 </div>
-                 <button type='submit'  className='signin_btns'>Proceed</button>
+                    <div>
+                        <div style={{ position: "relative", top: "4vw" }}>
+                            <div style={{ fontSize: "3.5vw", fontWeight: "500" }}>Enter Your Email Address</div>
+                        </div>
+                        <div className="surna-emails">
+                            <input placeholder="Email"
+                            autoFocus
+                                {...register('email', {
+                                    required: "  Email is required",
+                                    pattern: {
+                                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                                        message: "Fill in a correct email address",
+                                    },
+                                })}
+                                type="text" />
+                        </div>
+                        <div style={{position:'relative',top:"-5vw"}}>
+                            {errors.email && <div className="forgot_error">{errors.email.message}</div>}
+                        </div>
+                    </div>
+
+                    <button type='submit' className='forgot_btns'>
+                    {
+                        isloading ? "Sending..." : "Send recovery OTP "
+                    }
+                    </button>
                 </div>
             </form>
             {/* <div className="lottie-background">
@@ -59,104 +104,3 @@ const Forgotpassword = (props: Props) => {
     )
 }
 export default Forgotpassword;
-// import { Link, useNavigate } from 'react-router-dom';
-// import "../Styles/Home.css";
-// import React, { useEffect, useState } from 'react';
-// import Loader from './Loader';
-// import { motion, useAnimation } from "framer-motion";
-// import Lottie from "lottie-react"
-// import animationData from "../Styles/lottie.json"
-
-// const Home = () => {
-//     const [showLogo, setShowLogo] = useState(true);
-//     const [signupClicked, setSignupClicked] = useState(false);
-
-//     const history = useNavigate();
-//     const animationControls = useAnimation();
-
-//     const handleNavigate = async () => {
-//         await animationControls.start({
-//             opacity: 0,
-//             y: 30,
-//             transition: { duration: 0.7, ease: "easeIn" },
-//         });
-//         history("/signin");
-//     };
-
-//     useEffect(() => {
-//         if (signupClicked) {
-//             const timer = setTimeout(() => {
-//                 setSignupClicked(false);
-//             }, 700); 
-//             return () => clearTimeout(timer);
-//         }
-//     }, [signupClicked]);
-
-//     const buttonVariants = {
-//         rest: {
-//             y: 0,
-//         },
-//         pressed: {
-//             y: 70,
-//             transition: { duration: 1 },
-//         },
-//         transitionUp: {
-//             y: 100,
-//             transition: { duration: 0.5 },
-//         },
-//     };
-
-//     const handleSignupClick = () => {
-//         setSignupClicked(true);
-//         setTimeout(() => {
-//             history("/signup");
-//         }, 700);
-//     };
-    
-//     useEffect(() => {
-//         const timer = setTimeout(() => {
-//             setShowLogo(false);
-//         }, 5000);
-
-//         return () => {
-//             clearTimeout(timer);
-//         };
-//     }, []);
-
-//     return (
-//         <motion.div
-//             initial={{ width: 0 }}
-//             animate={{ width: "100%" }}
-//             exit={{ width: window.innerWidth, transition: { duration: 0.5 } }}
-//         >
-//             <div className="home_container">
-//                 <h1>LOGO</h1>
-//                 <div className='home_container2'>
-//                     <div className='home_container3'>
-//                         <motion.button 
-//                             className='signinbtn'
-//                             onClick={handleNavigate}
-//                             initial={{ opacity: 1, y: 0 }}
-//                             animate={animationControls}
-//                         >
-//                             Sign in
-//                         </motion.button>
-//                     </div>
-//                     <div>
-//                         <motion.button
-//                             className={signupClicked ? 'signupbtn animate' : 'signupbtn'}
-//                             variants={buttonVariants}
-//                             initial="rest"
-//                             animate={animationControls}
-//                             onClick={handleSignupClick}
-//                         >
-//                             Sign up
-//                         </motion.button>
-//                     </div>
-//                 </div>
-//             </div>
-//         </motion.div>
-//     );
-// };
-
-// export default Home;

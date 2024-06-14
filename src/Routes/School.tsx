@@ -119,6 +119,7 @@ export const School = () => {
               <input
                 placeholder="Search here"
                 value={input}
+                // autoFocus
                 onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
               />
               <button type="submit" className='img_btn'>

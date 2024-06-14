@@ -7,17 +7,17 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Context } from '../Provider/Usecontext';
 import { IoClose } from 'react-icons/io5';
 import Cookies from 'js-cookie';
-interface showprops  {
-    setshowschool: (showschool:boolean) => void
+interface showprops {
+    setshowschool: (showschool: boolean) => void
 }
-export const Schools2 = ({setshowschool}:showprops) => {
+export const Schools2 = ({ setshowschool }: showprops) => {
     const [input, setInput] = useState("");
     const [error, seterror] = useState("")
     const [search, setsearch] = useState([])
     const user = useContext(Context)
     // const [isloading, setisloading] = useState(true)
     const navigate = useNavigate()
-    const accesstokena =  Cookies.get('token')
+    const accesstokena = Cookies.get('token')
     const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
     useEffect(() => {
         const handlefilter = async (input: string) => {
@@ -111,16 +111,16 @@ export const Schools2 = ({setshowschool}:showprops) => {
             <div >
                 <div style={{ width: "84%", margin: "0rem auto" }}>
                     <div className="Covenant_container8">
-                        <div style={{cursor:"pointer"}}>  <img src="/Arrow (2).svg" alt="" onClick={()=>setshowschool(true)} width="25vw" /></div>
+                        <div style={{ cursor: "pointer" }}>  <img src="/Arrow (2).svg" alt="" onClick={() => setshowschool(true)} width="25vw" /></div>
                         <div className="Covenant_container8a">
-                            <div style={{cursor:"pointer"}}> <img src="/edit button.svg" alt="wearfs" /></div>
-                            <div style={{cursor:"pointer"}}> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
+                            <div style={{ cursor: "pointer" }}> <img src="/edit button.svg" alt="wearfs" /></div>
+                            <div style={{ cursor: "pointer" }}> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
                         </div>
                     </div>
                 </div>
                 <div className="Covenant_container2">
                     <div className="Covenant_container3">
-                        <div style={{cursor:"pointer"}}><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
+                        <div style={{ cursor: "pointer" }}><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
                         <div className="Covenant_container_input">  <input type="text" placeholder="Search here" value={input} autoFocus onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)} /></div>
                     </div>
                     <button type="submit" className='img_btn'>

@@ -137,7 +137,7 @@ export const Covenant = () => {
                                     {
                                         !shownavbar ? <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div>
                                     }
-                                    <div className="Covenant_container_input">  <input type="text" placeholder="Search here" autoFocus onClick={()=>setshowschool(false)} /></div>
+                                    <div className="Covenant_container_input">  <input type="text" placeholder="Search here"  onClick={()=>setshowschool(false)} /></div>
                                 </div>
                                 <div style={{ cursor: "pointer" }}><img src="/Search.svg" alt="whasf" /></div>
                                 {

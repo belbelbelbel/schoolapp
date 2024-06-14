@@ -159,12 +159,7 @@ export const Verification = () => {
                                     })}
                                 </div>
                                 <div>
-                                    {loading && (
-                                        <div className="loading-container">
-                                            {/* <div className="loading-spinner"></div> */}
-                                            <div style={{ color: "black" }}>Sending...</div>
-                                        </div>
-                                    )}
+                            
                                     {!loading && check && (
                                         <div className="flex justify-start items-center absolute" style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative", top: "3vw", gap: "0vw" }}>
                                             <div style={{ fontFamily: "monospace", fontSize: "4vw", color: "red", margin: "1vw auto" }}>{error}</div>
@@ -179,7 +174,9 @@ export const Verification = () => {
                                 disabled={loading}
                                 type="submit"
                                 className={`verification-button ${buttons ? 'verification-button-enabled' : 'verification-button-loading'}`}>
-                                <div>Verify</div>
+                                <div>{
+                                    loading ? "Verify" : "Sending"
+                                    }</div>
                             </motion.button>
                             {
                                 show && <VerifyModal/>

@@ -17,6 +17,8 @@ export type valueprops = {
   password: string;
   reasonForJoining: string,
   name: string,
+  confirmpassword:string;
+  token: string;
 };
 
 type dataprops = {
@@ -49,7 +51,9 @@ export const Usecontext = ({ children }: childrenprops) => {
     fax: "",
     name: "",
     phone: "",
-    message: ""
+    message: "",
+    confirmpassword: "",
+    token: ""
   });
 
   const [error, seterror] = useState<string[]>([]);

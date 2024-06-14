@@ -5,6 +5,7 @@ import "../Styles/Forgotpassword.css";
 import { motion, useAnimation } from "framer-motion";
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IoMdArrowBack } from "react-icons/io";
+
 import { relative } from 'path';
 type emailprops = {
     email: string
@@ -12,6 +13,7 @@ type emailprops = {
 const Forgotpassword = () => {
     const navigate = useNavigate();
     const user = useContext(Context);
+    const [error, seterror] = useState(false)
     const [isloading, setisloading] = useState(false)
     const handleforgot = async (data: emailprops) => {
         setisloading(true)
@@ -25,15 +27,16 @@ const Forgotpassword = () => {
             });
             const result = await res.json();
             console.log(result);
+            seterror(result.message)
             if (!res.ok) {
                 const result = await res.json();
                 console.error("Error:", result.message);
                 throw new Error("Error occurred while recovering password from server");
             }
             else {
-                navigate("/resetpassword",{state:{data}});
+                navigate("/reset-password", { state: { data } });
             }
-          
+
         } catch (error: any) {
             console.error(error.message);
         }
@@ -60,7 +63,7 @@ const Forgotpassword = () => {
             animate={{ opacity: 1, transition: { duration: 1.5 } }}
             exit={{ opacity: 0, transition: { duration: 1 } }}>
             <div>
-                <div><IoMdArrowBack size="6.5vw" onClick={()=> navigate(-1)}/></div>
+                <div><IoMdArrowBack size="6.5vw" onClick={() => navigate(-1)} /></div>
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className='form-container'>
                 <div className="form-container2">
@@ -75,7 +78,7 @@ const Forgotpassword = () => {
                         </div>
                         <div className="surna-emails">
                             <input placeholder="Email"
-                            autoFocus
+                                autoFocus
                                 {...register('email', {
                                     required: "  Email is required",
                                     pattern: {
@@ -85,15 +88,19 @@ const Forgotpassword = () => {
                                 })}
                                 type="text" />
                         </div>
-                        <div style={{position:'relative',top:"-5vw"}}>
+                        <div style={{ position: 'relative', top: "-5vw" }}>
                             {errors.email && <div className="forgot_error">{errors.email.message}</div>}
                         </div>
                     </div>
-
+                    {!isloading && (
+                        <div className="flex justify-start items-center absolute" style={{ display: "flex", justifyContent: "center", alignItems: "center", position: "relative", top: "-2vw", gap: "0vw" }}>
+                            <div style={{ fontFamily: "monospace", fontSize: "4vw", color: "red", margin: "1vw auto", position: "absolute" }}>{error}</div>
+                        </div>
+                    )}
                     <button type='submit' className='forgot_btns'>
-                    {
-                        isloading ? "Sending..." : "Send recovery OTP "
-                    }
+                        {
+                            isloading ? "Sending..." : "Send recovery OTP "
+                        }
                     </button>
                 </div>
             </form>

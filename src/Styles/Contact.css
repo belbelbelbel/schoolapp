@@ -123,7 +123,7 @@
     .Contact_contentc input {
         box-shadow: 0px 4.5px 4px  rgb(206, 202, 202);
         border: none;
-        border-radius: 8px;
+        border-radius: 0.3rem;
         padding: 0.7rem 1rem;
         width: 100%;
         font-size: 3vw;
@@ -171,7 +171,7 @@
     .Contact_contente textarea {
         box-shadow: 0px 4.5px 4px  rgb(206, 202, 202);
         border: none;
-        border-radius: 8px;
+        border-radius: 0.3rem;
         font-family: FilsonPro-Medium, sans-serif;
         padding: 1em 1rem;
         /* padding-bottom: 20vw; */

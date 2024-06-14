@@ -38,18 +38,18 @@
   }
 
   .signup_btn {
-    height: 11vw;
-    width: 51vw;
-    margin: 0 auto;
+    height: 9.3vw;
+    width: 60vw;
+    margin-top: 3.5vh;
     background-color: #8B452D;
     text-align: center;
     font-family: FilsonPro-Medium, sans-serif;
-    border-radius: 14px;
+    border-radius: 0.6rem;
     font-size: 5vw;
     color: white;
+    display: block;
     font-weight: 600;
     border: none;
-    display: block;
   }
 
 
@@ -151,7 +151,7 @@
     margin: 0.5rem auto;
     width: 100%;
     height: 13.1vw;
-    border-radius: 15px;
+    border-radius: 0.3rem;
     flex-direction: row;
     justify-content: center;
     outline: none;
@@ -177,7 +177,7 @@
     padding: 1.6vw 0rem;
     background-color: transparent;
     font-family: FilsonPro-Medium, sans-serif;
-    border-radius: 0.8rem;
+    border-radius: 0.4rem;
     outline: none;
     border: none;
   }
@@ -188,7 +188,7 @@
     padding: 3.8vw 1rem;
     background-color: rgba(213, 210, 210, 0.669);
     font-family: FilsonPro-Medium, sans-serif;
-    border-radius: 0.8rem;
+    border-radius: 0.3rem;
     outline: none;
     border: none;
   }

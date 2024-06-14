@@ -225,6 +225,7 @@
         background-color: #96523b;
         font-family: FilsonPro-Medium, sans-serif;
         padding: 1rem;
+        width: 80vw;
         border: none;
         cursor: pointer;
         position: relative;
@@ -234,6 +235,7 @@
     .gotobtn li {
         list-style-type: none;
         font-family: FilsonPro-Medium, sans-serif;
+        font-size: 3.6vw;
         color: white
     }
 

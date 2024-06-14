@@ -38,9 +38,9 @@
   }
 
   .signup_btn {
-    height: 9.3vw;
-    width: 60vw;
-    margin-top: 3.5vh;
+    height: 9.7vw;
+    width: 55vw;
+    margin-top: 3.5vw;
     background-color: #8B452D;
     text-align: center;
     font-family: FilsonPro-Medium, sans-serif;
@@ -146,12 +146,13 @@
     border: none;
     /* align-items: first baseline */
   }
+
   .surnamess {
     display: flex;
     margin: 0.5rem auto;
     width: 100%;
-    height: 13.1vw;
-    border-radius: 0.3rem;
+    height: 12.1vw;
+    border-radius: 0.6rem;
     flex-direction: row;
     justify-content: center;
     outline: none;
@@ -174,10 +175,10 @@
     font-size: 4vw;
     width: 80%;
     margin: 2vw 0rem;
-    padding: 1.6vw 0rem;
+    padding: 1vw 0rem;
     background-color: transparent;
     font-family: FilsonPro-Medium, sans-serif;
-    border-radius: 0.4rem;
+    border-radius: 0.5rem;
     outline: none;
     border: none;
   }
@@ -188,7 +189,7 @@
     padding: 3.8vw 1rem;
     background-color: rgba(213, 210, 210, 0.669);
     font-family: FilsonPro-Medium, sans-serif;
-    border-radius: 0.3rem;
+    border-radius: 0.6rem;
     outline: none;
     border: none;
   }

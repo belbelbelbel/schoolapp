@@ -1,7 +1,6 @@
 import { createContext, useState, ReactNode, useEffect } from "react";
 import { format } from 'date-fns';
 import Cookies from "js-cookie";
-
 export type valueprops = {
   surname: string;
   firstName: string;
@@ -17,7 +16,7 @@ export type valueprops = {
   password: string;
   reasonForJoining: string,
   name: string,
-  confirmpassword:string;
+  confirmpassword: string;
   token: string;
 };
 
@@ -55,7 +54,6 @@ export const Usecontext = ({ children }: childrenprops) => {
     confirmpassword: "",
     token: ""
   });
-
   const [error, seterror] = useState<string[]>([]);
   return (
     <Context.Provider value={{ formdata, setformdata, error, seterror, isLoggedIn, setIsLoggedIn }}>

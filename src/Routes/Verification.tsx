@@ -175,7 +175,7 @@ export const Verification = () => {
                                 type="submit"
                                 className={`verification-button ${buttons ? 'verification-button-enabled' : 'verification-button-loading'}`}>
                                 <div>{
-                                    loading ? "Verify" : "Sending"
+                                    !loading ? "Verify" : "Sending..."
                                     }</div>
                             </motion.button>
                             {

@@ -243,14 +243,15 @@ const Signup = () => {
           }
         </motion.div>
         <motion.div className="surnames"
+       
           variants={inputVariants}
           onClick={handleclickss}>
           <label htmlFor="class">Class/Level</label>
-          <div className="surnamess" onClick={handleclickss}> <input type="text"
+          <div className="surnamess" onClick={handleclickss}> <input type="text"  
             {...register("classLevel", {
               required: " Class is required"
-            })} value={level} onClick={handleclickss} onChange={handleLevelChange} />
-            {showss ? (<IoMdArrowDropup onClick={handleclickss} style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown onClick={handleclickss} style={{ fontSize: "6vw" }} />)}
+            })} value={level} onClick={handleclickss} onChange={handleLevelChange}/>
+            {showss ? (<IoMdArrowDropup  style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown  style={{ fontSize: "6vw" }} />)}
           </div>
           {errors.classLevel && <div className="errorss">{errors.classLevel.message}</div>}
           {
@@ -259,6 +260,7 @@ const Signup = () => {
         </motion.div>
         <motion.div className="surnames"
           variants={inputVariants}
+
           onClick={handleclicksss}>
           <label htmlFor="reason">Where is your school located</label>
           <div className="surnamess" onClick={handleclicksss}> <input type="text"

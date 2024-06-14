@@ -7,6 +7,7 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { IoMdArrowBack } from "react-icons/io";
 
 import { relative } from 'path';
+import { ComfirmModal } from './ComfirmModal';
 type emailprops = {
     email: string
 }
@@ -15,6 +16,7 @@ const Forgotpassword = () => {
     const user = useContext(Context);
     const [error, seterror] = useState("")
     const [isloading, setisloading] = useState(false)
+    const [show, setshow] = useState(false)
     const handleforgot = async (data: emailprops) => {
         setisloading(true)
         try {
@@ -37,9 +39,10 @@ const Forgotpassword = () => {
                 throw new Error("Error occurred while recovering password from server");
             }
             else {
-                navigate("/reset-password", { state: { data } });
-            }
+                // navigate("/reset-password", { state: { data } });
+                setshow(true)
 
+            }
         } catch (error: any) {
             console.error(error.message);
         }
@@ -110,6 +113,11 @@ const Forgotpassword = () => {
             {/* <div className="lottie-background">
                 <Lottie animationData={animationData} />
             </div> */}
+            <div>
+                {
+                    show && <ComfirmModal setshow={setshow}/>
+                }
+            </div>
         </motion.div>
     )
 }

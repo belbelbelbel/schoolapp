@@ -13,7 +13,7 @@ type emailprops = {
 const Forgotpassword = () => {
     const navigate = useNavigate();
     const user = useContext(Context);
-    const [error, seterror] = useState(false)
+    const [error, seterror] = useState("")
     const [isloading, setisloading] = useState(false)
     const handleforgot = async (data: emailprops) => {
         setisloading(true)
@@ -27,7 +27,10 @@ const Forgotpassword = () => {
             });
             const result = await res.json();
             console.log(result);
-            seterror(result.message)
+            
+            if(result.message === "User not found") {
+                seterror("User not found")
+            }
             if (!res.ok) {
                 const result = await res.json();
                 console.error("Error:", result.message);
@@ -78,7 +81,7 @@ const Forgotpassword = () => {
                         </div>
                         <div className="surna-emails">
                             <input placeholder="Email"
-                                autoFocus
+                                // autoFocus
                                 {...register('email', {
                                     required: "  Email is required",
                                     pattern: {

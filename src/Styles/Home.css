@@ -8,7 +8,7 @@
         background-attachment: scroll;
         transition: background-image 1s ease;
         font-family: FilsonPro-Medium, sans-serif;
-        height: 100vh;
+        /* height: 100vh; */
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -129,13 +129,13 @@
         height: auto;
     }
     .signupbtn {
-        padding: 1vw 16vw;
+        padding: 1.5vw 16vw;
         margin: 0rem auto; 
         background-color: white;
         text-align: center;
         font-family: FilsonPro-Medium, sans-serif;
         font-weight: 600;
-        border-radius: 14px;
+        border-radius: 0.7rem;
         font-size: 6vw;
         color: #8B452D;
         display: block; 
@@ -144,13 +144,13 @@
     }
    
     .signinbtn {
-        padding: 1vw 16vw;
+        padding: 1.5vw 16vw;
         margin: 0rem auto; 
         background-color: #8B452D;
         text-align: center;
         font-family: FilsonPro-Medium, sans-serif;
         font-weight: 600;
-        border-radius: 14px;
+        border-radius: 0.7rem;
         font-size: 6vw;
         display: block; 
         color: white;

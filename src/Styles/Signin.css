@@ -169,7 +169,7 @@
     padding: 0.9rem 1rem;
     background-color: rgba(213, 210, 210, 0.669);
     font-family: FilsonPro-Medium, sans-serif;
-    border-radius: 0.4rem;
+    border-radius: 0.55rem;
     outline: none;
     border: none;
   }
@@ -212,7 +212,7 @@
     outline: none;
     border: none;
     width: 100%;
-    padding: 3rem;
+    padding: 2.8rem 3rem;
     font-size: 4vw;
     background-color: transparent;
     border-radius: 2px;
@@ -229,7 +229,7 @@
     outline: none;
     border: none;
     width: 91%;
-    border-radius: 0.5rem;
+    border-radius: 0.6rem;
     margin: 0rem auto;
     background-color: rgba(213, 210, 210, 0.669);
   }

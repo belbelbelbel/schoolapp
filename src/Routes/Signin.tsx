@@ -59,9 +59,9 @@ const Signin = () => {
         )
       })
       const result = await res.json()
-      console.log(result)
+      // console.log(result)
       localStorage.setItem("signincors", result);
-      console.log(result.token)
+      // console.log(result.token)
       settokes(result.token)
    
       if (!res.ok) {

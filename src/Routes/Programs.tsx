@@ -34,7 +34,7 @@ export const Programs = () => {
                 console.log(results[0].programs[1])
                 setdepart(results[0].programs)
                 setprog(results[0])
-                console.log(results[0])
+                console.log(results[0].dates)
                 // console.log(results.university.schools)
                 if (!res.ok) {
                     throw new Error("error parsing json")

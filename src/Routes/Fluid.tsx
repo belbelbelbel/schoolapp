@@ -3,12 +3,23 @@ import "../Styles/Faq.css";
 import { useNavigate, useParams } from 'react-router-dom';
 import { Footer } from './Footer';
 import Cookies from 'js-cookie';
+
+interface props {
+    name: string
+    programs: string[]
+}
+
+
 export const Fluid = () => {
     const params = useParams();
+    const [prog, setprog] = useState<props>({ name: '', programs: [] })
+    const [loading, setloading] = useState(false)
+    const [depart, setdepart] = useState([])
     const navigate = useNavigate();
     const accesstoken = localStorage.getItem('token');
     const [siloading, setisloading] = useState(false);
     const [show, setshow] = useState(false);
+    const [fluid, setfluid] = useState("")
     const [searchs, setsearchs] = useState({ name: "" });
     const [faqs, setfaqs] = useState({ question: "", answer: "" });
     const accesstokena =  Cookies.get('token')
@@ -16,6 +27,65 @@ export const Fluid = () => {
     const handlelback = () => {
         navigate(-1);
     };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setloading(true)
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`, {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "ngrok-skip-browser-warning": "69420",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    }
+                })
+                const results = await res.json()
+                console.log(results)
+                console.log(results[0].programs)
+                console.log(results[0].programs)
+                console.log(results[0].programs[1])
+                setdepart(results[0].programs)
+                setprog(results[0])
+                console.log(results[0])
+                setfluid(results[0].dates)
+                // console.log(results.university.schools)
+                if (!res.ok) {
+                    throw new Error("error parsing json")
+                }
+            } catch (error) {
+                console.log(error)
+            }
+            finally {
+                setloading(false)
+            }
+        }
+        fetchData();
+    }, [])
+
+    useEffect(() => {
+        const handlefaq = async () => {
+            setisloading(true);
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/faq`, {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    }
+                });
+                const result = await res.json();
+                console.log(result);
+                console.log(result.faq[0]);
+                setfaqs(result.faq[0]);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setisloading(false);
+            }
+        };
+        handlefaq();
+    }, [params.universityid, accesstokena]);
 
     useEffect(() => {
         const handlefaq = async () => {

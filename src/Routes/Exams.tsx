@@ -6,18 +6,63 @@ import { motion } from "framer-motion";
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { Skeleton } from './Skeleton';
 import Cookies from 'js-cookie';
+interface props {
+    name: string
+    programs: string[]
+}
+
 export const Exams = () => {
     const params = useParams();
     const navigate = useNavigate();
+    const [prog, setprog] = useState<props>({ name: '', programs: [] })
+    const [loading, setloading] = useState(false)
+    const [depart, setdepart] = useState([])
     const accesstoken = localStorage.getItem('token');
     const [siloading, setisloading] = useState(false);
     const [show, setshow] = useState(false);
     const [searchs, setsearchs] = useState({ name: "" });
+    const [exams, setexams] = useState(false)
     const [faqs, setfaqs] = useState({ question: "", answer: "" });
-    const accesstokena =  Cookies.get('token')
+    const accesstokena = Cookies.get('token')
     const handlelback = () => {
         navigate(-1);
     };
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setloading(true)
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`, {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "ngrok-skip-browser-warning": "69420",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    }
+                })
+                const results = await res.json()
+                console.log(results)
+                console.log(results[0].programs)
+                console.log(results[0].programs)
+                console.log(results[0].programs[1])
+                setdepart(results[0].programs)
+                setprog(results[0])
+                console.log(results[0])
+                setexams(results[0].dates)
+                // console.log(results.university.schools)
+                if (!res.ok) {
+                    throw new Error("error parsing json")
+                }
+            } catch (error) {
+                console.log(error)
+            }
+            finally {
+                setloading(false)
+            }
+        }
+        fetchData();
+    }, [])
 
     useEffect(() => {
         const handlefaq = async () => {
@@ -72,7 +117,7 @@ export const Exams = () => {
     return (
         <div className='faq1'>
             <div className='faq2'>
-            <div id="firsts"></div>
+                <div id="firsts"></div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <div className="Undercover_container">
                         <div className='Undercover_containera' onClick={handlelback}>
@@ -84,9 +129,9 @@ export const Exams = () => {
                         </div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                        <div style={{fontSize:"5.5vw"}}>
+                        <div style={{ fontSize: "5.5vw" }}>
                             {siloading ? "loading..." : searchs.name}
-                        </div> 
+                        </div>
                         <div className='Undercover_container5'>
                             <div><p>Exam Reports <br /></p></div>
                             <div className='Undercover_container6'>
@@ -101,9 +146,9 @@ export const Exams = () => {
                     <div className='grams'>Exams</div>
                 </div>
                 <div className='faqcont'>
-                <h3 style={{padding:"0rem 2.5rem",fontWeight:"500",letterSpacing:"0px"}}> Upcoming exams will be communicated shortly </h3>
+                    <h3 style={{ padding: "0rem 2.5rem", fontWeight: "500", letterSpacing: "0px" }}> Upcoming exams will be communicated shortly </h3>
                 </div>
-             
+
             </div>
             <Footer />
         </div>

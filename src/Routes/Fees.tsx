@@ -5,18 +5,64 @@ import Lottie from "lottie-react"
 import animatedData from "../Styles/pointerlottie.json"
 import { Footer } from './Footer';
 import Cookies from 'js-cookie';
+import { Skeleton } from './Skeleton';
+
+interface props {
+    name: string
+    programs: string[]
+}
+
 export const Fees = () => {
-    const params = useParams();
+    const params = useParams()
+    const [prog, setprog] = useState<props>({ name: '', programs: [] })
+    const [loading, setloading] = useState(false)
+    const [depart, setdepart] = useState([])
     const navigate = useNavigate();
     const accesstoken = localStorage.getItem('token');
     const [siloading, setisloading] = useState(false);
     const [show, setshow] = useState(false);
+    const [links, setlinks] = useState(false)
     const [searchs, setsearchs] = useState({ name: "" });
     const [faqs, setfaqs] = useState({ question: "", answer: "", university: "", name: "", url: "" });
-    const accesstokena =  Cookies.get('token')
+    const accesstokena = Cookies.get('token')
     const handlelback = () => {
         navigate(-1);
     };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setloading(true)
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`, {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "ngrok-skip-browser-warning": "69420",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    }
+                })
+                const results = await res.json()
+                console.log(results)
+                console.log(results[0].programs)
+                console.log(results[0].programs)
+                console.log(results[0].programs[1])
+                setdepart(results[0].programs)
+                setprog(results[0])
+                console.log(results[0].dates)
+                setlinks(results[0].dates)
+                // console.log(results.university.schools)
+                if (!res.ok) {
+                    throw new Error("error parsing json")
+                }
+            } catch (error) {
+                console.log(error)
+            }
+            finally {
+                setloading(false)
+            }
+        }
+        fetchData();
+    }, [])
 
     useEffect(() => {
         const handlefaq = async () => {
@@ -49,7 +95,7 @@ export const Fees = () => {
     return (
         <div className='faq1'>
             <div className='faq2'>
-            <div id="firsts"></div>
+                <div id="firsts"></div>
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <div className="Undercover_container">
                         <div className='Undercover_containera' onClick={handlelback}>
@@ -61,11 +107,11 @@ export const Fees = () => {
                         </div>
                     </div>
                     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-                        <div style={{fontSize:"5.5vw"}}>
+                        <div style={{ fontSize: "5.5vw" }}>
                             {siloading ? "loading..." : faqs.name}
                         </div>
                         <div className='Undercover_container5'>
-                            <div style={{width:"80vw"}}><p>{!siloading ? faqs.name : "loading..."} </p></div>
+                            <div style={{ width: "80vw" }}><p>{!siloading ? faqs.name : "loading..."} </p></div>
                             <div className='Undercover_container6'>
                                 <img src="/Ellipse 2.svg" alt="ellipse 2" />
                                 <img src="/Ellipse 3.svg" alt="ellipse 3" />
@@ -77,17 +123,23 @@ export const Fees = () => {
                 <div>
                     <div className='grams' style={{ position: "relative", left: "-20vw" }}>Relevant Links</div>
                 </div>
-                <li className='blinklist'>
-                    <a href={faqs.url} style={{ color: "black" }}>
-                        <div className='faqcont' style={{ display: "flex", alignItems: "center" }}>
-                            <h2 style={{ padding: "0rem 7vw", fontWeight: "500", fontSize:"6w" }}>Click for more info </h2>
-                            <div style={{ width: "9vw", textAlign: "center" }}>
-                                <Lottie animationData={animatedData}></Lottie>
-                            </div>
-                        </div>
-                    </a>
-                </li>
+                <div style={{width:"95%",margin:'0rem auto'}}>
+                {
+                    loading ? <Skeleton /> : (
+                        <li className='blinklist'>
+                            <a href={faqs.url} style={{ color: "black" }}>
+                                <div className='faqcont' style={{ display: "flex", alignItems: "center" }}>
+                                    <h2 style={{ padding: "0rem 7vw", fontWeight: "500", fontSize: "6w" }}>Click for more info </h2>
+                                    <div style={{ width: "9vw", textAlign: "center" }}>
+                                        <Lottie animationData={animatedData}></Lottie>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
 
+                    )
+                }
+                </div>
             </div>
             <Footer />
         </div>

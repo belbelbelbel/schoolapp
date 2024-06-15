@@ -6,18 +6,64 @@ import { motion } from "framer-motion";
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
 import { Skeleton } from './Skeleton';
 import Cookies from 'js-cookie';
+
+interface props {
+    name: string
+    programs: string[]
+}
+
 export const Admission = () => {
     const params = useParams();
+    const [prog, setprog] = useState<props>({ name: '', programs: [] })
+    const [loading, setloading] = useState(false)
+    const [depart, setdepart] = useState([])
     const navigate = useNavigate();
     const accesstoken = localStorage.getItem('token');
     const [siloading, setisloading] = useState(false);
     const [show, setshow] = useState(false);
+    const [admisssion, setadmisssion] = useState("")
     const [searchs, setsearchs] = useState({ name: "" });
     const [faqs, setfaqs] = useState({ question: "", answer: "" });
     const accesstokena = Cookies.get('token')
     const handlelback = () => {
         navigate(-1);
     };
+
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setloading(true)
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`, {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "ngrok-skip-browser-warning": "69420",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    }
+                })
+                const results = await res.json()
+                console.log(results)
+                console.log(results[0].programs)
+                console.log(results[0].programs)
+                console.log(results[0].programs[1])
+                setdepart(results[0].programs)
+                setprog(results[0])
+                console.log(results[0])
+                setadmisssion(results[0].admissions)
+                // console.log(results.university.schools)
+                if (!res.ok) {
+                    throw new Error("error parsing json")
+                }
+            } catch (error) {
+                console.log(error)
+            }
+            finally {
+                setloading(false)
+            }
+        }
+        fetchData();
+    }, [])
 
     useEffect(() => {
         const handlefaq = async () => {
@@ -101,7 +147,11 @@ export const Admission = () => {
                     <div className='grams'>Admission</div>
                 </div>
                 <div className='faqcont'>
-                    <h3 style={{ padding: "0rem 1rem", fontWeight: "500", letterSpacing: "0px" }}>We are not currently taking any candidate for admissions</h3>
+                   {
+                    loading ? <Skeleton/> : (
+                        <h3 style={{ padding: "0rem 1rem", fontWeight: "500", letterSpacing: "0px" }}>{admisssion}</h3>
+                    )
+                   }
                 </div>
 
             </div>

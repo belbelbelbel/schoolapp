@@ -38,7 +38,7 @@ const Router = () => {
   const user = useContext(Context)
   const location = useLocation()
   const token = Cookies.get('token')
-  console.log(token)
+  // console.log(token)
   return (
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>

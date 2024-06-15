@@ -3,18 +3,64 @@ import "../Styles/Faq.css";
 import { useNavigate, useParams } from 'react-router-dom';
 import { Footer } from './Footer';
 import Cookies from 'js-cookie';
+import { Skeleton } from './Skeleton';
+
+interface props {
+    name: string
+    programs: string[]
+}
+
 export const Date = () => {
-    const params = useParams();
+    const params = useParams()
+    const [prog, setprog] = useState<props>({ name: '', programs: [] })
+    const [loading, setloading] = useState(false)
+    const [depart, setdepart] = useState([]) 
     const navigate = useNavigate();
     const accesstoken = localStorage.getItem('token');
     const [siloading, setisloading] = useState(false);
     const [show, setshow] = useState(false);
     const [searchs, setsearchs] = useState({ name: "" });
     const [faqs, setfaqs] = useState({ question: "", answer: "" });
+    const [dates, setdates] = useState("")
     const accesstokena =  Cookies.get('token')
     const handlelback = () => {
         navigate(-1);
     };
+
+    useEffect(() => {
+        const fetchData = async () => {
+            setloading(true)
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`,{
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "ngrok-skip-browser-warning": "69420",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    }
+                })
+                const results = await res.json()
+                console.log(results)
+                console.log(results[0].programs)
+                console.log(results[0].programs)
+                console.log(results[0].programs[1])
+                setdepart(results[0].programs)
+                setprog(results[0])
+                console.log(results[0].dates)
+                setdates(results[0].dates)
+                // console.log(results.university.schools)
+                if (!res.ok) {
+                    throw new Error("error parsing json")
+                }
+            } catch (error) {
+                console.log(error)
+            }
+            finally {
+                setloading(false)
+            }
+        }
+        fetchData();
+    }, [])
 
     useEffect(() => {
         const handlefaq = async () => {
@@ -39,10 +85,6 @@ export const Date = () => {
         };
         handlefaq();
     }, [params.universityid, accesstokena]);
-
-    const handletoglr = () => {
-        setshow(!show);
-    };
 
     useEffect(() => {
         const fetchdescribe = async () => {
@@ -98,7 +140,11 @@ export const Date = () => {
                     <div className='grams'>Dates</div>
                 </div>
                 <div className='faqcont'>
-                    <h3 style={{ padding: "0rem 1.5rem", fontWeight: "500", letterSpacing: "1px" }}>  No upcoming dates</h3>
+                   {
+                    loading ? <Skeleton/> : (
+                        <h3 style={{ padding: "0rem 1.5rem", fontWeight: "500", letterSpacing: "1px" }}>  {dates}</h3>
+                    )
+                   }
                 </div>
 
             </div>

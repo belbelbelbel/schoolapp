@@ -73,7 +73,7 @@ export const Date = () => {
                 <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
                     <div className="Undercover_container">
                         <div className='Undercover_containera' onClick={handlelback}>
-                            <img src="/Arrow (2).svg" alt="" width="25vw" />
+                            <img src="/Arrow (2).svg" alt="goback" width="25vw" />
                         </div>
                         <div className="Undercover_containerb">
                             <div> <img src="/edit button.svg" alt="edit" /></div>

@@ -61,8 +61,8 @@ export const Programs = () => {
                         <div className="Undercover_container" >
                             <div className='Undercover_containera'>  <img src="/Arrow (2).svg" alt="" onClick={handlelback} width="25vw" /></div>
                             <div className="Undercover_containerb">
-                                <div> <img src="/edit button.svg" alt="wearfs" /></div>
-                                <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
+                                <div> <img src="/edit button.svg" alt="edit" /></div>
+                                <div> <img src="/Vector (4).svg" alt="flag" /></div>
                             </div>
                         </div>
                         {/* <div className="Undercover_container2">
@@ -80,9 +80,9 @@ export const Programs = () => {
                                 <div className='Undercover_container5'>
                                     <div><p>Brief overview of the<br /> college. </p></div>
                                     <div className='Undercover_container6'>
-                                        <img src="/Ellipse 2.svg" alt="wesafa" />
-                                        <img src="/Ellipse 3.svg" alt="weafasd" />
-                                        <img src="/Ellipse 4.svg" alt="weadsfa" />
+                                        <img src="/Ellipse 2.svg" alt="ellipse1" />
+                                        <img src="/Ellipse 3.svg" alt="ellipse2" />
+                                        <img src="/Ellipse 4.svg" alt="ellipse2" />
                                     </div>
                                 </div>
                                 <div style={{position:"relative",gap:"3vw"}}>

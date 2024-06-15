@@ -5,10 +5,10 @@ export const Uselinks = () => {
         <div className='Uselink'>
            <div>
            <div className="Contact_container">
-                <div className='Contact_containera'>  <img src="/Menu button.svg" alt="" width="22vw" /></div>
+                <div className='Contact_containera'>  <img src="/Menu button.svg" alt="menu" width="22vw" /></div>
                 <div className="Contact_containerb">
-                    <div> <img src="/edit button.svg" alt="wearfs" /></div>
-                    <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
+                    <div> <img src="/edit button.svg" alt="edit" /></div>
+                    <div> <img src="/Vector (4).svg" alt="flag" /></div>
                 </div>
             </div>
             <div className='Contact_headers'> Useful Links</div>

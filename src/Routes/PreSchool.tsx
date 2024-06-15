@@ -44,14 +44,14 @@ console.log(token)
                 <div>
                     <div className="preschool-navbar" >
                         {
-                            shownavbar ? <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div>
+                            shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
                         }
                         {
                             shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
                         }
                         <div className='preschool-container3' onClick={handlelschool}>
                             <div><input type="text" placeholder='Search' /></div>
-                            <div><img src="/Search.svg" alt="whasf" width="20vw"/></div>
+                            <div><img src="/Search.svg" alt="search" width="20vw"/></div>
                         </div>
                     </div>
                     <div className='preschool-name'>

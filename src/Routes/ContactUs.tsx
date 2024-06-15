@@ -88,19 +88,19 @@ export const ContactUs = () => {
             <div className="Contact_container">
                 <div className='Contact_containera'>
                     {
-                        !shownavbar ? <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div>
+                        !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
                     }
                 </div>
                 {
                     shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
                 }
                 <div className="Contact_containerb">
-                    <div> <img src="/edit button.svg" alt="wearfs" /></div>
-                    <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
+                    <div> <img src="/edit button.svg" alt="edit" /></div>
+                    <div> <img src="/Vector (4).svg" alt="flag" /></div>
                 </div>
             </div>
             <div className='Contact_header'>
-                <div className='Contact_img'><img src="/Work_7 1.svg" alt="" /></div>
+                <div className='Contact_img'><img src="/Work_7 1.svg" alt="contact image" /></div>
             </div>
             <div className='Contact_content'>
                 <div className='Contact_contenta'>Call Us</div>

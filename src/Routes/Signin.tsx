@@ -139,7 +139,7 @@ const Signin = () => {
       exit={{ opacity: 0 }}>
       <div className='signin_container'>
         <div className='signin-img'>
-          <img src="Picture.png" alt="fae" />
+          <img src="Picture.png" alt="signin page image" />
         </div>
         <div className='signin_container2'>
           <form onSubmit={handleSubmit}>

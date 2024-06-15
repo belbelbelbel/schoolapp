@@ -95,15 +95,15 @@ export const Contact = () => {
             <div className="Contact_container">
                 <div className='Contact_containera'>
                     {
-                        !shownavbar ? <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div>
+                        !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu " onClick={handleshow} /></div>
                     }
                 </div>
                 {
                     shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
                 }
                 <div className="Contact_containerb">
-                    <div> <img src="/edit button.svg" alt="wearfs" /></div>
-                    <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
+                    <div> <img src="/edit button.svg" alt="edit button" /></div>
+                    <div> <img src="/Vector (4).svg" alt="flag" /></div>
                 </div>
             </div>
             <div style={{ display: "flex", flexDirection: "column", gap: "1rem", margin: "0rem auto", position: "relative", left: "3.7vw" }}>
@@ -146,11 +146,11 @@ export const Contact = () => {
                 <div className="Contact_contentf">
                     <div className="Covenant_imgs1">
                         <div><h2>Undergraduate</h2></div>
-                        <div className="imis" onClick={handlenavigateunder}><div className="imis" ><h3>FAQs  </h3><div className="imi2s"> <img src="/Arrow (1).svg" alt="dfDF" width="22vw" /></div></div></div>
+                        <div className="imis" onClick={handlenavigateunder}><div className="imis" ><h3>FAQs  </h3><div className="imi2s"> <img src="/Arrow (1).svg" alt="see more" width="22vw" /></div></div></div>
                     </div>
                     <div className="Covenant_imgs1">
                         <div><h2>Postgraduate</h2></div>
-                        <div className="imis" onClick={handlenavigateunder}><div className="imis" ><h3>FAQs  </h3><div className="imi2s"> <img src="/Arrow (1).svg" alt="dfDF" width="22vw" /></div></div></div>
+                        <div className="imis" onClick={handlenavigateunder}><div className="imis" ><h3>FAQs  </h3><div className="imi2s"> <img src="/Arrow (1).svg" alt="see more" width="22vw" /></div></div></div>
                     </div>
                 </div>
             </div>

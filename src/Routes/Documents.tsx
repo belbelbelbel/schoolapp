@@ -11,10 +11,10 @@ export const Documents = () => {
     <div className='document_container'>
       <div id="firsts"></div>
       <div className="Undercover_container" >
-        <div className='Undercover_containera'>  <img src="/Arrow (2).svg" alt="" onClick={handlelback} width="25vw" /></div>
+        <div className='Undercover_containera'>  <img src="/Arrow (2).svg" alt="goback" onClick={handlelback} width="25vw" /></div>
         <div className="Undercover_containerb">
-          <div> <img src="/edit button.svg" alt="wearfs" /></div>
-          <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
+          <div> <img src="/edit button.svg" alt="edit" /></div>
+          <div> <img src="/Vector (4).svg" alt="flag" /></div>
         </div>
       </div>
       <div className="Undercover_container4">

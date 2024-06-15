@@ -88,7 +88,7 @@ export const School = () => {
             <div className='display2'>
               <div className='display3'>{data.name}</div>
               <div className='display4'>
-                <div><img src="/Vector.png" alt="" /></div>
+                <div><img src="/Vector.png" alt="search page image " /></div>
               </div>
             </div>
 

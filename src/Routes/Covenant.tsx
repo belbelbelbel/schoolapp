@@ -128,18 +128,18 @@ export const Covenant = () => {
                             <div className="Covenant_container8">
                                 <div></div>
                                 <div className="Covenant_container8a">
-                                    <div> <img src="/edit button.svg" alt="wearfs" /></div>
-                                    <div> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
+                                    <div> <img src="/edit button.svg" alt="edit" /></div>
+                                    <div> <img src="/Vector (4).svg" alt="flag" /></div>
                                 </div>
                             </div>
                             <div className="Covenant_container2" >
                                 <div className="Covenant_container3">
                                     {
-                                        !shownavbar ? <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" onClick={handleshow} /></div>
+                                        !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
                                     }
                                     <div className="Covenant_container_input">  <input type="text" placeholder="Search here"  onClick={()=>setshowschool(false)} /></div>
                                 </div>
-                                <div style={{ cursor: "pointer" }}><img src="/Search.svg" alt="whasf" /></div>
+                                <div style={{ cursor: "pointer" }}><img src="/Search.svg" alt="search" /></div>
                                 {
                                     shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
                                 }
@@ -150,7 +150,7 @@ export const Covenant = () => {
                                     <div> <p style={{ maxWidth: "100%" }}>{searchs.address}</p></div>
                                     <div className="Covenant_container6">
                                     </div>
-                                    <div className="Covenant_containers6"><img src="/Vector (2).svg" alt="rthg4r" /> <div className="tim">{searchs.yearFounded}</div></div>
+                                    <div className="Covenant_containers6"><img src="/Vector (2).svg" alt="" /> <div className="tim">{searchs.yearFounded}</div></div>
                                 </div>
 
                             </div>
@@ -194,15 +194,15 @@ export const Covenant = () => {
                             <div className="Covenant_img">
                                 <div className="Covenant_img1">
                                     <div><h2>Undergraduate</h2></div>
-                                    <div className="imi"><div className="imi" onClick={handlenavigateunder}><h3>Learn more  </h3><div className="imi2"> <img src="/Arrow (1).svg" alt="dfDF" /></div></div></div>
+                                    <div className="imi"><div className="imi" onClick={handlenavigateunder}><h3>Learn more  </h3><div className="imi2"> <img src="/Arrow (1).svg" alt="see moreF" /></div></div></div>
                                 </div>
                                 <div className="Covenant_img1">
                                     <div><h2>Postgraduate</h2></div>
-                                    <div className="imi" ><div className="imi" onClick={handlenavigatepost}><h3>Learn more  </h3><div className="imi2"><img src="/Arrow (1).svg" alt="dfDF" className="imi2" /></div></div></div>
+                                    <div className="imi" ><div className="imi" onClick={handlenavigatepost}><h3>Learn more  </h3><div className="imi2"><img src="/Arrow (1).svg" alt="see more" className="imi2" /></div></div></div>
                                 </div>
                                 <div className="Covenant_img1">
                                     <div><h2>Contact Us</h2></div>
-                                    <div className="imi" onClick={handlenavigatecontact}><div className="imi" ><h3>Learn more  </h3><div className="imi2"><img src="/Arrow (1).svg" alt="dfDF" className="imi2" /></div></div></div>
+                                    <div className="imi" onClick={handlenavigatecontact}><div className="imi" ><h3>Learn more  </h3><div className="imi2"><img src="/Arrow (1).svg" alt="see more" className="imi2" /></div></div></div>
                                 </div>
                             </div>
 
@@ -221,12 +221,12 @@ export const Covenant = () => {
                                                         <div className="ire">
                                                             <span>See departments </span>
                                                             <div className="anya">
-                                                                <img src="/Vector (3).svg" alt="rrwadf" />
+                                                                <img src="/Vector (3).svg" alt=" deprttment" />
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <div><img src="/Rectangle 16.svg" alt="gfnhmb" /></div>
+                                                <div><img src="/Rectangle 16.svg" alt="" /></div>
                                             </Link>
 
                                         ))

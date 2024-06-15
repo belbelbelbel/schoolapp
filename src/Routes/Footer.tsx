@@ -12,7 +12,7 @@ export const Footer = () => {
     return (
         <div className='Undercover_container9'>
             <div className='Undercover_container10'>
-                <div className='Undercover_container10a'><img src="/color_logo_transparent.svg" alt="4retrfw" width="170vw" /></div>
+                <div className='Undercover_container10a'><img src="/color_logo_transparent.svg" alt="logo" width="170vw" /></div>
                 <div onClick={() => scrollastold('firsts')} className='top'>Back to top</div>
             </div>
             <div className='Undercover_container11'>

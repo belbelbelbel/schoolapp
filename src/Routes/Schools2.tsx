@@ -111,16 +111,16 @@ export const Schools2 = ({ setshowschool }: showprops) => {
             <div >
                 <div style={{ width: "84%", margin: "0rem auto" }}>
                     <div className="Covenant_container8">
-                        <div style={{ cursor: "pointer" }}>  <img src="/Arrow (2).svg" alt="" onClick={() => setshowschool(true)} width="25vw" /></div>
+                        <div style={{ cursor: "pointer" }}>  <img src="/Arrow (2).svg" alt="goback" onClick={() => setshowschool(true)} width="25vw" /></div>
                         <div className="Covenant_container8a">
-                            <div style={{ cursor: "pointer" }}> <img src="/edit button.svg" alt="wearfs" /></div>
-                            <div style={{ cursor: "pointer" }}> <img src="/Vector (4).svg" alt="ewqarsd" /></div>
+                            <div style={{ cursor: "pointer" }}> <img src="/edit button.svg" alt="edit" /></div>
+                            <div style={{ cursor: "pointer" }}> <img src="/Vector (4).svg" alt="edit" /></div>
                         </div>
                     </div>
                 </div>
                 <div className="Covenant_container2">
                     <div className="Covenant_container3">
-                        <div style={{ cursor: "pointer" }}><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
+                        <div style={{ cursor: "pointer" }}><img src="/Menu button.svg" alt="menu button" /></div>
                         <div className="Covenant_container_input">  <input type="text" placeholder="Search here" value={input} autoFocus onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)} /></div>
                     </div>
                     <button type="submit" className='img_btn'>

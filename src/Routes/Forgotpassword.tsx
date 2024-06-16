@@ -29,14 +29,16 @@ const Forgotpassword = () => {
             });
             const result = await res.json();
             console.log(result);
-            
-            if(result.message === "User not found") {
-                seterror("User not found")
-            }
+
+
             if (!res.ok) {
-                const result = await res.json();
+                
                 console.error("Error:", result.message);
+                if (result.message === "User not found") {
+                    seterror("User not found")
+                }
                 throw new Error("Error occurred while recovering password from server");
+            
             }
             else {
                 // navigate("/reset-password", { state: { data } });
@@ -115,7 +117,7 @@ const Forgotpassword = () => {
             </div> */}
             <div>
                 {
-                    show && <ComfirmModal setshow={setshow}/>
+                    show && <ComfirmModal setshow={setshow} />
                 }
             </div>
         </motion.div>

@@ -6,20 +6,23 @@ import { valueprops } from '../Provider/Usecontext';
 import "../Styles/ConfirmPassword.css"
 import { motion } from 'framer-motion';
 import { PiEyeLight, PiEyeSlash } from 'react-icons/pi';
+import { VerrifyReset } from './VerrifyReset';
 interface ConfirmPasswordprops {
-    password: string;
-    confirmpassword: string;
+    newPassword: string;
     token: string | null;
 }
 export const ConfirmPassword = () => {
     const location = useLocation()
     const [shows, setShows] = useState(false);
+    const [showmodal, setShowmodal] = useState(false);
     const [show, setShow] = useState(false);
     const [loading, setloading] = useState(false)
     const [error, seterror] = useState(false)
     const navigate = useNavigate();
-    const searchParams = new URLSearchParams(location.search);
+    const searchParams = new URLSearchParams(window.location.search);
+    console.log(searchParams.has('token'));
     const token = searchParams.get('token');
+    console.log(token)
     const handleresepassword = async (data: ConfirmPasswordprops) => {
         setloading(true)
         try {
@@ -29,11 +32,19 @@ export const ConfirmPassword = () => {
                     "Content-Type": "application/json"
                     // "Authorization": `Bearer ${accesstokena}`,
                 },
-                body: JSON.stringify(data)
+
+                body: JSON.stringify({ token: data.token, newPassword: data.newPassword })
             })
+
             const result = await res.json();
-            console.log(result);
+            // console.log(result);
             seterror(result.message)
+            if (result.message === "Password reset successfully") {
+                setShowmodal(true)
+            }
+            if (!res.ok) {
+                throw new Error("error occured")
+            }
         } catch (error) {
             console.log(error)
 
@@ -43,14 +54,16 @@ export const ConfirmPassword = () => {
         }
 
     }
-
     const { register, formState: { errors }, handleSubmit, watch } = useForm<valueprops>()
     const onSubmit: SubmitHandler<valueprops> = (data) => {
         console.log(data);
-        handleresepassword({
-            ...data,
-            token
-        })
+        handleresepassword(
+            {
+                token: token,
+                newPassword: data.newPassword
+            }
+        )
+
     }
     const handleclicks = () => {
         setShows(!shows)
@@ -71,7 +84,7 @@ export const ConfirmPassword = () => {
                         <div style={{ position: "relative", top: "4vw" }}>
                             <div style={{ fontSize: "3.5vw", fontWeight: "500" }}>Password</div>
                         </div>
-                        <div style={{display:"flex",flexDirection:"column",gap:"3vw",width:"100%"}}>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "3vw", width: "100%" }}>
                             <motion.div className="forgot-essmails"
                                 whileTap="tap">
                                 <div className="forgot-emails">
@@ -107,7 +120,7 @@ export const ConfirmPassword = () => {
                                 <div className="forgot-emails">
                                     <input type={show ? "text" : "password"}
 
-                                        {...register("confirmpassword", {
+                                        {...register("newPassword", {
                                             required: "Confirm your password",
                                             validate: (val: string) => {
                                                 if (watch('password') != val) {
@@ -121,7 +134,7 @@ export const ConfirmPassword = () => {
                                 </div>
                                 <div>
                                     {
-                                        errors.confirmpassword && <div className="font-urbanist text-red-400  absolute tracking-[0.2px] text-[3.3vw] m-[0vw] errorss">{errors.confirmpassword.message}</div>
+                                        errors.newPassword && <div className="font-urbanist text-red-400  absolute tracking-[0.2px] text-[3.3vw] m-[0vw] errorss">{errors.newPassword.message}</div>
                                     }
                                 </div>
                             </motion.div>
@@ -139,6 +152,12 @@ export const ConfirmPassword = () => {
                         }
                     </button>
                 </form>
+
+            </div>
+            <div>
+                {
+                    showmodal && <VerrifyReset />
+                }
             </div>
         </div>
     )

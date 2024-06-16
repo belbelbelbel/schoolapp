@@ -221,7 +221,7 @@ export const Covenant = () => {
                                                         <div className="ire">
                                                             <span>See departments </span>
                                                             <div className="anya">
-                                                                <img src="/Vector (3).svg" alt=" deprttment" />
+                                                                <img src="/Vector (3).svg" alt="departtment" />
                                                             </div>
                                                         </div>
                                                     </div>

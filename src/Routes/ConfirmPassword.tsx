@@ -37,7 +37,6 @@ export const ConfirmPassword = () => {
                 body: JSON.stringify({ token: data.token, password: data.password })
             })
             const result = await res.json();
-
             seterror(result.message)
             if (!res.ok) {
                 throw new Error("error occured")

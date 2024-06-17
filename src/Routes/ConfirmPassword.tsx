@@ -8,6 +8,7 @@ import { motion } from 'framer-motion';
 import { PiEyeLight, PiEyeSlash } from 'react-icons/pi';
 import { VerrifyReset } from './VerrifyReset';
 interface ConfirmPasswordprops {
+    password: string;
     newPassword: string;
     token: string | null;
 }
@@ -33,17 +34,16 @@ export const ConfirmPassword = () => {
                     // "Authorization": `Bearer ${accesstokena}`,
                 },
 
-                body: JSON.stringify({ token: data.token, newPassword: data.newPassword })
+                body: JSON.stringify({ token: data.token, password: data.password })
             })
-
             const result = await res.json();
-            // console.log(result);
+
             seterror(result.message)
-            if (result.message === "Password reset successfully") {
-                setShowmodal(true)
-            }
             if (!res.ok) {
                 throw new Error("error occured")
+            }
+            else{
+                setShowmodal(true)
             }
         } catch (error) {
             console.log(error)
@@ -54,16 +54,10 @@ export const ConfirmPassword = () => {
         }
 
     }
-    const { register, formState: { errors }, handleSubmit, watch } = useForm<valueprops>()
-    const onSubmit: SubmitHandler<valueprops> = (data) => {
+    const { register, formState: { errors }, handleSubmit, watch } = useForm<ConfirmPasswordprops>()
+    const onSubmit: SubmitHandler<ConfirmPasswordprops> = (data) => {
         console.log(data);
-        handleresepassword(
-            {
-                token: token,
-                newPassword: data.newPassword
-            }
-        )
-
+        handleresepassword({ ...data, token });
     }
     const handleclicks = () => {
         setShows(!shows)

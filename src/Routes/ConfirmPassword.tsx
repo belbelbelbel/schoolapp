@@ -41,7 +41,7 @@ export const ConfirmPassword = () => {
             if (!res.ok) {
                 throw new Error("error occured")
             }
-            else{
+            else {
                 setShowmodal(true)
             }
         } catch (error) {

@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IoMdArrowBack } from 'react-icons/io'
 import { useLocation, useNavigate } from 'react-router-dom';
-import { valueprops } from '../Provider/Usecontext';
 import "../Styles/ConfirmPassword.css"
 import { motion } from 'framer-motion';
 import { PiEyeLight, PiEyeSlash } from 'react-icons/pi';

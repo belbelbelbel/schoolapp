@@ -148,7 +148,7 @@ export const Date = () => {
                 </div>
 
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

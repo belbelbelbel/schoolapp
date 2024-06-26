@@ -98,7 +98,7 @@ export const Postgraduate = () => {
                 </div>
 
             </div>
-            <Footer />
+            {/* <Footer /> */}
 
         </motion.div>
     )

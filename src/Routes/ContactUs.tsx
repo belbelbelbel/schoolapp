@@ -17,7 +17,7 @@ export const ContactUs = () => {
   
     const accesstokena = Cookies.get('token')
     const params = useParams();
-    const [error, seterror] = useState(false)
+    const [error, seterror] = useState("")
     const [loading, setloading] = useState(false)
     const [cont, setcont] = useState({ phone: "", email: "" })
     const navigate = useNavigate();
@@ -54,7 +54,7 @@ export const ContactUs = () => {
                         draggable: true,
                         progress: undefined,
                     });
-                    seterror(true)
+                    // seterror(true)
                 }
             }
             console.log(result);
@@ -146,13 +146,13 @@ export const ContactUs = () => {
                             cols={50}
                         />
                     </div>
-                    {errors.message && <div className="errs">{errors.message.message}</div>}
+                    {!loading && <div className=""style={{textAlign:"center",margin:"1vw",color:"green"}}>{error}</div>}
                     <div className="btn" style={{ position: "relative", top: "-2rem" }}>
                         <button type='submit'
                             disabled={loading}
                             className="signin_btn" style={{ padding: "0 1rem", position: "relative", top: "1rem" }}>
                             {
-                                loading ? "submiting..." : "submit"
+                                loading ? "processing..." : "submit"
                             }
 
                         </button>
@@ -161,7 +161,7 @@ export const ContactUs = () => {
                 </form>
             </div>
            
-            <Footer />
+            {/* <Footer /> */}
         </motion.div>
     )
 }

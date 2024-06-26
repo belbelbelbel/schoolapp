@@ -173,7 +173,7 @@ export const Fluid = () => {
                 </div>
 
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 

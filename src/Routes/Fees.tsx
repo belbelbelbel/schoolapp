@@ -141,7 +141,7 @@ export const Fees = () => {
                 }
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

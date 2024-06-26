@@ -29,7 +29,7 @@ export const Documents = () => {
         <div>Online applications</div>
 
       </div>
-      <Footer/>
+      {/* <Footer/> */}
     </div>
   )
 }

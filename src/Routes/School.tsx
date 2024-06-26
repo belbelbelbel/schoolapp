@@ -16,8 +16,8 @@ export const School = () => {
   const user = useContext(Context)
   const [isloading, setisloading] = useState(true)
   const navigate = useNavigate()
-  const accesstokena =  Cookies.get('token')
-   useEffect(() => {
+  const accesstokena = Cookies.get('token')
+  useEffect(() => {
     const handlefilter = async (input: string) => {
       try {
         const res = await fetch(`https://almaquin.onrender.com/api/university/?name=${input}`, {
@@ -33,11 +33,11 @@ export const School = () => {
         if (input.length !== 0) {
           setsearch(result)
           console.log(result);
-              seterror(result.message)
+          seterror(result.message)
           setisloading(false)
         }
         else {
-          
+
         }
         if (!res.ok) {
           seterror(result.message)
@@ -95,8 +95,8 @@ export const School = () => {
           </Link>
         ))
       }
-      <div style={{color:"red"}}>{error}</div>
-    </div> 
+      <div style={{ color: "red" }}>{error}</div>
+    </div>
 
   }
   function handlelback(): void {
@@ -105,44 +105,43 @@ export const School = () => {
 
 
   return (
-<div>
-  {
-    !isloading ? (
-      <motion.div
-      initial={{}}
-      animate={{}}
-      exit={{}}
-      className='school'>
-
-          <div >
-            <div className="school_filter">
-              <input
-                placeholder="Search here"
-                value={input}
-                // autoFocus
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
-              />
-              <button type="submit" className='img_btn'>
-                {
-                  input.length === 0 ? (<IoMdSearch className='img' fontSize="7vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="7vw" color='#8D8D8D' />)
-                }
-              </button>
-            </div>
-            {display}
-            <div className="btn">
-              <div className='display1'>
-                {
-                  !search && (<div>no result found</div>)
-                }
-
+    <div>
+      {
+        !isloading ? (
+          <motion.div
+            initial={{}}
+            animate={{}}
+            exit={{}}
+            className='school'>
+            <div >
+              <div className="school_filter">
+                <input
+                  placeholder="Search here"
+                  value={input}
+                  // autoFocus
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
+                />
+                <button type="submit" className='img_btn'>
+                  {
+                    input.length === 0 ? (<IoMdSearch className='img' fontSize="6vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="6vw" color='#8D8D8D' />)
+                  }
+                </button>
               </div>
-              {/* <div style={{ color: 'red' }}>{error}</div> */}
-              <ToastContainer></ToastContainer>
+              {display}
+              <div className="btn">
+                <div className='display1'>
+                  {
+                    !search && (<div>no result found</div>)
+                  }
+
+                </div>
+                {/* <div style={{ color: 'red' }}>{error}</div> */}
+                <ToastContainer></ToastContainer>
+              </div>
             </div>
-          </div>
-    </motion.div>
-    ):(<Loading/>)
-  }
-</div>
+          </motion.div>
+        ) : (<Loading />)
+      }
+    </div>
   );
 };

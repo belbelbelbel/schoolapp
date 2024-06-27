@@ -32,6 +32,7 @@ import { VerifyModal } from '../Routes/VerifyModal'
 import { ContactUs } from '../Routes/ContactUs'
 import { ResetPassword } from '../Routes/ResetPassword'
 import { ConfirmPassword } from '../Routes/ConfirmPassword'
+import { SchoolPage } from '../Routes/SchoolPage'
 
 
 const Router = () => {
@@ -53,8 +54,8 @@ const Router = () => {
         <Route path='/resetpassword' element={<ResetPassword/>}></Route>
         <Route path='/contactus' element={<ContactUs/>}></Route>
         <Route path='/reset-password' element={<ConfirmPassword/>}></Route>
-        <Route path='/university' element={<Covenant />}>
-          <Route path=':universityid' element={<Covenant />}>
+        <Route path='/university' element={<SchoolPage />}>
+          <Route path=':universityid' element={<SchoolPage />}>
           </Route>
         </Route>
         <Route path='/university' element={<Programs />}>

@@ -1,6 +1,6 @@
 @media screen and (max-width : 768px) {
     @import url('https://fonts.googleapis.com/css2?family=Edu+SA+Beginner:wght@400;500;600;700&family=Inter:wght@100..900&family=Josefin+Sans:wght@200&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@1,330&family=Poppins:ital,wght@0,300;1,200&family=Public+Sans:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap');
-
+    @import url('https://fonts.googleapis.com/css2?family=Bree+Serif&family=LXGW+WenKai+Mono+TC&family=Lexend:wght@100..900&family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Quicksand:wght@300..700&display=swap');
     .Covenant_container_input input::placeholder {
         font-size: 4.5vw;
         font-family: FilsonPro-Medium, sans-serif;
@@ -231,7 +231,9 @@
         position: relative;
         border-radius: 10px;
     }
-
+    .sans {
+        font-family: "Bree Serif", serif;
+    }
     .gotobtn li {
         list-style-type: none;
         font-family: FilsonPro-Medium, sans-serif;
@@ -247,7 +249,8 @@
         margin: 0.8vw;
         padding: 0.6vw;
     }
-
+ 
+      
     .Covenant_img {
         display: flex;
         width: 100%;

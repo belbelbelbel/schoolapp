@@ -45,7 +45,7 @@ export const Covenant = () => {
     const [over, setover] = useState([])
     const [text, settext] = useState([])
     const accesstoken = localStorage.getItem("token")
-    const accesstokena =  Cookies.get('token')
+    const accesstokena = Cookies.get('token')
     useEffect(() => {
         const fetchdescribe = async () => {
             try {
@@ -122,7 +122,7 @@ export const Covenant = () => {
                 showschool ? (
                     <motion.div className="Covenant_container"
                     >
-                        <div id="firsts"></div>
+                        <div id="firsts" className=""></div>
                         <React.Fragment>
 
                             <div className="Covenant_container8">
@@ -137,7 +137,7 @@ export const Covenant = () => {
                                     {
                                         !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
                                     }
-                                    <div className="Covenant_container_input">  <input type="text" placeholder="Search here"  onClick={()=>setshowschool(false)} /></div>
+                                    <div className="Covenant_container_input ">  <input type="text" placeholder="Search here" onClick={() => setshowschool(false)} /></div>
                                 </div>
                                 <div style={{ cursor: "pointer" }}><img src="/Search.svg" alt="search" /></div>
                                 {
@@ -236,7 +236,7 @@ export const Covenant = () => {
                             </div>
                         </React.Fragment>
 
-                        <Footer />
+                        {/* <Footer /> */}
                     </motion.div>
                 ) : (<Schools2 setshowschool={setshowschool} />)
             }

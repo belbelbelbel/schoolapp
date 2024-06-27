@@ -187,9 +187,7 @@ export const Covenant = () => {
                                     </div>
                                     <div style={{ textAlign: "center", position: "relative", fontWeight: "400", top: "0vw", margin: "0vw", fontSize: "3.4vw", whiteSpace: "nowrap" }}>Ownership: {searchs.ownership}</div>
                                 </div>
-
                                 <div className="gotobtn"><button><li><a href={searchs.websiteLink}>{searchs.name}'s website 👉</a></li></button></div>
-
                             </div>
                             <div className="Covenant_img">
                                 <div className="Covenant_img1">
@@ -205,7 +203,6 @@ export const Covenant = () => {
                                     <div className="imi" onClick={handlenavigatecontact}><div className="imi" ><h3>Learn more  </h3><div className="imi2"><img src="/Arrow (1).svg" alt="see more" className="imi2" /></div></div></div>
                                 </div>
                             </div>
-
                             <div className="Covenant-colleges">
                                 <h1>Colleges</h1>
                                 <div className="Covenant-collegesa">

@@ -155,7 +155,7 @@ export const Admission = () => {
                 </div>
 
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }

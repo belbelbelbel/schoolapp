@@ -33,6 +33,7 @@ import { ContactUs } from '../Routes/ContactUs'
 import { ResetPassword } from '../Routes/ResetPassword'
 import { ConfirmPassword } from '../Routes/ConfirmPassword'
 import { SchoolPage } from '../Routes/SchoolPage'
+import { Programs2 } from '../Routes/Programs2'
 
 
 const Router = () => {
@@ -78,6 +79,9 @@ const Router = () => {
         </Route>
         <Route path='/university' element={<Admission />}>
           <Route path=':universityid?/admission' element={< Admission />} />
+        </Route>
+        <Route path='/university' element={<Programs2 />}>
+          <Route path=':universityid?/colleges' element={< Programs2 />} />
         </Route>
         <Route path='/university' element={<Exams />}>
           <Route path=':universityid?/exam' element={< Exams />} />

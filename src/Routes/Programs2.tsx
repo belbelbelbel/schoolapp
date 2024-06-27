@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import "../Styles/Covenant.css";
-import { Sidebar } from './Sidebar';
-import Cookies from 'js-cookie';
-import { useNavigate, useParams } from 'react-router-dom';
+import Cookies from 'js-cookie'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Loading } from './Loading';
+import { Sidebar } from './Sidebar';
 
 interface OverviewItem {
     _id: string;
@@ -23,7 +22,7 @@ interface SearchResult {
 }
 
 
-export const SchoolPage = () => {
+export const Programs2 = () => {
     const navigate = useNavigate();
     const [showschool, setshowschool] = useState(true);
     const [shownavbar, setshownavbar] = useState(false);
@@ -32,22 +31,30 @@ export const SchoolPage = () => {
     const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [], shortName: "", address: "", yearFounded: "", ownership: "", location: "" });
     const [school, setschool] = useState([]);
     const [over, setover] = useState([]);
-    const accesstokena = Cookies.get('token');
-    const handleshow = () => {
-        setshownavbar(!shownavbar);
-    }
-    const handlenavigatecontact = () => {
-        navigate(`/university/${params.universityid}/contact`);
-    }
-    const handlefees = () => {
-        navigate(`${params.universityid}/links`)
-    }
-    const handleaddmision = () => {
-        navigate(`${params.universityid}/admission`)
-    }
-    const handleprograms =() => {
-        navigate(`${params.universityid}/colleges`);
-    }
+    const [text, settext] = useState([])
+    const accesstokena = Cookies.get('token')
+
+    useEffect(() => {
+        const fetchprograms = async () => {
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`, {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    }
+                })
+                const result = await res.json()
+                console.log(result)
+                settext(result)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchprograms()
+
+    }, [])
+
     useEffect(() => {
         const fetchdescribe = async () => {
             try {
@@ -87,11 +94,15 @@ export const SchoolPage = () => {
     if (loading) {
         return <div> <Loading /></div>;
     }
+    const handleshow = () => {
+        setshownavbar(!shownavbar);
+    }
     return (
-        <div className='w-screen  my-[2rem]'>
-            <div className='w- mx-auto'>
+        <div className='w-screen flex flex-col gap-[3vw]  my-[2rem]'>
+            <div className=''>
                 <div className="Covenant_container8">
-                    <div></div>
+                    <div onClick={() => navigate(-1)} className='cursor-pointer relative left-[8vw]'><img src="/Arrow (2).svg" alt="" width="25vw" /></div>
+
                     <div className="Covenant_container8a">
                         <div> <img src="/edit button.svg" alt="edit" /></div>
                         <div> <img src="/Vector (4).svg" alt="flag" /></div>
@@ -118,12 +129,6 @@ export const SchoolPage = () => {
             </div>
             <div className='flex flex-col text-center items-center justify-center my-[5vw]'>
                 <div>
-                    {/* <div className='flex items-center justify-between text-[3.5vw] font-medium'>
-                        <div>Year Founded:-</div>
-                        <div className='items-start w-[46%]  flex justify-start  text-left'>
-                            <div>{searchs.yearFounded}</div>
-                        </div>
-                    </div> */}
 
                     {
                         over.map((overs: OverviewItem) => (
@@ -140,14 +145,34 @@ export const SchoolPage = () => {
 
                 </div>
             </div>
-            <div className='flex items-center mt-[16vw] justify-center flex-col gap-[3vw]'>
-                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleprograms}>Programs</button>
-                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleaddmision}>Admissions</button>
-                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlenavigatecontact}>Contacts</button>
-                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'>Rankings</button>
-                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefees}>Useful links</button>
-                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'>Terms of use</button>
+
+            <div className="w-[88%] mx-auto flex flex-col items-center  gap-[9vw]">
+                <div className='items-center justify-center flex text-center'>
+                    <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Programs</button>
+                </div>
+                <div className="">
+                    {
+                        text.length > 0 && text.map((program: {
+                            name: React.ReactNode;
+                            _id: any
+                        }) => (
+                            <Link to={`/university/${params.universityid}/${program._id}`} className="" key={program._id}>
+                                <div className="">
+                                    <div className="text-[4vw] text-black flex flex-col items-center gap-[3.5vw]">
+                                        <button className='py-[1.7vw] w-[53vw] border-[#9f5942] rounded-[2vw] text-[3.8vw] border-2'>
+                                            <h3>{program.name}</h3>
+                                        </button>
+
+                                    </div>
+
+                                </div>
+                            </Link>
+
+                        ))
+                    }
+
+                </div>
             </div>
         </div>
-    );
+    )
 }

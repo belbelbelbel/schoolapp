@@ -123,22 +123,23 @@ export const Fees = () => {
                 <div>
                     <div className='grams' style={{ position: "relative", left: "-20vw" }}>Relevant Links</div>
                 </div>
-                <div style={{width:"95%",margin:'0rem auto'}}>
-                {
-                    loading ? <Skeleton /> : (
-                        <li className='blinklist'>
-                            <a href={faqs.url} style={{ color: "black" }}>
+                <div style={{width:"85%",margin:'1rem auto'}}>
+                        <li className='blinklist '>
+                          {
+                            loading ?<div className=' faqcon  w-full  mx-auto'>
+                                 <Skeleton /> 
+                            </div>: (
+                                <a href={faqs.url} style={{ color: "black" }}>
                                 <div className='faqcont' style={{ display: "flex", alignItems: "center" }}>
-                                    <h2 style={{ padding: "0rem 7vw", fontWeight: "500", fontSize: "6w" }}>Click for more info </h2>
+                                    <h2 style={{ padding: "0rem 7vw", fontWeight: "500", fontSize: "8w" }}>Click for more info </h2>
                                     <div style={{ width: "9vw", textAlign: "center" }}>
                                         <Lottie animationData={animatedData}></Lottie>
                                     </div>
                                 </div>
                             </a>
+                            )
+                          }
                         </li>
-
-                    )
-                }
                 </div>
             </div>
             {/* <Footer /> */}

@@ -95,7 +95,7 @@ export const SchoolPage = () => {
                 </div>
 
             </div>
-            <div className='bg-[#9f5942] w-screen mx-auto text-white rounded-[0.5vw] flex flex-col text-center items-center justify-center py-[4.5vw] '>
+            <div className='bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900 w-screen mx-auto text-white rounded-[0.5vw] flex flex-col text-center items-center justify-center py-[6.5vw] '>
                 <div className='w-[88%] mx-auto '>
                     <div className='text-[6.6vw] font-medium '>{searchs.name}</div>
                     <div className='text-[3.2vw] font-medium '>{searchs.address}</div>

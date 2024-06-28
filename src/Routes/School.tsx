@@ -2,7 +2,7 @@ import React, { ReactNode, useContext, useEffect, useState } from 'react';
 import { IoClose } from "react-icons/io5";
 import '../Styles/School.css';
 import { motion } from "framer-motion"
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import { IoMdSearch } from "react-icons/io";
 import 'react-toastify/dist/ReactToastify.css';
@@ -10,12 +10,14 @@ import { Loading } from './Loading';
 import { Context, Usecontext } from '../Provider/Usecontext';
 import Cookies from 'js-cookie';
 export const School = () => {
+  const params = useParams()
   const [input, setInput] = useState("");
   const [error, seterror] = useState("")
   const [search, setsearch] = useState([])
   const user = useContext(Context)
   const [isloading, setisloading] = useState(true)
   const navigate = useNavigate()
+  const [ownership, setownership] = useState("")
   const accesstokena = Cookies.get('token')
   useEffect(() => {
     const handlefilter = async (input: string) => {
@@ -49,14 +51,47 @@ export const School = () => {
       }
     }
     handlefilter(input)
-
-
     return () => {
       setsearch([])
     }
   }, [input])
+
+  useEffect(() => {
+    const handleFilteredSearch = async (ownership: string) => {
+      try {
+        const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/filter?ownership=${ownership}`, {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
+            "Authorization": `Bearer ${accesstokena}`,
+          },
+        });
+        const result = await res.json();
+        console.log(result);
+        if (!res.ok) {
+          throw new Error("Failed to fetch data from the API");
+        } else {
+          alert(result)
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    if (ownership) {
+      handleFilteredSearch(ownership);
+    }
+  }, [ownership]);
+
   const handleOnchange = (value: string) => {
     setInput(value)
+    if (input.length === 0) {
+      return <div>does not match</div>
+    }
+  }
+  const handleOnchangefilter = (value: string) => {
+    setownership(value)
     if (input.length === 0) {
       return <div>does not match</div>
     }
@@ -70,7 +105,6 @@ export const School = () => {
     display = <Loading />;
   } else if (input.length === 0) {
     display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", justifyItems: "center", position: "relative", right: "0rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img src="/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49", letterSpacing: "1px" }}>Search for institutions here!</div></div>;
-
   } else if (search.length === 0) {
     display = <motion.div initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1.2 } }}
@@ -127,6 +161,11 @@ export const School = () => {
                   }
                 </button>
               </div>
+              <select onChange={(e) => handleOnchangefilter(e.target.value)}>
+                <option value="">Select Your Institution</option>
+                <option value="public">Public</option>
+                <option value="private">Private</option>
+              </select>
               {display}
               <div className="btn">
                 <div className='display1'>
@@ -139,6 +178,7 @@ export const School = () => {
                 <ToastContainer></ToastContainer>
               </div>
             </div>
+
           </motion.div>
         ) : (<Loading />)
       }

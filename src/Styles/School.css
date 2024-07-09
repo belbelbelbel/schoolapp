@@ -149,17 +149,17 @@
     justify-content: space-between;
     padding: 0.4rem 1rem;
     outline: none;
-    width: 84%;
+    width: 70%;
     height: 2.55rem;
     border-radius: 10px;
-    margin: 0rem auto;
+    /* margin: 0rem auto; */
     background-color: rgba(215, 214, 214, 0.669);
     border: none;
   }
   .school_filter input {
     outline: none;
     border: none;
-    width: 86%;
+    width: 80%;
     padding: 5vw 3vw;
     font-size: 4.6vw;
     background-color: transparent;

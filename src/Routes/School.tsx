@@ -3,22 +3,28 @@ import { IoClose } from "react-icons/io5";
 import '../Styles/School.css';
 import { motion } from "framer-motion"
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
+import { IoFilterSharp } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
 import { IoMdSearch } from "react-icons/io";
 import 'react-toastify/dist/ReactToastify.css';
 import { Loading } from './Loading';
 import { Context, Usecontext } from '../Provider/Usecontext';
 import Cookies from 'js-cookie';
+import { FilteredOptions } from './FilteredOptions';
 export const School = () => {
   const params = useParams()
   const [input, setInput] = useState("");
   const [error, seterror] = useState("")
   const [search, setsearch] = useState([])
+  const [showFiltered, setshowFiltered] = useState(false)
   const user = useContext(Context)
   const [isloading, setisloading] = useState(true)
   const navigate = useNavigate()
   const [ownership, setownership] = useState("")
   const accesstokena = Cookies.get('token')
+  const handleFilteredCont = () => {
+    setshowFiltered(!showFiltered)
+  }
   useEffect(() => {
     const handlefilter = async (input: string) => {
       try {
@@ -148,24 +154,35 @@ export const School = () => {
             exit={{}}
             className='school'>
             <div >
-              <div className="school_filter">
-                <input
-                  placeholder="Search here"
-                  value={input}
-                  // autoFocus
-                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
-                />
-                <button type="submit" className='img_btn'>
-                  {
-                    input.length === 0 ? (<IoMdSearch className='img' fontSize="6vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="6vw" color='#8D8D8D' />)
-                  }
-                </button>
+              <div className='flex items-center justify-evenly '>
+                <div>side</div>
+                <div className="school_filter">
+                  <input
+                    placeholder="Search here"
+                    value={input}
+                    // autoFocus
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
+                  />
+                  <button type="submit" className='img_btn'>
+                    {
+                      input.length === 0 ? (<IoMdSearch className='img' fontSize="6vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="6vw" color='#8D8D8D' />)
+                    }
+                  </button>
+                </div>
+                <div onClick={handleFilteredCont}><IoFilterSharp className='text-[6vw]' /> </div>
               </div>
-              <select onChange={(e) => handleOnchangefilter(e.target.value)}>
-                <option value="">Select Your Institution</option>
-                <option value="public">Public</option>
-                <option value="private">Private</option>
-              </select>
+              {
+                showFiltered && (
+                  // <select onChange={(e) => handleOnchangefilter(e.target.value)} className='absolute'>
+                  //   <option value="">Select Your Institution</option>
+                  //   <option value="public">Public</option>
+                  //   <option value="private">Private</option>
+                  // </select>
+                  <div className='absolute flex justify-center items-center rounded-[10px]  shadow-2xl top-[20vw] right-0 mx-auto z-50 bg-white w-[75%]  h-[56vw]'>
+                    <FilteredOptions handleonchangefilter={handleOnchangefilter} />
+                  </div>
+                )
+              }
               {display}
               <div className="btn">
                 <div className='display1'>

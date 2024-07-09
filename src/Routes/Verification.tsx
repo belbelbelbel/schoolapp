@@ -57,7 +57,7 @@ export const Verification = () => {
             seterror(result.message);
             if (!res.ok) {
                 setcheck(true);
-                // setbuttons(true);
+                setbuttons(true);
                 
                 throw new Error("error parsing json");
             } else {

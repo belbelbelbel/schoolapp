@@ -34,6 +34,9 @@ import { ResetPassword } from '../Routes/ResetPassword'
 import { ConfirmPassword } from '../Routes/ConfirmPassword'
 import { SchoolPage } from '../Routes/SchoolPage'
 import { Programs2 } from '../Routes/Programs2'
+import { Admission2 } from '../Routes/Admission2'
+import { Undergraduate2 } from '../Routes/Undergraduate2'
+import { Postgraduate2 } from '../Routes/Postgraduate2'
 
 
 const Router = () => {
@@ -65,8 +68,8 @@ const Router = () => {
           </Route>
         </Route>
         <Route path='about' element={<About />}></Route>
-        <Route path='/university' element={<Undergraduate />}>
-          <Route path=':universityid?/undergraduate?' element={<Undergraduate />} />
+        <Route path='/university' element={<Undergraduate2 />}>
+          <Route path=':universityid?/undergraduate?' element={<Undergraduate2 />} />
         </Route>
         <Route path='/university' element={<Faq />}>
           <Route path=':universityid?/underfaq' element={< Faq />} />
@@ -77,8 +80,8 @@ const Router = () => {
         <Route path='/university' element={<Fees />}>
           <Route path=':universityid?/links' element={< Fees />} />
         </Route>
-        <Route path='/university' element={<Admission />}>
-          <Route path=':universityid?/admission' element={< Admission />} />
+        <Route path='/university' element={<Admission2 />}>
+          <Route path=':universityid?/admission' element={< Admission2 />} />
         </Route>
         <Route path='/university' element={<Programs2 />}>
           <Route path=':universityid?/colleges' element={< Programs2 />} />
@@ -89,8 +92,8 @@ const Router = () => {
         <Route path='/university' element={<Fluid />}>
           <Route path=':universityid?/fluid' element={< Fluid />} />
         </Route>
-        <Route path='/university' element={<Postgraduate />}>
-          <Route path=':universityid?/postgraduate?' element={<Postgraduate />} />
+        <Route path='/university' element={<Postgraduate2 />}>
+          <Route path=':universityid?/postgraduate?' element={<Postgraduate2 />} />
         </Route>
         <Route path='/university' element={<Contact />}>
           <Route path=':universityid?/contact?' element={<Contact />} />

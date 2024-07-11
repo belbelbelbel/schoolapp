@@ -72,8 +72,8 @@ export const FilteredOptions = ({ handleonchangefilter }: Filtereprops) => {
                         <MenuItem value="">
                             <em>None</em>
                         </MenuItem>
-                        <MenuItem value={10}>Public</MenuItem>
-                        <MenuItem value={20}>Private</MenuItem>
+                        <MenuItem value={340}>Public</MenuItem>
+                        <MenuItem value={350}>Private</MenuItem>
                     </Select>
                     {/* <FormHelperText>With label + helper text</FormHelperText> */}
                 </FormControl>

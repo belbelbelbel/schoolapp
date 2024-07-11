@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react';
-import "../Styles/Covenant.css";
-import { Sidebar } from './Sidebar';
 import Cookies from 'js-cookie';
+import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
+import { Sidebar } from './Sidebar';
 import { Loading } from './Loading';
 import { Schools2 } from './Schools2';
+
 
 interface OverviewItem {
     _id: string;
@@ -24,7 +24,7 @@ interface SearchResult {
 }
 
 
-export const SchoolPage = () => {
+export const HeaderRoute = () => {
     const navigate = useNavigate();
     const [showschool, setshowschool] = useState(true);
     const [shownavbar, setshownavbar] = useState(false);
@@ -92,7 +92,7 @@ export const SchoolPage = () => {
         <div>
             {
                 showschool ? (
-                    <div className='w-screen  my-[2rem]'>
+                    <div className='w-screen  my-[2.5rem]'>
                         <div className='w- mx-auto'>
                             <div className="Covenant_container8">
                                 <div></div>
@@ -106,7 +106,7 @@ export const SchoolPage = () => {
                                     {
                                         !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
                                     }
-                                    <div className="Covenant_container_input">  <input type="text" placeholder="Search here" onClick={() => setshowschool(false)} /></div>
+                                    <div className="Covenant_container_input">  <input type="text" placeholder="Search here" onClick={() => setshowschool(false)} className='text-black' /></div>
                                 </div>
                                 <div style={{ cursor: "pointer" }}><img src="/Search.svg" alt="search" /></div>
                                 {
@@ -136,17 +136,9 @@ export const SchoolPage = () => {
                                 }
                             </div>
                         </div>
-                        <div className='flex items-center mt-[16vw] justify-center flex-col gap-[3vw]'>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleprograms}>Programs</button>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleaddmision}>Admissions</button>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlenavigatecontact}>Contacts</button>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'>Rankings</button>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefees}>Useful links</button>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'>Terms of use</button>
-                        </div>
                     </div>
-                ) : (<Schools2 setshowschool={setshowschool}/>)
+                ) : (<Schools2 setshowschool={setshowschool} />)
             }
         </div>
-    );
+    )
 }

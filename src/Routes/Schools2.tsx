@@ -7,6 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Context } from '../Provider/Usecontext';
 import { IoClose } from 'react-icons/io5';
 import Cookies from 'js-cookie';
+import { BiArrowBack } from 'react-icons/bi';
 interface showprops {
     setshowschool: (showschool: boolean) => void
 }
@@ -111,7 +112,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
             <div >
                 <div style={{ width: "84%", margin: "0rem auto" }}>
                     <div className="Covenant_container8">
-                        <div style={{ cursor: "pointer" }}>  <img src="/Arrow (2).svg" alt="goback" onClick={() => setshowschool(true)} width="25vw" /></div>
+                        <div style={{ cursor: "pointer" }}>  </div> <div style={{width: "59vw"}}><BiArrowBack onClick={() => setshowschool(true)} className='text-[5.2vw]'/></div>
                         <div className="Covenant_container8a">
                             <div style={{ cursor: "pointer" }}> <img src="/edit button.svg" alt="edit" /></div>
                             <div style={{ cursor: "pointer" }}> <img src="/Vector (4).svg" alt="edit" /></div>

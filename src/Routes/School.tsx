@@ -173,11 +173,6 @@ export const School = () => {
               </div>
               {
                 showFiltered && (
-                  // <select onChange={(e) => handleOnchangefilter(e.target.value)} className='absolute'>
-                  //   <option value="">Select Your Institution</option>
-                  //   <option value="public">Public</option>
-                  //   <option value="private">Private</option>
-                  // </select>
                   <div className='absolute flex justify-center items-center rounded-[10px]  shadow-2xl top-[20vw] right-0 mx-auto z-50 bg-white w-[75%]  h-[56vw]'>
                     <FilteredOptions handleonchangefilter={handleOnchangefilter} />
                   </div>

@@ -13,13 +13,13 @@ export const Programs = () => {
     const params = useParams()
     const [prog, setprog] = useState<props>({ name: '', programs: [] })
     const [loading, setloading] = useState(false)
-    const [depart, setdepart] = useState([]) 
+    const [depart, setdepart] = useState([])
     const accesstokena = Cookies.get('token')
     useEffect(() => {
         const fetchData = async () => {
             setloading(true)
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`,{
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
@@ -65,52 +65,32 @@ export const Programs = () => {
                                 <div> <img src="/Vector (4).svg" alt="flag" /></div>
                             </div>
                         </div>
-                        {/* <div className="Undercover_container2">
-                            <div className="Undercover_container3">
-                                <div><img src="/Menu button.svg" alt="zsjhjdfn.lS" /></div>
-                                <div className="Covenant_container_input">  <input type="text" placeholder="Search here" /></div>
-                            </div>
-                            <div><img src="/Search.svg" alt="whasf" /></div>
-                        </div> */}
-                        <div className='prog_cont3'>
+                        <div className='w-[86%] mx-auto'>
                             <div>
-                                <div>
-                                    <h3>{prog.name}</h3>
-                                </div>
-                                <div className='Undercover_container5'>
-                                    <div><p>Brief overview of the<br /> college. </p></div>
-                                    <div className='Undercover_container6'>
-                                        <img src="/Ellipse 2.svg" alt="ellipse1" />
-                                        <img src="/Ellipse 3.svg" alt="ellipse2" />
-                                        <img src="/Ellipse 4.svg" alt="ellipse2" />
+                                <div className='flex flex-col  gap-[7vw]'>
+                                    <div className='items-center justify-center flex text-center pt-[5vw]'>
+                                        <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Department</button>
                                     </div>
-                                </div>
-                                <div style={{position:"relative",gap:"3vw"}}>
-                                    <div className='grams'> Programs</div>
-                                    <div className='h5-container'>
+                                    <div className='flex flex-col  gap-[5vw]'>
                                         {/* <h5>{depart.name}</h5> */}
                                         {
                                             depart.map((pro: {
                                                 name: React.ReactNode
                                                 certs: string[]
                                             }) => (
-                                                <div className="h5-cont2">
-                                                    <div className="">
+                                                <div className="">
+                                                    <div className="font-bold text-[4vw]">
                                                         <h4>{pro.name}</h4>
                                                     </div>
-                                                    <div style={{ display: "flex", alignItems: "center", gap: "3vw" }}>
-                                                        <h5 >Degree:-</h5>
-                                                        {
-                                                            pro.certs.map((cert, index: any) => (
-                                                                <div key={index}>
-                                                                    <div >
 
-                                                                        <h6 style={{ fontWeight: "400" }}>{cert}</h6>
-                                                                    </div>
-                                                                </div>
-                                                            ))
-                                                        }
+                                                    <div className='flex gap-[1vw]'>
+                                                        {pro.certs.map((cert, index: any) => (
+                                                            <div key={index} className=''>
+                                                                <div className='break-words'>{cert}</div>
+                                                            </div>
+                                                        ))}
                                                     </div>
+
                                                 </div>
                                             ))
                                         }
@@ -119,7 +99,7 @@ export const Programs = () => {
                                 </div>
                             </div>
                         </div>
-                        <Footer />
+                        {/* <Footer /> */}
                     </div>
             }
         </div>

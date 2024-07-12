@@ -4,6 +4,7 @@ import "../Styles/Programs.css"
 import { useNavigate, useParams } from 'react-router-dom'
 import { Loading } from './Loading'
 import Cookies from 'js-cookie'
+import { BiArrowBack } from 'react-icons/bi'
 interface props {
     name: string
     programs: string[]
@@ -56,11 +57,11 @@ export const Programs = () => {
             {
                 loading ? <h1><Loading /></h1> :
 
-                    <div className='prog_cont2'>
+                    <div className='prog_cont2 pt-[2rem]'>
                         <div id="firsts"></div>
-                        <div className="Undercover_container" >
-                            <div className='Undercover_containera'>  <img src="/Arrow (2).svg" alt="" onClick={handlelback} width="25vw" /></div>
-                            <div className="Undercover_containerb">
+                        <div className="flex items-ceneter justify-between px-[6vw]">
+                        <div style={{ cursor: "pointer" }}>  </div> <div style={{width: "75vw"}}><BiArrowBack className='text-[5.2vw]' onClick={handlelback}/></div>
+                            <div className="flex items-center gap-[2vw]">
                                 <div> <img src="/edit button.svg" alt="edit" /></div>
                                 <div> <img src="/Vector (4).svg" alt="flag" /></div>
                             </div>

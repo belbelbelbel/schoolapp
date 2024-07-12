@@ -5,6 +5,7 @@ import Cookies from 'js-cookie';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Loading } from './Loading';
 import { Schools2 } from './Schools2';
+import { BiArrowBack } from 'react-icons/bi';
 
 interface OverviewItem {
     _id: string;
@@ -92,10 +93,10 @@ export const SchoolPage = () => {
         <div>
             {
                 showschool ? (
-                    <div className='w-screen  my-[2rem]'>
+                    <div className='w-screen  my-[2.5rem]'>
                         <div className='w- mx-auto'>
                             <div className="Covenant_container8">
-                                <div></div>
+                            <div style={{ cursor: "pointer" }}>  </div> <div style={{width: "57.6vw"}}><BiArrowBack className='text-[5.2vw]' onClick={() => navigate(-1)}/></div>
                                 <div className="Covenant_container8a">
                                     <div> <img src="/edit button.svg" alt="edit" /></div>
                                     <div> <img src="/Vector (4).svg" alt="flag" /></div>

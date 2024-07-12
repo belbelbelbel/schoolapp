@@ -37,6 +37,8 @@ import { Programs2 } from '../Routes/Programs2'
 import { Admission2 } from '../Routes/Admission2'
 import { Undergraduate2 } from '../Routes/Undergraduate2'
 import { Postgraduate2 } from '../Routes/Postgraduate2'
+import { Contact2 } from '../Routes/Contact2'
+import { Dates2 } from '../Routes/Dates2'
 
 
 const Router = () => {
@@ -74,8 +76,8 @@ const Router = () => {
         <Route path='/university' element={<Faq />}>
           <Route path=':universityid?/underfaq' element={< Faq />} />
         </Route>
-        <Route path='/university' element={<Date />}>
-          <Route path=':universityid?/date' element={< Date />} />
+        <Route path='/university' element={<Dates2 />}>
+          <Route path=':universityid?/date' element={< Dates2 />} />
         </Route>
         <Route path='/university' element={<Fees />}>
           <Route path=':universityid?/links' element={< Fees />} />
@@ -95,8 +97,8 @@ const Router = () => {
         <Route path='/university' element={<Postgraduate2 />}>
           <Route path=':universityid?/postgraduate?' element={<Postgraduate2 />} />
         </Route>
-        <Route path='/university' element={<Contact />}>
-          <Route path=':universityid?/contact?' element={<Contact />} />
+        <Route path='/university' element={<Contact2 />}>
+          <Route path=':universityid?/contact?' element={<Contact2 />} />
         </Route>
         <Route path='/university' element={<Documents />}>
           <Route path=':universityid?/documents?' element={<Documents />} />

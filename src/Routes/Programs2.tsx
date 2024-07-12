@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Loading } from './Loading';
 import { Sidebar } from './Sidebar';
+import { BiArrowBack } from 'react-icons/bi';
 
 interface OverviewItem {
     _id: string;
@@ -101,7 +102,7 @@ export const Programs2 = () => {
         <div className='w-screen flex flex-col gap-[3vw]  my-[2rem]'>
             <div className=''>
                 <div className="Covenant_container8">
-                    <div onClick={() => navigate(-1)} className='cursor-pointer relative left-[8vw]'><img src="/Arrow (2).svg" alt="" width="25vw" /></div>
+                <div style={{ cursor: "pointer" }}>  </div> <div style={{width: "65vw"}}><BiArrowBack className='text-[5.2vw]' onClick={() => navigate(-1)}/></div>
 
                     <div className="Covenant_container8a">
                         <div> <img src="/edit button.svg" alt="edit" /></div>

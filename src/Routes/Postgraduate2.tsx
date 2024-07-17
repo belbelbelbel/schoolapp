@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { HeaderRoute } from './HeaderRoute'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Loading } from './Loading'
+import Cookies from 'js-cookie'
 
 export const Postgraduate2 = () => {
+    const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const params = useParams();
-
+    const accesstokena = Cookies.get('token');
+    
     const handlefees = () => {
         navigate(`${params.universityid}/links`)
     }
@@ -24,6 +28,37 @@ export const Postgraduate2 = () => {
     const handlenavigateunder = () => {
         navigate(`/university/${params.universityid}/undergraduate`);
     }
+
+
+    useEffect(() => {
+        const fetchdescribe = async () => {
+            setLoading(true);
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/description`, {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    }
+                });
+                const result = await res.json();
+                console.log(result);
+     
+                if (!res.ok) {
+                    throw new Error("error occured in the description");
+                }
+                console.log("the results are", result);
+            } catch (error) {
+                console.log("description error", error);
+                setLoading(false);
+            }
+            finally {
+                setLoading(false);
+            }
+        }
+        fetchdescribe();
+    }, []);
+
     return (
         <div>
             <div>

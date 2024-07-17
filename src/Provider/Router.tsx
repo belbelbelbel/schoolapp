@@ -39,6 +39,7 @@ import { Undergraduate2 } from '../Routes/Undergraduate2'
 import { Postgraduate2 } from '../Routes/Postgraduate2'
 import { Contact2 } from '../Routes/Contact2'
 import { Dates2 } from '../Routes/Dates2'
+import { Documents2 } from '../Routes/Documents2'
 
 
 const Router = () => {
@@ -100,8 +101,8 @@ const Router = () => {
         <Route path='/university' element={<Contact2 />}>
           <Route path=':universityid?/contact?' element={<Contact2 />} />
         </Route>
-        <Route path='/university' element={<Documents />}>
-          <Route path=':universityid?/documents?' element={<Documents />} />
+        <Route path='/university' element={<Documents2 />}>
+          <Route path=':universityid?/documents?' element={<Documents2 />} />
         </Route>
         <Route path='/school/covenant-university/contact' element={<Contact />}></Route>
         <Route path='/school/covenant-university/usefulinks' element={<Uselinks />}></Route>

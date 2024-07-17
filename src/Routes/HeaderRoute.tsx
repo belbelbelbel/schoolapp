@@ -86,9 +86,9 @@ export const HeaderRoute = () => {
         fetchdescribe();
     }, []);
 
-    if (loading) {
-        return <div> <Loading /></div>;
-    }
+    // if (loading) {
+    //     return <div className='h-[30vw] w-screen bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900'></div>;
+    // }
     return (
         <div>
             {
@@ -115,12 +115,24 @@ export const HeaderRoute = () => {
                                 }
                             </div>
                         </div>
-                        <div className='bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900 w-screen mx-auto text-white rounded-[0.5vw] flex flex-col text-center items-center justify-center py-[6.5vw] '>
-                            <div className='w-[88%] mx-auto '>
-                                <div className='text-[6.6vw] font-medium '>{searchs.name}</div>
-                                <div className='text-[3.2vw] font-medium '>{searchs.address}</div>
-                            </div>
-                        </div>
+                        {
+                            loading ? (
+                                <div className='bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900 w-screen mx-auto text-white rounded-[0.5vw] flex flex-col text-center items-center justify-center h-[30vw] '>
+                                    <div className='w-screen h-full loaderss'>
+                                        
+                                    </div>
+                                </div>
+                            ) : (
+                                <div className='bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900 w-screen mx-auto text-white rounded-[0.5vw] flex flex-col text-center items-center justify-center h-[30vw] '>
+                                    <div className='w-[88%] mx-auto '>
+                                        <div>
+                                            <div className='text-[6.6vw] font-medium '>{searchs.name}</div>
+                                            <div className='text-[3.2vw] font-medium '>{searchs.address}</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        }
                         <div className='flex flex-col text-center items-center justify-center my-[5vw]'>
                             <div>
                                 {

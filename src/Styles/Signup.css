@@ -175,10 +175,12 @@
     font-size: 4vw;
     width: 80%;
     margin: 2vw 0rem;
-    padding: 1vw 0rem;
+    padding: 0vw 0rem;
+    height: 12vw;
     background-color: transparent;
     font-family: FilsonPro-Medium, sans-serif;
     border-radius: 0.5rem;
+    color: rgb(15, 15, 15);
     outline: none;
     border: none;
   }
@@ -186,7 +188,9 @@
     font-size: 4vw;
     width: 91%;
     margin: 2vw 0rem;
-    padding: 3.8vw 1rem;
+    padding: 0vw 1rem;
+    height: 12vw;
+    color: rgb(15, 15, 15);
     background-color: rgba(213, 210, 210, 0.669);
     font-family: FilsonPro-Medium, sans-serif;
     border-radius: 0.6rem;

@@ -74,8 +74,8 @@
     font-family: FilsonPro-Medium, sans-serif;
     letter-spacing: 0.5px;
     font-size: 3.5vw;
-    bottom: -1.1vw;
-    left: 5vw;
+    bottom: 1.1vw;
+    position: relative;
   }
 
   .signin_container2 {

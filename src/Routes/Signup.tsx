@@ -250,8 +250,8 @@ const Signup = () => {
           <div className="surnamess" onClick={handleclickss}> <input type="text"  
             {...register("classLevel", {
               required: " Class is required"
-            })} value={level} onClick={handleclickss} onChange={handleLevelChange}/>
-            {showss ? (<IoMdArrowDropup  style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown  style={{ fontSize: "6vw" }} />)}
+            })} value={level}  onClick={handleclickss} onChange={handleLevelChange}/>
+            {showss ? (<IoMdArrowDropup  style={{ fontSize: "6vw" }} />) : (<IoMdArrowDropdown  style={{ fontSize: "6vw" }} onClick={handleclickss}/>)}
           </div>
           {errors.classLevel && <div className="errorss">{errors.classLevel.message}</div>}
           {

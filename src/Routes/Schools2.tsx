@@ -8,6 +8,7 @@ import { Context } from '../Provider/Usecontext';
 import { IoClose } from 'react-icons/io5';
 import Cookies from 'js-cookie';
 import { BiArrowBack } from 'react-icons/bi';
+import { Sidebar } from './Sidebar';
 interface showprops {
     setshowschool: (showschool: boolean) => void
 }
@@ -15,10 +16,15 @@ export const Schools2 = ({ setshowschool }: showprops) => {
     const [input, setInput] = useState("");
     const [error, seterror] = useState("")
     const [search, setsearch] = useState([])
+    const [shownavbar, setshownavbar] = useState(false);
     const user = useContext(Context)
-
     const navigate = useNavigate()
     const accesstokena = Cookies.get('token')
+
+    const handleshow = () => {
+        setshownavbar(!shownavbar)
+    }
+
     const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
     useEffect(() => {
         const handlefilter = async (input: string) => {
@@ -112,7 +118,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
             <div >
                 <div style={{ width: "84%", margin: "0rem auto" }}>
                     <div className="Covenant_container8">
-                        <div style={{ cursor: "pointer" }}>  </div> <div style={{width: "59vw"}}><BiArrowBack onClick={() => setshowschool(true)} className='text-[5.2vw]'/></div>
+                        <div style={{ cursor: "pointer" }}>  </div> <div style={{ width: "59vw" }}><BiArrowBack onClick={() => setshowschool(true)} className='text-[5.2vw]' /></div>
                         <div className="Covenant_container8a">
                             <div style={{ cursor: "pointer" }}> <img src="/edit button.svg" alt="edit" /></div>
                             <div style={{ cursor: "pointer" }}> <img src="/Vector (4).svg" alt="edit" /></div>
@@ -121,7 +127,9 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                 </div>
                 <div className="Covenant_container2">
                     <div className="Covenant_container3">
-                        <div style={{ cursor: "pointer" }}><img src="/Menu button.svg" alt="menu button" /></div>
+                        {
+                            !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
+                        }
                         <div className="Covenant_container_input">  <input type="text" placeholder="Search here" value={input} autoFocus onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)} /></div>
                     </div>
                     <button type="submit" className='img_btn'>
@@ -130,8 +138,6 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                         }
                     </button>
                 </div>
-
-
                 <div className="btn">
                     <div style={{ display: "flex", flexDirection: "column", justifyContent: "start", alignItems: "start", position: "relative", right: "14vw", margin: "0vw auto" }}>
                         {
@@ -141,15 +147,15 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                             {display}
                         </div>
                     </div>
-
-
                     {/* <div style={{ color: 'red' }}>{error}</div> */}
                     <ToastContainer></ToastContainer>
                 </div>
             </div>
             )
             {/* // : (<Loading />) */}
-
+            {
+                shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
+            }
         </motion.div>
     );
 }

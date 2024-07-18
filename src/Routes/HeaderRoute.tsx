@@ -29,7 +29,7 @@ interface showSchoolProps {
     setshowschool: (showschool: boolean) => void;
 }
 
-export const HeaderRoute = ({showschool,setshowschool}:showSchoolProps) => {
+export const HeaderRoute = ({ showschool, setshowschool }: showSchoolProps) => {
     const navigate = useNavigate();
     const [shownavbar, setshownavbar] = useState(false);
     const params = useParams();
@@ -94,8 +94,8 @@ export const HeaderRoute = ({showschool,setshowschool}:showSchoolProps) => {
     // }
     return (
         <div>
-            {/* {
-                showschool ? ( */}
+            {
+                showschool ? (
                     <div className='w-screen  my-[2.5rem]'>
                         <div className='w- mx-auto'>
                             <div className="Covenant_container8">
@@ -122,7 +122,7 @@ export const HeaderRoute = ({showschool,setshowschool}:showSchoolProps) => {
                             loading ? (
                                 <div className='bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900 w-screen mx-auto text-white rounded-[0.5vw] flex flex-col text-center items-center justify-center h-[30vw] '>
                                     <div className='w-screen h-full loaderss'>
-                                        
+
                                     </div>
                                 </div>
                             ) : (
@@ -141,20 +141,30 @@ export const HeaderRoute = ({showschool,setshowschool}:showSchoolProps) => {
                                 {
                                     over.map((overs: OverviewItem) => (
                                         <div key={overs._id} className='flex  text-center gap-[35vw] mx-0 text-[3.5vw] whitespace-nowrap  w-full font-medium'>
-                                            <div className=' '>
-                                                <div className='  absolute'>{overs.name}:</div>
-                                            </div>
-                                            <div className='items-start flex justify-start  text-left'>
-                                                <div>{overs.description}</div>
-                                            </div>
+                                            {
+                                                !loading ? (
+                                                    <div className='flex  text-center gap-[35vw] mx-0 text-[3.5vw] whitespace-nowrap  w-full font-medium'>
+                                                        <div className=' '>
+                                                            <div className=' absolute'>{overs.name}:</div>
+                                                        </div>
+                                                        <div className='items-start flex justify-start  text-left'>
+                                                            <div>{overs.description}</div>
+                                                        </div>
+                                                    </div>
+                                                ) : (<div className='h-[10.5vw] loaderss w-full'>
+                                                    <div className=''>
+
+                                                    </div>
+                                                </div>)
+                                            }
                                         </div>
                                     ))
                                 }
                             </div>
                         </div>
                     </div>
-                {/* ) : (<Schools2 setshowschool={setshowschool} />)
-            } */}
+                ) : (<Schools2 setshowschool={setshowschool} />)
+            }
         </div>
     )
 }

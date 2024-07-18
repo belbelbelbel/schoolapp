@@ -8,6 +8,11 @@ export const Undergraduate = () => {
     const handlelback = () => {
         navigate(-1)
     }
+
+    const handlefee = () => {
+        navigate(`${params.universityid}/fees`)
+    }
+
     const handledocuments = () => {
         navigate(`/university/${params.universityid}/documents`)
     }

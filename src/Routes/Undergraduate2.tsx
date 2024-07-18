@@ -10,6 +10,11 @@ export const Undergraduate2 = () => {
   const handlefees = () => {
     navigate(`${params.universityid}/links`)
   }
+
+  const handlefaq = () => {
+    navigate(`${params.universityid}/faq`)
+}
+
   const handledate = () => {
     navigate(`${params.universityid}/date`)
   }
@@ -19,9 +24,14 @@ export const Undergraduate2 = () => {
   const handlexam = () => {
     navigate(`${params.universityid}/exam`)
   }
+
   const handledocuments = () => {
     navigate(`/university/${params.universityid}/documents`)
   }
+
+  const handlefee = () => {
+    navigate(`${params.universityid}/fees`)
+}
 
 const handlenavigatepost = () => {
     navigate(`/university/${params.universityid}/postgraduate`);
@@ -38,20 +48,21 @@ const handlenavigatepost = () => {
                 <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Admission</button>
               </div>
               <div className='items-center justify-center flex text-center'>
-                <button className='py-[1.7vw] w-[58vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Undergraduates</button>
+                <button className='py-[1.7vw] w-[56vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Undergraduates</button>
               </div>
             </div>
             <div className='flex flex-col gap-[4vw] items-center'>
               <div className='flex items-center gap-[2.5vw]'>
                 <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handledate}>Dates</button>
                 <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handledocuments}>Documents</button>
-                <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlexam}>Exams</button>
+                <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefaq}>FAQ</button>
+              
               </div>
               <div className='flex flex-col items-center gap-[4vw]'>
                 <div className='flex items-center gap-[2.5vw]'>
                   <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefluid}>Fluids Students</button>
-                  <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefees}>Fees</button>
-                  <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'>More Info</button>
+                  <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefee}>Fees</button>
+                  <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlexam}>Exams</button>
                 </div>
                 <button className='py-[1.5vw] w-[57vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlenavigatepost}> Postgraduates</button>
               </div>

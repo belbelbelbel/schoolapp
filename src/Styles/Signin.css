@@ -166,10 +166,11 @@
     font-size: 4vw;
     width: 90%;
     margin: 0rem 2rem;
-    padding: 0.9rem 1rem;
+    padding: 2.9vw 1rem;
     background-color: rgba(213, 210, 210, 0.669);
     font-family: FilsonPro-Medium, sans-serif;
     border-radius: 0.55rem;
+    color: rgb(15, 15, 15);
     outline: none;
     border: none;
   }
@@ -212,10 +213,11 @@
     outline: none;
     border: none;
     width: 100%;
-    padding: 2.8rem 3rem;
+    padding: 2vw 3rem;
     font-size: 4vw;
     background-color: transparent;
     border-radius: 2px;
+    color: rgb(15, 15, 15);
     font-family: FilsonPro-Medium, sans-serif;
   }
 

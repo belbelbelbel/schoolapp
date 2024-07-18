@@ -5,15 +5,24 @@ import { Loading } from './Loading'
 import Cookies from 'js-cookie'
 
 export const Postgraduate2 = () => {
-    const [showschool,setshowschool]  = useState(true)
+    const [showschool, setshowschool] = useState(true)
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const params = useParams();
     const accesstokena = Cookies.get('token');
-    
+
     const handlefees = () => {
         navigate(`${params.universityid}/links`)
     }
+
+    const handlefee = () => {
+        navigate(`${params.universityid}/fees`)
+    }
+
+    const handlefaq = () => {
+        navigate(`${params.universityid}/faq`)
+    }
+
     const handledate = () => {
         navigate(`${params.universityid}/date`)
     }
@@ -44,7 +53,7 @@ export const Postgraduate2 = () => {
                 });
                 const result = await res.json();
                 console.log(result);
-     
+
                 if (!res.ok) {
                     throw new Error("error occured in the description");
                 }
@@ -63,29 +72,30 @@ export const Postgraduate2 = () => {
     return (
         <div>
             <div>
-                <HeaderRoute showschool={showschool} setshowschool={setshowschool}/>
+                <HeaderRoute showschool={showschool} setshowschool={setshowschool} />
                 <div className='flex items-center mt-[16vw] mb-[10vw] justify-center flex-col gap-[6vw]'>
                     <div className='flex flex-col gap-[3vw] '>
                         <div className='items-center justify-center flex text-center'>
                             <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Admission</button>
                         </div>
                         <div className='items-center justify-center flex text-center'>
-                            <button className='py-[1.7vw] w-[58vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Postgraduate</button>
+                            <button className='py-[1.7vw] w-[56vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Postgraduate</button>
                         </div>
                     </div>
                     <div className='flex flex-col gap-[4vw] items-center'>
                         <div className='flex items-center gap-[2.5vw]'>
                             <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handledate}>Dates</button>
                             <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handledocuments}>Documents</button>
-                            <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlexam}>Exams</button>
+                            <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefaq}>FAQ</button>
+
                         </div>
                         <div className='flex flex-col items-center gap-[4vw]'>
                             <div className='flex items-center gap-[2.5vw]'>
                                 <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefluid}>Fluids Students</button>
-                                <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefees}>Fees</button>
-                                <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'>More Info</button>
+                                <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefee}>Fees</button>
+                                <button className='py-[1.7vw] px-[3vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlexam}>Exams</button>
                             </div>
-                            <button className='py-[1.5vw] w-[57vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlenavigateunder}> Undergraduates</button>
+                            <button className='py-[1.5vw] w-[57vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlenavigateunder}>Undergraduate</button>
                         </div>
                     </div>
 

@@ -52,18 +52,21 @@ export const ConfirmPassword = () => {
         }
 
     }
+    
     const { register, formState: { errors }, handleSubmit, watch } = useForm<ConfirmPasswordprops>()
+
     const onSubmit: SubmitHandler<ConfirmPasswordprops> = (data) => {
         console.log(data);
         handleresepassword({ ...data, token });
     }
+
     const handleclicks = () => {
         setShows(!shows)
     }
+
     const handleclick = () => {
         setShow(!show)
     }
-
 
     return (
         <div className='conpass'>

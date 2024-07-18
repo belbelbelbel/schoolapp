@@ -43,6 +43,8 @@ import { Documents2 } from '../Routes/Documents2'
 import { Links } from '../Routes/Links'
 import { Exam2 } from '../Routes/Exam2'
 import { Fluid2 } from '../Routes/Fluid2'
+import { Fees2 } from '../Routes/Fees2'
+import { Faq2 } from '../Routes/Faq2'
 
 
 const Router = () => {
@@ -77,14 +79,17 @@ const Router = () => {
         <Route path='/university' element={<Undergraduate2 />}>
           <Route path=':universityid?/undergraduate?' element={<Undergraduate2 />} />
         </Route>
-        <Route path='/university' element={<Faq />}>
-          <Route path=':universityid?/underfaq' element={< Faq />} />
+        <Route path='/university' element={<Faq2 />}>
+          <Route path=':universityid?/faq' element={<Faq2 />} />
         </Route>
         <Route path='/university' element={<Dates2 />}>
           <Route path=':universityid?/date' element={< Dates2 />} />
         </Route>
         <Route path='/university' element={<Links />}>
           <Route path=':universityid?/links' element={< Links />} />
+        </Route>
+        <Route path='/university' element={<Fees2 />}>
+          <Route path=':universityid?/fees' element={< Fees2 />} />
         </Route>
         <Route path='/university' element={<Admission2 />}>
           <Route path=':universityid?/admission' element={< Admission2 />} />

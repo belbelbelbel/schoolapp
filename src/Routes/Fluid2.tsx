@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 export const Fluid2 = () => {
     const navigate = useNavigate();
   return (
-    <div>
+    <div className='pt-[2rem]'>
             <div id="firsts"></div>
             <div className="flex items-ceneter justify-between px-[6vw]">
                 <div style={{ cursor: "pointer" }}>  </div> <div style={{ width: "75vw" }}><BiArrowBack className='text-[5.2vw]' onClick={() => navigate(-1)} /></div>

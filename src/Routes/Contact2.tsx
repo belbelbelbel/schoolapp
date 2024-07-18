@@ -15,22 +15,30 @@ export const Contact2 = () => {
     const params = useParams()
     const [loadingContact, setLoadingContact] = useState(true);
     const [loading, setloading] = useState(false)
-    const [cont, setcont] = useState({ phone: "", email: "" })
+    const [cont, setcont] = useState({ phone: "", email: "", fax: "" })
     const accesstokena = Cookies.get('token')
 
     useEffect(() => {
         const handlecontact = async () => {
-            const res = await fetch("https://almaquin.onrender.com/api/contact", {
-                method: "GET",
-                headers: {
-                    "Content-type": "application/json",
-                    "Authorization": `Bearer ${accesstokena}`,
-                },
-            });
-            const result = await res.json();
-            console.log(result);
-            setcont(result)
-            setLoadingContact(false);
+            setloading(true);
+            try {
+                const res = await fetch("https://almaquin.onrender.com/api/contact", {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    },
+                });
+                const result = await res.json();
+                console.log(result);
+                setcont(result)
+                setLoadingContact(false);
+            } catch (error) {
+                console.log(error)
+            }
+            finally {
+                setloading(false);
+            }
         };
         handlecontact();
     }, [accesstokena]);
@@ -59,11 +67,17 @@ export const Contact2 = () => {
                                         {/* <h5>{depart.name}</h5> */}
                                         <div className='flex flex-col  gap-[1.5vw]'>
                                             <div className='font-bold text-[4vw]'>Email</div>
-                                            <div>{cont.email}</div>
+                                            {
+                                                <div>{cont.email}</div>
+                                            }
                                         </div>
                                         <div className='flex flex-col  gap-[1.5vw]'>
                                             <div className='font-bold text-[4vw]'>Phone number</div>
                                             <div>{cont.phone}</div>
+                                        </div>
+                                        <div className='flex flex-col  gap-[1.5vw]'>
+                                            <div className='font-bold text-[4vw]'>Fax</div>
+                                            <div>{cont.fax}</div>
                                         </div>
                                     </div>
                                 </div>

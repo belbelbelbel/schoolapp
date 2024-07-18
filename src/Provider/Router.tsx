@@ -40,6 +40,9 @@ import { Postgraduate2 } from '../Routes/Postgraduate2'
 import { Contact2 } from '../Routes/Contact2'
 import { Dates2 } from '../Routes/Dates2'
 import { Documents2 } from '../Routes/Documents2'
+import { Links } from '../Routes/Links'
+import { Exam2 } from '../Routes/Exam2'
+import { Fluid2 } from '../Routes/Fluid2'
 
 
 const Router = () => {
@@ -57,10 +60,10 @@ const Router = () => {
         (<Route path='/preschool' element={token ? <PreSchool /> : <Navigate to="/signin" />}></Route>)
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/review' element={<Review />}></Route>
-        <Route path='/verifymodal' element={<VerifyModal/>}></Route>
-        <Route path='/resetpassword' element={<ResetPassword/>}></Route>
-        <Route path='/contactus' element={<ContactUs/>}></Route>
-        <Route path='/reset-password' element={<ConfirmPassword/>}></Route>
+        <Route path='/verifymodal' element={<VerifyModal />}></Route>
+        <Route path='/resetpassword' element={<ResetPassword />}></Route>
+        <Route path='/contactus' element={<ContactUs />}></Route>
+        <Route path='/reset-password' element={<ConfirmPassword />}></Route>
         <Route path='/university' element={<SchoolPage />}>
           <Route path=':universityid' element={<SchoolPage />}>
           </Route>
@@ -80,8 +83,8 @@ const Router = () => {
         <Route path='/university' element={<Dates2 />}>
           <Route path=':universityid?/date' element={< Dates2 />} />
         </Route>
-        <Route path='/university' element={<Fees />}>
-          <Route path=':universityid?/links' element={< Fees />} />
+        <Route path='/university' element={<Links />}>
+          <Route path=':universityid?/links' element={< Links />} />
         </Route>
         <Route path='/university' element={<Admission2 />}>
           <Route path=':universityid?/admission' element={< Admission2 />} />
@@ -89,11 +92,11 @@ const Router = () => {
         <Route path='/university' element={<Programs2 />}>
           <Route path=':universityid?/colleges' element={< Programs2 />} />
         </Route>
-        <Route path='/university' element={<Exams />}>
-          <Route path=':universityid?/exam' element={< Exams />} />
+        <Route path='/university' element={<Exam2 />}>
+          <Route path=':universityid?/exam' element={< Exam2 />} />
         </Route>
-        <Route path='/university' element={<Fluid />}>
-          <Route path=':universityid?/fluid' element={< Fluid />} />
+        <Route path='/university' element={<Fluid2 />}>
+          <Route path=':universityid?/fluid' element={< Fluid2 />} />
         </Route>
         <Route path='/university' element={<Postgraduate2 />}>
           <Route path=':universityid?/postgraduate?' element={<Postgraduate2 />} />

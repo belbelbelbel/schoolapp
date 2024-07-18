@@ -24,10 +24,13 @@ interface SearchResult {
     location: string;
 }
 
+interface showSchoolProps {
+    showschool: boolean;
+    setshowschool: (showschool: boolean) => void;
+}
 
-export const HeaderRoute = () => {
+export const HeaderRoute = ({showschool,setshowschool}:showSchoolProps) => {
     const navigate = useNavigate();
-    const [showschool, setshowschool] = useState(true);
     const [shownavbar, setshownavbar] = useState(false);
     const params = useParams();
     const [loading, setLoading] = useState(true)
@@ -91,8 +94,8 @@ export const HeaderRoute = () => {
     // }
     return (
         <div>
-            {
-                showschool ? (
+            {/* {
+                showschool ? ( */}
                     <div className='w-screen  my-[2.5rem]'>
                         <div className='w- mx-auto'>
                             <div className="Covenant_container8">
@@ -150,8 +153,8 @@ export const HeaderRoute = () => {
                             </div>
                         </div>
                     </div>
-                ) : (<Schools2 setshowschool={setshowschool} />)
-            }
+                {/* ) : (<Schools2 setshowschool={setshowschool} />)
+            } */}
         </div>
     )
 }

@@ -4,6 +4,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom'
 import { Loading } from './Loading';
 import { Sidebar } from './Sidebar';
 import { BiArrowBack } from 'react-icons/bi';
+import { HeaderRoute } from './HeaderRoute';
 
 interface OverviewItem {
     _id: string;
@@ -99,54 +100,8 @@ export const Programs2 = () => {
         setshownavbar(!shownavbar);
     }
     return (
-        <div className='w-screen flex flex-col gap-[3vw]  my-[2rem]'>
-            <div className=''>
-                <div className="Covenant_container8">
-                <div style={{ cursor: "pointer" }}>  </div> <div style={{width: "65vw"}}><BiArrowBack className='text-[5.2vw]' onClick={() => navigate(-1)}/></div>
-
-                    <div className="Covenant_container8a">
-                        <div> <img src="/edit button.svg" alt="edit" /></div>
-                        <div> <img src="/Vector (4).svg" alt="flag" /></div>
-                    </div>
-                </div>
-                <div className="Covenant_container2">
-                    <div className="Covenant_container3">
-                        {
-                            !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
-                        }
-                        <div className="Covenant_container_input">  <input type="text" placeholder="Search here" onClick={() => setshowschool(false)} /></div>
-                    </div>
-                    <div style={{ cursor: "pointer" }}><img src="/Search.svg" alt="search" /></div>
-                    {
-                        shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
-                    }
-                </div>
-            </div>
-            <div className='bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900 w-screen mx-auto text-white rounded-[0.5vw] flex flex-col text-center items-center justify-center py-[6.5vw] '>
-                <div className='w-[88%] mx-auto '>
-                    <div className='text-[6.6vw] font-medium '>{searchs.name}</div>
-                    <div className='text-[3.2vw] font-medium '>{searchs.address}</div>
-                </div>
-            </div>
-            <div className='flex flex-col text-center items-center justify-center my-[5vw]'>
-                <div>
-
-                    {
-                        over.map((overs: OverviewItem) => (
-                            <div key={overs._id} className='flex  text-center gap-[35vw] mx-0 text-[3.5vw] whitespace-nowrap  w-full font-medium'>
-                                <div className=' '>
-                                    <div className='  absolute'>{overs.name}:</div>
-                                </div>
-                                <div className='items-start flex justify-start  text-left'>
-                                    <div>{overs.description}</div>
-                                </div>
-                            </div>
-                        ))
-                    }
-
-                </div>
-            </div>
-
+        <div className='w-screen flex flex-col gap-[3vw]  my-[0rem]'>
+            <HeaderRoute showschool={showschool} setshowschool={setshowschool}/>
             <div className="w-[88%] mx-auto flex flex-col items-center  gap-[9vw]">
                 <div className='items-center justify-center flex text-center'>
                     <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Programs</button>

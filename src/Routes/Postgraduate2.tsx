@@ -5,6 +5,7 @@ import { Loading } from './Loading'
 import Cookies from 'js-cookie'
 
 export const Postgraduate2 = () => {
+    const [showschool,setshowschool]  = useState(true)
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
     const params = useParams();
@@ -62,7 +63,7 @@ export const Postgraduate2 = () => {
     return (
         <div>
             <div>
-                <HeaderRoute />
+                <HeaderRoute showschool={showschool} setshowschool={setshowschool}/>
                 <div className='flex items-center mt-[16vw] mb-[10vw] justify-center flex-col gap-[6vw]'>
                     <div className='flex flex-col gap-[3vw] '>
                         <div className='items-center justify-center flex text-center'>

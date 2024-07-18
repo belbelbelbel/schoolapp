@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { HeaderRoute } from './HeaderRoute'
 import { useNavigate, useParams } from 'react-router-dom';
 
 export const Undergraduate2 = () => {
+  const [showschool, setshowschool] = useState(true)
   const navigate = useNavigate()
   const params = useParams();
 
@@ -30,7 +31,7 @@ const handlenavigatepost = () => {
     <div>
       <div>
         <div>
-          <HeaderRoute />
+          <HeaderRoute showschool={showschool} setshowschool={setshowschool}/>
           <div className='flex items-center mt-[16vw] mb-[10vw] justify-center flex-col gap-[6vw]'>
             <div className='flex flex-col gap-[3vw] '>
               <div className='items-center justify-center flex text-center'>

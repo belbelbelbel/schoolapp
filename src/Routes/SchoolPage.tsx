@@ -95,7 +95,7 @@ export const SchoolPage = () => {
             {
                 showschool ? (
                     <div className='w-screen pb-[3vw]'>
-                     <HeaderRoute/>
+                     <HeaderRoute showschool={showschool} setshowschool={setshowschool}/>
                         <div className='flex items-center mt-[16vw] justify-center flex-col gap-[3vw]'>
                             <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleprograms}>Programs</button>
                             <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleaddmision}>Admissions</button>

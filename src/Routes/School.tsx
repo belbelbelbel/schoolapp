@@ -65,7 +65,7 @@ export const School = () => {
   useEffect(() => {
     const handleFilteredSearch = async (ownership: string) => {
       try {
-        const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/filter?ownership=${ownership}`, {
+        const res = await fetch(`https://almaquin.onrender.com/api/university/filter?ownership=${ownership}`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",
@@ -75,20 +75,25 @@ export const School = () => {
         });
         const result = await res.json();
         console.log(result);
+        if (ownership.length !== 0 && input.length !== 0 ) {
+          setsearch(result)
+          console.log(result);
+          seterror(result.message)
+          setisloading(false)
+        }
         if (!res.ok) {
           throw new Error("Failed to fetch data from the API");
         } else {
-          alert(result)
+          // alert(result)
+          console.log("good result")
         }
       } catch (error) {
         console.log(error);
       }
     };
-
-    if (ownership) {
-      handleFilteredSearch(ownership);
-    }
+    handleFilteredSearch(ownership);
   }, [ownership]);
+  
 
   const handleOnchange = (value: string) => {
     setInput(value)
@@ -96,6 +101,7 @@ export const School = () => {
       return <div>does not match</div>
     }
   }
+
   const handleOnchangefilter = (value: string) => {
     setownership(value)
     if (input.length === 0) {
@@ -173,8 +179,8 @@ export const School = () => {
               </div>
               {
                 showFiltered && (
-                  <div className='absolute flex justify-center items-center rounded-[10px]  shadow-2xl top-[20vw] right-0 mx-auto z-50 bg-white w-[75%]  h-[56vw]'>
-                    <FilteredOptions handleonchangefilter={handleOnchangefilter} />
+                  <div className='absolute flex justify-center items-center rounded-[10px]  shadow-2xl top-[20vw] right-0 mx-auto z-50 bg-white w-[75%]  h-[65vw]'>
+                    <FilteredOptions handleonchangefilter={handleOnchangefilter} ownership={ownership} />
                   </div>
                 )
               }

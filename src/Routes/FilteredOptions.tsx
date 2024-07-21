@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
 import { TiArrowSortedDown } from "react-icons/ti";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -7,11 +7,12 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 interface Filtereprops {
     handleonchangefilter: (value: string) => void,
+    ownership: string
 }
 
 
 
-export const FilteredOptions = ({ handleonchangefilter }: Filtereprops) => {
+export const FilteredOptions = ({ handleonchangefilter,ownership }: Filtereprops) => {
     const [showOwnership, setOwnership] = useState(false)
     const handleownwership = () => {
         setOwnership(!showOwnership)
@@ -29,7 +30,6 @@ export const FilteredOptions = ({ handleonchangefilter }: Filtereprops) => {
                 <option value="private">Private</option>
             </select>
              */}
-
             {/* <div className='w-[88%] mx-auto flex flex-col items-center gap-[4vw]'>
 
                 <div className='bg-[#7a4a3a]  flex-col rounded-[7px] overflow text-[4vw] flex items-center py-[2.5vw]  justify-between h-[100%] px-[7px] w-full'>
@@ -55,25 +55,24 @@ export const FilteredOptions = ({ handleonchangefilter }: Filtereprops) => {
                     <div>Filter by Fees</div>
                     <div><TiArrowSortedDown /></div>
                 </div>
-
             </div> */}
             <div className='flex flex-col gap-[6vw] -top-[0vw] z-50 relative'>
-                {/* <h3>filter by ...</h3> */}
+                <h3>filter by ...</h3>
                 <FormControl >
                     <InputLabel > ownership</InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
                         id="demo-simple-select-helper"
-                        value={age}
+                        value={ownership}
                         label="Age"
-                        onChange={handleChange}
+                        onChange={(e:any) => handleonchangefilter(e.target.value)}
                         className='h-[12vw] w-full'
                     >
                         <MenuItem value="">
                             <em>None</em>
                         </MenuItem>
-                        <MenuItem value={340}>Public</MenuItem>
-                        <MenuItem value={350}>Private</MenuItem>
+                        <MenuItem value='public'>Public</MenuItem>
+                        <MenuItem value='private'>Private</MenuItem>
                     </Select>
                     {/* <FormHelperText>With label + helper text</FormHelperText> */}
                 </FormControl>
@@ -100,7 +99,7 @@ export const FilteredOptions = ({ handleonchangefilter }: Filtereprops) => {
                         <MenuItem value={90}>301,000 - 400,000</MenuItem>
                         <MenuItem value={100}>Above 1,000,000</MenuItem>
                     </Select>
-                    {/* <FormHelperText>With label + helper text</FormHelperText> */}
+                
                 </FormControl>
                 <FormControl className='w-[70vw]' >
                     <InputLabel id="demo-simple-select-helper-label">Location</InputLabel>
@@ -125,7 +124,6 @@ export const FilteredOptions = ({ handleonchangefilter }: Filtereprops) => {
                         <MenuItem value={90}>Cross River</MenuItem>
                         <MenuItem value={100}>Delta</MenuItem>
                     </Select>
-                    {/* <FormHelperText>With label + helper text</FormHelperText> */}
                 </FormControl>
 
             </div>

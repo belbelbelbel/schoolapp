@@ -11,11 +11,13 @@ import { Loading } from './Loading';
 import { Context, Usecontext } from '../Provider/Usecontext';
 import Cookies from 'js-cookie';
 import { FilteredOptions } from './FilteredOptions';
+import { Sidebar } from './Sidebar';
 export const School = () => {
   const params = useParams()
   const [input, setInput] = useState("");
   const [error, seterror] = useState("")
   const [search, setsearch] = useState([])
+  const [shownavbar, setshownavbar] = useState(false);
   const [showFiltered, setshowFiltered] = useState(false)
   const user = useContext(Context)
   const [isloading, setisloading] = useState(true)
@@ -24,6 +26,13 @@ export const School = () => {
   const accesstokena = Cookies.get('token')
   const handleFilteredCont = () => {
     setshowFiltered(!showFiltered)
+    // if (showFiltered === false) {
+    //   // setownership("")
+    //   setInput(input)
+    // }
+    // else {
+    //   setownership(ownership)
+    // }
   }
   useEffect(() => {
     const handlefilter = async (input: string) => {
@@ -75,25 +84,25 @@ export const School = () => {
         });
         const result = await res.json();
         console.log(result);
-        if (ownership.length !== 0 && input.length !== 0 ) {
-          setsearch(result)
-          console.log(result);
+        if (input.length !== 0) {
           seterror(result.message)
           setisloading(false)
+          setsearch(result)
         }
-        if (!res.ok) {
-          throw new Error("Failed to fetch data from the API");
-        } else {
-          // alert(result)
-          console.log("good result")
+        else {
+          setownership("")
+          setsearch([])
         }
       } catch (error) {
         console.log(error);
       }
     };
     handleFilteredSearch(ownership);
+    return () => {
+      setsearch([])
+    }
   }, [ownership]);
-  
+
 
   const handleOnchange = (value: string) => {
     setInput(value)
@@ -149,6 +158,9 @@ export const School = () => {
 
   }
 
+  const handleshowSidebar = () => {
+    setshownavbar(!shownavbar);
+  }
 
   return (
     <div>
@@ -158,10 +170,12 @@ export const School = () => {
             initial={{}}
             animate={{}}
             exit={{}}
-            className='school'>
+            className='school pt-[1rem]'>
             <div >
               <div className='flex items-center justify-evenly '>
-                <div>side</div>
+                {
+                  !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshowSidebar} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshowSidebar} /></div>
+                }
                 <div className="school_filter">
                   <input
                     placeholder="Search here"
@@ -180,7 +194,7 @@ export const School = () => {
               {
                 showFiltered && (
                   <div className='absolute flex justify-center items-center rounded-[10px]  shadow-2xl top-[20vw] right-0 mx-auto z-50 bg-white w-[75%]  h-[65vw]'>
-                    <FilteredOptions handleonchangefilter={handleOnchangefilter} ownership={ownership} />
+                    <FilteredOptions handleonchangefilter={handleOnchangefilter} ownership={ownership} setownership={setownership} setshowfiltered={setshowFiltered} />
                   </div>
                 )
               }
@@ -196,7 +210,9 @@ export const School = () => {
                 <ToastContainer></ToastContainer>
               </div>
             </div>
-
+            {
+              shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
+            }
           </motion.div>
         ) : (<Loading />)
       }

@@ -8,14 +8,17 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 interface Filtereprops {
     handleonchangefilter: (value: string) => void,
     ownership: string
+    setownership: (value: string) => void
+    setshowfiltered: (value: boolean) => void 
 }
 
 
 
-export const FilteredOptions = ({ handleonchangefilter,ownership }: Filtereprops) => {
+export const FilteredOptions = ({ handleonchangefilter, ownership, setownership,setshowfiltered }: Filtereprops) => {
     const [showOwnership, setOwnership] = useState(false)
     const handleownwership = () => {
         setOwnership(!showOwnership)
+        setownership("")
     }
     const [age, setAge] = React.useState('');
 
@@ -24,38 +27,6 @@ export const FilteredOptions = ({ handleonchangefilter,ownership }: Filtereprops
     };
     return (
         <div className='z-50 relative flex-col text-white flex font-sans font-bold justify-center  items-center w-[100%]  h-[100%]'>
-            {/* <select onChange={(e) => handleonchangefilter(e.target.value)} className='absolute'>
-                <option value="">Select Your Institution</option>
-                <option value="public">Public</option>
-                <option value="private">Private</option>
-            </select>
-             */}
-            {/* <div className='w-[88%] mx-auto flex flex-col items-center gap-[4vw]'>
-
-                <div className='bg-[#7a4a3a]  flex-col rounded-[7px] overflow text-[4vw] flex items-center py-[2.5vw]  justify-between h-[100%] px-[7px] w-full'>
-                    <div className='flex items-center justify-between w-full'>
-                        <div>Filter by ownership</div>
-                        <div onClick={handleownwership}><TiArrowSortedDown /></div>
-                    </div>
-                    <div>  {
-                        showOwnership && (
-                            // <div className='fixed inset-0 bg-black   items-center flex flex-col  bg-opacity-40 w-screen h-screen'>
-                            <div className='z-50 absolute -left-[20vw] -top-[0vw]   justify-center w-[65%] h-[55%]  items-center rounded-[8px] flex flex-col gap-[2.5vw] bg-black ' onClick={() => setOwnership(false)}>
-
-                            </div>
-                            // </div>
-                        )
-                    }
-                    </div>
-                </div>
-                <div className='bg-[#7a4a3a] rounded-[7px] text-[4vw]  flex items-center py-[2.5vw]  px-[6px] w-full  h-[60%]'>
-                    <div>Filter by location</div>
-                </div>
-                <div className='bg-[#7a4a3a] rounded-[7px] text-[4vw]   mb-[3vw] flex items-center py-[2.5vw]  justify-between h-[60%] px-[7px] w-full'>
-                    <div>Filter by Fees</div>
-                    <div><TiArrowSortedDown /></div>
-                </div>
-            </div> */}
             <div className='flex flex-col gap-[6vw] -top-[0vw] z-50 relative'>
                 <h3>filter by ...</h3>
                 <FormControl >
@@ -65,7 +36,8 @@ export const FilteredOptions = ({ handleonchangefilter,ownership }: Filtereprops
                         id="demo-simple-select-helper"
                         value={ownership}
                         label="Age"
-                        onChange={(e:any) => handleonchangefilter(e.target.value)}
+                        onClick={() => setshowfiltered(false)}
+                        onChange={(e: any) => handleonchangefilter(e.target.value)}
                         className='h-[12vw] w-full'
                     >
                         <MenuItem value="">
@@ -80,6 +52,7 @@ export const FilteredOptions = ({ handleonchangefilter,ownership }: Filtereprops
                     <InputLabel id="demo-simple-select-helper-label">Fees</InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
+                        onClick={() => setshowfiltered(false)}
                         id="demo-simple-select-helper"
                         value={age}
                         label="Age"
@@ -99,12 +72,13 @@ export const FilteredOptions = ({ handleonchangefilter,ownership }: Filtereprops
                         <MenuItem value={90}>301,000 - 400,000</MenuItem>
                         <MenuItem value={100}>Above 1,000,000</MenuItem>
                     </Select>
-                
+
                 </FormControl>
                 <FormControl className='w-[70vw]' >
                     <InputLabel id="demo-simple-select-helper-label">Location</InputLabel>
                     <Select
                         labelId="demo-simple-select-helper-label"
+                        onClick={() => setshowfiltered(false)}
                         id="demo-simple-select-helper"
                         value={age}
                         label="Age"

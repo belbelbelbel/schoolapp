@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import '../Styles/PresentSchoModal.css';
 import { CiSaveDown1 } from "react-icons/ci";
@@ -9,6 +9,8 @@ type SchoolModalProps = {
 const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => {
     const [showInput, setShowInput] = useState(false);
     const [inputValue, setInputValue] = useState('');
+    const [schools, setSchools] = useState([]);
+    const [loading, setLoading] = useState(false)
 
     const stopPropagation = (e: { stopPropagation: () => void; }) => {
         e.stopPropagation();
@@ -18,24 +20,71 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
         setPlaceholder(newPlaceholder);
         setShowInput(false);
     };
+
+    useEffect(() => {
+        const handleSchoolName = async () => {
+            setLoading(true)
+            try {
+                const res = await fetch("https://almaquin.onrender.com/api/sec-schools", {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "Authorization": `Bearer ${localStorage.getItem("accesstokena")}`,
+                    },
+                })
+                const result = await res.json()
+                console.log(result.secSchools)
+                setSchools(result.secSchools)
+                if (!res.ok) {
+                    throw new Error("Error occurred in fetching schools")
+                }
+                else {
+                    // alert("goode one oin schools")
+                }
+            } catch (error) {
+                console.log(error)
+            }
+            finally {
+                setLoading(false)
+            }
+        }
+        handleSchoolName()
+    }, [])
+
     return (
-        <motion.div className='schoolmodal'>
+        <motion.div className='schoolmodal  z-50'>
             <div className='schoolmodalp'>Select your current school</div>
             <motion.div
                 initial={{ opacity: 0, y: 100 }}
                 animate={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
                 exit={{ opacity: 1, x: -100 }}
                 className='schoolmodal2'>
-                <div onClick={() => handlePlaceholder('Ambassador College')}>Ambassador College</div>
-                <div onClick={() => handlePlaceholder('Babcock Secondary School')}>Babcock Secondary School</div>
-                <div onClick={() => handlePlaceholder('Chrisland School')}>Chrisland School</div>
-                <div onClick={() => handlePlaceholder('Corona High School')}>Corona High School</div>
-                <div onClick={() => handlePlaceholder('Covenant University School')}>Covenant University School</div>
-                <div onClick={() => handlePlaceholder('Dansol High School')}>Dansol High School</div>
-                <div onClick={() => handlePlaceholder('Faith Academy')}>Faith Academy</div>
-                <div onClick={() => handlePlaceholder('Lead British International')}>Lead British International</div>
+                <div className=''>
+                    {
+                        !loading ? (
+                            <div className='flex flex-col justify-center items-center gap-[8vw]'>
+                                {
+                                    schools.length > 0 && schools.map((school: {
+                                        _id: any;
+                                        name: string;
+                                    }) => (
+                                        <div>
+                                            <div key={school._id} onClick={() => handlePlaceholder(school.name)}>
+                                                {school.name}
+                                            </div>
+                                        </div>
+                                    ))
+                                }
+                            </div>
+                        ) : (<div>loading...</div>)
+                    }
+                </div>
                 <div onClick={stopPropagation}>
-                    <div onClick={() => setShowInput(true)}>Others</div>
+                    <div onClick={() => setShowInput(true)}>
+                        {
+                            !loading ? "Others" : ""
+                        }
+                    </div>
                     {showInput && (
                         <motion.div
                             initial={{ opacity: 0, y: 200 }}

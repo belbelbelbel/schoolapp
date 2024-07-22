@@ -152,7 +152,7 @@ export const ContactUs = () => {
                             disabled={loading}
                             className="signin_btn" style={{ padding: "0 1rem", position: "relative", top: "1rem" }}>
                             {
-                                loading ? "processing..." : "submit"
+                                loading ? "Sending..." : "Submit"
                             }
 
                         </button>

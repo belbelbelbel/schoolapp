@@ -14,6 +14,7 @@ import PresentSchoModal from "./PresentSchoModal";
 import { LevelSchool } from "./LevelSchool";
 import { ReasonsModal } from "./ReasonsModal";
 import { ClipLoader } from "react-spinners";
+import Cookies from "js-cookie";
 const Signup = () => {
   const locations = useLocation();
   const [Isloading, setIsLoading] = useState(false)
@@ -26,6 +27,7 @@ const Signup = () => {
   const [reason, setreason] = useState("")
   const [placeholder, setplaceholder] = useState("")
   const [level, setlevel] = useState("")
+  const token = Cookies.get('token')
   const handleclick = () => {
     setShow((prevShow) => !prevShow);
   };
@@ -43,6 +45,13 @@ const Signup = () => {
   const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const { formdata } = user || {};
   let err = ""
+
+  useEffect(()=> {
+    if(token) {
+      navigate('/preschool')
+    }
+   },[user?.isLoggedIn,navigate])
+
   const handleSubmits = async (data: valueprops) => {
     setIsLoading(true);
     console.log(data)

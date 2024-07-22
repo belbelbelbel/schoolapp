@@ -63,11 +63,11 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
                         {shownavbar && <RxCross1 size="6vw" onClick={() => setshownavbar(false)} />}
                     </div>
                     <div className='w-[50%] font-sans' onClick={stopPropagation} style={{ display: 'flex',fontSize:"4.5vw", flexDirection: 'column', alignItems: 'start', gap: "15vw" }}>
-                        <motion.li variants={itemVariants}>
+                        {/* <motion.li variants={itemVariants}>
                             <div style={{ display: "flex", gap: "1rem",fontSize:"4vw" }}> <SiGnuprivacyguard />
                                 <Link to="/signup">Signup</Link>
                             </div>
-                        </motion.li>
+                        </motion.li> */}
                         <motion.li variants={itemVariants}>
                             <div style={{ display: "flex", gap: "1rem",fontSize:"4vw" }}> <FcAbout color='black'/>
                                 <Link to="/about">About Us</Link>

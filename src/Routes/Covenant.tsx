@@ -132,7 +132,7 @@ export const Covenant = () => {
                                     <div> <img src="/Vector (4).svg" alt="flag" /></div>
                                 </div>
                             </div>
-                            <div className="Covenant_container2" >
+                            <div className="Covenant_container2">
                                 <div className="Covenant_container3">
                                     {
                                         !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>

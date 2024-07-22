@@ -84,7 +84,6 @@ export const School = () => {
         });
         const result = await res.json();
         console.log(result);
-        console.log(result[1].undergraduate);
         if (input.length !== 0) {
           seterror(result.message)
           setisloading(false)

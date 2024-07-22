@@ -45,6 +45,9 @@ import { Exam2 } from '../Routes/Exam2'
 import { Fluid2 } from '../Routes/Fluid2'
 import { Fees2 } from '../Routes/Fees2'
 import { Faq2 } from '../Routes/Faq2'
+import { Undergraduatesprog } from '../Routes/Undergraduatesprog'
+import { Postgraduatesprog } from '../Routes/Postgraduatesprog'
+import { ProgramPost } from '../Routes/ProgramPost'
 
 
 const Router = () => {
@@ -75,9 +78,19 @@ const Router = () => {
             <Route path=':schoolid' element={<Programs />}></Route>
           </Route>
         </Route>
+        <Route path='/university' element={<ProgramPost />}>
+          <Route path=':universityid?/programs?' element={<ProgramPost />}>
+          </Route>
+        </Route>
         <Route path='about' element={<About />}></Route>
         <Route path='/university' element={<Undergraduate2 />}>
           <Route path=':universityid?/undergraduate?' element={<Undergraduate2 />} />
+        </Route>
+        <Route path='/university' element={<Undergraduatesprog />}>
+          <Route path=':universityid?/undergraduateprogram?' element={<Undergraduatesprog />} />
+        </Route>
+        <Route path='/university' element={<Postgraduatesprog />}>
+          <Route path=':universityid?/postgraduateprogram?' element={<Postgraduatesprog />} />
         </Route>
         <Route path='/university' element={<Faq2 />}>
           <Route path=':universityid?/faq' element={<Faq2 />} />

@@ -84,6 +84,7 @@ export const School = () => {
         });
         const result = await res.json();
         console.log(result);
+        console.log(result[1].undergraduate);
         if (input.length !== 0) {
           seterror(result.message)
           setisloading(false)
@@ -146,7 +147,6 @@ export const School = () => {
                 <div><img src="/Vector.png" alt="search page image " /></div>
               </div>
             </div>
-
           </Link>
         ))
       }

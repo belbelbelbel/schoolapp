@@ -42,6 +42,7 @@ export const SchoolPage = () => {
     const handlenavigatecontact = () => {
         navigate(`/university/${params.universityid}/contact`);
     }
+    
     const handlefees = () => {
         navigate(`${params.universityid}/links`)
     }

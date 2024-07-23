@@ -23,6 +23,7 @@ export const School = () => {
   const [isloading, setisloading] = useState(true)
   const navigate = useNavigate()
   const [ownership, setownership] = useState("")
+  const [fees, setFees] = useState("")
   const accesstokena = Cookies.get('token')
   const handleFilteredCont = () => {
     setshowFiltered(!showFiltered)
@@ -56,6 +57,7 @@ export const School = () => {
         else {
 
         }
+       
         if (!res.ok) {
           seterror(result.message)
           throw new Error("Failed to fetch data from the API");
@@ -103,6 +105,38 @@ export const School = () => {
     }
   }, [ownership]);
 
+
+  useEffect(() => {
+    const handleFilteredSearch = async (fees: string) => {
+      try {
+        const res = await fetch(`https://almaquin.onrender.com/api/university/filter?fees=${fees}`, {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+            "ngrok-skip-browser-warning": "69420",
+            "Authorization": `Bearer ${accesstokena}`,
+          },
+        });
+        const result = await res.json();
+        console.log(result);
+        if (input.length !== 0) {
+          seterror(result.message)
+          setisloading(false)
+          setsearch(result)
+        }
+        else {
+          setownership("")
+          setsearch([])
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    handleFilteredSearch(fees);
+    return () => {
+      setsearch([])
+    }
+  }, [fees]);
 
   const handleOnchange = (value: string) => {
     setInput(value)

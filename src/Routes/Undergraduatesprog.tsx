@@ -46,7 +46,7 @@ export const Undergraduatesprog = () => {
         <div>
             {
                 !isLoading ? (
-                    <div className='pt-[2rem]'>
+                    <div className='pt-[3rem]'>
                         <div className="flex items-ceneter justify-between px-[6vw]">
                             <div style={{ cursor: "pointer" }}>  </div> <div style={{ width: "75vw" }}><BiArrowBack className='text-[5.2vw]' onClick={() => navigate(-1)} /></div>
                             <div className="flex items-center gap-[2vw]">

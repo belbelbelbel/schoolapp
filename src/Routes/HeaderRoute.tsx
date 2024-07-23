@@ -97,7 +97,7 @@ export const HeaderRoute = ({ showschool, setshowschool }: showSchoolProps) => {
             {
                 // showschool ? (
                     <div className='w-screen  my-[2.5rem]'>
-                        <div className='w- mx-auto'>
+                        <div className='w- mx-auto flex flex-col  gap-[2vw] justify-center'>
                             <div className="Covenant_container8">
                                 <div style={{ cursor: "pointer" }}>  </div> <div style={{ width: "57.6vw" }}><BiArrowBack className='text-[5.2vw]' onClick={() => navigate(-1)} /></div>
                                 <div className="Covenant_container8a">

@@ -95,7 +95,7 @@ export const HeaderRoute = ({ showschool, setshowschool }: showSchoolProps) => {
     return (
         <div>
             {
-                showschool ? (
+                // showschool ? (
                     <div className='w-screen  my-[2.5rem]'>
                         <div className='w- mx-auto'>
                             <div className="Covenant_container8">
@@ -163,7 +163,7 @@ export const HeaderRoute = ({ showschool, setshowschool }: showSchoolProps) => {
                             </div>
                         </div>
                     </div>
-                ) : (<Schools2 setshowschool={setshowschool} />)
+                // ) : (<Schools2 setshowschool={setshowschool} />)
             }
         </div>
     )

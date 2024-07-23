@@ -147,10 +147,10 @@
     align-items: center;
     align-self: center;
     justify-content: space-between;
-    padding: 0.4rem 1rem;
+    padding: 0rem 1rem;
     outline: none;
     width: 70%;
-    height: 3rem;
+    height: 11.2vw;
     border-radius: 10px;
     /* margin: 0rem auto; */
     background-color: rgba(215, 214, 214, 0.669);
@@ -160,7 +160,7 @@
     outline: none;
     border: none;
     width: 80%;
-    padding: 5vw 3vw;
+    padding: 3vw 1.5vw;
     font-size: 4.6vw;
     background-color: transparent;
     font-family: "Inter", sans-serif;

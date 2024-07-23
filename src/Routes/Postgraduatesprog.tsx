@@ -44,7 +44,7 @@ export const Postgraduatesprog = () => {
             <div>
             {
                 !isLoading ? (
-                    <div className='pt-[3rem]'>
+                    <div className='pt-[2rem]'>
                         <div className="flex items-ceneter justify-between px-[6vw]">
                             <div style={{ cursor: "pointer" }}>  </div> <div style={{ width: "75vw" }}><BiArrowBack className='text-[5.2vw]' onClick={() => navigate(-1)} /></div>
                             <div className="flex items-center gap-[2vw]">
@@ -62,7 +62,7 @@ export const Postgraduatesprog = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="pt-[2.5rem]">
+                        <div className="pt-[2rem]">
                             {
                                 postgradPrograms.length > 0 && postgradPrograms.map((program: {
                                     name: React.ReactNode;

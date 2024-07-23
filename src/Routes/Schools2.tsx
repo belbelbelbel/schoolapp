@@ -112,7 +112,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
             initial={{}}
             animate={{}}
             exit={{}}
-            className='schoolss'>
+            className='schoolss '>
 
             {/* // isloading ? ( */}
             <div >

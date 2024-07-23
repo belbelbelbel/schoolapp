@@ -5,6 +5,7 @@ import { Loading } from './Loading';
 import { Sidebar } from './Sidebar';
 import { BiArrowBack } from 'react-icons/bi';
 import { HeaderRoute } from './HeaderRoute';
+import { Schools2 } from './Schools2';
 
 interface OverviewItem {
     _id: string;
@@ -100,17 +101,20 @@ export const Programs2 = () => {
         setshownavbar(!shownavbar);
     }
     return (
-        <div className='w-screen flex flex-col gap-[3vw]  my-[0rem]'>
-            <HeaderRoute showschool={showschool} setshowschool={setshowschool} />
-            <div className="w-[88%] mx-auto flex flex-col items-center  gap-[9vw]">
-                <div className='items-center justify-center flex text-center'>
-                    <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Programs</button>
-                </div>
-                <div className='flex gap-[3vw] items-center flex-col'>
-                    <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={() => navigate(`${params.universityid}/undergraduateprogram`)}>Undergraduates</button>
-                    <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'  onClick={() => navigate(`${params.universityid}/postgraduateprogram`)}>Postgraduates</button>
-                </div>
-                {/* <div className="">
+        <div>
+            {
+                showschool ? (
+                    <div className='w-screen flex flex-col gap-[3vw]  my-[0rem]'>
+                        <HeaderRoute showschool={showschool} setshowschool={setshowschool} />
+                        <div className="w-[88%] mx-auto flex flex-col items-center  gap-[9vw]">
+                            <div className='items-center justify-center flex text-center'>
+                                <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Programs</button>
+                            </div>
+                            <div className='flex gap-[3vw] items-center flex-col'>
+                                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={() => navigate(`${params.universityid}/undergraduateprogram`)}>Undergraduates</button>
+                                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={() => navigate(`${params.universityid}/postgraduateprogram`)}>Postgraduates</button>
+                            </div>
+                            {/* <div className="">
                     {
                         text.length > 0 && text.map((program: {
                             name: React.ReactNode;
@@ -132,7 +136,10 @@ export const Programs2 = () => {
                     }
 
                 </div> */}
-            </div>
+                        </div>
+                    </div>
+                ) : (<div><Schools2 setshowschool={setshowschool} /></div>)
+            }
         </div>
     )
 }

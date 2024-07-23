@@ -48,6 +48,10 @@ import { Faq2 } from '../Routes/Faq2'
 import { Undergraduatesprog } from '../Routes/Undergraduatesprog'
 import { Postgraduatesprog } from '../Routes/Postgraduatesprog'
 import { ProgramPost } from '../Routes/ProgramPost'
+import { Dates3 } from '../Routes/Dates3'
+import { Exams3 } from '../Routes/Exams3'
+import { Documents3 } from '../Routes/Documents3'
+import { Fluid3 } from '../Routes/Fluid3'
 
 
 const Router = () => {
@@ -98,6 +102,9 @@ const Router = () => {
         <Route path='/university' element={<Dates2 />}>
           <Route path=':universityid?/date' element={< Dates2 />} />
         </Route>
+        <Route path='/university' element={<Dates3 />}>
+          <Route path=':universityid?/dates' element={< Dates3 />} />
+        </Route>
         <Route path='/university' element={<Links />}>
           <Route path=':universityid?/links' element={< Links />} />
         </Route>
@@ -111,10 +118,16 @@ const Router = () => {
           <Route path=':universityid?/colleges' element={< Programs2 />} />
         </Route>
         <Route path='/university' element={<Exam2 />}>
-          <Route path=':universityid?/exam' element={< Exam2 />} />
+          <Route path=':universityid?/exam' element={<Exam2 />} />
+        </Route>
+        <Route path='/university' element={<Exams3 />}>
+          <Route path=':universityid?/exams' element={<Exams3 />} />
         </Route>
         <Route path='/university' element={<Fluid2 />}>
-          <Route path=':universityid?/fluid' element={< Fluid2 />} />
+          <Route path=':universityid?/fluid' element={<Fluid2 />} />
+        </Route>
+        <Route path='/university' element={<Fluid3 />}>
+          <Route path=':universityid?/fluids' element={<Fluid3 />} />
         </Route>
         <Route path='/university' element={<Postgraduate2 />}>
           <Route path=':universityid?/postgraduate?' element={<Postgraduate2 />} />
@@ -124,6 +137,9 @@ const Router = () => {
         </Route>
         <Route path='/university' element={<Documents2 />}>
           <Route path=':universityid?/documents?' element={<Documents2 />} />
+        </Route>
+        <Route path='/university' element={<Documents3 />}>
+          <Route path=':universityid?/documentss?' element={<Documents3 />} />
         </Route>
         <Route path='/school/covenant-university/contact' element={<Contact />}></Route>
         <Route path='/school/covenant-university/usefulinks' element={<Uselinks />}></Route>

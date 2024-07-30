@@ -196,7 +196,7 @@ const Signup = () => {
         <motion.div className="surname"
           variants={inputVariants}
           whileTap="tap">
-          <label htmlFor="reasons"> Reasosn for Joining</label>
+          <label htmlFor="reasons"> Reason for Joining</label>
           <input
             {...register('reasonForJoining', {
               required: " Your reasons are required",

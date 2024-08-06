@@ -28,11 +28,9 @@ type dataprops = {
   error: string[];
   seterror: React.Dispatch<React.SetStateAction<string[]>>;
 };
-
 type childrenprops = {
   children: ReactNode;
 };
-
 export const Context = createContext<dataprops | null>(null);
 export const Usecontext = ({ children }: childrenprops) => {
   const [isLoggedIn, setIsLoggedIn] = useState(!!Cookies.get('token'));

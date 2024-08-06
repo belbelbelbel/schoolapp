@@ -103,7 +103,7 @@
         font-size: 15vw;
         z-index: 9999; 
         display: flex;
-        width: 61%; /* Make the image fill the container */
+        width: 61%;
         height: auto; /* Maintain aspect ratio */
         display: block; /* Make the image a block element */
         position: fixed;
@@ -128,7 +128,7 @@
         height: auto;
     }
     .signupbtn {
-        padding: 0.4vw 16vw;
+        padding: 0.4vw 3.5rem;
         margin: 0rem auto; 
         background-color: white;
         text-align: center;
@@ -143,7 +143,7 @@
     }
    
     .signinbtn {
-        padding: 0.4vw 16vw;
+        padding: 0.4vw 3.5rem;
         margin: 0rem auto; 
         background-color: #8B452D;
         text-align: center;

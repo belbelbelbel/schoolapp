@@ -93,12 +93,15 @@ const Signup = () => {
   useEffect(() => {
     level && setValue("classLevel", level || "", { shouldValidate: true })
   }, [level])
+  
   useEffect(() => {
     reason && setValue("schoolLocation", reason || "", { shouldValidate: true })
   }, [reason])
+
   useEffect(() => {
     placeholder && setValue("presentSchool", placeholder || "", { shouldValidate: true })
   }, [placeholder])
+
   const onSubmit: SubmitHandler<valueprops> = (data) => {
     console.log(data);
     handleSubmits({
@@ -106,6 +109,7 @@ const Signup = () => {
       email: data.email || "",
     });
   };
+
   const handleLevelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
     setlevel(newValue);

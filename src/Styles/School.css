@@ -160,7 +160,34 @@
     outline: none;
     border: none;
     width: 80%;
-    padding: 3vw 1.5vw;
+    padding: 3vw 0vw;
+    font-size: 4.6vw;
+    background-color: transparent;
+    font-family: "Inter", sans-serif;
+    color: rgba(11, 60, 73, 0.5);
+    font-weight: 600;
+  }
+  .school_filters {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    justify-content: space-between;
+    padding: 0rem 1rem;
+    outline: none;
+    width: 70%;
+    height: 11.2vw;
+    border-radius: 10px;
+    /* margin: 0rem auto; */
+    /* background-color: rgba(215, 214, 214, 0.669); */
+    border: none;
+  }
+  .school_filters input {
+    outline: none;
+    border: none;
+    width: 80%;
+    padding: 3vw 0vw;
     font-size: 4.6vw;
     background-color: transparent;
     font-family: "Inter", sans-serif;

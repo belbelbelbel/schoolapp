@@ -30,7 +30,7 @@ export const FilteredOptions = ({ handleonchangefilter,state, ownership,handleOn
     return (
         <div className='z-50 relative flex-col text-white flex font-sans font-bold justify-center  items-center w-[100%]  h-[100%]'>
             <div className='flex flex-col gap-[6vw] -top-[0vw] z-50 relative'>
-                <h3>filter by ...</h3>
+                {/* <h3>filter by ...</h3> */}
                 <FormControl >
                     <InputLabel > ownership</InputLabel>
                     <Select

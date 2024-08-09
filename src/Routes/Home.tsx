@@ -93,7 +93,7 @@ const Home = () => {
 
     };
     return (
-        <motion.div
+        <motion.div  
             initial={{ width: 0 }}
             animate={{ width: "100%" }}
             exit={{ width: window.innerWidth, transition: { duration: 0.5 } }}

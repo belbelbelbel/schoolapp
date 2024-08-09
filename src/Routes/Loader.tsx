@@ -17,22 +17,48 @@ const Loader = (props: Props) => {
         };
     }, []);
   return (
-    <motion.div className='loader'
-    initial= {{width : 0}}
-    animate= {{width : "100%",transition: {durartion : 1}}}
-    exit={{x:window.innerWidth ,transition: {durartion : 1}}}>
-         <video
-      autoPlay
-      muted
-      loop
-      style={{ width: '100%', height: '50vh', objectFit:  'cover',border: "none" ,outline:"none",display:"block" }}
-    >
-      <source src="CTF Animation.mp4" type="video/mp4" />
-      Your browser does not support the video tag or the file format of this video.
-    </video>
 
+<motion.div
+  className='loader'
+  initial={{ width: 0 }}
+  animate={{ width: "100%", transition: { duration: 1 } }}
+  exit={{ x: window.innerWidth, transition: { duration: 1 } }}
+  style={{ position: 'relative', overflow: 'hidden' }} // Ensure relative positioning for the overlay
+>
+  {/* Overlay */}
+  <div
+    style={{
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      backgroundColor: 'rgba(0, 0, 0, 0.2)',
+      zIndex: 1,
+    }}
+  ></div>
 
-    </motion.div>
+  {/* Video */}
+  <video
+    autoPlay
+    muted
+    loop
+    style={{
+      width: '100%',
+      height: '50vh',
+      objectFit: 'cover',
+      border: 'none',
+      outline: 'none',
+      display: 'block',
+      zIndex: 0, // Ensure video is behind the overlay
+      position: 'relative',
+    }}
+  >
+    <source src="CTF Animation.mp4" type="video/mp4" />
+    Your browser does not support the video tag or the file format of this video.
+  </video>
+</motion.div>
+
   )
 }
 export default Loader;

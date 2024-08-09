@@ -24,16 +24,23 @@ export const School = () => {
   const navigate = useNavigate()
   const [ownership, setownership] = useState("")
   const [fees, setFees] = useState("")
+  const [state, setState] = useState("")
   const accesstokena = Cookies.get('token')
   const handleFilteredCont = () => {
     setshowFiltered(!showFiltered)
-    // if (showFiltered === false) {
-    //   // setownership("")
-    //   setInput(input)
-    // }
-    // else {
-    //   setownership(ownership)
-    // }
+    if (showFiltered === false) {
+      // setownership("")
+      if(ownership) {
+        setFees("")
+      }
+      if(fees) {
+        setownership("")
+      }
+      setInput(input)
+    }
+    else {
+      // setownership(ownership)
+    }
   }
   useEffect(() => {
     const handlefilter = async (input: string) => {
@@ -80,7 +87,7 @@ export const School = () => {
           method: "GET",
           headers: {
             "Content-type": "application/json",
-            "ngrok-skip-browser-warning": "69420",
+            // "ngrok-skip-browser-warning": "69420",
             "Authorization": `Bearer ${accesstokena}`,
           },
         });
@@ -138,6 +145,38 @@ export const School = () => {
     }
   }, [fees]);
 
+  useEffect(() => {
+    const handleFilteredSearch = async (location: string) => {
+      try {
+        const res = await fetch(`https://almaquin.onrender.com/api/university/filter?fees=${location}`, {
+          method: "GET",
+          headers: {
+            "Content-type": "application/json",
+            // "ngrok-skip-browser-warning": "69420",
+            "Authorization": `Bearer ${accesstokena}`,
+          },
+        });
+        const result = await res.json();
+        console.log(result);
+        if (input.length !== 0) {
+          seterror(result.message)
+          setisloading(false)
+          setsearch(result)
+        }
+        else {
+          setownership("")
+          setsearch([])
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    handleFilteredSearch(state);
+    return () => {
+      setsearch([])
+    }
+  }, [state]);
+
   const handleOnchange = (value: string) => {
     setInput(value)
     if (input.length === 0) {
@@ -147,6 +186,19 @@ export const School = () => {
 
   const handleOnchangefilter = (value: string) => {
     setownership(value)
+    if (input.length === 0) {
+      return <div>does not match</div>
+    }
+  }
+
+  const handleOnchangeFees = (value: string) => {
+    setFees(value)
+    if (input.length === 0) {
+      return <div>does not match</div>
+    }
+  }
+  const handleOnchangeState = (value: string) => {
+    setState(value)
     if (input.length === 0) {
       return <div>does not match</div>
     }
@@ -213,7 +265,6 @@ export const School = () => {
                   <input
                     placeholder="Search here"
                     value={input}
-                    // autoFocus
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
                   />
                   <button type="submit" className='img_btn'>
@@ -227,7 +278,7 @@ export const School = () => {
               {
                 showFiltered && (
                   <div className='absolute flex justify-center items-center rounded-[10px]  shadow-2xl top-[20vw] right-0 mx-auto z-50 bg-white w-[75%]  h-[65vw]'>
-                    <FilteredOptions handleonchangefilter={handleOnchangefilter} ownership={ownership} setownership={setownership} setshowfiltered={setshowFiltered} />
+                    <FilteredOptions handleonchangefilter={handleOnchangefilter} state={state} fees={fees} handleOnchangeState={handleOnchangeState} handleOnchangeFees={handleOnchangeFees} ownership={ownership} setownership={setownership} setshowfiltered={setshowFiltered} />
                   </div>
                 )
               }

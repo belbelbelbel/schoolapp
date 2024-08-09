@@ -7,24 +7,26 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 interface Filtereprops {
     handleonchangefilter: (value: string) => void,
-    ownership: string
-    setownership: (value: string) => void
-    setshowfiltered: (value: boolean) => void 
+    handleOnchangeFees: (value: string) => void,
+    handleOnchangeState: (value: string) => void,
+    state:string;
+    ownership: string,
+    fees: string,
+    setownership: (value: string) => void,
+    setshowfiltered: (value: boolean) => void
 }
 
 
 
-export const FilteredOptions = ({ handleonchangefilter, ownership, setownership,setshowfiltered }: Filtereprops) => {
+export const FilteredOptions = ({ handleonchangefilter,state, ownership,handleOnchangeState, setownership, fees, setshowfiltered, handleOnchangeFees }: Filtereprops) => {
+    const nigeriaStates = ["Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau", "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara"];
     const [showOwnership, setOwnership] = useState(false)
     const handleownwership = () => {
         setOwnership(!showOwnership)
-        setownership("")
+        // setownership("")
     }
     const [age, setAge] = React.useState('');
 
-    const handleChange = (event: SelectChangeEvent) => {
-        setAge(event.target.value);
-    };
     return (
         <div className='z-50 relative flex-col text-white flex font-sans font-bold justify-center  items-center w-[100%]  h-[100%]'>
             <div className='flex flex-col gap-[6vw] -top-[0vw] z-50 relative'>
@@ -54,23 +56,21 @@ export const FilteredOptions = ({ handleonchangefilter, ownership, setownership,
                         labelId="demo-simple-select-helper-label"
                         onClick={() => setshowfiltered(false)}
                         id="demo-simple-select-helper"
-                        value={age}
+                        value={fees}
                         label="Age"
-                        onChange={handleChange}
+                        onChange={(e: any) => handleOnchangeFees(e.target.value)}
                         className='h-[12vw] w-full'
                     >
                         <MenuItem value="">
                         </MenuItem>
-                        <MenuItem value={10}>10,000 - 100,000</MenuItem>
-                        <MenuItem value={20}>101,000 - 200,000</MenuItem>
-                        <MenuItem value={30}>201,000 - 300,000</MenuItem>
-                        <MenuItem value={40}>301,000 - 400,000</MenuItem>
-                        <MenuItem value={50}>301,000 - 400,000</MenuItem>
-                        <MenuItem value={60}>301,000 - 400,000</MenuItem>
-                        <MenuItem value={70}>301,000 - 400,000</MenuItem>
-                        <MenuItem value={80}>301,000 - 400,000</MenuItem>
-                        <MenuItem value={90}>301,000 - 400,000</MenuItem>
-                        <MenuItem value={100}>Above 1,000,000</MenuItem>
+                        <MenuItem value="10000-250000">10,000 - 250,000</MenuItem>
+                        <MenuItem value="250000-500000">250,000 - 500,000</MenuItem>
+                        <MenuItem value="500000-750000">500,000 - 750,000</MenuItem>
+                        <MenuItem value="750000-1000000">750,000 - 1,000,000</MenuItem>
+                        <MenuItem value="1000000-2500000">1,000,000 - 2,500,000</MenuItem>
+                        <MenuItem value="2500000-3500000">2,500,000 - 3,500,000</MenuItem>
+                        <MenuItem value="3500000-5000000">3,500,000 - 5,000,000</MenuItem>
+                        <MenuItem value="5000000">5,000,000</MenuItem>
                     </Select>
 
                 </FormControl>
@@ -80,23 +80,17 @@ export const FilteredOptions = ({ handleonchangefilter, ownership, setownership,
                         labelId="demo-simple-select-helper-label"
                         onClick={() => setshowfiltered(false)}
                         id="demo-simple-select-helper"
-                        value={age}
+                        value={state}
                         label="Age"
-                        onChange={handleChange}
+                        // onChange={handleChange}
+                        onChange={(e:any) => handleOnchangeState(e.target.value)}
                         className='h-[12vw] w-full'
                     >
                         <MenuItem value="">
                         </MenuItem>
-                        <MenuItem value={10}>Abia State</MenuItem>
-                        <MenuItem value={20}>Adamawa</MenuItem>
-                        <MenuItem value={30}>Akwa-ibom</MenuItem>
-                        <MenuItem value={40}>Anambra</MenuItem>
-                        <MenuItem value={50}>Bauchi</MenuItem>
-                        <MenuItem value={60}>Bayelsa</MenuItem>
-                        <MenuItem value={70}>Benue</MenuItem>
-                        <MenuItem value={80}>Borno</MenuItem>
-                        <MenuItem value={90}>Cross River</MenuItem>
-                        <MenuItem value={100}>Delta</MenuItem>
+                        {nigeriaStates.map((state, i) => (
+                            <MenuItem key={i} value={state} >{state}</MenuItem>
+                        ))}
                     </Select>
                 </FormControl>
 

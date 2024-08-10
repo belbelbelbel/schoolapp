@@ -73,73 +73,73 @@ const Router = () => {
         <Route path='/resetpassword' element={<ResetPassword />}></Route>
         <Route path='/contactus' element={<ContactUs />}></Route>
         <Route path='/reset-password' element={<ConfirmPassword />}></Route>
-        <Route path='/university' element={<SchoolPage />}>
-          <Route path=':universityid' element={<SchoolPage />}>
+        <Route path='/university' element={token ? <SchoolPage /> : <Navigate to="/signin" />}>
+          <Route path=':universityid' element={token ? <SchoolPage /> : <Navigate to="/signin" />}>
           </Route>
         </Route>
-        <Route path='/university' element={<Programs />}>
-          <Route path=':universityid' element={<Programs />}>
-            <Route path=':schoolid' element={<Programs />}></Route>
+        <Route path='/university' element={token ? <Programs /> : <Navigate to="/signin" />}>
+          <Route path=':universityid' element={token ? <Programs /> : <Navigate to="/signin" />}>
+            <Route path=':schoolid' element={token ? <Programs /> : <Navigate to="/signin" />}></Route>
           </Route>
         </Route>
-        <Route path='/university' element={<ProgramPost />}>
-          <Route path=':universityid?/programs?' element={<ProgramPost />}>
+        <Route path='/university' element={token ? <ProgramPost /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/programs?' element={token ? <ProgramPost /> : <Navigate to="/signin" />}>
           </Route>
         </Route>
         <Route path='about' element={<About />}></Route>
-        <Route path='/university' element={<Undergraduate2 />}>
-          <Route path=':universityid?/undergraduate?' element={<Undergraduate2 />} />
+        <Route path='/university' element={token ? <Undergraduate2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/undergraduate?' element={token ? <Undergraduate2 /> : <Navigate to="/signin"  />} />
         </Route>
-        <Route path='/university' element={<Undergraduatesprog />}>
-          <Route path=':universityid?/undergraduateprogram?' element={<Undergraduatesprog />} />
+        <Route path='/university' element={token ? <Undergraduatesprog /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/undergraduateprogram?' element={token ? <Undergraduatesprog /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Postgraduatesprog />}>
-          <Route path=':universityid?/postgraduateprogram?' element={<Postgraduatesprog />} />
+        <Route path='/university' element={token ? <Postgraduatesprog /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/postgraduateprogram?' element={token ? <Postgraduatesprog /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Faq2 />}>
-          <Route path=':universityid?/faq' element={<Faq2 />} />
+        <Route path='/university' element={token ? <Faq2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/faq' element={token ? <Faq2 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Dates2 />}>
-          <Route path=':universityid?/date' element={< Dates2 />} />
+        <Route path='/university' element={token ? <Dates2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/date' element={token ? <Dates2 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Dates3 />}>
-          <Route path=':universityid?/dates' element={< Dates3 />} />
+        <Route path='/university' element={token ? <Dates3 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/dates' element={token ? <Dates3 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Links />}>
-          <Route path=':universityid?/links' element={< Links />} />
+        <Route path='/university' element={token ? <Links /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/links' element={token ? <Links /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Fees2 />}>
-          <Route path=':universityid?/fees' element={< Fees2 />} />
+        <Route path='/university' element={token ? <Fees2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/fees' element={token ? <Fees2 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Admission2 />}>
-          <Route path=':universityid?/admission' element={< Admission2 />} />
+        <Route path='/university' element={token ? <Admission2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/admission' element={token ? <Admission2 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Programs2 />}>
-          <Route path=':universityid?/colleges' element={< Programs2 />} />
+        <Route path='/university' element={token ? <Programs2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/colleges' element={token ? <Programs2 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Exam2 />}>
-          <Route path=':universityid?/exam' element={<Exam2 />} />
+        <Route path='/university' element={token ? <Exam2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/exam' element={token ? <Exam2/> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Exams3 />}>
-          <Route path=':universityid?/exams' element={<Exams3 />} />
+        <Route path='/university' element={token ? <Exams3 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/exams' element={token ? <Exams3 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Fluid2 />}>
-          <Route path=':universityid?/fluid' element={<Fluid2 />} />
+        <Route path='/university' element={token ? <Fluid2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/fluid' element={token ? <Fluid2 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Fluid3 />}>
-          <Route path=':universityid?/fluids' element={<Fluid3 />} />
+        <Route path='/university' element={token ? <Fluid3 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/fluids' element={token ? <Fluid3 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Postgraduate2 />}>
-          <Route path=':universityid?/postgraduate?' element={<Postgraduate2 />} />
+        <Route path='/university' element={token ? <Postgraduate2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/postgraduate?' element={token ? <Postgraduate2 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Contact2 />}>
-          <Route path=':universityid?/contact?' element={<Contact2 />} />
+        <Route path='/university' element={token ? <Contact2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/contact?' element={token ? <Contact2 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Documents2 />}>
-          <Route path=':universityid?/documents?' element={<Documents2 />} />
+        <Route path='/university' element={token ? <Documents2 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/documents?' element={token ? <Documents2 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={<Documents3 />}>
-          <Route path=':universityid?/documentss?' element={<Documents3 />} />
+        <Route path='/university' element={token ? <Documents3 /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/documentss?' element={token ? <Documents3 /> : <Navigate to="/signin" />} />
         </Route>
         <Route path='/school/covenant-university/contact' element={<Contact />}></Route>
         <Route path='/school/covenant-university/usefulinks' element={<Uselinks />}></Route>

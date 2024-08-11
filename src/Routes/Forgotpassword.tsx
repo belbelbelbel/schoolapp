@@ -28,7 +28,7 @@ const Forgotpassword = () => {
                 body: JSON.stringify(data),
             });
             const result = await res.json();
-            console.log(result);
+            // console.log(result);
 
 
             if (!res.ok) {
@@ -55,7 +55,7 @@ const Forgotpassword = () => {
 
     const { register, handleSubmit, formState: { errors } } = useForm<valueprops>()
     const onSubmit: SubmitHandler<valueprops> = (data) => {
-        console.log(data);
+        // console.log(data);
         handleforgot(data)
     };
     let emailerror: React.ReactNode = '';

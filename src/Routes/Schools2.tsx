@@ -59,10 +59,10 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                     },
                 })
                 const result = await res.json();
-                console.log()
+                // console.log()
                 if (input.length !== 0) {
                     setsearch(result)
-                    console.log(result);
+                    // console.log(result);
                     // setisloading(false)
                 }
                 else {
@@ -73,7 +73,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                     throw new Error("Failed to fetch data from the API");
                 }
             } catch (error) {
-                console.log('Error parsing JSON:', error, input);
+                // console.log('Error parsing JSON:', error, input);
                 // setisloading(false)
             }
         }
@@ -103,7 +103,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                     },
                 });
                 const result = await res.json();
-                console.log(result);
+                // console.log(result);
                 if (input.length !== 0) {
                     seterror(result.message)
                     //   setisloading(false)
@@ -114,7 +114,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                     setsearch([])
                 }
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             }
         };
         handleFilteredSearch(ownership);
@@ -136,7 +136,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                     },
                 });
                 const result = await res.json();
-                console.log(result);
+                // console.log(result);
                 if (input.length !== 0) {
                     seterror(result.message)
                     //   setisloading(false)
@@ -147,7 +147,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                     setsearch([])
                 }
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             }
         };
         handleFilteredSearch(fees);
@@ -168,7 +168,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                     },
                 });
                 const result = await res.json();
-                console.log(result);
+                // console.log(result);
                 if (input.length !== 0) {
                     seterror(result.message)
 
@@ -179,7 +179,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                     setsearch([])
                 }
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             }
         };
         handleFilteredSearch(state);

@@ -32,7 +32,7 @@ const Home = () => {
     }, []);
 
     useEffect(() => {
-        console.log("this is location", locations)
+        // console.log("this is location", locations)
     }, [locations])
     useEffect(() => {
         if (signupClicked) {

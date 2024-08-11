@@ -33,7 +33,7 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
                     },
                 })
                 const result = await res.json()
-                console.log(result.secSchools)
+                // console.log(result.secSchools)
                 setSchools(result.secSchools)
                 if (!res.ok) {
                     throw new Error("Error occurred in fetching schools")
@@ -42,7 +42,7 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
                     // alert("goode one oin schools")
                 }
             } catch (error) {
-                console.log(error)
+                // console.log(error)
             }
             finally {
                 setLoading(false)

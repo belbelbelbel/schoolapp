@@ -51,7 +51,7 @@ export const Contact = () => {
                 },
             });
             const result = await res.json();
-            console.log(result);
+            // console.log(result);
             setcont(result)
             setLoadingContact(false);
         };
@@ -74,7 +74,7 @@ export const Contact = () => {
                     throw new Error("error occurred in the description");
                 }
             } catch (error) {
-                console.log("description error", error);
+                // console.log("description error", error);
             }
         };
         fetchdescribe();

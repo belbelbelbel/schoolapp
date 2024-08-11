@@ -24,7 +24,7 @@ export const Undergraduatesprog = () => {
                     },
                 });
                 const result = await res.json();
-                console.log(result.university.undergraduate);
+                // console.log(result.university.undergraduate);
                 setundergradPrograms(result.university.undergraduate)
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

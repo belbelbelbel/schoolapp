@@ -38,7 +38,7 @@ export const Verification = () => {
     };
 
     const data = locations.state?.data;
-    console.log(data);
+    // console.log(data);
 
     const handleverification = async (e: React.FormEvent<HTMLElement>) => {
         e.preventDefault();
@@ -53,7 +53,7 @@ export const Verification = () => {
                 body: JSON.stringify({ email: data.email, otp: otp.join('') })
             });
             const result = await res.json();
-            console.log(result);
+            // console.log(result);
             seterror(result.message);
             if (!res.ok) {
                 setcheck(true);
@@ -65,7 +65,7 @@ export const Verification = () => {
                 // navigate("/signin")
             }
         } catch (error) {
-            console.log(error);
+            // console.log(error);
         } finally {
             setloading(false);
         }
@@ -76,10 +76,10 @@ export const Verification = () => {
             const atIndex = data.email.indexOf('@') ?? -1;
             const visibleChars = Math.min(4, atIndex);
             const maskedLocalPart = data.email.slice(0, visibleChars) + '*'.repeat(atIndex - visibleChars) + data.email.slice(atIndex);
-            console.log(maskedLocalPart);
+            // console.log(maskedLocalPart);
             setmail(maskedLocalPart);
         } else {
-            console.log('Email not available in data');
+            // console.log('Email not available in data');
         }
     }, [data]);
 
@@ -89,7 +89,7 @@ export const Verification = () => {
         if (key === "Backspace") {
             setactiveOtp(currentOtp - 1);
         }
-        console.log(key);
+        // console.log(key);
     };
 
     useEffect(() => {

@@ -48,10 +48,10 @@ export const Programs2 = () => {
                     }
                 })
                 const result = await res.json()
-                console.log(result)
+                // console.log(result)
                 settext(result)
             } catch (error) {
-                console.log(error)
+                // console.log(error)
             }
         }
         fetchprograms()
@@ -70,24 +70,24 @@ export const Programs2 = () => {
                 });
 
                 const result = await res.json();
-                console.log(result);
-                console.log(result.overview);
+                // console.log(result);
+                // console.log(result.overview);
                 setover(result.overview);
                 setsearchs(result);
                 setschool(result.schoolNames);
-                console.log(result.schoolNames);
+                // console.log(result.schoolNames);
                 setLoading(false);
 
                 if (!res.ok) {
                     throw new Error("error occured in the description");
                 }
                 if (!searchs) {
-                    console.log("No data found for this university");
+                    // console.log("No data found for this university");
                     setLoading(false);
                 }
-                console.log("the results are", result);
+                // console.log("the results are", result);
             } catch (error) {
-                console.log("description error", error);
+                // console.log("description error", error);
                 setLoading(false);
             }
         }

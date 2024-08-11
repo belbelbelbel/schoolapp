@@ -30,11 +30,11 @@ export const Contact2 = () => {
                     },
                 });
                 const result = await res.json();
-                console.log(result);
+                // console.log(result);
                 setcont(result)
                 setLoadingContact(false);
             } catch (error) {
-                console.log(error)
+                // console.log(error)
             }
             finally {
                 setloading(false);

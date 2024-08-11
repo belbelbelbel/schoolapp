@@ -23,18 +23,18 @@ export const Documents2 = () => {
                     }
                 })
                 const results = await res.json()
-                console.log(results)
-                console.log(results[0].programs)
-                console.log(results[0].programs)
-                console.log(results[0].programs[1])
-                console.log(results[0].dates)
-                setdates(results[0].documents)
+                // console.log(results)
+                // console.log(results[0].programs)
+                // console.log(results[0].programs)
+                // console.log(results[0].programs[1])
+                // console.log(results[0].dates)
+                // setdates(results[0].documents)
                 // console.log(results.university.schools)
                 if (!res.ok) {
                     throw new Error("error parsing json")
                 }
             } catch (error) {
-                console.log(error)
+                // console.log(error)
             }
             finally {
                 setloading(false)

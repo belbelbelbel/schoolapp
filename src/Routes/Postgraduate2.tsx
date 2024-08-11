@@ -53,14 +53,14 @@ export const Postgraduate2 = () => {
                     }
                 });
                 const result = await res.json();
-                console.log(result);
+                // console.log(result);
 
                 if (!res.ok) {
                     throw new Error("error occured in the description");
                 }
-                console.log("the results are", result);
+                // console.log("the results are", result);
             } catch (error) {
-                console.log("description error", error);
+                // console.log("description error", error);
                 setLoading(false);
             }
             finally {

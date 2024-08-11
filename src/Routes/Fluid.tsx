@@ -41,20 +41,20 @@ export const Fluid = () => {
                     }
                 })
                 const results = await res.json()
-                console.log(results)
-                console.log(results[0].programs)
-                console.log(results[0].programs)
-                console.log(results[0].programs[1])
+                // console.log(results)
+                // console.log(results[0].programs)
+                // console.log(results[0].programs)
+                // console.log(results[0].programs[1])
                 setdepart(results[0].programs)
                 setprog(results[0])
-                console.log(results[0])
+                // console.log(results[0])
                 setfluid(results[0].dates)
                 // console.log(results.university.schools)
                 if (!res.ok) {
                     throw new Error("error parsing json")
                 }
             } catch (error) {
-                console.log(error)
+                // console.log(error)
             }
             finally {
                 setloading(false)
@@ -75,11 +75,11 @@ export const Fluid = () => {
                     }
                 });
                 const result = await res.json();
-                console.log(result);
-                console.log(result.faq[0]);
+                // console.log(result);
+                // console.log(result.faq[0]);
                 setfaqs(result.faq[0]);
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             } finally {
                 setisloading(false);
             }
@@ -99,11 +99,11 @@ export const Fluid = () => {
                     }
                 });
                 const result = await res.json();
-                console.log(result);
-                console.log(result.faq[0]);
+                // console.log(result);
+                // console.log(result.faq[0]);
                 setfaqs(result.faq[0]);
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             } finally {
                 setisloading(false);
             }
@@ -131,7 +131,7 @@ export const Fluid = () => {
                     throw new Error("error occurred in the description");
                 }
             } catch (error) {
-                console.log("description error", error);
+                // console.log("description error", error);
             }
         };
         fetchdescribe();

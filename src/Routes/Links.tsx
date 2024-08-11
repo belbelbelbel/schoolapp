@@ -24,10 +24,10 @@ export const Links = () => {
                     }
                 });
                 const result = await res.json();
-                console.log(result);
+                // console.log(result);
                 setfaqs(result.relevantLinks[0]);
             } catch (error) {
-                console.log(error);
+                // console.log(error);
             } finally {
                 setisloading(false);
             }

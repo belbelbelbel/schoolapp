@@ -57,7 +57,7 @@ export const ContactUs = () => {
                     // seterror(true)
                 }
             }
-            console.log(result);
+            // console.log(result);
         } catch (error) {
             console.log(error);
         }
@@ -67,7 +67,7 @@ export const ContactUs = () => {
     };
     const { register, handleSubmit, formState: { errors } } = useForm<valueprops>();
     const onSubmit: SubmitHandler<valueprops> = (data) => {
-        console.log(data);
+        // console.log(data);
         handlepostcontact(data);
     };
     return (

@@ -22,7 +22,7 @@ export const Postgraduatesprog = () => {
                     },
                 });
                 const result = await res.json();
-                console.log(result.university.postgraduate);
+                // console.log(result.university.postgraduate);
                 setpostgradPrograms(result.university.postgraduate)
                 if (!res.ok) {
                     throw new Error('Network response was not ok');

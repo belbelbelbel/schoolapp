@@ -56,7 +56,7 @@ const Signup = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsLoading(true);
-    console.log(JSON.stringify(formdata))
+    // console.log(JSON.stringify(formdata))
     try {
       if (user) {
         const res = await fetch("https://almaquin.onrender.com/api/signup", {
@@ -72,7 +72,7 @@ const Signup = () => {
           }),
         })
         const result = await res.json()
-        console.log(result);
+        // console.log(result);
         toast.error(result.message)
         if (!res.ok) {
           throw new Error("error fetching user signup")
@@ -121,7 +121,7 @@ const Signup = () => {
         validateerror.push("Your reasons are required");
       }
       user?.seterror(validateerror);
-      console.log("error occued again", error)
+      // console.log("error occued again", error)
 
     }
     finally {

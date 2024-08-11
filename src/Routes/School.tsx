@@ -54,10 +54,10 @@ export const School = () => {
           },
         })
         const result = await res.json();
-        console.log()
+        // console.log()
         if (input.length !== 0) {
           setsearch(result)
-          console.log(result);
+          // console.log(result);
           seterror(result.message)
           setisloading(false)
         }
@@ -70,7 +70,7 @@ export const School = () => {
           throw new Error("Failed to fetch data from the API");
         }
       } catch (error) {
-        console.log('Error parsing JSON:', error, input);
+        // console.log('Error parsing JSON:', error, input);
         setisloading(false)
       }
     }
@@ -92,7 +92,7 @@ export const School = () => {
           },
         });
         const result = await res.json();
-        console.log(result);
+        // console.log(result);
         if (input.length !== 0) {
           seterror(result.message)
           setisloading(false)
@@ -103,7 +103,7 @@ export const School = () => {
           setsearch([])
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     handleFilteredSearch(ownership);
@@ -125,7 +125,7 @@ export const School = () => {
           },
         });
         const result = await res.json();
-        console.log(result);
+        // console.log(result);
         if (input.length !== 0) {
           seterror(result.message)
           setisloading(false)
@@ -136,7 +136,7 @@ export const School = () => {
           setsearch([])
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     handleFilteredSearch(fees);
@@ -157,7 +157,7 @@ export const School = () => {
           },
         });
         const result = await res.json();
-        console.log(result);
+        // console.log(result);
         if (input.length !== 0) {
           seterror(result.message)
           setisloading(false)
@@ -168,7 +168,7 @@ export const School = () => {
           setsearch([])
         }
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     };
     handleFilteredSearch(state);

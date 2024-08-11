@@ -23,15 +23,15 @@ export const Exam2 = () => {
                     }
                 })
                 const results = await res.json()
-                console.log(results)
-                console.log(results[0].exams)
+                // console.log(results)
+                // console.log(results[0].exams)
                 setdates(results[0].exams)
                 // console.log(results.university.schools)
                 if (!res.ok) {
                     throw new Error("error parsing json")
                 }
             } catch (error) {
-                console.log(error)
+                // console.log(error)
             }
             finally {
                 setloading(false)

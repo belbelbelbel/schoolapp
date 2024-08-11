@@ -19,7 +19,7 @@ export const PreSchool = () => {
         setshownavbar(!shownavbar)
     }
 
-console.log(token)
+// console.log(token)
     useEffect(()=> {
         if(!token) {
           navigate('/signin')

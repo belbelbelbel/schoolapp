@@ -27,11 +27,11 @@ export const Faq2 = () => {
           }
         });
         const result = await res.json();
-        console.log(result);
-        console.log(result.faq[0]);
+        // console.log(result);
+        // console.log(result.faq[0]);
         setfaqs(result.faq[0]);
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       } finally {
         setisloading(false);
       }

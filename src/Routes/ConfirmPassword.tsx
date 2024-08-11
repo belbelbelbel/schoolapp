@@ -20,9 +20,9 @@ export const ConfirmPassword = () => {
     const [error, seterror] = useState(false)
     const navigate = useNavigate();
     const searchParams = new URLSearchParams(window.location.search);
-    console.log(searchParams.has('token'));
+    // console.log(searchParams.has('token'));
     const token = searchParams.get('token');
-    console.log(token)
+    // console.log(token)
     const handleresepassword = async (data: ConfirmPasswordprops) => {
         setloading(true)
         try {
@@ -44,7 +44,7 @@ export const ConfirmPassword = () => {
                 setShowmodal(true)
             }
         } catch (error) {
-            console.log(error)
+            // console.log(error)
 
         }
         finally {
@@ -56,7 +56,7 @@ export const ConfirmPassword = () => {
     const { register, formState: { errors }, handleSubmit, watch } = useForm<ConfirmPasswordprops>()
 
     const onSubmit: SubmitHandler<ConfirmPasswordprops> = (data) => {
-        console.log(data);
+        // console.log(data);
         handleresepassword({ ...data, token });
     }
 

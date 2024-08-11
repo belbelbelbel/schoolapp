@@ -54,7 +54,7 @@ const Loader = (props: Props) => {
       position: 'relative',
     }}
   >
-    <source src="CTF Animation.mp4" type="video/mp4" />
+    <source src="CTF Animationedited.mp4" type="video/mp4" />
     Your browser does not support the video tag or the file format of this video.
   </video>
 </motion.div>

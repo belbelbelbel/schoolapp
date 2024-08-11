@@ -85,9 +85,9 @@ const Signin = () => {
         validateerror.push('the password is complete');
       }
       user?.seterror(validateerror);
-      console.log("error occured", error);
+      // console.log("error occured", error);
       if (!localStorage.getItem('signincors')) {
-        console.log("fdfgdhdf")
+        // console.log("fdfgdhdf")
         setCorserror("Error Occured,Please Try again")
       }
     } finally {
@@ -95,7 +95,7 @@ const Signin = () => {
     }
   }
 
-  console.log(token)
+  // console.log(token)
   const buttonVariants = {
     initial: {
       y: "-10vh",
@@ -139,7 +139,7 @@ const Signin = () => {
       exit={{ opacity: 0 }}>
       <div className='signin_container'>
         <div className='signin-img'>
-          <img src="Picture.png" alt="signin page image" />
+          <img src="/Picture-transformed.png" alt="signin page image" />
         </div>
         <div className='signin_container2'>
           <form onSubmit={handleSubmit}>

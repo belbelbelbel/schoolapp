@@ -88,7 +88,7 @@ console.log(token)
                     </div>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </motion.div>
     )
 }

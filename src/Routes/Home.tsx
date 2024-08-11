@@ -103,7 +103,7 @@ const Home = () => {
             ) : (
                 <div className="home_container">
                     <div className="home_container8">
-                        <h1><img src="color_logo_transparent.svg" alt="logo" width="100vw" /></h1>
+                        <h1><img src="/logoctf.jpg" alt="logo" width="0vw" /></h1>
                         <svg>
                             <path></path>
                         </svg>

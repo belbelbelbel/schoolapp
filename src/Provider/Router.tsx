@@ -141,7 +141,7 @@ const Router = () => {
         <Route path='/university' element={token ? <Documents3 /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/documentss?' element={token ? <Documents3 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/school/covenant-university/contact' element={<Contact />}></Route>
+        <Route path='/school/covenant-university/contact' element={<Contact />}></Route>    
         <Route path='/school/covenant-university/usefulinks' element={<Uselinks />}></Route>
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
         <Route path="/verification" element={<Verification />} />

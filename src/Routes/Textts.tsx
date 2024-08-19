@@ -99,7 +99,7 @@ const Signup = () => {
       if (!formdata?.birthday.trim()) {
         validateerror.push("Your Date Of birth Is Required");
       }
-
+      
       if (!formdata?.firstName.trim()) {
         validateerror.push("Your firstname is required");
       }

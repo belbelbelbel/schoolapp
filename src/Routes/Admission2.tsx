@@ -102,7 +102,6 @@ export const Admission2 = () => {
                             <div className='items-center justify-center flex text-center'>
                                 <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Admission</button>
                             </div>
-
                             <button className='py-[1.5vw] w-[49vw] border-[#9f5942] rounded-[2vw] text-[3.8vw] border-2' onClick={handlenavigatepost}>Postgraduates</button>
                             <button className='py-[1.5vw] w-[49vw] border-[#9f5942] rounded-[2vw] text-[3.8vw] border-2' onClick={handlenavigateunder}>Undergraduates</button>
                             {/* <button className='py-[1.9vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlenavigatecontact}>Contacts</button> */}

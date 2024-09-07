@@ -1,11 +1,9 @@
-import React from 'react'
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 
 interface confirmprops  {
     setshow: (show:boolean) => void
 }
-
 export const ComfirmModal = ({setshow}:confirmprops) => {
     const stopPropagation = (e: { stopPropagation: () => void }) => {
         e.stopPropagation();

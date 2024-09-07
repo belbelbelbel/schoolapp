@@ -7,6 +7,7 @@ import { Loading } from './Loading';
 import { Schools2 } from './Schools2';
 import { BiArrowBack } from 'react-icons/bi';
 import { HeaderRoute } from './HeaderRoute';
+import { AnimatePresence, motion } from 'framer-motion';
 
 interface OverviewItem {
     _id: string;
@@ -29,20 +30,34 @@ interface SearchResult {
 export const SchoolPage = () => {
     const navigate = useNavigate();
     const [showschool, setshowschool] = useState(true);
-    const [shownavbar, setshownavbar] = useState(false);
+    const [showList, setShowList] = useState(false);
     const params = useParams();
     const [loading, setLoading] = useState(true)
     const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [], shortName: "", address: "", yearFounded: "", ownership: "", location: "" });
     const [school, setschool] = useState([]);
     const [over, setover] = useState([]);
     const accesstokena = Cookies.get('token');
-    const handleshow = () => {
-        setshownavbar(!shownavbar);
+    const handleShowList = () => {
+        setShowList(!showList);
     }
+    const handledate = () => {
+        navigate(`${params.universityid}/date`)
+    }
+    const handlexam = () => {
+        navigate(`${params.universityid}/exam`)
+      }
+    
+      const handledocuments = () => {
+        navigate(`/university/${params.universityid}/documents`)
+      }
+    
+      const handlefee = () => {
+        navigate(`${params.universityid}/fees`)
+      }
     const handlenavigatecontact = () => {
         navigate(`/university/${params.universityid}/contact`);
     }
-    
+
     const handlefees = () => {
         navigate(`${params.universityid}/links`)
     }
@@ -87,6 +102,32 @@ export const SchoolPage = () => {
         }
         fetchdescribe();
     }, []);
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                duration: 0.5,
+                staggerChildren: 0.2, // Stagger enter animation
+            },
+        },
+        exit: {
+            opacity: 0,
+            transition: {
+                staggerChildren: 0, // Stagger exit animation
+                // staggerDirection: -1, // Reverse the stagger on exit
+            },
+        },
+    };
+
+    // Button motion variants
+    const buttonVariants = {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+        exit: { opacity: 0, y: 20 },
+    };
+
+
 
     if (loading) {
         return <div> <Loading /></div>;
@@ -96,15 +137,57 @@ export const SchoolPage = () => {
             {
                 showschool ? (
                     <div className='w-screen pb-[3vw]'>
-                     <HeaderRoute showschool={showschool} setshowschool={setshowschool}/>
+                        <HeaderRoute showschool={showschool} setshowschool={setshowschool} />
                         <div className='flex items-center mt-[16vw] justify-center flex-col gap-[3vw]'>
                             <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleprograms}>Programs</button>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleaddmision}>Admissions</button>
+                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleShowList}>Admissions</button>
+                            <AnimatePresence>
+                                {showList && (
+                                    <motion.div
+                                        key="button-list"
+                                        variants={containerVariants}   // Apply the parent variants
+                                        initial="hidden"               // Initial state of the parent
+                                        animate="visible"              // Animate to visible state
+                                        exit="exit"                    // Animate to exit state
+                                        className='flex items-center mt-[1vw] justify-center flex-col gap-[3vw]'
+                                    >
+                                        <motion.button
+                                            variants={buttonVariants}  // Apply staggered animation to buttons
+                                            className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
+                                            onClick={handledate}
+                                        >
+                                            Dates
+                                        </motion.button>
+                                        <motion.button
+                                            variants={buttonVariants}
+                                            className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
+                                            onClick={handlefee}
+                                        >
+                                            Fees
+                                        </motion.button>
+                                        <motion.button
+                                            variants={buttonVariants}
+                                            className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
+                                            onClick={handlexam}
+                                        >
+                                            Exams
+                                        </motion.button>
+                                        <motion.button
+                                            variants={buttonVariants}
+                                            className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
+                                            onClick={handledocuments}
+                                        >
+                                            Documents
+                                        </motion.button>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
                             <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlenavigatecontact}>Contacts</button>
                             <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'>Rankings</button>
                             <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefees}>Useful links</button>
                             <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'>Terms of use</button>
                         </div>
+
                     </div>
                 ) : (<Schools2 setshowschool={setshowschool} />)
             }

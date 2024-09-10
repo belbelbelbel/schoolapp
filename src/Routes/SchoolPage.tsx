@@ -143,7 +143,7 @@ export const SchoolPage = () => {
         <div className='h-[100dvh] flex flex-col gap-4 justify-between'>
             {
                 showschool ? (
-                    <div className='w-screen pb-[3vw]'>
+                    <div className='w-screen pb-[3vw'>
                         <HeaderRoute showschool={showschool} setshowschool={setshowschool} />
                         <div className='flex items-center mt-[16vw] justify-center flex-col gap-[3vw]'>
                             <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'  onClick={handleShowProgramList}>Programs</button>

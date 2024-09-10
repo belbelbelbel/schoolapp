@@ -45,7 +45,7 @@ export const Contact2 = () => {
     }, [accesstokena]);
 
     return (
-        <div className='prog_cont h-[100vh] justify-between flex flex-col'>
+        <div className='prog_cont h-[100dvh] justify-between flex flex-col'>
             {
                 loading ? <h1><Loading /></h1> :
 

@@ -55,7 +55,7 @@ export const Footer = () => {
                         <div>{footerUpdate?.dateModified ? formatDate(footerUpdate.dateModified) : 'N/A'}</div>
                     </div>
                 </div>
-                <div className='bg-black outline-0 border-0 items-end justify-end w-[70%]'>
+                <div className=' outline-0 border-0 items-end justify-end w-[70%]'>
                     <img src="/logoctf.jpg" alt="footer-logo" />
                 </div>
             </div>

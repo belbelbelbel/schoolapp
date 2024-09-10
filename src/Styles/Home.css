@@ -13,7 +13,7 @@
         flex-direction: column;
         justify-content: space-between;
         /* background-color: rgba(132, 202, 255, 1); */
-        background: linear-gradient(180deg, white 0%, white 40%, lightskyblue 60%, lightskyblue 100%);
+        background: linear-gradient(180deg, white 0%, white 40%, lightskyblue 60%, rgb(135, 189, 223) 100%);
         /* background-color: lightcyan; */
         overflow: hidden;
     }

@@ -24,8 +24,7 @@ export const Fees2 = () => {
     }
     
 
-
-
+    
     console.log(HoldFeeArray)
     return (
         <div className='pt-[2rem] w-screen'>

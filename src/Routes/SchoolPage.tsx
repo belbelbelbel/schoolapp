@@ -31,6 +31,7 @@ export const SchoolPage = () => {
     const navigate = useNavigate();
     const [showschool, setshowschool] = useState(true);
     const [showList, setShowList] = useState(false);
+    const [showProgramsList, setShowProgramsList] = useState(false);
     const params = useParams();
     const [loading, setLoading] = useState(true)
     const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [], shortName: "", address: "", yearFounded: "", ownership: "", location: "" });
@@ -40,20 +41,23 @@ export const SchoolPage = () => {
     const handleShowList = () => {
         setShowList(!showList);
     }
+    const handleShowProgramList = () => {
+        setShowProgramsList(!showProgramsList);
+    }
     const handledate = () => {
         navigate(`${params.universityid}/date`)
     }
     const handlexam = () => {
         navigate(`${params.universityid}/exam`)
-      }
-    
-      const handledocuments = () => {
+    }
+
+    const handledocuments = () => {
         navigate(`/university/${params.universityid}/documents`)
-      }
-    
-      const handlefee = () => {
+    }
+
+    const handlefee = () => {
         navigate(`${params.universityid}/fees`)
-      }
+    }
     const handlenavigatecontact = () => {
         navigate(`/university/${params.universityid}/contact`);
     }
@@ -61,8 +65,11 @@ export const SchoolPage = () => {
     const handlefees = () => {
         navigate(`${params.universityid}/links`)
     }
-    const handleaddmision = () => {
-        navigate(`${params.universityid}/admission`)
+    const handlenavigateunder = () => {
+        navigate(`/university/${params.universityid}/undergraduate`);
+    }
+    const handlenavigatepost = () => {
+        navigate(`/university/${params.universityid}/postgraduate`);
     }
     const handleprograms = () => {
         navigate(`${params.universityid}/colleges`);
@@ -108,7 +115,7 @@ export const SchoolPage = () => {
             opacity: 1,
             transition: {
                 duration: 0.5,
-                staggerChildren: 0.2, 
+                staggerChildren: 0.2,
             },
         },
         exit: {
@@ -138,7 +145,36 @@ export const SchoolPage = () => {
                     <div className='w-screen pb-[3vw]'>
                         <HeaderRoute showschool={showschool} setshowschool={setshowschool} />
                         <div className='flex items-center mt-[16vw] justify-center flex-col gap-[3vw]'>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleprograms}>Programs</button>
+                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'  onClick={handleShowProgramList}>Programs</button>
+                            <AnimatePresence>
+                                {
+                                    showProgramsList && (
+                                        <motion.div
+                                            key="button-list"
+                                            variants={containerVariants}   // Apply the parent variants
+                                            initial="hidden"               // Initial state of the parent
+                                            animate="visible"              // Animate to visible state
+                                            exit="exit"                    // Animate to exit state
+                                            className='flex items-center mt-[1vw] justify-center flex-col gap-[3vw]'
+                                        >
+                                            <motion.button
+                                                variants={buttonVariants}
+                                                className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
+                                                onClick={() => navigate(`${params.universityid}/undergraduateprogram`)}
+                                            >
+                                                Undergraduates
+                                            </motion.button>
+                                            <motion.button
+                                                variants={buttonVariants}
+                                                className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
+                                                onClick={() => navigate(`${params.universityid}/postgraduateprogram`)}
+                                            >
+                                                Postgraduates
+                                            </motion.button>
+                                        </motion.div>
+                                    )
+                                }
+                            </AnimatePresence>
                             <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleShowList}>Admissions</button>
                             <AnimatePresence>
                                 {showList && (

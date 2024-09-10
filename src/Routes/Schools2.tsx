@@ -268,14 +268,14 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                 </div>
                 <div className='flex items-center justify-center gap-[1.5vw] mt-[1.7rem] w-[85%] rounded-[6px] mx-auto ' style={{ backgroundColor: "rgba(215, 214, 214, 0.5)" }}>
                     {
-                        !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
+                        !shownavbar ? <div ><img src="/Menu button.svg" alt="menu" onClick={handleshow}  className='w-[5vw]'/></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} className='w-[5vw]'/></div>
                     }
                     <div className="school_filters">
                         <input
                             placeholder="Search here"
                             value={input}
                             autoFocus
-                            className=''
+                            className='py-4'
                             onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
                         />
                         <button type="submit" className='img_btn'>
@@ -284,7 +284,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                             }
                         </button>
                     </div>
-                    <div onClick={handleFilteredCont}><IoFilterSharp className='text-[6vw]' /> </div>
+                    <div onClick={handleFilteredCont}><IoFilterSharp className='text-[5vw]' /> </div>
                 </div>
                 {display}
                 <div className="btn">

@@ -140,7 +140,7 @@ export const SchoolPage = () => {
         return <div> <Loading /></div>;
     }
     return (
-        <div className='h-[100dvh] flex flex-col justify-between'>
+        <div className='h-[100dvh] flex flex-col gap-4 justify-between'>
             {
                 showschool ? (
                     <div className='w-screen pb-[3vw]'>

@@ -130,7 +130,7 @@ const Signin = () => {
       initial={{ opacity: 0 }}
       animate={{
         transition: {
-          duration: 1.5,
+          duration: 0.5,
           delay: 0,
           ease: "easeIn",
         },

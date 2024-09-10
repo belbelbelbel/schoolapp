@@ -26,7 +26,7 @@ export const Footer = () => {
                     throw new Error("Error occurred in the description");
                 }
             } catch (error) {
-                console.error("Description error", error);
+                // console.error("Description error", error);
             }
         }
         fetchdescribe();
@@ -44,15 +44,15 @@ export const Footer = () => {
                 <div className='flex flex-col ml-3 w-full items-start'>
                     <div className='flex items-center gap-2 text-[3vw]'>
                         <div>Page Creator:</div>
-                        <div>{footerUpdate.pageCreator}</div>
+                        <div>{footerUpdate?.pageCreator}</div>
                     </div>
                     <div className='flex items-start gap-2 text-[3vw]'>
                         <div>Page Created:</div>
-                        <div>{footerUpdate.dateAdded ? formatDate(footerUpdate.dateAdded) : 'N/A'}</div>
+                        <div>{footerUpdate?.dateAdded ? formatDate(footerUpdate.dateAdded) : 'N/A'}</div>
                     </div>
                     <div className='flex items-start gap-2 text-[3vw]'>
                         <div>Last Updated:</div>
-                        <div>{footerUpdate.dateModified ? formatDate(footerUpdate.dateModified) : 'N/A'}</div>
+                        <div>{footerUpdate?.dateModified ? formatDate(footerUpdate.dateModified) : 'N/A'}</div>
                     </div>
                 </div>
                 <div className='bg-black outline-0 border-0 items-end justify-end w-[70%]'>

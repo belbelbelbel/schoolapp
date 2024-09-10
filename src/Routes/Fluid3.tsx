@@ -31,7 +31,7 @@ export const Fluid3 = () => {
                 setdates(results[0].fluidStudents)
                 // console.log(results.university.schools)
                 if (!res.ok) {
-                    throw new Error("error parsing json")
+                    // throw new Error("error parsing json")
                 }
             } catch (error) {
                 // console.log(error)

@@ -71,7 +71,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                 }
 
                 if (!res.ok) {
-                    throw new Error("Failed to fetch data from the API");
+                    // throw new Error("Failed to fetch data from the API");
                 }
             } catch (error) {
                 // console.log('Error parsing JSON:', error, input);

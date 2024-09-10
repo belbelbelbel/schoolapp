@@ -28,7 +28,7 @@ export const Undergraduatesprog = () => {
                 // console.log(result.university.undergraduate);
                 setundergradPrograms(result.university.undergraduate)
                 if (!res.ok) {
-                    throw new Error('Network response was not ok');
+                    // throw new Error('Network response was not ok');
                 }
 
 

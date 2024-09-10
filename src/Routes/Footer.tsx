@@ -23,7 +23,7 @@ export const Footer = () => {
                 setFooterUpdate(result.university);
 
                 if (!res.ok) {
-                    throw new Error("Error occurred in the description");
+                    // throw new Error("Error occurred in the description");
                 }
             } catch (error) {
                 // console.error("Description error", error);

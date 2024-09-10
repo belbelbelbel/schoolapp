@@ -52,7 +52,7 @@ export const Exams = () => {
                 setexams(results[0].dates)
                 // console.log(results.university.schools)
                 if (!res.ok) {
-                    throw new Error("error parsing json")
+                    // throw new Error("error parsing json")
                 }
             } catch (error) {
                 console.log(error)
@@ -108,7 +108,7 @@ export const Exams = () => {
                     throw new Error("error occurred in the description");
                 }
             } catch (error) {
-                console.log("description error", error);
+                // console.log("description error", error);
             }
         };
         fetchdescribe();

@@ -37,7 +37,7 @@ const Forgotpassword = () => {
                 if (result.message === "User not found") {
                     seterror("User not found")
                 }
-                throw new Error("Error occurred while recovering password from server");
+                // throw new Error("Error occurred while recovering password from server");
             
             }
             else {

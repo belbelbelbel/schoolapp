@@ -74,7 +74,7 @@ export const HeaderRoute = ({ showschool, setshowschool }: showSchoolProps) => {
                 setLoading(false);
 
                 if (!res.ok) {
-                    throw new Error("error occured in the description");
+                    // throw new Error("error occured in the description");
                 }
                 if (!searchs) {
                     // console.log("No data found for this university");

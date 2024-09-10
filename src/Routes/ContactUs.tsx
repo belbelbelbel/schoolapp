@@ -41,7 +41,7 @@ export const ContactUs = () => {
             seterror(result.message)
 
             if (!res.ok) {
-                throw new Error("error parsing json");
+                // throw new Error("error parsing json");
             }
             else {
                 if (result.message === "Message sent successfully") {

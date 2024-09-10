@@ -38,7 +38,7 @@ export const ConfirmPassword = () => {
             const result = await res.json();
             seterror(result.message)
             if (!res.ok) {
-                throw new Error("error occured")
+                // throw new Error("error occured")
             }
             else {
                 setShowmodal(true)

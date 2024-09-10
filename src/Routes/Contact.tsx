@@ -71,7 +71,7 @@ export const Contact = () => {
                 const result = await res.json();
                 setsearchs(result);
                 if (!res.ok) {
-                    throw new Error("error occurred in the description");
+                    // throw new Error("error occurred in the description");
                 }
             } catch (error) {
                 // console.log("description error", error);

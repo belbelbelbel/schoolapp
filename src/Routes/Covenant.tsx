@@ -66,7 +66,7 @@ export const Covenant = () => {
                 console.log(result.schoolNames)
                 setLoading(false)
                 if (!res.ok) {
-                    throw new Error("error occured in the dexcription")
+                    // throw new Error("error occured in the dexcription")
                 }
                 if (!searchs) {
                     console.log("No data found for this university")

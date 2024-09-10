@@ -59,7 +59,7 @@ export const Verification = () => {
                 setcheck(true);
                 setbuttons(true);
                 
-                throw new Error("error parsing json");
+                // throw new Error("error parsing json");
             } else {
                 setshow(true);
                 // navigate("/signin")

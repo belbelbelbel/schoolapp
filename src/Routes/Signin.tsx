@@ -66,7 +66,7 @@ const Signin = () => {
    
       if (!res.ok) {
         seterror(result.message)
-        throw new Error("error fetching user signin")
+        // throw new Error("error fetching user signin")
       }
       else {
         Cookies.set('token', result.token, { expires: 1 })

@@ -56,7 +56,7 @@ export const Postgraduate2 = () => {
                 // console.log(result);
 
                 if (!res.ok) {
-                    throw new Error("error occured in the description");
+                    // throw new Error("error occured in the description");
                 }
                 // console.log("the results are", result);
             } catch (error) {

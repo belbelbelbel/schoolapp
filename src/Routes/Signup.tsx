@@ -69,7 +69,7 @@ const Signup = () => {
         // console.log(result);
         seterror(result.message)
         if (!res.ok) {
-          throw new Error("error fetching user signup")
+          // throw new Error("error fetching user signup")
         }
         navigate("/verification", { state: { data } });
       }

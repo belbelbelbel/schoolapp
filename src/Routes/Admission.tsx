@@ -53,7 +53,7 @@ export const Admission = () => {
                 setadmisssion(results[0].admissions)
                 // console.log(results.university.schools)
                 if (!res.ok) {
-                    throw new Error("error parsing json")
+                    // throw new Error("error parsing json")
                 }
             } catch (error) {
                 console.log(error)
@@ -106,7 +106,7 @@ export const Admission = () => {
                 const result = await res.json();
                 setsearchs(result);
                 if (!res.ok) {
-                    throw new Error("error occurred in the description");
+                    // throw new Error("error occurred in the description");
                 }
             } catch (error) {
                 console.log("description error", error);

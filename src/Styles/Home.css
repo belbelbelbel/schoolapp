@@ -13,7 +13,7 @@
         flex-direction: column;
         justify-content: space-between;
         /* background-color: rgba(132, 202, 255, 1); */
-        background: linear-gradient(180deg, white 0%, white 40%, lightskyblue 60%, rgb(135, 189, 223) 100%);
+        background: linear-gradient(185deg, white 0%, white 20%, lightskyblue 70%, rgb(135, 189, 223) 100%);
         /* background-color: lightcyan; */
         overflow: hidden;
     }
@@ -106,12 +106,12 @@
         z-index: 9999; 
         display: flex;
         margin: 0 auto;
-        width: 50%;
+        width: 60%;
         right: 24vw;
         height: auto; /* Maintain aspect ratio */
         display: block; /* Make the image a block element */
         position: fixed;
-        top: 20%;
+        top: 6%;
     }
     .home_container h1 {
         display: flex;

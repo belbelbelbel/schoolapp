@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Loading } from './Loading'
 import { BiArrowBack } from 'react-icons/bi'
+import { Footer } from './Footer'
 
 interface props {
     name: string
@@ -44,7 +45,7 @@ export const Contact2 = () => {
     }, [accesstokena]);
 
     return (
-        <div className='prog_cont'>
+        <div className='prog_cont h-[100vh] justify-between flex flex-col'>
             {
                 loading ? <h1><Loading /></h1> :
 
@@ -86,6 +87,9 @@ export const Contact2 = () => {
                         {/* <Footer /> */}
                     </div>
             }
+            <div>
+                <Footer />
+            </div>
         </div>
     )
 }

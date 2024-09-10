@@ -11,6 +11,7 @@ import { BiArrowBack } from 'react-icons/bi';
 import { Sidebar } from './Sidebar';
 import { Loading } from './Loading';
 import { FilteredOptions } from './FilteredOptions';
+import { Footer } from './Footer';
 interface showprops {
     setshowschool: (showschool: boolean) => void
 }
@@ -252,7 +253,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
             initial={{}}
             animate={{}}
             exit={{}}
-            className='schoolss '>
+            className='schoolss flex flex-col justify-between'>
 
             {/* // isloading ? ( */}
             <div >
@@ -316,6 +317,9 @@ export const Schools2 = ({ setshowschool }: showprops) => {
             {
                 shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
             }
+            <div>
+                {/* <Footer/> */}
+            </div>
         </motion.div>
     );
 }

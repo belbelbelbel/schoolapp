@@ -51,7 +51,7 @@ export const Programs = () => {
         navigate(-1)
     }
     return (
-        <div className='prog_cont'>
+        <div className='prog_cont h-[100dvh] flex-col flex justify-between'>
             {
                 loading ? <h1><Loading /></h1> :
 
@@ -101,6 +101,9 @@ export const Programs = () => {
                         {/* <Footer /> */}
                     </div>
             }
+            <div>
+                <Footer/>
+            </div>
         </div>
     )
 }

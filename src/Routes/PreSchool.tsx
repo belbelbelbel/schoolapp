@@ -11,7 +11,7 @@ export const PreSchool = () => {
     const handlelschool = () => {
         navigate("/school")
     }
-     const token  = Cookies.get('token')
+    const token = Cookies.get('token')
     const [shownavbar, setshownavbar] = useState(false)
     const user = useContext(Context);
 
@@ -19,12 +19,12 @@ export const PreSchool = () => {
         setshownavbar(!shownavbar)
     }
 
-// console.log(token)
-    useEffect(()=> {
-        if(!token) {
-          navigate('/signin')
+    // console.log(token)
+    useEffect(() => {
+        if (!token) {
+            navigate('/signin')
         }
-       },[token,navigate])
+    }, [token, navigate])
 
     return (
         <motion.div
@@ -38,7 +38,7 @@ export const PreSchool = () => {
                 opacity: 1
             }}
             exit={{ opacity: 0 }}
-            className='preschool-container'>
+            className='preschool-container '>
             <div id="firsts"></div>
             <div className='preschool-container2'>
                 <div>
@@ -51,7 +51,7 @@ export const PreSchool = () => {
                         }
                         <div className='preschool-container3' onClick={handlelschool}>
                             <div><input type="text" placeholder='Search' /></div>
-                            <div><img src="/Search.svg" alt="search" width="20vw"/></div>
+                            <div><img src="/Search.svg" alt="search" width="20vw" /></div>
                         </div>
                     </div>
                     <div className='preschool-name'>
@@ -88,7 +88,7 @@ export const PreSchool = () => {
                     </div>
                 </div>
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </motion.div>
     )
 }

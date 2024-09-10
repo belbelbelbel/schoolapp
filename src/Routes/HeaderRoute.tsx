@@ -143,7 +143,7 @@ export const HeaderRoute = ({ showschool, setshowschool }: showSchoolProps) => {
                                         <div key={overs._id} className='flex  text-center gap-[35vw] mx-0 text-[3.5vw] whitespace-nowrap  w-full font-medium'>
                                             {
                                                 !loading ? (
-                                                    <div className='flex  text-center gap-[35vw] mx-0 text-[3.5vw] whitespace-nowrap  w-full font-medium'>
+                                                    <div className='flex relative  text-center gap-[35vw] mx-0 text-[3.5vw] whitespace-nowrap  w-full font-medium'>
                                                         <div className=' '>
                                                             <div className=' absolute'>{overs.name}:</div>
                                                         </div>

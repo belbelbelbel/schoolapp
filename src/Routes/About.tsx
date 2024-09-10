@@ -3,6 +3,7 @@ import "../Styles/About.css";
 import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { BiArrowBack } from 'react-icons/bi';
+import { Footer } from './Footer';
 
 export const About = () => {
     const navigate = useNavigate();
@@ -19,7 +20,7 @@ export const About = () => {
                 opacity: 1
             }}
             exit={{ opacity: 0 }}
-            className='pt-[1.3rem]'
+            className='pt-[1.3rem] h-[100dvh] flex flex-col justify-between'
         >
             <div className=''>
                 <div id="firsts"></div>
@@ -58,6 +59,9 @@ export const About = () => {
                         </p>
                     </div>
                 </div>
+            </div>
+            <div>
+                <Footer/>
             </div>
         </motion.div>
     );

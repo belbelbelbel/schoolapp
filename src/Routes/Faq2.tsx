@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { BiArrowBack } from 'react-icons/bi'
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Footer } from './Footer'
 
 export const Faq2 = () => {
   const navigate = useNavigate()
@@ -44,7 +45,7 @@ export const Faq2 = () => {
   };
 
   return (
-    <div className='pt-[2rem]'>
+    <div className='pt-[2rem] h-[100dvh] flex flex-col'>
       <div>
         <div id="firsts"></div>
         <div className="flex items-ceneter justify-between px-[6vw]">
@@ -96,6 +97,7 @@ export const Faq2 = () => {
           </div>
         </div>
       </div>
+      <Footer/>
     </div>
   )
 }

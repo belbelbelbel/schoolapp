@@ -8,6 +8,7 @@ import { Schools2 } from './Schools2';
 import { BiArrowBack } from 'react-icons/bi';
 import { HeaderRoute } from './HeaderRoute';
 import { AnimatePresence, motion } from 'framer-motion';
+import { Footer } from './Footer';
 
 interface OverviewItem {
     _id: string;
@@ -139,7 +140,7 @@ export const SchoolPage = () => {
         return <div> <Loading /></div>;
     }
     return (
-        <div>
+        <div className='h-[100dvh] flex flex-col justify-between'>
             {
                 showschool ? (
                     <div className='w-screen pb-[3vw]'>
@@ -226,6 +227,9 @@ export const SchoolPage = () => {
                     </div>
                 ) : (<Schools2 setshowschool={setshowschool} />)
             }
+            <div>
+                <Footer/>
+            </div>
         </div>
     );
 }

@@ -1,31 +1,64 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "../Styles/Footer.css"
+import { useParams } from 'react-router-dom'
+import Cookies from 'js-cookie'
+
 export const Footer = () => {
-    const scrollastold = (sectionid: string) => {
-        const section = document.getElementById(sectionid)
-        if (section) {
-            section.scrollIntoView({
-                behavior: 'smooth'
-            })
+    const [footerUpdate, setFooterUpdate] = useState<any>({})
+    const params = useParams()
+    const accesstokena = Cookies.get('token');
+
+    useEffect(() => {
+        const fetchdescribe = async () => {
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}`, {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    }
+                });
+
+                const result = await res.json();
+                setFooterUpdate(result.university);
+
+                if (!res.ok) {
+                    throw new Error("Error occurred in the description");
+                }
+            } catch (error) {
+                console.error("Description error", error);
+            }
         }
-    }
+        fetchdescribe();
+    }, [params.universityid, accesstokena]);
+
+    // Function to format date
+    const formatDate = (dateString: string) => {
+        const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'long', day: 'numeric' };
+        return new Date(dateString).toLocaleDateString(undefined, options);
+    };
+
     return (
-        <div className='Undercover_container9'>
-            <div className='Undercover_container10'>
-                <div className='Undercover_container10a'><img src="/color_logo_transparent.svg" alt="logo" width="170vw" /></div>
-                <div onClick={() => scrollastold('firsts')} className='top'>Back to top</div>
-            </div>
-            <div className='Undercover_container11'>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: "3vw" }}>
-                    <div className='eze'>Terms of Use</div>
-                    <div style={{ display: "flex", gap: "4vw", flexDirection: "column" }}>Information presented here is<br />purely for reference purposes <br />and may have changed after <br />the page was updated. Users are<br />admonished to do further research<br />to get the most up to date information.<br />Click on the 󠅁π symbol to flag information<br />as incorrect or incomplete. Click on ↓ to<br />make modification to unlocked content.</div>
+        <div className='w-screen relative'>
+            <div className='flex w-full items-center justify-between'>
+                <div className='flex flex-col ml-3 w-full items-start'>
+                    <div className='flex items-center gap-2 text-[3vw]'>
+                        <div>Page Creator:</div>
+                        <div>{footerUpdate.pageCreator}</div>
+                    </div>
+                    <div className='flex items-start gap-2 text-[3vw]'>
+                        <div>Page Created:</div>
+                        <div>{footerUpdate.dateAdded ? formatDate(footerUpdate.dateAdded) : 'N/A'}</div>
+                    </div>
+                    <div className='flex items-start gap-2 text-[3vw]'>
+                        <div>Last Updated:</div>
+                        <div>{footerUpdate.dateModified ? formatDate(footerUpdate.dateModified) : 'N/A'}</div>
+                    </div>
                 </div>
-                {/* <div>
-                    <div>Page creator: Uncle Simple<br />Page created: MAY9/2022<br />Last updated: MAY11/2022 by…</div>
-                </div> */}
+                <div className='bg-black outline-0 border-0 items-end justify-end w-[70%]'>
+                    <img src="/logoctf.jpg" alt="footer-logo" />
+                </div>
             </div>
-
         </div>
-    )
+    );
 }
-

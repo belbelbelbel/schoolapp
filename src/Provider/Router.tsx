@@ -10,7 +10,6 @@ import { Covenant } from '../Routes/Covenant'
 import { Undergraduate } from '../Routes/Undergraduate'
 import { Postgraduate } from '../Routes/Postgraduate'
 import { Contact } from '../Routes/Contact'
-import { Uselinks } from '../Routes/Uselinks'
 import Signup from '../Routes/Signup'
 import { PreSchool } from '../Routes/PreSchool'
 import { Programs } from '../Routes/Programs'
@@ -140,7 +139,6 @@ const Router = () => {
           <Route path=':universityid?/documentss?' element={token ? <Documents3 /> : <Navigate to="/signin" />} />
         </Route>
         <Route path='/school/covenant-university/contact' element={<Contact />}></Route>    
-        <Route path='/school/covenant-university/usefulinks' element={<Uselinks />}></Route>
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
         <Route path="/verification" element={<Verification />} />
         <Route path='*' element={<Nopage />}></Route>

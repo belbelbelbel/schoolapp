@@ -4,6 +4,7 @@ import { BiArrowBack } from 'react-icons/bi'
 import { Link, useNavigate, useParams } from 'react-router-dom'
 import Loader from './Loader'
 import { Loading } from './Loading'
+import { Footer } from './Footer'
 
 export const Undergraduatesprog = () => {
     const navigate = useNavigate()
@@ -43,7 +44,7 @@ export const Undergraduatesprog = () => {
     }, [accesstokena]);
 
     return (
-        <div>
+        <div className='h-[100dvh] flex flex-col justify-between'>
             {
                 !isLoading ? (
                     <div className='pt-[3rem]'>
@@ -87,6 +88,9 @@ export const Undergraduatesprog = () => {
                     </div>
                 ) : (<div><Loading /></div>)
             }
+            <div>
+                <Footer/>
+            </div>
         </div>
     )
 }

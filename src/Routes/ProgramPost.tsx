@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { BiArrowBack } from 'react-icons/bi'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Loading } from './Loading'
+import { Footer } from './Footer'
 
 interface props {
     name: string
@@ -52,7 +53,7 @@ export const ProgramPost = () => {
         navigate(-1)
     }
   return (
-    <div className='prog_cont'>
+    <div className='prog_cont h-[100dvh] flex-col flex justify-between'>
     {
         loading ? <h1><Loading /></h1> :
 
@@ -99,9 +100,10 @@ export const ProgramPost = () => {
                         </div>
                     </div>
                 </div>
-                {/* <Footer /> */}
+               
             </div>
     }
+     <Footer /> 
 </div>
   )
 }

@@ -2,6 +2,7 @@ import Cookies from 'js-cookie'
 import React, { useEffect, useState } from 'react'
 import { BiArrowBack } from 'react-icons/bi'
 import { useNavigate, useParams } from 'react-router-dom'
+import { Footer } from './Footer'
 
 export const Links = () => {
     const navigate = useNavigate()
@@ -36,7 +37,7 @@ export const Links = () => {
     }, [params.universityid, accesstokena]);
 
     return (
-        <div className='pt-[1rem]'>
+        <div className='pt-[1rem] h-[100dvh] flex flex-col justify-between'>
             <div className='w-[90%] text-center mx-auto flex flex-col gap-[2vw]'>
                 <div id="firsts"></div>
                 <div className="flex items-ceneter justify-between px-[6vw]">
@@ -69,6 +70,9 @@ export const Links = () => {
                         <div className='dots-styles'></div>
                     </div>)
                 }
+            </div>
+            <div>
+                <Footer/>
             </div>
         </div>
     )

@@ -77,8 +77,8 @@ export const ProgramPost = () => {
                                     depart.map((pro: {
                                         name: React.ReactNode
                                         certs: string[]
-                                    }) => (
-                                        <div className="">
+                                    },index:any) => (
+                                        <div className="" key={index}>
                                             <div className="font-bold text-[4vw]">
                                                 <h4>{pro.name}</h4>
                                             </div>

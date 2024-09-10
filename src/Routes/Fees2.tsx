@@ -11,20 +11,21 @@ export const Fees2 = () => {
     const animals = ["Dog", "Cat", "Elephant"]
     const countries = ["USA", "Canada", "Japan"]
 
-    const HoldFeeArray:string[] | any  = []
+    const HoldFeeArray: string[] | any = []
 
-        if(activeState === "tution") {
-            HoldFeeArray.push(fruits)
-        }
-        if(activeState === "application fee") {
-            HoldFeeArray.push(animals)
-        }
-        if(activeState === "Fee wavier") {
-            HoldFeeArray.push(countries)
-        }
-        
-
+    if (activeState === "tution") {
+        HoldFeeArray.push(fruits)
+    }
+    if (activeState === "application fee") {
+        HoldFeeArray.push(animals)
+    }
+    if (activeState === "Fee wavier") {
+        HoldFeeArray.push(countries)
+    }
     
+
+
+
     console.log(HoldFeeArray)
     return (
         <div className='pt-[2rem] w-screen'>
@@ -56,9 +57,8 @@ export const Fees2 = () => {
                         </div>
                     </div>
                 </div>
-
                 {
-                     HoldFeeArray[0]?.map((fees:any,index:number|null) => (
+                    HoldFeeArray[0]?.map((fees: any, index: number | null) => (
                         <div className='text-black' key={index}>
                             {fees}
                         </div>

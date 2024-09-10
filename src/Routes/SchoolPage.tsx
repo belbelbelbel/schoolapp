@@ -70,7 +70,7 @@ export const SchoolPage = () => {
     useEffect(() => {
         const fetchdescribe = async () => {
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/description`, {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
@@ -108,19 +108,18 @@ export const SchoolPage = () => {
             opacity: 1,
             transition: {
                 duration: 0.5,
-                staggerChildren: 0.2, // Stagger enter animation
+                staggerChildren: 0.2, 
             },
         },
         exit: {
             opacity: 0,
             transition: {
-                staggerChildren: 0, // Stagger exit animation
-                // staggerDirection: -1, // Reverse the stagger on exit
+                staggerChildren: 0,
             },
         },
     };
 
-    // Button motion variants
+
     const buttonVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0 },

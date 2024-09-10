@@ -31,10 +31,8 @@ export const Programs = () => {
                 const results = await res.json()
                 // console.log(results)
                 // console.log(results[0].programs)
-                // console.log(results[0].programs)
                 // console.log(results[0].programs[1])
-                // setdepart(results[0].programs)
-                // setprog(results[0])
+                setdepart(results[0].programs)
                 // console.log(results[0].dates)
                 // console.log(results.university.schools)
                 if (!res.ok) {
@@ -78,8 +76,8 @@ export const Programs = () => {
                                             depart.map((pro: {
                                                 name: React.ReactNode
                                                 certs: string[]
-                                            }) => (
-                                                <div className="">
+                                            },index:any) => (
+                                                <div className="" key={index}>
                                                     <div className="font-bold text-[4vw]">
                                                         <h4>{pro.name}</h4>
                                                     </div>

@@ -28,7 +28,7 @@ export const Documents2 = () => {
                 // console.log(results[0].programs)
                 // console.log(results[0].programs[1])
                 // console.log(results[0].dates)
-                // setdates(results[0].documents)
+                setdates(results[0].documents)
                 // console.log(results.university.schools)
                 if (!res.ok) {
                     throw new Error("error parsing json")

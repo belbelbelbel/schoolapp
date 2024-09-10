@@ -13,6 +13,7 @@
         flex-direction: column;
         justify-content: space-between;
         background-color: rgba(132, 202, 255, 1);
+        /* background-color: lightcyan; */
         overflow: hidden;
     }
     .home_container8{

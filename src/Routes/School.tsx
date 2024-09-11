@@ -44,6 +44,7 @@ export const School = () => {
   }
   useEffect(() => {
     const handlefilter = async (input: string) => {
+      setisloading(true)
       try {
         const res = await fetch(`https://almaquin.onrender.com/api/university/?name=${input}`, {
           method: "GET",
@@ -54,6 +55,7 @@ export const School = () => {
           },
         })
         const result = await res.json();
+        // console.log(result);
         // console.log()
         if (input.length !== 0) {
           setsearch(result)
@@ -73,6 +75,9 @@ export const School = () => {
         // console.log('Error parsing JSON:', error, input);
         setisloading(false)
       }
+      finally {
+        setisloading(false)
+      }
     }
     handlefilter(input)
     return () => {
@@ -87,7 +92,6 @@ export const School = () => {
           method: "GET",
           headers: {
             "Content-type": "application/json",
-            // "ngrok-skip-browser-warning": "69420",
             "Authorization": `Bearer ${accesstokena}`,
           },
         });

@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import { BiArrowBack } from 'react-icons/bi'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { Footer } from './Footer';
+import Cookies from 'js-cookie';
 
 export const Fees2 = () => {
     const navigate = useNavigate();
+    const params = useParams()
     const [activeState, setActiveState] = useState("tution")
     // console.log(activeState)
-
+    const accesstokena = Cookies.get('token')
     const fruits = ["Apple", "Banana", "Orange"]
     const animals = ["Dog", "Cat", "Elephant"]
     const countries = ["USA", "Canada", "Japan"]
@@ -15,20 +17,37 @@ export const Fees2 = () => {
 
     const HoldFeeArray: string[] | any = []
 
-    if (activeState === "tution") {
-        HoldFeeArray.push(fruits)
-    }
-    if (activeState === "application fee") {
-        HoldFeeArray.push(animals)
-    }
-    if (activeState === "Fee wavier") {
-        HoldFeeArray.push(countries)
-    }
-    if (activeState === "scholarships") {
-        HoldFeeArray.push(country)
-    }
+    useEffect(() => {
+        const handleFeesDisplay = async () => {
+            try {
+                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/fees`, {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${accesstokena}`, 
+                    },
+                })
+                const data = await res.json()
+                // console.log(data)
+                if (activeState === "tution") {
+                    HoldFeeArray.push(fruits)
+                }
+                if (activeState === "application fee") {
+                    HoldFeeArray.push(animals)
+                }
+                if (activeState === "Fee wavier") {
+                    HoldFeeArray.push(countries)
+                }
+                if (activeState === "scholarships") {
+                    HoldFeeArray.push(country)
+                }
+            } catch (error) {
+                // console.log(error)
+            }
+        }
+        handleFeesDisplay()
 
-
+    },[params.universityid])
 
     // console.log(HoldFeeArray)
     return (

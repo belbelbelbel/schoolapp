@@ -11,7 +11,6 @@ function App() {
       {/* <NavBar/> */}
         <Usecontext>
           <Router />
-           {/* <Footer/> */}
         </Usecontext>
     </div>
   );

@@ -30,10 +30,10 @@ export const School = () => {
     setshowFiltered(!showFiltered)
     if (showFiltered === false) {
       // setownership("")
-      if(ownership) {
+      if (ownership) {
         setFees("")
       }
-      if(fees) {
+      if (fees) {
         setownership("")
       }
       setInput(input)
@@ -50,21 +50,20 @@ export const School = () => {
           method: "GET",
           headers: {
             "Content-type": "application/json",
-            "ngrok-skip-browser-warning": "69420",
             "Authorization": `Bearer ${accesstokena}`,
           },
         })
         const result = await res.json();
-        // console.log(result);
+        console.log(result);
+        if(!result) {
+          setisloading(false)
+        }
         // console.log()
         if (input.length !== 0) {
           setsearch(result)
-          // console.log(result);
           seterror(result.message)
-          setisloading(false)
         }
         else {
-
         }
 
         if (!res.ok) {
@@ -75,13 +74,11 @@ export const School = () => {
         // console.log('Error parsing JSON:', error, input);
         setisloading(false)
       }
-      finally {
-        setisloading(false)
-      }
     }
     handlefilter(input)
     return () => {
       setsearch([])
+      setisloading(false)
     }
   }, [input])
 
@@ -140,7 +137,6 @@ export const School = () => {
           setsearch([])
         }
       } catch (error) {
-        // console.log(error);
       }
     };
     handleFilteredSearch(fees);
@@ -156,7 +152,6 @@ export const School = () => {
           method: "GET",
           headers: {
             "Content-type": "application/json",
-            // "ngrok-skip-browser-warning": "69420",
             "Authorization": `Bearer ${accesstokena}`,
           },
         });
@@ -212,9 +207,7 @@ export const School = () => {
     setInput("")
   }
   let display: React.ReactNode
-  if (isloading) {
-    display = <Loading />;
-  } else if (input.length === 0) {
+  if (input.length === 0) {
     display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", justifyItems: "center", position: "relative", right: "0rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img src="/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49", letterSpacing: "1px" }}>Search for institutions here!</div></div>;
   } else if (search.length === 0) {
     display = <motion.div initial={{ opacity: 0 }}
@@ -243,9 +236,6 @@ export const School = () => {
     </div>
 
   }
-  function handlelback(): void {
-
-  }
 
   const handleshowSidebar = () => {
     setshownavbar(!shownavbar);
@@ -254,7 +244,7 @@ export const School = () => {
   return (
     <div>
       {
-        !isloading ? (
+        isloading ? (
           <motion.div
             initial={{}}
             animate={{}}
@@ -292,9 +282,7 @@ export const School = () => {
                   {
                     !search && (<div>no result found</div>)
                   }
-
                 </div>
-                {/* <div style={{ color: 'red' }}>{error}</div> */}
                 <ToastContainer></ToastContainer>
               </div>
             </div>

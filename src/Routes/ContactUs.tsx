@@ -103,11 +103,11 @@ export const ContactUs = () => {
                 <div className='Contact_header'>
                     <div className='Contact_img'><img src="/Work_7 1.svg" alt="contact image" /></div>
                 </div>
-                <div className='Contact_content'>
+                {/* <div className='Contact_content'>
                     <div className='Contact_contenta'>Call Us</div>
                     <div className='Contact_contenta'>Email Us</div>
                     <div className='Contact_contenta'>Fax Us</div>
-                </div>
+                </div> */}
                 <div className='Contact_contentb'>QUICK CONTACT</div>
                 <div className='Contact_contentd'>
                     <form onSubmit={handleSubmit(onSubmit)}>

@@ -43,8 +43,7 @@ export const School = () => {
     }
   }
   useEffect(() => {
-    const handlefilter = async (input: string) => {
-      setisloading(true)
+    const fetchData = async () => {
       try {
         const res = await fetch(`https://almaquin.onrender.com/api/university/?name=${input}`, {
           method: "GET",
@@ -52,35 +51,25 @@ export const School = () => {
             "Content-type": "application/json",
             "Authorization": `Bearer ${accesstokena}`,
           },
-        })
+        });
         const result = await res.json();
-        console.log(result);
-        if(!result) {
-          setisloading(false)
-        }
-        // console.log()
         if (input.length !== 0) {
-          setsearch(result)
-          seterror(result.message)
+          setsearch(result);
+          seterror(result.message);
+        } else {
+          setsearch([]);
         }
-        else {
-        }
-
         if (!res.ok) {
-          seterror(result.message)
-          // throw new Error("Failed to fetch data from the API");
+          seterror(result.message);
         }
       } catch (error) {
-        // console.log('Error parsing JSON:', error, input);
-        setisloading(false)
-      }
+        seterror("Failed to fetch data");
+      } 
+    };
+    if (input.length > 0) {
+      fetchData();
     }
-    handlefilter(input)
-    return () => {
-      setsearch([])
-      setisloading(false)
-    }
-  }, [input])
+  }, [input]);
 
   useEffect(() => {
     const handleFilteredSearch = async (ownership: string) => {
@@ -96,7 +85,7 @@ export const School = () => {
         // console.log(result);
         if (input.length !== 0) {
           seterror(result.message)
-          setisloading(false)
+          // setisloading(false)
           setsearch(result)
         }
         else {
@@ -129,7 +118,7 @@ export const School = () => {
         // console.log(result);
         if (input.length !== 0) {
           seterror(result.message)
-          setisloading(false)
+          // setisloading(false)
           setsearch(result)
         }
         else {
@@ -159,7 +148,7 @@ export const School = () => {
         // console.log(result);
         if (input.length !== 0) {
           seterror(result.message)
-          setisloading(false)
+          // setisloading(false)
           setsearch(result)
         }
         else {

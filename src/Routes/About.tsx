@@ -61,7 +61,7 @@ export const About = () => {
                 </div>
             </div>
             <div>
-                <Footer/>
+                {/* <Footer/> */}
             </div>
         </motion.div>
     );

@@ -26,6 +26,7 @@ export const School = () => {
   const [fees, setFees] = useState("")
   const [state, setState] = useState("")
   const accesstokena = Cookies.get('token')
+  let display: React.ReactNode
   const handleFilteredCont = () => {
     setshowFiltered(!showFiltered)
     if (showFiltered === false) {
@@ -42,6 +43,11 @@ export const School = () => {
       // setownership(ownership)
     }
   }
+  // useEffect(() => {
+  //   if(input.length < 2) {
+  //     <div>search not yet active</div>
+  //   }
+  // },[input])
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -64,7 +70,7 @@ export const School = () => {
         }
       } catch (error) {
         seterror("Failed to fetch data");
-      } 
+      }
     };
     if (input.length > 0) {
       fetchData();
@@ -134,6 +140,8 @@ export const School = () => {
     }
   }, [fees]);
 
+
+
   useEffect(() => {
     const handleFilteredSearch = async (location: string) => {
       try {
@@ -195,13 +203,13 @@ export const School = () => {
   const hanleremove = () => {
     setInput("")
   }
-  let display: React.ReactNode
+
   if (input.length === 0) {
     display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", justifyItems: "center", position: "relative", right: "0rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img src="/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49", letterSpacing: "1px" }}>Search for institutions here!</div></div>;
-  } else if (search.length > 2) {
+  } else if (search.length === 0) {
     display = <motion.div initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1.2 } }}
-      style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "2vw 0rem" }}>School  <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>;
+      style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "2vw 0rem" }}>School <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>;
   } else {
     <div className='display'>
       {
@@ -265,7 +273,11 @@ export const School = () => {
                   </div>
                 )
               }
-              {display}
+              <div className=''>
+                {
+                  input.length < 3 && input.length > 0 ? <div className='text-center mt-3'>School name must be atleast 2 characters</div> : display
+                }
+              </div>
               <div className="btn">
                 <div className='display1'>
                   {

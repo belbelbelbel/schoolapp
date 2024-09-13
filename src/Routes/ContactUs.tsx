@@ -132,7 +132,6 @@ export const ContactUs = () => {
                                     },
                                 })}
                                 placeholder='Enter email address here' type='email' />
-
                         </div>
                         {errors.email && <div className="errs">{errors.email.message}</div>}
                         <div className='Contact_contente'>

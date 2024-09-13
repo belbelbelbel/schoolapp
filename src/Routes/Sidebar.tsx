@@ -62,38 +62,38 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
                         <div className='' style={{ display: "flex", gap: "0rem", alignItems: "center" }}><div style={{ color: "rgba(11, 60, 73, 1)" }}>Llma</div><div style={{ color: "#7a4a3a" }}>QUIN</div><div style={{ color: "rgba(11, 60, 73, 1)" }}></div></div>
                         {shownavbar && <RxCross1 size="6vw" onClick={() => setshownavbar(false)} />}
                     </div>
-                    <div className='w-[50%] font-sans' onClick={stopPropagation} style={{ display: 'flex',fontSize:"4.5vw", flexDirection: 'column', alignItems: 'start', gap: "15vw" }}>
+                    <div className='w-[50%] font-sans' onClick={stopPropagation} style={{ display: 'flex', fontSize: "4.5vw", flexDirection: 'column', alignItems: 'start', gap: "15vw" }}>
                         {/* <motion.li variants={itemVariants}>
                             <div style={{ display: "flex", gap: "1rem",fontSize:"4vw" }}> <SiGnuprivacyguard />
                                 <Link to="/signup">Signup</Link>
                             </div>
                         </motion.li> */}
                         <motion.li variants={itemVariants}>
-                            <div style={{ display: "flex", gap: "1rem",fontSize:"4vw" }}> <FcAbout color='black'/>
+                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw" }}> <FcAbout color='black' />
                                 <Link to="/about">About Us</Link>
                             </div>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <div style={{ display: "flex", gap: "1rem",fontSize:"4vw" }}> <FaSearchPlus />
+                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw" }}> <FaSearchPlus />
                                 <Link to="/school">Search</Link>
                             </div>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <div style={{ display: "flex", gap: "1rem",fontSize:"4vw" }}> <MdDashboard />
+                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw" }}> <MdDashboard />
                                 <Link to="/preschool">Dashboard</Link>
                             </div>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <div style={{ display: "flex", gap: "1rem",fontSize:"4vw" }}> <IoCall/>
+                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw" }}> <IoCall />
                                 <Link to="/contactus">Contact Us</Link>
                             </div>
                         </motion.li>
                         <motion.li variants={itemVariants} onClick={handleLogout}>
-                            <div style={{ display: "flex", gap: "1rem",fontSize:"4vw" }}> <FiLogOut />
+                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw" }}> <FiLogOut />
                                 <a>Logout</a>
                             </div>
                         </motion.li>
-                        
+
                     </div>
                 </motion.ul>
             </div>

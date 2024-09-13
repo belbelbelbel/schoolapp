@@ -53,7 +53,7 @@ export const School = () => {
           },
         });
         const result = await res.json();
-        if (input.length !== 0) {
+        if (input.length > 2) {
           setsearch(result);
           seterror(result.message);
         } else {
@@ -198,7 +198,7 @@ export const School = () => {
   let display: React.ReactNode
   if (input.length === 0) {
     display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", justifyItems: "center", position: "relative", right: "0rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img src="/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49", letterSpacing: "1px" }}>Search for institutions here!</div></div>;
-  } else if (search.length === 0) {
+  } else if (search.length > 2) {
     display = <motion.div initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 1.2 } }}
       style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "2vw 0rem" }}>School  <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>;

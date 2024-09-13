@@ -162,7 +162,7 @@ export const ContactUs = () => {
                     </form>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </motion.div>
     )
 }

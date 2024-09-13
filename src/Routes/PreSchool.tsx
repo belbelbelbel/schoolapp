@@ -88,7 +88,7 @@ export const PreSchool = () => {
                     </div>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </motion.div>
     )
 }

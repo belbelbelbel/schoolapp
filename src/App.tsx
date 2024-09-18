@@ -4,14 +4,28 @@ import Router from './Provider/Router';
 import { Usecontext } from './Provider/Usecontext';
 import { Footer } from './Routes/Footer';
 import Cookies from 'js-cookie';
+import useWindowSize from './Hooks/useWindowSize'; // Import the custom hook
+
 function App() {
-  const token = Cookies.get('token')
+  const token = Cookies.get('token');
+  const { width } = useWindowSize(); 
+
+  if (width > 700) {
+    return (
+      <div className="App bg-black text-white h-screen w-screen text-[1.5rem]">
+        <h1 style={{ textAlign: 'center', marginTop: '20%' }}>
+          Please use your mobile phone for better experience.
+        </h1>
+      </div>
+    );
+  }
+
   return (
     <div className="App">
       {/* <NavBar/> */}
-        <Usecontext>
-          <Router />
-        </Usecontext>
+      <Usecontext>
+        <Router />
+      </Usecontext>
     </div>
   );
 }

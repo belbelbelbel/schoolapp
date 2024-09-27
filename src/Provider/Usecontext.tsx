@@ -50,7 +50,7 @@ export const Usecontext = ({ children }: childrenprops) => {
     phone: "",
     message: "",
     newPassword: "",
-    token: ""
+    token: "",
   });
   const [error, seterror] = useState<string[]>([]);
   return (

@@ -12,8 +12,8 @@ function App() {
 
   if (width > 700) {
     return (
-      <div className="App bg-black text-white h-screen w-screen text-[1.5rem]">
-        <h1 style={{ textAlign: 'center', marginTop: '20%' }}>
+      <div className="App bg-black flex justify-center items-center text-white h-screen w-screen text-[1.5rem]">
+        <h1 style={{ textAlign: 'center' }}>
           Please use your mobile phone for better experience.
         </h1>
       </div>

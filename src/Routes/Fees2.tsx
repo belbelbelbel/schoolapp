@@ -32,12 +32,12 @@ export const Fees2 = () => {
                     },
                 });
                 const data = await res.json();
-                setFeeData(data.fees.academic[0].programs[0]); 
-                console.log(data.fees.academic[0].programs[0]); 
+                setFeeData(data.fees.academic[0].programs[0]);
+                console.log(data.fees.academic[0].programs[0]);
             } catch (error) {
                 console.error(error); // Handle errors appropriately
             } finally {
-                setIsLoading(false); 
+                setIsLoading(false);
             }
         };
         handleFeesDisplay();
@@ -61,16 +61,16 @@ export const Fees2 = () => {
                     <div className='flex w-full flex-col items-center justify-center'>
                         <div className='flex flex-col gap-[7vw]'>
                             <div className='items-center justify-center flex text-center pt-[5vw]'>
-                                <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>
+                                <button className='py-[1.7vw] w-[63vw] border-0 outline-0 bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>
                                     Fees
                                 </button>
                             </div>
                         </div>
                         <div className='flex w-full flex-col items-center pt-6 gap-4'>
                             <div className='flex items-center gap-2'>
-                                <button className={`border-2 rounded-[6px] border-black text-[0.75rem] px-2 h-[5.5vh] ${activeState === 'tution' ? 'bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900 text-white' : 'transparent'} w-[7rem]`} onClick={() => setActiveState('tution')}>Tuitions</button>
-                                <button className={`border-2 rounded-[6px] border-black text-[0.75rem] px-2 h-[5.5vh] ${activeState === 'application fee' ? 'bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900 text-white' : 'transparent'} w-[7rem]`} onClick={() => setActiveState('application fee')}>Application Fee</button>
-                                <button className={`border-2 rounded-[6px] border-black text-[0.75rem] px-2 h-[5.5vh] ${activeState === 'Fee wavier' ? 'bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900 text-white' : 'transparent'} w-[7rem]`} onClick={() => setActiveState('Fee wavier')}>App. Fee Waiver</button>
+                                <button className={`border-2 rounded-[6px] border-black  text-[0.75rem] px-2 h-[5.5vh] ${activeState === 'tution' ? 'bg-gradient-to-r from-[#9f5942] border-0 outline-0 via-red-900 to-gray-900 text-white' : 'transparent'} w-[7rem]`} onClick={() => setActiveState('tution')}>Tuitions</button>
+                                <button className={`border-2 rounded-[6px] border-black text-[0.75rem] px-2 h-[5.5vh] ${activeState === 'application fee' ? 'bg-gradient-to-r from-[#9f5942] border-0 outline-0 via-red-900 to-gray-900 text-white' : 'transparent'} w-[7rem]`} onClick={() => setActiveState('application fee')}>Application Fee</button>
+                                <button className={`border-2 rounded-[6px] border-black text-[0.75rem] px-2 h-[5.5vh] ${activeState === 'Fee wavier' ? 'bg-gradient-to-r from-[#9f5942] via-red-900 border-0 outline-0 to-gray-900 text-white' : 'transparent'} w-[7rem]`} onClick={() => setActiveState('Fee wavier')}>App. Fee Waiver</button>
                             </div>
                             <div className='flex items-center gap-2'>
                                 <button className={`border-2 rounded-[6px] border-black text-[0.9rem] px-2 h-[5.5vh] ${activeState === 'scholarships' ? 'bg-gradient-to-r from-[#9f5942] via-red-900 to-gray-900 text-white' : 'transparent'} w-[10rem]`} onClick={() => setActiveState('scholarships')}>Scholarships</button>
@@ -102,10 +102,18 @@ export const Fees2 = () => {
                             )}
                             {activeState === 'scholarships' && feeData && (
                                 <div className='text-black'>
-                                    <h2 className='text-lg font-bold'>Scholarships:</h2>
-                                    {feeData.scholarships.map((item:any, index) => (
-                                        <div key={index}>{item.name}</div>
+                                    {/* <h2 className='text-lg font-bold'>Scholarships:</h2> */}
+                                    {feeData.scholarships.map((item: any, index) => (
+                                        <div key={index} className='font-bold'>
+                                            <h2 className=' text-xl'>Name</h2>
+                                            <div className='font-medium'>{item.name}</div>
+                                        <h2 className=' text-xl mt-4'>Details</h2>
+                                            <div className='font-medium'>
+                                                {item.details}
+                                            </div>
+                                        </div>
                                     ))}
+
                                 </div>
                             )}
                         </div>

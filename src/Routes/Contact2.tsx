@@ -19,6 +19,7 @@ export const Contact2 = () => {
     const [cont, setcont] = useState({ phone: "", email: "", fax: "" })
     const accesstokena = Cookies.get('token')
 
+    
     useEffect(() => {
         const handlecontact = async () => {
             setloading(true);
@@ -43,6 +44,7 @@ export const Contact2 = () => {
         };
         handlecontact();
     }, [accesstokena]);
+
 
     return (
         <div className='prog_cont h-[100dvh] justify-between flex flex-col'>

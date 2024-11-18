@@ -7,6 +7,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import { Sidebar } from './Sidebar';
 import { motion } from 'framer-motion';
 import { Footer } from './Footer';
+
+
 interface textprops {
     name: string;
     email: string;
@@ -14,7 +16,7 @@ interface textprops {
 }
 export const ContactUs = () => {
     const accesstoken = localStorage.getItem('token');
-
+    const { register, handleSubmit,reset, formState: { errors } } = useForm<valueprops>();
     const accesstokena = Cookies.get('token')
     const params = useParams();
     const [error, seterror] = useState("")
@@ -39,7 +41,7 @@ export const ContactUs = () => {
             });
             const result = await res.json();
             seterror(result.message)
-
+            reset()
             if (!res.ok) {
                 // throw new Error("error parsing json");
             }
@@ -65,10 +67,13 @@ export const ContactUs = () => {
             setloading(false)
         }
     };
-    const { register, handleSubmit, formState: { errors } } = useForm<valueprops>();
+   
     const onSubmit: SubmitHandler<valueprops> = (data) => {
         // console.log(data);
+       
         handlepostcontact(data);
+    
+    
     };
     return (
         <motion.div

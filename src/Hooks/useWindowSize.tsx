@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 
 const useWindowSize = () => {
+
   const [windowSize, setWindowSize] = useState<any>({
     width: undefined,
     height: undefined,
@@ -19,6 +20,7 @@ const useWindowSize = () => {
   }, []);
 
   return windowSize;
+  
 };
 
 export default useWindowSize;

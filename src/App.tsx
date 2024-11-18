@@ -4,11 +4,20 @@ import Router from './Provider/Router';
 import { Usecontext } from './Provider/Usecontext';
 import { Footer } from './Routes/Footer';
 import Cookies from 'js-cookie';
-import useWindowSize from './Hooks/useWindowSize'; // Import the custom hook
-
+import useWindowSize from './Hooks/useWindowSize'; 
+import { useInternetStatus } from './Hooks/useInternetStatus';
+import toast, { Toaster } from 'react-hot-toast';
+import noInternet from 'no-internet'
 function App() {
-  const token = Cookies.get('token');
+  const isOnline = useInternetStatus()
   const { width } = useWindowSize(); 
+
+  function noInternetCallback(offline:any) {
+    if (offline) {
+        // no internet  
+    }
+}
+
 
   if (width > 700) {
     return (
@@ -20,8 +29,29 @@ function App() {
     );
   }
 
+  noInternet().then( (offline:any) => {
+    if (offline) {
+      toast.error('Please Connect To Internet')
+     console.log('No Internet') 
+    }
+    else{
+      toast.success('Connected To Internet')
+      console.log('connected')
+    }
+})
+
+  if(!isOnline){
+  
+    // console.log('no connected')
+  }
+  else{
+   
+    // console.log('connected')
+  }
+
   return (
     <div className="App">
+      <Toaster/>
       {/* <NavBar/> */}
       <Usecontext>
         <Router />
@@ -31,3 +61,6 @@ function App() {
 }
 
 export default App;
+
+
+

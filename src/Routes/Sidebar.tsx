@@ -26,6 +26,7 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
     const stopPropagation = (e: { stopPropagation: () => void }) => {
         e.stopPropagation();
     };
+    
     const handleLogout = () => {
         localStorage.removeItem('token');
         Cookies.remove('token');
@@ -37,6 +38,7 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
         })
         navigate('/signin');
     };
+
     return (
         <div className='z-50 relative'>
             <div onClick={() => setshownavbar(false)}>

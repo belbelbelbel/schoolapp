@@ -58,7 +58,7 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
                         }
                     }}
                 >
-                    <div className='space'>
+                    <div className='flex items-center justify-between w-[80%] mx-auto mb-4'>
                         <div className='' style={{ display: "flex", gap: "0rem", alignItems: "center" }}><div style={{ color: "rgba(11, 60, 73, 1)" }}>Alma</div><div style={{ color: "#7a4a3a" }}>QUIN</div><div style={{ color: "rgba(11, 60, 73, 1)" }}></div></div>
                         {shownavbar && <RxCross1 size="6vw" onClick={() => setshownavbar(false)} />}
                     </div>
@@ -69,27 +69,28 @@ export const Sidebar = ({ shownavbar, setshownavbar }: SidebarProps) => {
                             </div>
                         </motion.li> */}
                         <motion.li variants={itemVariants}>
-                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw" }}> <FcAbout color='black' />
+                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw",alignItems:"center" }}> <FcAbout color='black' size={18}/>
                                 <Link to="/about">About Us</Link>
                             </div>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw" }}> <FaSearchPlus />
+                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw",alignItems:"center" }}> <FaSearchPlus  color='black' size={18}/>
                                 <Link to="/school">Search</Link>
                             </div>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw" }}> <MdDashboard />
+                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw",alignItems:"center" }}> <MdDashboard  color='black' size={18}/>
                                 <Link to="/preschool">Dashboard</Link>
                             </div>
                         </motion.li>
                         <motion.li variants={itemVariants}>
-                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw" }}> <IoCall />
+                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw",alignItems:"center",justifyContent:"center" }}> 
+                            <div><IoCall size={18}/></div>
                                 <Link to="/contactus">Contact Us</Link>
                             </div>
                         </motion.li>
                         <motion.li variants={itemVariants} onClick={handleLogout}>
-                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw" }}> <FiLogOut />
+                            <div style={{ display: "flex", gap: "1rem", fontSize: "4vw",alignItems:"center" }}> <FiLogOut  color='black' size={18}/>
                                 <a>Logout</a>
                             </div>
                         </motion.li>

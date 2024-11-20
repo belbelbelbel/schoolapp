@@ -102,7 +102,7 @@ export const HeaderRoute = ({ showschool, setshowschool }: showSchoolProps) => {
                                 <div style={{ cursor: "pointer" }}>  </div> <div style={{ width: "57.6vw" }}><BiArrowBack className='text-[5.2vw]' onClick={() => navigate(-1)} /></div>
                                 <div className="Covenant_container8a">
                                     <div> <img src="/edit button.svg" alt="edit" /></div>
-                                    <div> <img src="/Vector (4).svg" alt="flag" /></div>
+                                    <div onClick={() => navigate('/contactus')}> <img src="/Vector (4).svg" alt="flag" /></div>
                                 </div>
                             </div>
                             <div className="Covenant_container2">

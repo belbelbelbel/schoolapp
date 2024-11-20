@@ -68,7 +68,7 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
                                         _id: any;
                                         name: string;
                                     }) => (
-                                        <div>
+                                        <div key={school._id}>
                                             <div key={school._id} onClick={() => handlePlaceholder(school.name)}>
                                                 {school.name}
                                             </div>

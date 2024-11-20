@@ -42,7 +42,6 @@ const Signup = () => {
   };
   const navigate = useNavigate();
   const [error, seterror] = useState("")
-  const [isAlreadyRegistered, setIsAlreadyRegistered] = useState(false);
   const { formdata } = user || {};
   let err = ""
 
@@ -71,7 +70,9 @@ const Signup = () => {
         if (!res.ok) {
           // throw new Error("error fetching user signup")
         }
-        navigate("/verification", { state: { data } });
+        else{
+          navigate("/verification", { state: { data } });
+        }
       }
     } catch (error) {
       // console.log("error occured again", error)

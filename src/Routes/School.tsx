@@ -7,7 +7,6 @@ import { IoFilterSharp } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
 import { IoMdSearch } from "react-icons/io";
 import 'react-toastify/dist/ReactToastify.css';
-import { Loading } from './Loading';
 import { Context, Usecontext } from '../Provider/Usecontext';
 import Cookies from 'js-cookie';
 import { FilteredOptions } from './FilteredOptions';
@@ -43,13 +42,10 @@ export const School = () => {
       // setownership(ownership)
     }
   }
-  // useEffect(() => {
-  //   if(input.length < 2) {
-  //     <div>search not yet active</div>
-  //   }
-  // },[input])
+
   useEffect(() => {
     const fetchData = async () => {
+      setisloading(true)
       try {
         const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/?name=${input}`, {
           method: "GET",
@@ -62,6 +58,7 @@ export const School = () => {
         if (input.length > 2) {
           setsearch(result);
           seterror(result.message);
+          console.log(result.message)
         } else {
           setsearch([]);
         }
@@ -70,6 +67,9 @@ export const School = () => {
         }
       } catch (error) {
         seterror("Failed to fetch data");
+      }
+      finally {
+        setisloading(false)
       }
     };
     if (input.length > 0) {
@@ -204,12 +204,18 @@ export const School = () => {
     setInput("")
   }
 
+
+
   if (input.length === 0) {
-    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", justifyItems: "center", position: "relative", right: "0rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img src="/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49", letterSpacing: "1px" }}>Search for institutions here!</div></div>;
+    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", justifyItems: "center", position: "relative", right: "0rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img loading='lazy' src="/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49", letterSpacing: "1px" }}>Search for institutions here!</div></div>;
   } else if (search.length === 0) {
-    display = <motion.div initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 1.2 } }}
-      style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "2vw 0rem" }}>School <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>;
+    display = <div>
+      {
+        isloading ? <div className='text-center text-2xl font-medium mt-[2rem]'>Loading ...</div> : <motion.div initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { delay: 1.2 } }}
+        style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "2vw 0rem" }}>School <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>
+      }
+    </div>
   } else {
     <div className='display'>
       {
@@ -241,57 +247,57 @@ export const School = () => {
   return (
     <div>
       {
-       
-          <motion.div
-            initial={{}}
-            animate={{}}
-            exit={{}}
-            className='school pt-[1rem]'>
-            <div >
-              <div className='flex items-center justify-evenly '>
-                {
-                  !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshowSidebar} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshowSidebar} /></div>
-                }
-                <div className="school_filter">
-                  <input
-                    placeholder="Search here"
-                    value={input}
-                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
-                  />
-                  <button type="submit" className='img_btn'>
-                    {
-                      input.length === 0 ? (<IoMdSearch className='img' fontSize="6vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="6vw" color='#8D8D8D' />)
-                    }
-                  </button>
-                </div>
-                <div onClick={handleFilteredCont}><IoFilterSharp className='text-[6vw]' /> </div>
-              </div>
+
+        <motion.div
+          initial={{}}
+          animate={{}}
+          exit={{}}
+          className='school pt-[1rem]'>
+          <div >
+            <div className='flex items-center justify-evenly '>
               {
-                showFiltered && (
-                  <div className='absolute flex justify-center items-center rounded-[10px]  shadow-2xl top-[20vw] right-0 mx-auto z-50 bg-white w-[75%]  h-[65vw]'>
-                    <FilteredOptions handleonchangefilter={handleOnchangefilter} state={state} fees={fees} handleOnchangeState={handleOnchangeState} handleOnchangeFees={handleOnchangeFees} ownership={ownership} setownership={setownership} setshowfiltered={setshowFiltered} />
-                  </div>
-                )
+                !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshowSidebar} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshowSidebar} /></div>
               }
-              <div className=''>
-                {
-                  input.length < 3 && input.length > 0 ? <div className='text-center mt-3'>School name must be atleast 2 characters</div> : display
-                }
-              </div>
-              <div className="btn">
-                <div className='display1'>
+              <div className="school_filter">
+                <input
+                  placeholder="Search here"
+                  value={input}
+                  onChange={(event: React.ChangeEvent<HTMLInputElement>) => handleOnchange(event.target.value)}
+                />
+                <button type="submit" className='img_btn'>
                   {
-                    !search && (<div>no result found</div>)
+                    input.length === 0 ? (<IoMdSearch className='img' fontSize="6vw" color='#8D8D8D' />) : (<IoClose onClick={hanleremove} className='img' fontSize="6vw" color='#8D8D8D' />)
                   }
-                </div>
-                <ToastContainer></ToastContainer>
+                </button>
               </div>
+              <div onClick={handleFilteredCont}><IoFilterSharp className='text-[6vw]' /> </div>
             </div>
             {
-              shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
+              showFiltered && (
+                <div className='absolute flex justify-center items-center rounded-[10px]  shadow-2xl top-[20vw] right-0 mx-auto z-50 bg-white w-[75%]  h-[65vw]'>
+                  <FilteredOptions handleonchangefilter={handleOnchangefilter} state={state} fees={fees} handleOnchangeState={handleOnchangeState} handleOnchangeFees={handleOnchangeFees} ownership={ownership} setownership={setownership} setshowfiltered={setshowFiltered} />
+                </div>
+              )
             }
-          </motion.div>
-    
+            <div className=''>
+              {
+                input.length < 3 && input.length > 0 ? <div className='text-center mt-3'>School name must be atleast 2 characters</div> : display
+              }
+            </div>
+            <div className="btn">
+              <div className='display1'>
+                {
+                  !search && (<div>no result found</div>)
+                }
+              </div>
+              <ToastContainer></ToastContainer>
+            </div>
+          </div>
+          {
+            shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
+          }
+        </motion.div>
+
       }
     </div>
   );

@@ -17,7 +17,7 @@ export const Undergraduatesprog = () => {
         const handleUndergraduatePrograms = async () => {
             setisLoading(true)
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}`, {
+                const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/${params.universityid}`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

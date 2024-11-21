@@ -47,7 +47,7 @@ export const ResetPassword = () => {
       setloading(true);
       setcheck(false); // Reset error check when starting to fetch
       try {
-          const res = await fetch("https://almaquin.onrender.com/api/signup/verify-otp", {
+          const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/signup/verify-otp`, {
               method: "POST",
               headers: {
                   "Content-type": "application/json"

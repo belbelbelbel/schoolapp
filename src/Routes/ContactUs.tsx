@@ -31,7 +31,7 @@ export const ContactUs = () => {
     const handlepostcontact = async (data: textprops) => {
         setloading(true)
         try {
-            const res = await fetch("https://almaquin.onrender.com/api/send-a-message", {
+            const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/send-a-message`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",

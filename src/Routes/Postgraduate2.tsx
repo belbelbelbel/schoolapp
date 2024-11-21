@@ -45,7 +45,7 @@ export const Postgraduate2 = () => {
         const fetchdescribe = async () => {
             setLoading(true);
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/description`, {
+                const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/${params.universityid}/description`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",

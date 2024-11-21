@@ -51,7 +51,7 @@ export const School = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`https://almaquin.onrender.com/api/university/?name=${input}`, {
+        const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/?name=${input}`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",
@@ -80,7 +80,7 @@ export const School = () => {
   useEffect(() => {
     const handleFilteredSearch = async (ownership: string) => {
       try {
-        const res = await fetch(`https://almaquin.onrender.com/api/university/filter?ownership=${ownership}`, {
+        const res = await fetch(`h${process.env.REACT_APP_ENDPOINT}/api/university/filter?ownership=${ownership}`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",
@@ -112,7 +112,7 @@ export const School = () => {
   useEffect(() => {
     const handleFilteredSearch = async (fees: string) => {
       try {
-        const res = await fetch(`https://almaquin.onrender.com/api/university/filter?fees=${fees}`, {
+        const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/filter?fees=${fees}`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",
@@ -145,7 +145,7 @@ export const School = () => {
   useEffect(() => {
     const handleFilteredSearch = async (location: string) => {
       try {
-        const res = await fetch(`https://almaquin.onrender.com/api/university/filter?fees=${location}`, {
+        const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/filter?fees=${location}`, {
           method: "GET",
           headers: {
             "Content-type": "application/json",

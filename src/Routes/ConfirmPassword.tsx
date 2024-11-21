@@ -26,7 +26,7 @@ export const ConfirmPassword = () => {
     const handleresepassword = async (data: ConfirmPasswordprops) => {
         setloading(true)
         try {
-            const res = await fetch("https://almaquin.onrender.com/api/reset-password", {
+            const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/reset-password`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

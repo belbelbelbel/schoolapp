@@ -24,7 +24,7 @@ export const Fees2 = () => {
         const handleFeesDisplay = async () => {
             setIsLoading(true);
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/fees`, {
+                const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/${params.universityid}/fees`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',

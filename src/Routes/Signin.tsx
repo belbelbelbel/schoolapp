@@ -46,7 +46,7 @@ const Signin = () => {
     setIsLoading(true)
     try {
       const { email, password } = formdata || {}
-      const res = await fetch("https://almaquin.onrender.com/api/login", {
+      const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/login`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

@@ -34,7 +34,7 @@ export const Admission = () => {
         const fetchData = async () => {
             setloading(true)
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/undergraduate`, {
+                const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/${params.universityid}/undergraduate`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
@@ -69,7 +69,7 @@ export const Admission = () => {
         const handlefaq = async () => {
             setisloading(true);
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/faq`, {
+                const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/${params.universityid}/faq`, {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -96,7 +96,7 @@ export const Admission = () => {
     useEffect(() => {
         const fetchdescribe = async () => {
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/description`, {
+                const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/${params.universityid}/description`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",

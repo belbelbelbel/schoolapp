@@ -25,7 +25,7 @@ const PresentSchoModal = ({ placeholder, setPlaceholder }: SchoolModalProps) => 
         const handleSchoolName = async () => {
             setLoading(true)
             try {
-                const res = await fetch("https://almaquin.onrender.com/api/sec-schools", {
+                const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/sec-schools`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",

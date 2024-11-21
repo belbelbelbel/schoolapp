@@ -24,7 +24,7 @@ export const Contact2 = () => {
         const handlecontact = async () => {
             setloading(true);
             try {
-                const res = await fetch("https://almaquin.onrender.com/api/contact", {
+                const res = await fetch(`${process.env.REACT_APP_ENDPOINT}api/contact`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",

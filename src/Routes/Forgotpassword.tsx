@@ -20,7 +20,7 @@ const Forgotpassword = () => {
     const handleforgot = async (data: emailprops) => {
         setisloading(true)
         try {
-            const res = await fetch('https://almaquin.onrender.com/api/forgot-password', {
+            const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/forgot-passwor`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"

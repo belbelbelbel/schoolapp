@@ -14,7 +14,7 @@ export const Fluid3 = () => {
         const fetchData = async () => {
             setloading(true)
             try {
-                const res = await fetch(`https://almaquin.onrender.com/api/university/${params.universityid}/postgraduate`, {
+                const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/${params.universityid}/postgraduate`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",

@@ -66,15 +66,6 @@ export const SchoolPage = () => {
     const handlefees = () => {
         navigate(`${params.universityid}/links`)
     }
-    const handlenavigateunder = () => {
-        navigate(`/university/${params.universityid}/undergraduate`);
-    }
-    const handlenavigatepost = () => {
-        navigate(`/university/${params.universityid}/postgraduate`);
-    }
-    const handleprograms = () => {
-        navigate(`${params.universityid}/colleges`);
-    }
     useEffect(() => {
         const fetchdescribe = async () => {
             try {

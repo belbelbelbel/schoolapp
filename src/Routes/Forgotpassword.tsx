@@ -20,7 +20,7 @@ const Forgotpassword = () => {
     const handleforgot = async (data: emailprops) => {
         setisloading(true)
         try {
-            const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/forgot-passwor`, {
+            const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/forgot-password`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"

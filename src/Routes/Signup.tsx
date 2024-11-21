@@ -8,13 +8,14 @@ import { motion } from "framer-motion";
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { ToastContainer, toast } from "react-toastify";
+// import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import PresentSchoModal from "./PresentSchoModal";
 import { LevelSchool } from "./LevelSchool";
 import { ReasonsModal } from "./ReasonsModal";
 import { ClipLoader } from "react-spinners";
 import Cookies from "js-cookie";
+import { Toaster,toast } from "react-hot-toast";
 const Signup = () => {
   const locations = useLocation();
   const [Isloading, setIsLoading] = useState(false)
@@ -67,8 +68,11 @@ const Signup = () => {
         localStorage.setItem("corsignup", result);
         // console.log(result);
         seterror(result.message)
+       
+        
         if (!res.ok) {
           // throw new Error("error fetching user signup")
+          toast.error(result.message)
         }
         else{
           navigate("/verification", { state: { data } });
@@ -131,6 +135,7 @@ const Signup = () => {
       }}
       exit={{ opacity: 0, transition: { duration: 0, ease: "easeOut" } }}
     >
+      <Toaster/>
       <h2>Let's Get Started!</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <motion.div className="surname"
@@ -288,9 +293,9 @@ const Signup = () => {
             showsss && (<ReasonsModal setreason={setreason} />)
           }
         </motion.div>
-        {!Isloading && (
+        {/* {!Isloading && (
           <div className="errorss" style={{ textAlign: "center", fontSize: "5vw", fontFamily: "urbanist", letterSpacing: "1px" }}>{error}</div>
-        )}
+        )} */}
         {!Isloading && (
           <div className="errorss" style={{ textAlign: "center", fontSize: "5vw", fontFamily: "urbanist", letterSpacing: "1px" }}>{corserror}</div>
         )}
@@ -315,7 +320,7 @@ const Signup = () => {
             </div></motion.button>
         </motion.div>
         <div className='btn-div21'>Don't have an account?<span><Link to='/signin'>Sign In</Link></span> </div>
-        <ToastContainer />
+        {/* <ToastContainer /> */}
       </form>
     </motion.div>
   );

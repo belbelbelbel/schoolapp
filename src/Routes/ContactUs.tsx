@@ -3,7 +3,8 @@ import { valueprops } from '../Provider/Usecontext';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import { Toaster,toast } from 'react-hot-toast';
 import { Sidebar } from './Sidebar';
 import { motion } from 'framer-motion';
 import { Footer } from './Footer';
@@ -40,26 +41,18 @@ export const ContactUs = () => {
                 body: JSON.stringify(data)
             });
             const result = await res.json();
-            seterror(result.message)
+            
             reset()
             if (!res.ok) {
                 // throw new Error("error parsing json");
+                toast.error(result.message)
             }
             else {
-                if (result.message === "Message sent successfully") {
-                    toast.success(result.message, {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
+                
+                    toast.success(result.message);
                     // seterror(true)
-                }
+                
             }
-            // console.log(result);
         } catch (error) {
             console.log(error);
         }
@@ -88,6 +81,7 @@ export const ContactUs = () => {
             }}
             exit={{ opacity: 0 }}
             className='Contact h-[100dvh] flex flex-col justify-between'>
+                <Toaster/>
             <div>
                 <div id="firsts"></div>
 

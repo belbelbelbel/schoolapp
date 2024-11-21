@@ -18,6 +18,7 @@ interface showprops {
 export const Schools2 = ({ setshowschool }: showprops) => {
     const [input, setInput] = useState("");
     const [error, seterror] = useState("")
+    const [isloading,setisLoading]   = useState(false)
     const [search, setsearch] = useState([])
     const [shownavbar, setshownavbar] = useState(false);
     const user = useContext(Context)
@@ -50,6 +51,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
     // const jwtToken = encodeURIComponent("Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2MmQ0ZjNkMWY2ODgxMWQ2ZDUwOGY3MCIsIm5hbWUiOiJjaGlhZ296aWUgcm9uYWxkIiwicGhvbmUiOiIwODEyOTM4MTg2OSIsImlhdCI6MTcxNDI0ODY3OCwiZXhwIjoxNzE0NTA3ODc4fQ.DlDQaCIjU1zySdBxEnM1aNHz0NT0cdIXejgPl2TcuSE");
     useEffect(() => {
         const handlefilter = async (input: string) => {
+            setisLoading(true)
             try {
                 const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/?name=${input}`, {
                     method: "GET",
@@ -73,6 +75,9 @@ export const Schools2 = ({ setshowschool }: showprops) => {
             } catch (error) {
                 // console.log('Error parsing JSON:', error, input);
                 // setisloading(false)
+            }
+            finally{
+                setisLoading(false)
             }
         }
         handlefilter(input)
@@ -215,10 +220,14 @@ export const Schools2 = ({ setshowschool }: showprops) => {
     if (input.length === 0) {
         //   display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", justifyItems: "center", position: "relative", right: "0rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><div/> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49", letterSpacing: "1px" }}>Search for institutions here!</div></div>;
     } else if (search.length === 0) {
-        display = <motion.div initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { delay: 1.2 } }}
-            style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "2vw 0rem" }}>School  <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>;
-    } else {
+        display = <div>
+          {
+            isloading ? <div className='text-center text-xl font-medium mt-[2rem]'>Loading ...</div> : <motion.div initial={{ opacity: 0 }}
+            animate={{ opacity: 1, transition: { delay: 0 } }}
+            style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "2vw 0rem" }}>School <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>
+          }
+        </div>
+      } else {
         <div className='display'>
             {
 
@@ -268,7 +277,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                     {
                         !shownavbar ? <div ><img src="/Menu button.svg" alt="menu" onClick={handleshow}  className='w-[5vw]'/></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} className='w-[5vw]'/></div>
                     }
-                    <div className="school_filters">
+                    <div className="school_filters ">
                         <input
                             placeholder="Search here"
                             value={input}

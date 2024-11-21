@@ -211,8 +211,8 @@ export const School = () => {
   } else if (search.length === 0) {
     display = <div>
       {
-        isloading ? <div className='text-center text-2xl font-medium mt-[2rem]'>Loading ...</div> : <motion.div initial={{ opacity: 0 }}
-        animate={{ opacity: 1, transition: { delay: 1.2 } }}
+        isloading ? <div className='text-center text-xl font-medium mt-[2rem]'>Loading ...</div> : <motion.div initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { delay: 0 } }}
         style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "2vw 0rem" }}>School <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>
       }
     </div>

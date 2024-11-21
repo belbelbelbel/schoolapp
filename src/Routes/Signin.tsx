@@ -7,9 +7,10 @@ import { Link } from 'react-router-dom';
 import Cookies from "js-cookie"
 import { PiEyeSlash } from "react-icons/pi";
 import { PiEyeLight } from "react-icons/pi";
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { ClipLoader } from 'react-spinners';
+import { Toaster,toast } from 'react-hot-toast';
 const Signin = () => {
   const locations = useLocation();
   const navigate = useNavigate();
@@ -65,7 +66,8 @@ const Signin = () => {
       settokes(result.token)
    
       if (!res.ok) {
-        seterror(result.message)
+        // seterror(result.message)
+        toast.error(result.message)
         // throw new Error("error fetching user signin")
       }
       else {
@@ -137,6 +139,7 @@ const Signin = () => {
         opacity: 1
       }}
       exit={{ opacity: 0 }}>
+        <Toaster/>
       <div className='signin_container'>
         <div className='signin-img'>
           <img src="/Picture-transformed.png" alt="signin page image" loading='lazy'/>

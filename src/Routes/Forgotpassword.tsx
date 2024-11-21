@@ -5,6 +5,7 @@ import "../Styles/Forgotpassword.css";
 import { motion, useAnimation } from "framer-motion";
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { IoMdArrowBack } from "react-icons/io";
+import { Toaster,toast } from 'react-hot-toast';
 
 import { relative } from 'path';
 import { ComfirmModal } from './ComfirmModal';
@@ -28,20 +29,16 @@ const Forgotpassword = () => {
                 body: JSON.stringify(data),
             });
             const result = await res.json();
-            // console.log(result);
 
 
             if (!res.ok) {
-                
-                console.error("Error:", result.message);
                 if (result.message === "User not found") {
-                    seterror("User not found")
+                    toast.error("User not found")
                 }
-                // throw new Error("Error occurred while recovering password from server");
             
             }
             else {
-                // navigate("/reset-password", { state: { data } });
+       
                 setshow(true)
 
             }
@@ -73,6 +70,7 @@ const Forgotpassword = () => {
             <div>
                 <div><IoMdArrowBack size="6.5vw" onClick={() => navigate(-1)} /></div>
             </div>
+            <Toaster/>
             <form onSubmit={handleSubmit(onSubmit)} className='form-container'>
                 <div className="form-container2">
                     <div className='' style={{ display: "flex", flexDirection: "column", gap: "1vw" }}>

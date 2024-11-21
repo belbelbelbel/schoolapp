@@ -25,6 +25,7 @@ export const Undergraduatesprog = () => {
                     },
                 });
                 const result = await res.json();
+                // console.log(result)
                 // console.log(result.university.undergraduate);
                 setundergradPrograms(result.university.undergraduate)
                 if (!res.ok) {

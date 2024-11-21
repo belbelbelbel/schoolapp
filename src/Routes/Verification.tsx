@@ -7,6 +7,7 @@ import "../Styles/Verification.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { MdOutlineErrorOutline } from "react-icons/md";
 import { VerifyModal } from "./VerifyModal";
+import {toast,Toaster} from "react-hot-toast";
 
 let currentOtp: number = 0;
 
@@ -54,14 +55,16 @@ export const Verification = () => {
             });
             const result = await res.json();
             // console.log(result);
-            seterror(result.message);
+            // seterror(result.message);
             if (!res.ok) {
                 setcheck(true);
                 setbuttons(true);
+               toast.error(result.message);
                 
                 // throw new Error("error parsing json");
             } else {
                 setshow(true);
+                toast.success(result.message);
                 // navigate("/signin")
             }
         } catch (error) {
@@ -120,6 +123,7 @@ export const Verification = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1, transition: { duration: 2 } }}
                 exit={{ opacity: 0 }}>
+                    <Toaster/> 
                 <div className="verification-header">
                     <div className="back-button" onClick={handleGoback}>
                         <IoMdArrowRoundBack />

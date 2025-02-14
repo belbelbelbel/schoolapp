@@ -66,12 +66,10 @@ const Signup = () => {
         })
         const result = await res.json()
         localStorage.setItem("corsignup", result);
-        // console.log(result);
         seterror(result.message)
        
         
         if (!res.ok) {
-          // throw new Error("error fetching user signup")
           toast.error(result.message)
         }
         else{
@@ -79,7 +77,6 @@ const Signup = () => {
         }
       }
     } catch (error) {
-      // console.log("error occured again", error)
       if (!localStorage.getItem("corsignup")) {
         setCorserror("Error Occured,Please Try again")
       }

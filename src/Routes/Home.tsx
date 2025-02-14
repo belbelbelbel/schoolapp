@@ -71,13 +71,7 @@ const Home = () => {
             clearTimeout(timer);
         };
     }, []);
-    //  const handleNavigate = () => {
-    //     animationControls.start({
-    //         opacity: 0,
-    //         y: 30,
-    //         transition: {duration: 1, ease: "easeOut"},
-    //     });
-    // };
+    
     const handleSigninNavigate = () => {
         signinAnimationControls.start({
             opacity: 0,

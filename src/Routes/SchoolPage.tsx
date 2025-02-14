@@ -5,7 +5,6 @@ import Cookies from 'js-cookie';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Loading } from './Loading';
 import { Schools2 } from './Schools2';
-import { BiArrowBack } from 'react-icons/bi';
 import { HeaderRoute } from './HeaderRoute';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Footer } from './Footer';
@@ -27,97 +26,49 @@ interface SearchResult {
     location: string;
 }
 
-
 export const SchoolPage = () => {
     const navigate = useNavigate();
+    const params = useParams();
+    const accesstokena = Cookies.get('token');
+    
     const [showschool, setshowschool] = useState(true);
     const [showList, setShowList] = useState(false);
     const [showProgramsList, setShowProgramsList] = useState(false);
-    const params = useParams();
-    const [loading, setLoading] = useState(true)
-    const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [], shortName: "", address: "", yearFounded: "", ownership: "", location: "" });
-    const [school, setschool] = useState([]);
-    const [over, setover] = useState([]);
-    const accesstokena = Cookies.get('token');
-    const handleShowList = () => {
-        setShowList(!showList);
-    }
-    const handleShowProgramList = () => {
-        setShowProgramsList(!showProgramsList);
-    }
-    const handledate = () => {
-        navigate(`${params.universityid}/date`)
-    }
-    const handlexam = () => {
-        navigate(`${params.universityid}/exam`)
-    }
+    const [loading, setLoading] = useState(true);
+    const [searchs, setsearchs] = useState<SearchResult | null>(null);
 
-    const handledocuments = () => {
-        navigate(`/university/${params.universityid}/documents`)
-    }
-
-    const handlefee = () => {
-        navigate(`${params.universityid}/fees`)
-    }
-    const handlenavigatecontact = () => {
-        navigate(`/university/${params.universityid}/contact`);
-    }
-
-    const handlefees = () => {
-        navigate(`${params.universityid}/links`)
-    }
     useEffect(() => {
-        const fetchdescribe = async () => {
+        const fetchUniversityDetails = async () => {
             try {
                 const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/${params.universityid}`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
                         "Authorization": `Bearer ${accesstokena}`,
-                    }
+                    },
                 });
+                
+                if (!res.ok) throw new Error("Error fetching university details");
 
                 const result = await res.json();
-                // console.log(result);
-                // console.log(result.overview);
-                setover(result.overview);
                 setsearchs(result);
-                setschool(result.schoolNames);
-                // console.log(result.schoolNames);
-                setLoading(false);
-
-                if (!res.ok) {
-                    throw new Error("error occured in the description");
-                }
-                if (!searchs) {
-                    // console.log("No data found for this university");
-                    setLoading(false);
-                }
-                // console.log("the results are", result);
             } catch (error) {
-                // console.log("description error", error);
+                console.error("Fetch error:", error);
+            } finally {
                 setLoading(false);
             }
-        }
-        fetchdescribe();
-    }, []);
+        };
+
+        fetchUniversityDetails();
+    }, [params.universityid, accesstokena]);
+
+    const handleNavigation = (path: string) => navigate(`${params.universityid}/${path}`);
+
     const containerVariants = {
         hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                duration: 0.5,
-                staggerChildren: 0.2,
-            },
-        },
-        exit: {
-            opacity: 0,
-            transition: {
-                staggerChildren: 0,
-            },
-        },
+        visible: { opacity: 1, transition: { duration: 0.5, staggerChildren: 0.2 } },
+        exit: { opacity: 0 },
     };
-
 
     const buttonVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -125,102 +76,53 @@ export const SchoolPage = () => {
         exit: { opacity: 0, y: 20 },
     };
 
-
-
-    if (loading) {
-        return <div> <Loading /></div>;
-    }
+    if (loading) return <Loading />;
+    
     return (
         <div className='h-[100dvh] flex flex-col gap-4 justify-between'>
-            {
-                showschool ? (
-                    <div className='w-screen pb-[3vw]'>
-                        <HeaderRoute showschool={showschool} setshowschool={setshowschool} />
-                        <div className='flex items-center mt-[16vw] justify-center flex-col gap-[3vw]'>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'  onClick={handleShowProgramList}>Programs</button>
-                            <AnimatePresence>
-                                {
-                                    showProgramsList && (
-                                        <motion.div
-                                            key="button-list"
-                                            variants={containerVariants}   // Apply the parent variants
-                                            initial="hidden"               // Initial state of the parent
-                                            animate="visible"              // Animate to visible state
-                                            exit="exit"                    // Animate to exit state
-                                            className='flex items-center mt-[1vw] justify-center flex-col gap-[3vw]'
-                                        >
-                                            <motion.button
-                                                variants={buttonVariants}
-                                                className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
-                                                onClick={() => navigate(`${params.universityid}/undergraduateprogram`)}
-                                            >
-                                                Undergraduates
-                                            </motion.button>
-                                            <motion.button
-                                                variants={buttonVariants}
-                                                className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
-                                                onClick={() => navigate(`${params.universityid}/postgraduateprogram`)}
-                                            >
-                                                Postgraduates
-                                            </motion.button>
+            {showschool ? (
+                <div className='w-screen pb-[3vw]'>
+                    <HeaderRoute showschool={showschool} setshowschool={setshowschool} />
+                    <div className='flex items-center  mt-[16vw] pt-2 justify-center flex-col gap-[4vw]'>
+                        {[{ label: "Programs", state: showProgramsList, toggle: setShowProgramsList, links: [
+                            { label: "Undergraduates", path: "undergraduateprogram" },
+                            { label: "Postgraduates", path: "postgraduateprogram" }
+                        ]},
+                        { label: "Admissions", state: showList, toggle: setShowList, links: [
+                            { label: "Dates", path: "date" },
+                            { label: "Fees", path: "fees" },
+                            { label: "Exams", path: "exam" },
+                            { label: "Documents", path: "documents" }
+                        ]}].map((section, index) => (
+                            <div key={index}>
+                                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={() => section.toggle(!section.state)}>
+                                    {section.label}
+                                </button>
+                                <AnimatePresence>
+                                    {section.state && (
+                                        <motion.div variants={containerVariants} initial="hidden" animate="visible" exit="exit" className='flex items-center mt-[1vw] justify-center flex-col gap-[3vw]'>
+                                            {section.links.map((link, i) => (
+                                                <motion.button key={i} variants={buttonVariants} className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={() => handleNavigation(link.path)}>
+                                                    {link.label}
+                                                </motion.button>
+                                            ))}
                                         </motion.div>
-                                    )
-                                }
-                            </AnimatePresence>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handleShowList}>Admissions</button>
-                            <AnimatePresence>
-                                {showList && (
-                                    <motion.div
-                                        key="button-list"
-                                        variants={containerVariants}   // Apply the parent variants
-                                        initial="hidden"               // Initial state of the parent
-                                        animate="visible"              // Animate to visible state
-                                        exit="exit"                    // Animate to exit state
-                                        className='flex items-center mt-[1vw] justify-center flex-col gap-[3vw]'
-                                    >
-                                        <motion.button
-                                            variants={buttonVariants}  // Apply staggered animation to buttons
-                                            className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
-                                            onClick={handledate}
-                                        >
-                                            Dates
-                                        </motion.button>
-                                        <motion.button
-                                            variants={buttonVariants}
-                                            className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
-                                            onClick={handlefee}
-                                        >
-                                            Fees
-                                        </motion.button>
-                                        <motion.button
-                                            variants={buttonVariants}
-                                            className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
-                                            onClick={handlexam}
-                                        >
-                                            Exams
-                                        </motion.button>
-                                        <motion.button
-                                            variants={buttonVariants}
-                                            className='py-[1vw] w-[42vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'
-                                            onClick={handledocuments}
-                                        >
-                                            Documents
-                                        </motion.button>
-                                    </motion.div>
-                                )}
-                            </AnimatePresence>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlenavigatecontact}>Contacts</button>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'>Rankings</button>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={handlefees}>Useful links</button>
-                            <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2'>Terms of use</button>
-                        </div>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ))}
 
+                        {[{ label: "Contacts", path: "contact" }, { label: "Rankings" }, { label: "Useful links", path: "links" }, { label: "Terms of use" }].map((item, index) => (
+                            <button key={index} className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={() => item.path && handleNavigation(item.path)}>
+                                {item.label}
+                            </button>
+                        ))}
                     </div>
-                ) : (<Schools2 setshowschool={setshowschool} />)
-            }
-            <div>
-                <Footer/>
-            </div>
+                </div>
+            ) : (
+                <Schools2 setshowschool={setshowschool} />
+            )}
+            <Footer />
         </div>
     );
-}
+};

@@ -40,12 +40,11 @@ export const ResetPassword = () => {
   };
 
   const data = locations.state?.data;
-//   console.log(data);
 
   const handleverification = async (e: React.FormEvent<HTMLElement>) => {
       e.preventDefault();
       setloading(true);
-      setcheck(false); // Reset error check when starting to fetch
+      setcheck(false);
       try {
           const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/signup/verify-otp`, {
               method: "POST",
@@ -55,7 +54,6 @@ export const ResetPassword = () => {
               body: JSON.stringify({ email: data.email, otp: otp.join('') })
           });
           const result = await res.json();
-        //   console.log(result);
           seterror(result.message);
           if (!res.ok) {
               setcheck(true);
@@ -64,10 +62,8 @@ export const ResetPassword = () => {
               throw new Error("error parsing json");
           } else {
               setshow(true);
-              // navigate("/signin")
           }
       } catch (error) {
-        //   console.log(error);
       } finally {
           setloading(false);
       }
@@ -78,11 +74,8 @@ export const ResetPassword = () => {
           const atIndex = data.email.indexOf('@') ?? -1;
           const visibleChars = Math.min(4, atIndex);
           const maskedLocalPart = data.email.slice(0, visibleChars) + '*'.repeat(atIndex - visibleChars) + data.email.slice(atIndex);
-        //   console.log(maskedLocalPart);
           setmail(maskedLocalPart);
-      } else {
-        //   console.log('Email not available in data');
-      }
+      } 
   }, [data]);
 
   const handleOnkey = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {
@@ -91,7 +84,6 @@ export const ResetPassword = () => {
       if (key === "Backspace") {
           setactiveOtp(currentOtp - 1);
       }
-    //   console.log(key);
   };
 
   useEffect(() => {

@@ -80,7 +80,7 @@ export const Dates2 = () => {
             </div>
 
             <div className=''>
-                <Footer /> </div>{/* Footer sticks to the bottom */}
+                <Footer /> </div>
         </div>
 
     )

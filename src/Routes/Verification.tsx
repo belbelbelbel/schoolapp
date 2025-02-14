@@ -1,11 +1,9 @@
 import { motion } from "framer-motion";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Footer } from "./Footer";
 import { Context } from "../Provider/Usecontext";
 import "../Styles/Verification.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { MdOutlineErrorOutline } from "react-icons/md";
 import { VerifyModal } from "./VerifyModal";
 import {toast,Toaster} from "react-hot-toast";
 
@@ -54,21 +52,15 @@ export const Verification = () => {
                 body: JSON.stringify({ email: data.email, otp: otp.join('') })
             });
             const result = await res.json();
-            // console.log(result);
-            // seterror(result.message);
             if (!res.ok) {
                 setcheck(true);
                 setbuttons(true);
                toast.error(result.message);
-                
-                // throw new Error("error parsing json");
             } else {
                 setshow(true);
                 toast.success(result.message);
-                // navigate("/signin")
             }
         } catch (error) {
-            // console.log(error);
         } finally {
             setloading(false);
         }
@@ -79,11 +71,8 @@ export const Verification = () => {
             const atIndex = data.email.indexOf('@') ?? -1;
             const visibleChars = Math.min(4, atIndex);
             const maskedLocalPart = data.email.slice(0, visibleChars) + '*'.repeat(atIndex - visibleChars) + data.email.slice(atIndex);
-            // console.log(maskedLocalPart);
             setmail(maskedLocalPart);
-        } else {
-            // console.log('Email not available in data');
-        }
+        } 
     }, [data]);
 
     const handleOnkey = (e: React.KeyboardEvent<HTMLInputElement>, index: number) => {

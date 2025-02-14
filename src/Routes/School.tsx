@@ -43,6 +43,11 @@ export const School = () => {
     }
   }
 
+
+  const handleshowSidebar = () => {
+    setshownavbar(!shownavbar);
+  }
+ 
   useEffect(() => {
     const fetchData = async () => {
       setisloading(true)
@@ -58,7 +63,7 @@ export const School = () => {
         if (input.length > 2) {
           setsearch(result);
           seterror(result.message);
-          console.log(result.message)
+          console.log(result)
         } else {
           setsearch([]);
         }
@@ -76,6 +81,7 @@ export const School = () => {
       fetchData();
     }
   }, [input]);
+
 
   useEffect(() => {
     const handleFilteredSearch = async (ownership: string) => {
@@ -139,7 +145,6 @@ export const School = () => {
       setsearch([])
     }
   }, [fees]);
-
 
 
   useEffect(() => {
@@ -211,7 +216,7 @@ export const School = () => {
   } else if (search.length === 0) {
     display = <div>
       {
-        isloading ? <div className='text-center text-xl font-medium mt-[2rem]'>Loading ...</div> : <motion.div initial={{ opacity: 0 }}
+        isloading ? <div className='text-center text-[1.1rem] font-medium mt-[2rem]'>Loading ...</div> : <motion.div initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { delay: 0 } }}
         style={{ fontFamily: "urbanist", fontSize: "4.7vw", position: "relative", left: "0rem", display: "flex", alignItems: "center", justifyContent: "center", margin: "2vw 0rem" }}>School <div style={{ fontFamily: "", color: "#8B452D" }}> "{input}"</div> not found</motion.div>
       }
@@ -240,14 +245,10 @@ export const School = () => {
 
   }
 
-  const handleshowSidebar = () => {
-    setshownavbar(!shownavbar);
-  }
 
   return (
     <div>
       {
-
         <motion.div
           initial={{}}
           animate={{}}
@@ -297,7 +298,6 @@ export const School = () => {
             shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>
           }
         </motion.div>
-
       }
     </div>
   );

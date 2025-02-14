@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { motion } from "framer-motion"
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import { IoMdSearch } from "react-icons/io";
 import 'react-toastify/dist/ReactToastify.css';
@@ -299,12 +299,7 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                         {
                             !search && (<div>no result found</div>)
                         }
-                        {/* <div style={{ display: "flex", flexDirection: "column", fontFamily: "inter", justifyContent: "start", alignItems: "start", gap: "10.5vw" }}>
-                            {display}
-                        </div> */}
-
                     </div>
-                    {/* <div style={{ color: 'red' }}>{error}</div> */}
                     <ToastContainer></ToastContainer>
                 </div>
                 <div className=''>
@@ -316,7 +311,6 @@ export const Schools2 = ({ setshowschool }: showprops) => {
                         )
                     }
                 </div>
-
             </div>
 
             {/* // : (<Loading />) */}

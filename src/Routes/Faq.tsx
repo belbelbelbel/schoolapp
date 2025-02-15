@@ -4,7 +4,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { Footer } from './Footer';
 import { motion } from "framer-motion";
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io';
-import { Skeleton } from './Skeleton';
+import { Skeleton } from '../Components/Skeleton';
 import Cookies from 'js-cookie';
 
 export const Faq = () => {

@@ -29,12 +29,7 @@ export const Programs = () => {
                     }
                 })
                 const results = await res.json()
-                // console.log(results)
-                // console.log(results[0].programs)
-                // console.log(results[0].programs[1])
                 setdepart(results[0].programs)
-                // console.log(results[0].dates)
-                // console.log(results.university.schools)
                 if (!res.ok) {
                     // throw new Error("error parsing json")
                 }

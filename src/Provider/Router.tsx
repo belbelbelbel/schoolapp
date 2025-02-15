@@ -10,7 +10,6 @@ import { PreSchool } from '../Routes/PreSchool'
 import { Programs } from '../Routes/Programs'
 import { useContext } from 'react'
 import { Context } from './Usecontext'
-import { Userprofile } from '../Routes/Userprofile'
 import { About } from '../Routes/About'
 import { Verification } from '../Routes/Verification'
 import Cookies from 'js-cookie'
@@ -43,7 +42,6 @@ const Router = () => {
     <AnimatePresence>
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />}></Route>
-        <Route path='/userprofile' element={<Userprofile />}></Route>
         (<Route path='/signin' element={<Signin />}></Route>)
         <Route path='/school' element={token ? <School /> : <Navigate to="/signin" />}></Route>
         (<Route path='/preschool' element={token ? <PreSchool /> : <Navigate to="/signin" />}></Route>)

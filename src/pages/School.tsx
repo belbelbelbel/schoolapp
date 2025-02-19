@@ -12,7 +12,6 @@ import Cookies from 'js-cookie';
 import { Sidebar } from './Dashboard/Sidebar';
 import { FilteredOptions } from './components/FilteredOptions';
 export const School = () => {
-  const params = useParams()
   const [input, setInput] = useState("");
   const [error, seterror] = useState("")
   const [search, setsearch] = useState([])

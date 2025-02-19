@@ -110,7 +110,6 @@ export const SchoolPage = () => {
                                 </AnimatePresence>
                             </div>
                         ))}
-
                         {[{ label: "Contacts", path: "contact" }, { label: "Rankings" }, { label: "Useful links", path: "links" }, { label: "Terms of use" }].map((item, index) => (
                             <button key={index} className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={() => item.path && handleNavigation(item.path)}>
                                 {item.label}

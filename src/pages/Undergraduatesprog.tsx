@@ -9,7 +9,6 @@ export const Undergraduatesprog = () => {
     const navigate = useNavigate();
     const { universityid } = useParams();
     const accesstoken = Cookies.get('token');
-    
     const [isLoading, setIsLoading] = useState(false);
     const [undergradPrograms, setUndergradPrograms] = useState([]);
 
@@ -51,19 +50,24 @@ export const Undergraduatesprog = () => {
 
                     <div className='flex justify-center pt-[10vw]'>
                         <button className='py-[1.7vw] w-[58vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw]'>
-                            Undergraduates
+                            Undergraduate
                         </button>
                     </div>
-
-                    <div className='pt-[2rem] flex flex-col items-center gap-[3.5vw]'>
-                        {undergradPrograms.map(({ name, _id }) => (
-                            <Link key={_id} to={`/university/${universityid}/${_id}`}>
-                                <button className='py-[1.7vw] w-[53vw] border-[#9f5942] rounded-[2vw] text-[3.8vw] border-2'>
-                                    {name}
-                                </button>
-                            </Link>
-                        ))}
-                    </div>
+                    <div className="pt-[2rem]">
+                            {undergradPrograms.length > 0 ? (
+                                undergradPrograms.map((program: { name: React.ReactNode; _id: any }) => (
+                                    <Link to={`/university/${universityid}/programs`} key={program._id}>
+                                        <div className="text-[4vw] text-black flex flex-col items-center gap-[3.5vw]">
+                                            <button className='py-[1.7vw] w-[53vw] border-[#9f5942] rounded-[2vw] text-[3.8vw] border-2'>
+                                                <h3>{program.name}</h3>
+                                            </button>
+                                        </div>
+                                    </Link>
+                                ))
+                            ) : (
+                                <p className="text-center text-gray-500">No postgraduate programs available.</p>
+                            )}
+                        </div>
                 </div>
             )}
             <Footer />

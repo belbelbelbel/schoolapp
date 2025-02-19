@@ -1,37 +1,37 @@
-import { BrowserRouter, createBrowserRouter, Navigate, Route, RouterProvider, Routes, useLocation } from 'react-router-dom'
-import Signin from '../Routes/Signin'
-import Home from '../Routes/Home'
-import Nopage from '../Routes/Nopage'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+import Signin from '../pages/Auth/Signin'
+import Home from '../pages/Home'
+import Nopage from '../pages/components/Nopage'
 import { AnimatePresence } from "framer-motion"
-import { School } from '../Routes/School'
-import Forgotpassword from '../Routes/Forgotpassword'
-import Signup from '../Routes/Signup'
-import { PreSchool } from '../Routes/PreSchool'
-import { Programs } from '../Routes/Programs'
+import { School } from '../pages/School'
+import Forgotpassword from '../pages/Auth/Forgotpassword'
+import Signup from '../pages/Auth/Signup'
+import { PreSchool } from '../pages/Dashboard/PreSchool'
+import { Programs } from '../pages/Programs'
 import { useContext } from 'react'
 import { Context } from './Usecontext'
-import { About } from '../Routes/About'
-import { Verification } from '../Routes/Verification'
+import { About } from '../pages/About'
+import { Verification } from '../pages/Auth/Verification'
 import Cookies from 'js-cookie'
-import { VerifyModal } from '../Routes/VerifyModal'
-import { ContactUs } from '../Routes/ContactUs'
-import { ResetPassword } from '../Routes/ResetPassword'
-import { ConfirmPassword } from '../Routes/ConfirmPassword'
-import { SchoolPage } from '../Routes/SchoolPage'
-import { Programs2 } from '../Routes/Programs2'
-import { Undergraduate2 } from '../Routes/Undergraduate2'
-import { Postgraduate2 } from '../Routes/Postgraduate2'
-import { Contact2 } from '../Routes/Contact2'
-import { Dates2 } from '../Routes/Dates2'
-import { Documents2 } from '../Routes/Documents2'
-import { Links } from '../Routes/Links'
-import { Exam2 } from '../Routes/Exam2'
-import { Fees2 } from '../Routes/Fees2'
-import { Faq2 } from '../Routes/Faq2'
-import { Undergraduatesprog } from '../Routes/Undergraduatesprog'
-import { Postgraduatesprog } from '../Routes/Postgraduatesprog'
-import { ProgramPost } from '../Routes/ProgramPost'
-import { Fluid3 } from '../Routes/Fluid3'
+import { ContactUs } from '../pages/ContactUs'
+import { ResetPassword } from '../pages/Auth/ResetPassword'
+import { ConfirmPassword } from '../pages/Auth/ConfirmPassword'
+import { SchoolPage } from '../pages/Dashboard/SchoolPage'
+import { Programs2 } from '../pages/Programs2'
+import { Undergraduate } from '../pages/Undergraduate'
+import { Postgraduate } from '../pages/Postgraduate'
+import { Contact } from '../pages/Contact'
+import { Dates2 } from '../pages/Dates2'
+import { Documents } from '../pages/Documents'
+import { Links } from '../pages/Links'
+import { Exam } from '../pages/Exam'
+import { Fees } from '../pages/Fees'
+import { Faq } from '../pages/Faq'
+import { Undergraduatesprog } from '../pages/Undergraduatesprog'
+import { Postgraduatesprog } from '../pages/Postgraduatesprog'
+import { ProgramPost } from '../pages/ProgramPost'
+import { Fluid } from '../pages/Fluid' 
+import { VerifyModal } from '../pages/components/VerifyModal'
 
 
 const Router = () => {
@@ -64,8 +64,8 @@ const Router = () => {
           </Route>
         </Route>
         <Route path='about' element={<About />}></Route>
-        <Route path='/university' element={token ? <Undergraduate2 /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/undergraduate?' element={token ? <Undergraduate2 /> : <Navigate to="/signin"  />} />
+        <Route path='/university' element={token ? <Undergraduate /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/undergraduate?' element={token ? <Undergraduate /> : <Navigate to="/signin"  />} />
         </Route>
         <Route path='/university' element={token ? <Undergraduatesprog /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/undergraduateprogram?' element={token ? <Undergraduatesprog /> : <Navigate to="/signin" />} />
@@ -73,8 +73,8 @@ const Router = () => {
         <Route path='/university' element={token ? <Postgraduatesprog /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/postgraduateprogram?' element={token ? <Postgraduatesprog /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={token ? <Faq2 /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/faq' element={token ? <Faq2 /> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Faq /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/faq' element={token ? <Faq /> : <Navigate to="/signin" />} />
         </Route>
         <Route path='/university' element={token ? <Dates2 /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/date' element={token ? <Dates2 /> : <Navigate to="/signin" />} />
@@ -82,26 +82,26 @@ const Router = () => {
         <Route path='/university' element={token ? <Links /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/links' element={token ? <Links /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={token ? <Fees2 /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/fees' element={token ? <Fees2 /> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Fees /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/fees' element={token ? <Fees /> : <Navigate to="/signin" />} />
         </Route>
         <Route path='/university' element={token ? <Programs2 /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/colleges' element={token ? <Programs2 /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={token ? <Exam2 /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/exam' element={token ? <Exam2/> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Exam /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/exam' element={token ? <Exam/> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={token ? <Fluid3 /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/fluids' element={token ? <Fluid3 /> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Fluid /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/fluids' element={token ? <Fluid /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={token ? <Postgraduate2 /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/postgraduate?' element={token ? <Postgraduate2 /> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Postgraduate /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/postgraduate?' element={token ? <Postgraduate /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={token ? <Contact2 /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/contact?' element={token ? <Contact2 /> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Contact /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/contact?' element={token ? <Contact /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={token ? <Documents2 /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/documents?' element={token ? <Documents2 /> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Documents /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/documents?' element={token ? <Documents /> : <Navigate to="/signin" />} />
         </Route>
         <Route path='/forgotpassword' element={<Forgotpassword />}></Route>
         <Route path="/verification" element={<Verification />} />

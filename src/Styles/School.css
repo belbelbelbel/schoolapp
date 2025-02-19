@@ -61,6 +61,19 @@
     align-self: center;
     justify-content: center;
   }
+  .school_filters input::placeholder {
+    font-size: 4.5vw;
+    font-family: FilsonPro-Medium, sans-serif;
+    color: rgba(11, 60, 73, 0.5);
+    font-weight: 600;
+    margin: auto 0rem;
+    width: 100%;
+    background-color: transparent;
+    align-items: center;
+    display: flex;
+    align-self: center;
+    justify-content: center;
+  }
   .school {
     height: 90vh;
     width: 100%;

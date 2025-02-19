@@ -158,6 +158,11 @@
         font-size: 3vw;
         color: rgba(125, 125, 125, 1);
     }
+    .Contact_containera {
+        display: flex;
+        justify-content: space-between;
+        
+    }
 
     .Contact_contente label {
         /* display: block; */

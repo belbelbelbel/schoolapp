@@ -1,104 +1,119 @@
-import React, { useEffect, useState } from 'react'
-import { Footer } from './components/Footer'
-import "../Styles/Programs.css"
-import { useNavigate, useParams } from 'react-router-dom'
-import { Loading } from './components/Loading'
 import Cookies from 'js-cookie'
-import { BiArrowBack } from 'react-icons/bi'
-interface props {
-    name: string
-    programs: string[]
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Loading } from './components/Loading';
+import { Sidebar } from './Dashboard/Sidebar';
+import { BiArrowBack } from 'react-icons/bi';
+import { HeaderRoute } from './components/HeaderRoute';
+import { Schools2 } from './components/SchoolsModalSearch';
+
+interface OverviewItem {
+    _id: string;
+    name: string;
+    description: string;
 }
+
+interface SearchResult {
+    name: string;
+    websiteLink: string;
+    overview: OverviewItem[];
+    shortName: string;
+    address: string;
+    yearFounded: string;
+    ownership: string;
+    location: string;
+}
+
+
 export const Programs = () => {
-    const navigate = useNavigate()
-    const params = useParams()
-    const [prog, setprog] = useState<props>({ name: '', programs: [] })
-    const [loading, setloading] = useState(false)
-    const [depart, setdepart] = useState([])
+    const navigate = useNavigate();
+    const [showschool, setshowschool] = useState(true);
+    const params = useParams();
+    const [loading, setLoading] = useState(true)
+    const [searchs, setsearchs] = useState<SearchResult>({ name: '', websiteLink: "", overview: [], shortName: "", address: "", yearFounded: "", ownership: "", location: "" });
+    const [school, setschool] = useState([]);
+    const [over, setover] = useState([]);
+    const [text, settext] = useState([])
     const accesstokena = Cookies.get('token')
+
     useEffect(() => {
-        const fetchData = async () => {
-            setloading(true)
+        const fetchprograms = async () => {
             try {
                 const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/${params.universityid}/undergraduate`, {
                     method: "GET",
                     headers: {
                         "Content-type": "application/json",
-                        "ngrok-skip-browser-warning": "69420",
                         "Authorization": `Bearer ${accesstokena}`,
                     }
                 })
-                const results = await res.json()
-                setdepart(results[0].programs)
-                if (!res.ok) {
-                    // throw new Error("error parsing json")
-                }
+                const result = await res.json()
+                // console.log(result)
+                settext(result)
             } catch (error) {
                 // console.log(error)
             }
-            finally {
-                setloading(false)
+        }
+        fetchprograms()
+
+    }, [])
+
+    useEffect(() => {
+        const fetchdescribe = async () => {
+            try {
+                const res = await fetch(`${process.env.REACT_APP_ENDPOINT}/api/university/${params.universityid}/description`, {
+                    method: "GET",
+                    headers: {
+                        "Content-type": "application/json",
+                        "Authorization": `Bearer ${accesstokena}`,
+                    }
+                });
+
+                const result = await res.json();
+            
+                setover(result.overview);
+                setsearchs(result);
+                setschool(result.schoolNames);
+ 
+                setLoading(false);
+
+                if (!res.ok) {
+                    // throw new Error("error occured in the description");
+                }
+                if (!searchs) {
+                    // console.log("No data found for this university");
+                    setLoading(false);
+                }
+                // console.log("the results are", result);
+            } catch (error) {
+                // console.log("description error", error);
+                setLoading(false);
             }
         }
-        fetchData();
-    }, [])
-    const handlelback = () => {
-        navigate(-1)
+        fetchdescribe();
+    }, []);
+
+    if (loading) {
+        return <div> <Loading /></div>;
     }
+
     return (
-        <div className='prog_cont h-[100dvh] flex-col flex justify-between'>
+        <div>
             {
-                loading ? <h1><Loading /></h1> :
-
-                    <div className='prog_cont2 pt-[2rem]'>
-                        <div id="firsts"></div>
-                        <div className="flex items-ceneter justify-between px-[6vw]">
-                        <div style={{ cursor: "pointer" }}>  </div> <div style={{width: "75vw"}}><BiArrowBack className='text-[5.2vw]' onClick={handlelback}/></div>
-                            <div className="flex items-center gap-[2vw]">
-                                <div> <img src="/edit button.svg" alt="edit" /></div>
-                                <div> <img src="/Vector (4).svg" alt="flag" /></div>
+                showschool ? (
+                    <div className='w-screen flex flex-col gap-[3vw]  my-[0rem]'>
+                        <HeaderRoute showschool={showschool} setshowschool={setshowschool} />
+                        <div className="w-[88%] mx-auto flex flex-col items-center  gap-[9vw]">
+                            <div className='items-center justify-center flex text-center'>
+                                <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Programs</button>
+                            </div>
+                            <div className='flex gap-[3vw] items-center flex-col'>
+                                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={() => navigate(`${params.universityid}/undergraduateprogram`)}>Undergraduates</button>
+                                <button className='py-[1.7vw] w-[55vw] border-[#9f5942] rounded-[2vw] text-[4.2vw] border-2' onClick={() => navigate(`${params.universityid}/postgraduateprogram`)}>Postgraduates</button>
                             </div>
                         </div>
-                        <div className='w-[86%] mx-auto'>
-                            <div>
-                                <div className='flex flex-col  gap-[7vw]'>
-                                    <div className='items-center justify-center flex text-center pt-[5vw]'>
-                                        <button className='py-[1.7vw] w-[63vw] bg-gradient-to-l from-[#9f5942] via-red-900 to-gray-900 text-white rounded-[2vw] text-[4.2vw] border-none'>Department</button>
-                                    </div>
-                                    <div className='flex flex-col  gap-[5vw]'>
-                                        {/* <h5>{depart.name}</h5> */}
-                                        {
-                                            depart.map((pro: {
-                                                name: React.ReactNode
-                                                certs: string[]
-                                            },index:any) => (
-                                                <div className="" key={index}>
-                                                    <div className="font-bold text-[4vw]">
-                                                        <h4>{pro.name}</h4>
-                                                    </div>
-
-                                                    <div className='flex gap-[1vw]'>
-                                                        {pro.certs.map((cert, index: any) => (
-                                                            <div key={index} className=''>
-                                                                <div className='break-words'>{cert}</div>
-                                                            </div>
-                                                        ))}
-                                                    </div>
-
-                                                </div>
-                                            ))
-                                        }
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        {/* <Footer /> */}
                     </div>
+                ) : (<div><Schools2 setshowschool={setshowschool} /></div>)
             }
-            <div>
-                <Footer/>
-            </div>
         </div>
     )
 }

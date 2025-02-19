@@ -7,7 +7,6 @@ import { School } from '../pages/School'
 import Forgotpassword from '../pages/Auth/Forgotpassword'
 import Signup from '../pages/Auth/Signup'
 import { Dashboard } from '../pages/Dashboard/Dashboard'
-import { Programs } from '../pages/Programs'
 import { useContext } from 'react'
 import { Context } from './Usecontext'
 import { About } from '../pages/About'
@@ -17,7 +16,6 @@ import { ContactUs } from '../pages/ContactUs'
 import { ResetPassword } from '../pages/Auth/ResetPassword'
 import { ConfirmPassword } from '../pages/Auth/ConfirmPassword'
 import { SchoolPage } from '../pages/Dashboard/SchoolPage'
-import { Programs2 } from '../pages/Programs2'
 import { Undergraduate } from '../pages/Undergraduate'
 import { Postgraduate } from '../pages/Postgraduate'
 import { Contact } from '../pages/Contact'
@@ -32,6 +30,7 @@ import { Postgraduatesprog } from '../pages/Postgraduatesprog'
 import { ProgramPost } from '../pages/ProgramPost'
 import { Fluid } from '../pages/Fluid' 
 import { VerifyModal } from '../pages/components/VerifyModal'
+import { Programs } from '../pages/Programs'
 
 
 const Router = () => {
@@ -54,11 +53,11 @@ const Router = () => {
           <Route path=':universityid' element={token ? <SchoolPage /> : <Navigate to="/signin" />}>
           </Route>
         </Route>
-        <Route path='/university' element={token ? <Programs /> : <Navigate to="/signin" />}>
+        {/* <Route path='/university' element={token ? <Programs /> : <Navigate to="/signin" />}>
           <Route path=':universityid' element={token ? <Programs /> : <Navigate to="/signin" />}>
             <Route path=':schoolid' element={token ? <Programs /> : <Navigate to="/signin" />}></Route>
           </Route>
-        </Route>
+        </Route> */}
         <Route path='/university' element={token ? <ProgramPost /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/programs?' element={token ? <ProgramPost /> : <Navigate to="/signin" />}>
           </Route>
@@ -85,8 +84,8 @@ const Router = () => {
         <Route path='/university' element={token ? <Fees /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/fees' element={token ? <Fees /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={token ? <Programs2 /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/colleges' element={token ? <Programs2 /> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Programs /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/colleges' element={token ? <Programs /> : <Navigate to="/signin" />} />
         </Route>
         <Route path='/university' element={token ? <Exam /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/exam' element={token ? <Exam/> : <Navigate to="/signin" />} />

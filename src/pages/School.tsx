@@ -120,7 +120,6 @@ export const School = () => {
           method: "GET",
           headers: {
             "Content-type": "application/json",
-            "ngrok-skip-browser-warning": "69420",
             "Authorization": `Bearer ${accesstokena}`,
           },
         });
@@ -280,7 +279,7 @@ export const School = () => {
             }
             <div className=''>
               {
-                input.length < 3 && input.length > 0 ? <div className='text-center mt-3'>School name must be atleast 2 characters</div> : display
+                input.length < 4 && input.length > 0 ? <div className='text-center mt-3'>School name must be atleast 3 characters</div> : display
               }
             </div>
             <div className="btn">

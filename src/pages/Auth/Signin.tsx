@@ -142,7 +142,7 @@ const Signin = () => {
         <Toaster/>
       <div className='signin_container'>
         <div className='signin-img'>
-          <img src="/Picture-transformed.png" alt="signin page image" loading='lazy'/>
+          <img src="/SigninImg.png" alt="signin page image" loading='lazy'/>
         </div>
         <div className='signin_container2'>
           <form onSubmit={handleSubmit}>

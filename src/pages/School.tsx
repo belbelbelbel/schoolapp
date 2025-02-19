@@ -59,7 +59,7 @@ export const School = () => {
           },
         });
         const result = await res.json();
-        if (input.length > 2) {
+        if (input.length > 3) {
           setsearch(result);
           seterror(result.message);
           console.log(result)

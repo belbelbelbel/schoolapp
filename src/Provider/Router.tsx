@@ -6,7 +6,7 @@ import { AnimatePresence } from "framer-motion"
 import { School } from '../pages/School'
 import Forgotpassword from '../pages/Auth/Forgotpassword'
 import Signup from '../pages/Auth/Signup'
-import { PreSchool } from '../pages/Dashboard/PreSchool'
+import { Dashboard } from '../pages/Dashboard/Dashboard'
 import { Programs } from '../pages/Programs'
 import { useContext } from 'react'
 import { Context } from './Usecontext'
@@ -44,7 +44,7 @@ const Router = () => {
         <Route path='/' element={<Home />}></Route>
         (<Route path='/signin' element={<Signin />}></Route>)
         <Route path='/school' element={token ? <School /> : <Navigate to="/signin" />}></Route>
-        (<Route path='/preschool' element={token ? <PreSchool /> : <Navigate to="/signin" />}></Route>)
+        (<Route path='/preschool' element={token ? <Dashboard /> : <Navigate to="/signin" />}></Route>)
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/verifymodal' element={<VerifyModal />}></Route>
         <Route path='/resetpassword' element={<ResetPassword />}></Route>

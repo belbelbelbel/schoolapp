@@ -7,7 +7,7 @@ import { motion } from "framer-motion"
 import Cookies from 'js-cookie'
 import { Sidebar } from './Sidebar'
 
-export const PreSchool = () => {
+export const Dashboard = () => {
     const navigate = useNavigate()
     const handlelschool = () => {
         navigate("/school")

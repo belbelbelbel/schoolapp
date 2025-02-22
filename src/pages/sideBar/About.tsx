@@ -1,5 +1,5 @@
 import React from 'react';
-import "../Styles/About.css";
+import "../../Styles/About.css";
 import { useNavigate } from 'react-router-dom';
 import { motion } from "framer-motion";
 import { BiArrowBack } from 'react-icons/bi';

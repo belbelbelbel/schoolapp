@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { motion, useAnimation } from "framer-motion";
-import "../Styles/Home.css";
+import "../../Styles/Home.css";
 import Loader from '../components/Loader';
 
 const Home = () => {

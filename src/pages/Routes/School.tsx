@@ -1,6 +1,6 @@
 import React, { ReactNode, useContext, useEffect, useState } from 'react';
 import { IoClose } from "react-icons/io5";
-import '../Styles/School.css';
+import '../../Styles/School.css';
 import { motion } from "framer-motion"
 import { Link, Navigate, useNavigate, useParams } from 'react-router-dom';
 import { IoFilterSharp } from "react-icons/io5";
@@ -9,7 +9,7 @@ import { IoMdSearch } from "react-icons/io";
 import 'react-toastify/dist/ReactToastify.css';
 import { Context, Usecontext } from '../../Provider/Usecontext';
 import Cookies from 'js-cookie';
-import { Sidebar } from '../../sideBar/Sidebar';
+import { Sidebar } from '../sideBar/Sidebar';
 import { FilteredOptions } from '../components/FilteredOptions';
 export const School = () => {
   const [input, setInput] = useState("");

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { valueprops } from '../Provider/Usecontext';
-import "../Styles/Contact.css"
+import { valueprops } from '../../Provider/Usecontext';
+import "../../Styles/Contact.css"
 import { SubmitHandler, useForm } from 'react-hook-form';
 import Cookies from 'js-cookie';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -8,7 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import { Toaster,toast } from 'react-hot-toast';
 import { Sidebar } from './Sidebar';
 import { motion } from 'framer-motion';
-import { Footer } from '../pages/components/Footer';
+import { Footer } from '../components/Footer';
 
 
 interface textprops {

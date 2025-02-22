@@ -8,7 +8,7 @@ import { Context } from '../../Provider/Usecontext';
 import { IoClose, IoFilterSharp } from 'react-icons/io5';
 import Cookies from 'js-cookie';
 import { BiArrowBack } from 'react-icons/bi';
-import { Sidebar } from '../../sideBar/Sidebar';
+import { Sidebar } from '../sideBar/Sidebar';
 import { Loading } from './Loading';
 import { FilteredOptions } from './FilteredOptions';
 import { Footer } from './Footer';

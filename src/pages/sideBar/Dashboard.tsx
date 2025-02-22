@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import { Context } from '../Provider/Usecontext'
-import "../Styles/PreSchool.css"
-import { Footer } from '../pages/components/Footer'
+import { Context } from '../../Provider/Usecontext'
+import "../../Styles/PreSchool.css"
+import { Footer } from '../components/Footer'
 import { useNavigate } from 'react-router-dom'
 import { motion } from "framer-motion"
 import Cookies from 'js-cookie'

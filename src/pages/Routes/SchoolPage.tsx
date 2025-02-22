@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import "../Styles/Covenant.css";
+import "../../Styles/Covenant.css";
 import Cookies from 'js-cookie';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Schools2 } from '../components/SchoolsModalSearch';

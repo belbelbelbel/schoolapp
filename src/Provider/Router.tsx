@@ -3,7 +3,7 @@ import Signin from '../pages/Auth/Signin'
 import Home from '../pages/Routes/Home'
 import Nopage from '../pages/components/Nopage'
 import { AnimatePresence } from "framer-motion"
-import { School } from '../pages/Routes/School'
+import { SchoolSearch } from '../pages/Routes/SchoolSearch'
 import Forgotpassword from '../pages/Auth/Forgotpassword'
 import Signup from '../pages/Auth/Signup'
 import { Dashboard } from '../pages/sideBar/Dashboard'
@@ -42,7 +42,7 @@ const Router = () => {
       <Routes location={location} key={location.pathname}>
         <Route path='/' element={<Home />}></Route>
         (<Route path='/signin' element={<Signin />}></Route>)
-        <Route path='/school' element={token ? <School /> : <Navigate to="/signin" />}></Route>
+        <Route path='/school' element={token ? <SchoolSearch /> : <Navigate to="/signin" />}></Route>
         (<Route path='/preschool' element={token ? <Dashboard /> : <Navigate to="/signin" />}></Route>)
         <Route path='/signup' element={<Signup />}></Route>
         <Route path='/verifymodal' element={<VerifyModal />}></Route>

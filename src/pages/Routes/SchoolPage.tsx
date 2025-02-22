@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "../../Styles/Covenant.css";
 import Cookies from 'js-cookie';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Schools2 } from '../components/Modals/SchoolsModalSearch';
+import { SchoolsSearch } from './SchoolsSearch2';
 import { HeaderRoute } from '../components/HeaderRoute';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Footer } from '../components/Footer';
@@ -118,7 +118,7 @@ export const SchoolPage = () => {
                     </div>
                 </div>
             ) : (
-                <Schools2 setshowschool={setshowschool} />
+                <SchoolsSearch setshowschool={setshowschool} />
             )}
             <Footer />
         </div>

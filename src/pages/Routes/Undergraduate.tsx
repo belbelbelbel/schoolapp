@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { HeaderRoute } from '../components/HeaderRoute';
-import { Schools2 } from '../components/Modals/SchoolsModalSearch';
+import { SchoolsSearch } from './SchoolsSearch2';
 
 
 export const Undergraduate = () => {
@@ -13,7 +13,7 @@ export const Undergraduate = () => {
     navigate(`/university/${universityid}/${path}`);
   };
 
-  if (!showSchool) return <Schools2 setshowschool={setShowSchool} />;
+  if (!showSchool) return <SchoolsSearch setshowschool={setShowSchool} />;
 
   return (
     <div>

@@ -5,7 +5,7 @@ import { Loading } from '../components/Loading';
 import { Sidebar } from '../sideBar/Sidebar';
 import { BiArrowBack } from 'react-icons/bi';
 import { HeaderRoute } from '../components/HeaderRoute';
-import { Schools2 } from '../components/Modals/SchoolsModalSearch';
+import { SchoolsSearch } from './SchoolsSearch2';
 
 interface OverviewItem {
     _id: string;
@@ -112,7 +112,7 @@ export const Programs = () => {
                             </div>
                         </div>
                     </div>
-                ) : (<div><Schools2 setshowschool={setshowschool} /></div>)
+                ) : (<div><SchoolsSearch setshowschool={setshowschool} /></div>)
             }
         </div>
     )

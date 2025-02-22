@@ -11,7 +11,7 @@ import { Context, Usecontext } from '../../Provider/Usecontext';
 import Cookies from 'js-cookie';
 import { Sidebar } from '../sideBar/Sidebar';
 import { FilteredOptions } from '../components/FilteredOptions';
-export const School = () => {
+export const SchoolSearch = () => {
   const [input, setInput] = useState("");
   const [error, seterror] = useState("")
   const [search, setsearch] = useState([])

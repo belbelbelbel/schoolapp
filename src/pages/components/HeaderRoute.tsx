@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import { Sidebar } from '../sideBar/Sidebar';
 import { Loading } from './Loading';
-import { Schools2 } from './Modals/SchoolsModalSearch';
+import { SchoolsSearch } from '../Routes/SchoolsSearch2';
 import { BiArrowBack } from 'react-icons/bi';
 
 

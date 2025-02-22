@@ -3,7 +3,7 @@ import { HeaderRoute } from '../components/HeaderRoute'
 import { useNavigate, useParams } from 'react-router-dom'
 import { Loading } from '../components/Loading'
 import Cookies from 'js-cookie'
-import { Schools2 } from '../components/Modals/SchoolsModalSearch'
+import { SchoolsSearch } from './SchoolsSearch2'
 
 export const Postgraduate = () => {
     const [showschool, setshowschool] = useState(true)
@@ -104,7 +104,7 @@ export const Postgraduate = () => {
                     </div>
                 </>
             ) : (
-                <Schools2 setshowschool={setshowschool} />
+                <SchoolsSearch setshowschool={setshowschool} />
             )}
         </div>
     )

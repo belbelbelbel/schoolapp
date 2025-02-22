@@ -12,7 +12,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Toaster,toast } from "react-hot-toast";
-import PresentSchoModal from "../PresentSchoModal";
+import PresentSchoModal from "../components/PresentSchoModal";
 import { ReasonsModal } from "../components/ReasonsModal";
 import { LevelSchool } from "../components/LevelSchool";
 import { ClipLoader } from "react-spinners";

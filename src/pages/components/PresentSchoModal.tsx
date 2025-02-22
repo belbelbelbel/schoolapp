@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import '../Styles/PresentSchoModal.css';
+import '../../Styles/PresentSchoModal.css';
 import { CiSaveDown1 } from "react-icons/ci";
 type SchoolModalProps = {
     placeholder: string;

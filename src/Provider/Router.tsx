@@ -6,16 +6,16 @@ import { AnimatePresence } from "framer-motion"
 import { School } from '../pages/School'
 import Forgotpassword from '../pages/Auth/Forgotpassword'
 import Signup from '../pages/Auth/Signup'
-import { Dashboard } from '../pages/Dashboard/Dashboard'
+import { Dashboard } from '../sideBar/Dashboard'
 import { useContext } from 'react'
 import { Context } from './Usecontext'
-import { About } from '../pages/About'
+import { About } from '../sideBar/About'
 import { Verification } from '../pages/Auth/Verification'
 import Cookies from 'js-cookie'
-import { ContactUs } from '../pages/ContactUs'
+import { ContactUs } from '../sideBar/ContactUs'
 import { ResetPassword } from '../pages/Auth/ResetPassword'
 import { ConfirmPassword } from '../pages/Auth/ConfirmPassword'
-import { SchoolPage } from '../pages/Dashboard/SchoolPage'
+import { SchoolPage } from '../pages/SchoolPage'
 import { Undergraduate } from '../pages/Undergraduate'
 import { Postgraduate } from '../pages/Postgraduate'
 import { Contact } from '../pages/Contact'
@@ -25,12 +25,12 @@ import { Links } from '../pages/Links'
 import { Exam } from '../pages/Exam'
 import { Fees } from '../pages/Fees'
 import { Faq } from '../pages/Faq'
-import { Undergraduatesprog } from '../pages/Undergraduatesprog'
-import { Postgraduatesprog } from '../pages/Postgraduatesprog'
+import { Undergraduatesprogram } from '../pages/Undergraduatesprogram'
+import { Postgraduatesprogram } from '../pages/Postgraduatesprogram'
 import { ProgramPost } from '../pages/ProgramPost'
 import { Fluid } from '../pages/Fluid' 
-import { VerifyModal } from '../pages/components/VerifyModal'
 import { Programs } from '../pages/Programs'
+import { VerifyModal } from '../pages/components/VerifyModal'
 
 
 const Router = () => {
@@ -66,11 +66,11 @@ const Router = () => {
         <Route path='/university' element={token ? <Undergraduate /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/undergraduate?' element={token ? <Undergraduate /> : <Navigate to="/signin"  />} />
         </Route>
-        <Route path='/university' element={token ? <Undergraduatesprog /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/undergraduateprogram?' element={token ? <Undergraduatesprog /> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Undergraduatesprogram /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/undergraduateprogram?' element={token ? <Undergraduatesprogram /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={token ? <Postgraduatesprog /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/postgraduateprogram?' element={token ? <Postgraduatesprog /> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Postgraduatesprogram /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/postgraduateprogram?' element={token ? <Postgraduatesprogram /> : <Navigate to="/signin" />} />
         </Route>
         <Route path='/university' element={token ? <Faq /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/faq' element={token ? <Faq /> : <Navigate to="/signin" />} />

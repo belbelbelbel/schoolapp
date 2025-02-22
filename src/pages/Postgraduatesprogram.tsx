@@ -5,7 +5,7 @@ import Cookies from 'js-cookie';
 import { BiArrowBack } from 'react-icons/bi';
 import { Footer } from './components/Footer';
 
-export const Postgraduatesprog = () => {
+export const Postgraduatesprogram = () => {
     const navigate = useNavigate();
     const accesstokena = Cookies.get('token');
     const [isLoading, setisLoading] = useState(false);

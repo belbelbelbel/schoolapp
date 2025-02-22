@@ -9,7 +9,7 @@ import { IoMdSearch } from "react-icons/io";
 import 'react-toastify/dist/ReactToastify.css';
 import { Context, Usecontext } from '../Provider/Usecontext';
 import Cookies from 'js-cookie';
-import { Sidebar } from './Dashboard/Sidebar';
+import { Sidebar } from '../sideBar/Sidebar';
 import { FilteredOptions } from './components/FilteredOptions';
 export const School = () => {
   const [input, setInput] = useState("");

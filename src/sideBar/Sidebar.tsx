@@ -3,14 +3,14 @@ import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
 import { useContext } from 'react';
 import Cookies from 'js-cookie';
-import { Context } from '../../Provider/Usecontext';
+import { Context } from '../Provider/Usecontext';
 import { FaSearchPlus } from 'react-icons/fa';
 import { FcAbout } from 'react-icons/fc';
 import { SiGnuprivacyguard } from 'react-icons/si';
 import { MdDashboard } from 'react-icons/md';
 import { FiLogOut } from 'react-icons/fi';
 import { IoCall } from 'react-icons/io5';
-import '../../Styles/Sidebar.css';
+import '../Styles/Sidebar.css';
 
 interface SidebarProps {
     shownavbar: boolean;

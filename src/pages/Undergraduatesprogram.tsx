@@ -5,7 +5,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import { Loading } from './components/Loading';
 import { Footer } from './components/Footer';
 
-export const Undergraduatesprog = () => {
+export const Undergraduatesprogram = () => {
     const navigate = useNavigate();
     const { universityid } = useParams();
     const accesstoken = Cookies.get('token');

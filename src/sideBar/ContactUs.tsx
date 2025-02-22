@@ -6,9 +6,9 @@ import Cookies from 'js-cookie';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import { Toaster,toast } from 'react-hot-toast';
-import { Sidebar } from './Dashboard/Sidebar';
+import { Sidebar } from './Sidebar';
 import { motion } from 'framer-motion';
-import { Footer } from './components/Footer';
+import { Footer } from '../pages/components/Footer';
 
 
 interface textprops {

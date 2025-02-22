@@ -7,7 +7,7 @@ import "../../Styles/Verification.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { MdOutlineErrorOutline } from "react-icons/md";
 import { Context } from '../../Provider/Usecontext';
-import { VerifyModal } from '../components/VerifyModal';
+import { VerifyModal } from '../components/Modals/VerifyModal';
 
 
 let currentOtp: number = 0;

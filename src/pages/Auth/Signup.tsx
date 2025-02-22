@@ -12,9 +12,9 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import 'react-toastify/dist/ReactToastify.css';
 
 import { Toaster,toast } from "react-hot-toast";
-import PresentSchoModal from "../components/PresentSchoModal";
-import { ReasonsModal } from "../components/ReasonsModal";
-import { LevelSchool } from "../components/LevelSchool";
+import PresentSchoModal from "../components/Modals/PresentSchoModal";
+import { ReasonsModal } from "../components/Modals/ReasonsModal";
+import { LevelSchool } from "../components/Modals/LevelSchoolModal";
 import { ClipLoader } from "react-spinners";
 import Cookies from "js-cookie";
 const Signup = () => {

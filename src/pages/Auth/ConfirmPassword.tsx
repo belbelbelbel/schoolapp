@@ -5,7 +5,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import "../../Styles/ConfirmPassword.css"
 import { motion } from 'framer-motion';
 import { PiEyeLight, PiEyeSlash } from 'react-icons/pi';
-import { VerrifyReset } from '../components/VerrifyResetModal';
+import { VerrifyReset } from '../components/Modals/VerrifyResetModal';
 interface ConfirmPasswordprops {
     password: string;
     newPassword: string;

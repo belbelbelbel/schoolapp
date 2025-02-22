@@ -30,7 +30,7 @@ import { Postgraduatesprogram } from '../pages/Routes/Postgraduatesprogram'
 import { ProgramPost } from '../pages/Routes/ProgramPost'
 import { Fluid } from '../pages/Routes/Fluid' 
 import { Programs } from '../pages/Routes/Programs'
-import { VerifyModal } from '../pages/components/VerifyModal'
+import { VerifyModal } from '../pages/components/Modals/VerifyModal'
 
 
 const Router = () => {

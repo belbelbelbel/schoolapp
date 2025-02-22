@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "../../Styles/Covenant.css";
 import Cookies from 'js-cookie';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Schools2 } from '../components/SchoolsModalSearch';
+import { Schools2 } from '../components/Modals/SchoolsModalSearch';
 import { HeaderRoute } from '../components/HeaderRoute';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Footer } from '../components/Footer';

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { HeaderRoute } from '../components/HeaderRoute';
-import { Schools2 } from '../components/SchoolsModalSearch';
+import { Schools2 } from '../components/Modals/SchoolsModalSearch';
 
 
 export const Undergraduate = () => {

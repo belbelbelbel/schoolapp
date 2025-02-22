@@ -5,7 +5,7 @@ import { Context } from "../../Provider/Usecontext";
 import "../../Styles/Verification.css";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import {toast,Toaster} from "react-hot-toast";
-import { VerifyModal } from "../components/VerifyModal";
+import { VerifyModal } from "../components/Modals/VerifyModal";
 
 let currentOtp: number = 0;
 

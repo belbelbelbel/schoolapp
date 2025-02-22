@@ -1,4 +1,4 @@
-import "../../Styles/VerifyModal.css"
+import "../../../Styles/VerifyModal.css"
 import { motion } from "framer-motion"
 import { useNavigate } from "react-router-dom"
 export const VerifyModal = () => {

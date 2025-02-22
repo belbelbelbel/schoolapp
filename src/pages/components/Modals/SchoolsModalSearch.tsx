@@ -4,14 +4,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from "react-toastify";
 import { IoMdSearch } from "react-icons/io";
 import 'react-toastify/dist/ReactToastify.css';
-import { Context } from '../../Provider/Usecontext';
+import { Context } from '../../../Provider/Usecontext';
 import { IoClose, IoFilterSharp } from 'react-icons/io5';
 import Cookies from 'js-cookie';
 import { BiArrowBack } from 'react-icons/bi';
-import { Sidebar } from '../sideBar/Sidebar';
-import { Loading } from './Loading';
-import { FilteredOptions } from './FilteredOptions';
-import { Footer } from './Footer';
+import { Sidebar } from '../../sideBar/Sidebar';
+import { Loading } from '../Loading';
+import { FilteredOptions } from '../FilteredOptions';
+import { Footer } from '../Footer';
 interface showprops {
     setshowschool: (showschool: boolean) => void
 }

@@ -5,7 +5,7 @@ import { Loading } from '../components/Loading';
 import { Sidebar } from '../sideBar/Sidebar';
 import { BiArrowBack } from 'react-icons/bi';
 import { HeaderRoute } from '../components/HeaderRoute';
-import { Schools2 } from '../components/SchoolsModalSearch';
+import { Schools2 } from '../components/Modals/SchoolsModalSearch';
 
 interface OverviewItem {
     _id: string;

@@ -8,7 +8,7 @@ import { IoMdArrowBack } from "react-icons/io";
 import { Toaster,toast } from 'react-hot-toast';
 
 import { relative } from 'path';
-import { ComfirmModal } from '../components/ComfirmModal';
+import { ComfirmModal } from '../components/Modals/ComfirmModal';
 type emailprops = {
     email: string
 }

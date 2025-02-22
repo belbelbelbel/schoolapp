@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 import "../Styles/Covenant.css";
 import Cookies from 'js-cookie';
 import { useNavigate, useParams } from 'react-router-dom';
-import { Schools2 } from './components/SchoolsModalSearch';
-import { HeaderRoute } from './components/HeaderRoute';
+import { Schools2 } from '../components/SchoolsModalSearch';
+import { HeaderRoute } from '../components/HeaderRoute';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Footer } from './components/Footer';
-import { Loading } from './components/Loading';
+import { Footer } from '../components/Footer';
+import { Loading } from '../components/Loading';
 
 interface OverviewItem {
     _id: string;

@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { BiArrowBack } from 'react-icons/bi'
 import { IoMdArrowDropdown, IoMdArrowDropup } from 'react-icons/io'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Footer } from './components/Footer'
+import { Footer } from '../components/Footer'
 
 export const Faq = () => {
   const navigate = useNavigate()

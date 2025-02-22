@@ -1,9 +1,9 @@
 import Cookies from 'js-cookie'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
-import { Loading } from './components/Loading'
+import { Loading } from '../components/Loading'
 import { BiArrowBack } from 'react-icons/bi'
-import { Footer } from './components/Footer'
+import { Footer } from '../components/Footer'
 
 
 export const Contact = () => {

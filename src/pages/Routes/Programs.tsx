@@ -1,11 +1,11 @@
 import Cookies from 'js-cookie'
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom'
-import { Loading } from './components/Loading';
-import { Sidebar } from '../sideBar/Sidebar';
+import { Loading } from '../components/Loading';
+import { Sidebar } from '../../sideBar/Sidebar';
 import { BiArrowBack } from 'react-icons/bi';
-import { HeaderRoute } from './components/HeaderRoute';
-import { Schools2 } from './components/SchoolsModalSearch';
+import { HeaderRoute } from '../components/HeaderRoute';
+import { Schools2 } from '../components/SchoolsModalSearch';
 
 interface OverviewItem {
     _id: string;

@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { BiArrowBack } from 'react-icons/bi'
-import { Loading } from './components/Loading'
+import { Loading } from '../components/Loading'
 import { useNavigate, useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
-import { Footer } from './components/Footer'
+import { Footer } from '../components/Footer'
 
 export const Dates2 = () => {
     const [loading, setloading] = useState(false)

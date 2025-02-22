@@ -7,10 +7,10 @@ import { IoFilterSharp } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
 import { IoMdSearch } from "react-icons/io";
 import 'react-toastify/dist/ReactToastify.css';
-import { Context, Usecontext } from '../Provider/Usecontext';
+import { Context, Usecontext } from '../../Provider/Usecontext';
 import Cookies from 'js-cookie';
-import { Sidebar } from '../sideBar/Sidebar';
-import { FilteredOptions } from './components/FilteredOptions';
+import { Sidebar } from '../../sideBar/Sidebar';
+import { FilteredOptions } from '../components/FilteredOptions';
 export const School = () => {
   const [input, setInput] = useState("");
   const [error, seterror] = useState("")

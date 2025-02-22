@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { Loading } from './components/Loading';
+import { Loading } from '../components/Loading';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { BiArrowBack } from 'react-icons/bi';
-import { Footer } from './components/Footer';
+import { Footer } from '../components/Footer';
 
 export const Postgraduatesprogram = () => {
     const navigate = useNavigate();

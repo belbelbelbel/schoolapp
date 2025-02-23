@@ -8,7 +8,6 @@ import { ToastContainer } from 'react-toastify';
 import { Toaster,toast } from 'react-hot-toast';
 import { Sidebar } from './Sidebar';
 import { motion } from 'framer-motion';
-import { Footer } from '../components/Footer';
 
 
 interface textprops {
@@ -19,7 +18,6 @@ interface textprops {
 export const ContactUs = () => {
     const accesstoken = localStorage.getItem('token');
     const { register, handleSubmit,reset, formState: { errors } } = useForm<valueprops>();
-    const accesstokena = Cookies.get('token')
     const params = useParams();
     const [error, seterror] = useState("")
     const [loading, setloading] = useState(false)
@@ -89,7 +87,7 @@ export const ContactUs = () => {
                 <div className="Contact_container">
                     <div className='Contact_containera'>
                         {
-                            !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
+                            !shownavbar ? <div><img src="Image/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
                         }
                     </div>
                     {
@@ -101,7 +99,7 @@ export const ContactUs = () => {
                     </div>
                 </div>
                 <div className='Contact_header'>
-                    <div className='Contact_img'><img src="/Work_7 1.svg" alt="contact image" /></div>
+                    <div className='Contact_img'><img src="Image/Work_7 1.svg" alt="contact image" /></div>
                 </div>
                 <div className='Contact_contentb'>QUICK CONTACT</div>
                 <div className='Contact_contentd'>

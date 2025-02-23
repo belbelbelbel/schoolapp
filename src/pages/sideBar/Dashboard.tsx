@@ -45,7 +45,7 @@ export const Dashboard = () => {
                 <div>
                     <div className="preschool-navbar" >
                         {
-                            shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshow} /></div>
+                            shownavbar ? <div><img src="Image/Menu button.svg" alt="menu" onClick={handleshow} /></div> : <div><img src="Image/Menu button.svg" alt="menu" onClick={handleshow} /></div>
                         }
                         {
                             shownavbar && <div><Sidebar shownavbar={shownavbar} setshownavbar={setshownavbar} /></div>

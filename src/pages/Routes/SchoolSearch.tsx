@@ -209,7 +209,7 @@ export const SchoolSearch = () => {
 
 
   if (input.length === 0) {
-    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", justifyItems: "center", position: "relative", right: "0rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img loading='lazy' src="/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49", letterSpacing: "1px" }}>Search for institutions here!</div></div>;
+    display = <div style={{ justifyContent: "center", display: "flex", flexDirection: "column", justifyItems: "center", position: "relative", right: "0rem", top: "20vh", alignItems: "center", margin: "0rem auto" }}><img loading='lazy' src="/Image/Web search-bro 1.png" alt="" style={{ width: "85vw" }} /> <div style={{ fontFamily: "inter", fontSize: "5vw", position: "relative", bottom: "5.6vw", left: "1vw", color: "#0B3C49", letterSpacing: "1px" }}>Search for institutions here!</div></div>;
   } else if (search.length === 0) {
     display = <div>
       {
@@ -231,7 +231,7 @@ export const SchoolSearch = () => {
             <div className='display2'>
               <div className='display3'>{data.name}</div>
               <div className='display4'>
-                <div><img src="/Vector.png" alt="search page image " /></div>
+                <div><img src="Image/Vector.png" alt="search page image " /></div>
               </div>
             </div>
           </Link>
@@ -254,7 +254,7 @@ export const SchoolSearch = () => {
           <div >
             <div className='flex items-center justify-evenly '>
               {
-                !shownavbar ? <div><img src="/Menu button.svg" alt="menu" onClick={handleshowSidebar} /></div> : <div><img src="/Menu button.svg" alt="menu" onClick={handleshowSidebar} /></div>
+                !shownavbar ? <div><img src="Image/Menu button.svg" alt="menu" onClick={handleshowSidebar} /></div> : <div><img src="Image/Menu button.svg" alt="menu" onClick={handleshowSidebar} /></div>
               }
               <div className="school_filter">
                 <input

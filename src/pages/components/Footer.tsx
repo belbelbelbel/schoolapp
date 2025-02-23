@@ -56,7 +56,7 @@ export const Footer = () => {
                     </div>
                 </div>
                 <div className=' outline-0 border-0 items-end justify-end w-[70%]'>
-                    <img src="/logoctf.jpg" alt="footer-logo" />
+                    <img src="Image/logoctf.jpg" alt="footer-logo" />
                 </div>
             </div>
         </div>

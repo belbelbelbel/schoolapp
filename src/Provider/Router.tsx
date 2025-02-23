@@ -19,7 +19,7 @@ import { SchoolPage } from '../pages/Routes/SchoolPage'
 import { Undergraduate } from '../pages/Routes/Undergraduate'
 import { Postgraduate } from '../pages/Routes/Postgraduate'
 import { Contact } from '../pages/Routes/Contact'
-import { Dates2 } from '../pages/Routes/Dates2'
+import { Dates } from '../pages/Routes/Dates'
 import { Documents } from '../pages/Routes/Documents'
 import { Links } from '../pages/Routes/Links'
 import { Exam } from '../pages/Routes/Exam'
@@ -75,8 +75,8 @@ const Router = () => {
         <Route path='/university' element={token ? <Faq /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/faq' element={token ? <Faq /> : <Navigate to="/signin" />} />
         </Route>
-        <Route path='/university' element={token ? <Dates2 /> : <Navigate to="/signin" />}>
-          <Route path=':universityid?/date' element={token ? <Dates2 /> : <Navigate to="/signin" />} />
+        <Route path='/university' element={token ? <Dates /> : <Navigate to="/signin" />}>
+          <Route path=':universityid?/date' element={token ? <Dates /> : <Navigate to="/signin" />} />
         </Route>
         <Route path='/university' element={token ? <Links /> : <Navigate to="/signin" />}>
           <Route path=':universityid?/links' element={token ? <Links /> : <Navigate to="/signin" />} />

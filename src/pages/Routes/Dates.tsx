@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Cookies from 'js-cookie'
 import { Footer } from '../components/Footer'
 
-export const Dates2 = () => {
+export const Dates = () => {
     const [loading, setloading] = useState(false)
     const navigate = useNavigate()
     const params = useParams()

@@ -46,7 +46,7 @@ const Home = () => {
             ) : (
                 <div className="home_container">
                     <div className="home_container8">
-                        <h1><img src="/logoctf.jpg" alt="logo" width="0vw" /></h1>
+                        <h1><img src="Image/logoctf.jpg" alt="logo" width="0vw" /></h1>
                         <div className="home_container2">
                             <div className="home_container4">
                                 <div className="home_container3">
